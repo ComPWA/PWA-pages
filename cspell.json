@@ -1,6 +1,7 @@
 {
     "version": "0.1",
     "enableFiletypes": [
+        "bibtex",
         "git-commit",
         "jupyter",
         "xml"
@@ -37,7 +38,11 @@
     "language": "en-US",
     "words": [
         "blazingly",
+        "brookhaven",
         "conda",
+        "doxygen",
+        "helicities",
+        "helicity",
         "jupyter",
         "unstaged"
     ],
@@ -56,8 +61,12 @@
         "pypi",
         "pytest",
         "rebased",
+        "rightarrow",
         "rtfd",
         "setuptools",
-        "toctree"
+        "techreport",
+        "toctree",
+        "unbinned",
+        "unsrtalpha"
     ]
 }

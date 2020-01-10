@@ -25,6 +25,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx_copybutton",
+    "sphinxcontrib.bibtex",
 ]
 
 source_suffix = [
