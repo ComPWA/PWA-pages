@@ -31,7 +31,9 @@ nitpicky = True  # warn if cross-references are missing
 
 # Settings for intersphinx
 intersphinx_mapping = {
+    'compwa': ('https://pwa.readthedocs.io/projects/compwa/en/latest/', None),
     'pycompwa': ('https://compwa.github.io/', None),
+    'tensorwaves': ('https://pwa.readthedocs.io/projects/tensorwaves/en/latest/', None),
 }
 
 # Settings for autosectionlabel

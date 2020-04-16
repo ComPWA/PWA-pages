@@ -14,3 +14,10 @@ Welcome to the PWA Software Tutorials!
    tutorials/python
    tutorials/testing
    tutorials/tips
+
+Subprojects
+-----------
+
+* `ComPWA <https://pwa.readthedocs.io/projects/compwa>`_
+* `pycompwa <https://pwa.readthedocs.io/projects/pycompwa>`_
+* `TensorWaves <https://pwa.readthedocs.io/projects/tensorwaves>`_
