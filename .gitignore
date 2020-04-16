@@ -1,0 +1,6 @@
+# Build folders
+build/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
