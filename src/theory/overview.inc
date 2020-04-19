@@ -52,5 +52,5 @@ interaction of more than two particles is difficult to describe
 One can resort to a simplification to treat a many body interaction by
 successive two body interactions. For N body particle decays (N > 2) this is
 known as the isobar model. Here a particle into N final state particles is
-modeled by a sequence of two particle decays. This is also also a assumption of
-the helicity/canonical formalism.
+modelled by a sequence of two particle decays. This is also also a assumption
+of the helicity/canonical formalism.
