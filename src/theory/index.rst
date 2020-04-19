@@ -13,5 +13,5 @@ Theory
 Bibliography
 ------------
 
-.. bibliography:: refs.bib
+.. bibliography:: bibliography.bib
   :style: unsrtalpha
