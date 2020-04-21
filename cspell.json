@@ -1,7 +1,6 @@
 {
     "version": "0.1",
     "enableFiletypes": [
-        "bibtex",
         "git-commit",
         "jupyter",
         "xml"
@@ -17,6 +16,7 @@
         "parmater"
     ],
     "ignorePaths": [
+        "*.bib",
         "*.rst_t",
         "*.svg",
         ".gitignore",
@@ -64,7 +64,6 @@
         "rightarrow",
         "rtfd",
         "setuptools",
-        "techreport",
         "toctree",
         "unbinned",
         "unsrtalpha"

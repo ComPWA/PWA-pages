@@ -7,8 +7,8 @@ theoretical models and extract physical quantities and information (based on
 those models). To validate and extract information a comparison of the data
 from the experiment and the theoretical model is needed.
 
-The probability amplitude :cite:`weinberg_1995`, p.113  of an initial state
-:math:`\Psi_i` going to a final state :math:`\Psi_f` is
+The probability amplitude :cite:`weinbergQuantumTheoryFields1995b`, p.113  of
+an initial state :math:`\Psi_i` going to a final state :math:`\Psi_f` is
 
 .. math::
 
@@ -25,7 +25,7 @@ since many experimental measurements fall under these two categories:
 1. Single particles in the initial state (:math:`N_I=1`)
 
    This is a single particle decaying into the final state particles. Here the
-   decay rate :cite:`weinberg_1995`, p.136 is
+   decay rate :cite:`weinbergQuantumTheoryFields1995b`, p.136 is
 
    .. math::
 
@@ -37,7 +37,7 @@ since many experimental measurements fall under these two categories:
 2. Two particles in the initial state (:math:`N_I=2`)
 
    The cross section of a two particle scattering/production process
-   :cite:`weinberg_1995`, p.137 is
+   :cite:`weinbergQuantumTheoryFields1995b`, p.137 is
 
    .. math::
 
@@ -47,7 +47,7 @@ since many experimental measurements fall under these two categories:
 
 Describing multi body problems (more than 2) is a difficult task, since the
 interaction of more than two particles is difficult to describe
-:cite:`weinberg_1995`, ch.4.
+:cite:`weinbergQuantumTheoryFields1995b`, ch.4.
 
 One can resort to a simplification to treat a many body interaction by
 successive two body interactions. For N body particle decays (N > 2) this is

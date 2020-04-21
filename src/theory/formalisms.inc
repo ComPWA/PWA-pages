@@ -6,7 +6,8 @@ states of total spin :math:`J` and projection :math:`M`.
 
 The probability amplitude of a state with spin J and projection M decaying into
 two particles 1 and 2 with helicities :math:`\lambda_i` and momentum
-:math:`\vec{p}` in the cms frame is given by :cite:`chung2006spin`, p.16.
+:math:`\vec{p}` in the cms frame is given by
+:cite:`chungSpinFormalismsUpdated2014`, p.16.
 
 .. math::
 
