@@ -55,6 +55,7 @@
         "maxdepth",
         "mkdir",
         "nbstripout",
+        "notcited",
         "oneline",
         "pandoc",
         "pycompwa",
