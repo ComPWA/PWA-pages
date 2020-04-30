@@ -1,9 +1,9 @@
-name: redeboer
+name: pwa-pages
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python<3.8
+  - python>=3.6
   - pip
   - pip:
       - -r requirements.txt

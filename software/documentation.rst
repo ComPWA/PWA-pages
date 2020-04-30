@@ -24,7 +24,7 @@ Systems like Git because in the back-end, a notebook is a JSON file that
 changes for instances when you run a cell. There is no simple solution for this
 other than to clean the cell output upon saving. You can automatize this with
 `nbstripout <https://github.com/kynan/nbstripout>`_ if you have activated
-``pre-commit`` (see :ref:`tutorials/python:Python developer tools`).
+``pre-commit`` (see :ref:`software/python:Python developer tools`).
 
 Jupyter offers several other useful extensions that can be activate `like this
 <https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html#enabling-disabling-extensions>`_
