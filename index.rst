@@ -38,3 +38,9 @@ Want to contribute or be part of this collection of PWA documentation platforms?
 
    theory/index
    software/index
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   adr/index

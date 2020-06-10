@@ -1,3 +1,4 @@
-sphinx-copybutton
+recommonmark>=0.6
 sphinx==2.4.4
+sphinx-copybutton
 sphinx_rtd_theme

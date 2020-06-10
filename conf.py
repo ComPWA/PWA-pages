@@ -10,10 +10,16 @@ author = 'Common Partial-Wave Analysis'
 master_doc = 'index'
 
 extensions = [
+    'recommonmark',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
+]
+
+source_suffix = [
+    '.md',
+    '.rst',
 ]
 
 templates_path = [
@@ -21,9 +27,11 @@ templates_path = [
 ]
 
 exclude_patterns = [
-    'build',
-    'Thumbs.db',
     '.DS_Store',
+    'README.md',
+    'Thumbs.db',
+    'adr/template.md',
+    'build',
 ]
 
 # Cross-referencing configuration
