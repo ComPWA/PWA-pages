@@ -7,7 +7,7 @@ author = 'Common Partial-Wave Analysis'
 
 # -- General configuration ---------------------------------------------------
 
-master_doc = 'README'
+master_doc = 'index'
 
 extensions = [
     'sphinx.ext.autosectionlabel',

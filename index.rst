@@ -1,4 +1,3 @@
-
 .. image:: https://readthedocs.org/projects/pwa/badge/?version=latest
   :alt: Documentation build status
   :target: https://pwa.readthedocs.io
