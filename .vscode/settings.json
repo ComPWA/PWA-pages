@@ -1,0 +1,13 @@
+{
+  "cSpell.language": "en-US",
+  "editor.rulers": [
+    80
+  ],
+  "files.associations": {
+    "*.inc": "restructuredtext"
+  },
+  "git.rebaseWhenSync": true,
+  "restructuredtext.builtDocumentationPath": "${workspaceFolder}/build/html",
+  "restructuredtext.confPath": "${workspaceFolder}/conf.py",
+  "rewrap.wrappingColumn": 79
+}
