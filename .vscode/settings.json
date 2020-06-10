@@ -8,7 +8,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "cSpell.ignoreWords": ["recommonmark", "treiman"],
   "cSpell.language": "en-US",
+  "cSpell.words": ["multiplet", "multiplets", "rescattering"],
   "editor.rulers": [80],
   "files.associations": {
     "*.inc": "restructuredtext"
