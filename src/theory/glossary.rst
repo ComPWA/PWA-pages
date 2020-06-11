@@ -29,12 +29,22 @@ section on these pages.
     Particles that consist of two quarks (:term:`Meson`) or three quarks
     (:term:`Baryon`).
 
+  Lattice QCD
+      A numerical tool with which to study particle interactions mediated by
+      the strong force at low momentum transfer
+
   Quark
     Elementary particle that constitutes hadronic matter.
+
+  Quantum Chromodynamics (QCD)
+    The theory that describes the strong force on the most fundamental level
 
   Quark Constituent Model
     Model with which to describe and categorize matter constituted of quarks
     (i.e. :term:`hadrons <Hadron>`)
+
+  Strong force
+    One of the four fundamental forces of the :term:`Standard Model`
 
   Standard Model
     Most fundamental description of matter and forces

@@ -3,16 +3,26 @@ Introduction
 
 While the :term:`Standard Model` provides an incredibly accurate description of
 the most fundamental constituents of matter, it remains difficult to describe
-interactions at the level of bound states (hadrons). :term:`Quarks <Quark>`
-bound together in colorless groups due the asymptotic freedom of that
-characterizes the strong force.
+interactions at the level of bound states (:term:`hadrons <Hadron>`). This is
+because the fundamental force that dominates at this range―the :term:`Strong
+force`—is characterized by an :term:`Asymptotic freedom`: it has a strong
+coupling constant at low momentum transfer.
 
-The importance of studying interactions
----------------------------------------
+One the one hand, this asymptotic behavior of the strong force forces
+:term:`quarks <Quark>` to bound together in colorless groups (:term:`Color
+confinement`), giving particle physicists an amazingly varied spectrum of quark
+combinations to study. On the other, the asymptotic running of the coupling
+constant makes it almost impossible to predict from first principles how bound
+states of quarks interact at lower energies.
 
-- Strong interactions at low momentum transfer
-- Cannot predict intermediate states from QCD theory
-- Study properties of intermediate states to derive descriptive models
+Theoreticians have developed several descriptive models and numerical tools
+(:term:`Lattice QCD` most importantly), but these models often rest on several
+assumptions or fail to describe larger systems. It therefore remains important
+to study particle interactions at the lower energies.
+
+Partial Wave Analysis is a collection of techniques that allows us to perform
+these studies.
+
 
 Partial waves
 -------------
@@ -31,10 +41,10 @@ Transition amplitude
   **The old text**
 
   In general one is interested in gaining knowledge about the interaction of
-  particles. Therefore, particle reaction experiments are performed to
-  validate theoretical models and extract physical quantities and information
-  (based on those models). To validate and extract information a comparison of
-  the data from the experiment and the theoretical model is needed.
+  particles. Therefore, particle reaction experiments are performed to validate
+  theoretical models and extract physical quantities and information (based on
+  those models). To validate and extract information a comparison of the data
+  from the experiment and the theoretical model is needed.
 
   The probability amplitude :cite:`weinbergQuantumTheoryFields1995b`, p.113
   of an initial state :math:`\Psi_i` going to a final state :math:`\Psi_f` is:
