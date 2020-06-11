@@ -28,6 +28,7 @@ they are easier to understand.
   spin
   measurements
   topics
+  glossary
 
 
 Bibliography
