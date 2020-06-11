@@ -1,6 +1,9 @@
 Constituent Quark Model
 =======================
 
+Asymptotic Freedom
+------------------
+
 * Confinement property of the strong force
 * Constituent Quark Model: only colorless bound states
 

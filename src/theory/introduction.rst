@@ -1,11 +1,14 @@
-Waves and Interactions
-======================
+Hadron Spectrometry
+===================
 
+While the :doc:`topics/sm` provides an incredibly accurate description of the most fundamental constituents of matter, it remains difficult to describe interactions at the level of bound states (hadrons). :ref:`theory/topics/sm:Quarks` bound together in colorless groups due the asymptotic freedom of that characterizes the strong force.
 
-The importance of studying interactions
----------------------------------------
+This is because the fundamental force that dominates at this range―the strong force—is characterized by an :ref:`asymptomatic freedom <theory/topics/cqm:Asymptotic Freedom>`: it has a strong coupling constant at low momentum transfer.
 
-- Strong interactions at low momentum transfer
+The asymptomatic behavior of the coupling constant makes it almost impossible to predict from first principles how bound states of quarks interact at lower energies. Theoreticians have developed several descriptive models and numerical tools (lattice QCD most importantly), but models often rest on several assumptions or fail to describe larger systems.
+
+Over the past decades, collider experiments have, however, shown particle an incredibly varied spectrum of hadrons
+
 - Cannot predict intermediate states from QCD theory
 - Study properties of intermediate states to derive descriptive models
 
