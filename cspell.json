@@ -43,7 +43,10 @@
         "doxygen",
         "helicities",
         "helicity",
+        "hypercharge",
+        "isospin",
         "jupyter",
+        "pseudoscalar",
         "unstaged"
     ],
     "ignoreWords": [
@@ -54,6 +57,7 @@
         "markdownlint",
         "maxdepth",
         "mkdir",
+        "multiplets",
         "nbstripout",
         "notcited",
         "oneline",

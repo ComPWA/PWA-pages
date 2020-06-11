@@ -23,7 +23,8 @@ are easier to understand.
 .. toctree::
   :maxdepth: 2
 
-  overview
+  introduction
+  interactions
   formalisms
   spin
   measurements

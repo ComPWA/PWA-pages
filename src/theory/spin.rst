@@ -11,3 +11,11 @@ Tensor formalisms
 
 - Advantages
 - Disadvantages
+
+
+Spin-projection formalisms
+--------------------------
+
+
+Rarita-Schwinger
+----------------
