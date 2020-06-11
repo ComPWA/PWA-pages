@@ -25,6 +25,7 @@ are easier to understand.
 
   overview
   formalisms
+  spin
   measurements
 
 
