@@ -11,6 +11,14 @@ section on these pages.
 
 .. glossary::
 
+  Asymptotic freedom
+    The fact that the coupling constant of the strong force increases in
+    strength for lower momentum.
+
+  Color confinement
+    The fact that quarks only exist in colorless, bound states (quark groups of
+    which the colors add up to 'white'). See also :term:`Asymptotic freedom`.
+
   Baryon
     A particle that consists of three quarks.
 
