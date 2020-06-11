@@ -17,17 +17,17 @@ merely glance of their place within particle physics and dive into the formulas
 right away, leaving newcomers overwhelmed with theoretical subtleties that do
 not answer those bigger questions.
 
-These pages aim to provide context to some of the major literature so that they
-are easier to understand.
+These pages aim to provide context to some of the major literature, so that
+they are easier to understand.
 
 .. toctree::
   :maxdepth: 2
 
   introduction
-  interactions
   formalisms
   spin
   measurements
+  topics
 
 
 Bibliography
