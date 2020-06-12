@@ -97,13 +97,3 @@ Transition amplitude
 
 Isobar model
 ------------
-
-
-
-
-References
-----------
-
-.. bibliography:: bibliography.bib
-  :style: unsrtalpha
-  :cited:
