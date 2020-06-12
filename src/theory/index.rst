@@ -27,7 +27,6 @@ they are easier to understand.
 
   introduction
   formalisms
-  spin
   dynamics
   measurements
   topics
