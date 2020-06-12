@@ -25,12 +25,12 @@ they are easier to understand.
 .. toctree::
   :maxdepth: 2
 
-  introduction
-  formalisms
-  dynamics
-  measurements
-  topics
-  glossary
-  zreferences
+  theory/introduction
+  theory/formalisms
+  theory/dynamics
+  theory/measurements
+  theory/topics
+  theory/glossary
+  theory/zreferences
 
 .. https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#unresolved-citations-across-documents
