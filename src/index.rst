@@ -38,13 +38,15 @@ The PWA Software Pages serve two purposes:
 2. They provide a dynamic platform to collect and maintain knowledge on both
    PWA theory and software tools.
 
-As such, the pages consist two main components: :doc:`theory <theory>` and
-:doc:`software <software>`. The theory pages are to be a collection of the
-basics of PWA theory, along with references to more in-depth sources. This is
-useful, because it is often difficult for newcomers to find their way around in
-the growing amount of PWA literature and experimental results. The software
-pages serve as a guide through the available software tools that are relevant
-to PWA software development.
+As such, the pages consist three main components: :doc:`theory <theory>`,
+:doc:`analysis techniques <analysis>`, and :doc:`software <software>`. The
+theory pages are to be a collection of the basics of PWA theory, along with
+references to more in-depth sources. This is useful, because it is often
+difficult for newcomers to find their way around in the growing amount of PWA
+literature and experimental results. The analysis section visits some of the
+common statistics techniques that you need to be familiar with to do PWA. The
+software pages serve as a guide through the available software tools that are
+relevant to PWA software development.
 
 Currently, sub-projects of the PWA Pages are:
 
@@ -62,4 +64,5 @@ platforms? Welcome to contact the `Common Partial Wave Analysis
   :caption: Table of Contents
 
   theory
+  analysis
   software
