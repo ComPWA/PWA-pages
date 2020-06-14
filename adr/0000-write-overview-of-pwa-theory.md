@@ -6,7 +6,7 @@ Deciders: @redeboer
 
 ## Context and Problem Statement
 
-Existing literature on Partial Wave Analysis (PWA) is often dry and hard to get into. This is a problem for a specialized and narrow field that is limited on manpower. In addition, while much of PWA research itself relies heavily on specific analysis frameworks, PWA publications hardly ever expand on the use or development of those frameworks.
+Existing literature on Partial Wave Analysis (PWA) theory is often dry and hard to get into, while the theory cannot be ignored when doing PWA research. This is a problem for a specialized and narrow field that is limited on manpower. In addition, while much of PWA research itself relies heavily on specific analysis frameworks, PWA publications hardly ever expand on the use or development of those frameworks.
 
 ## Considered Options
 
@@ -52,16 +52,18 @@ Existing literature on Partial Wave Analysis (PWA) is often dry and hard to get 
 
 The theory pages consist of a few sub-pages (**bold**), each covering the following topics. Each of them can be ticked off in follow-up PRs or ADRs.
 
-Note that the pages should be condense and serve as a guide to more specific literature.
+Note that the pages should be condense and serve as an evolving guide to more specific literature. In addition, the intended audience is experimental physicists, so we should emphasize the advantages and limitations of the different techniques.
 
 - [ ] **General Introduction**: The Aim of Partial Wave Analysis
   - [ ] Importance of decomposing interactions
   - [ ] Strong QCD coupling constant at low momentum transfer
   - [ ] Cannot compute intermediate states from theory
-  - [ ] Collect properties: mass, width, spin, parity
+  - [ ] Need to collect properties: mass, width, spin, parity
 - [ ] **Decay description**
   - [ ] Decomposition into partial waves
   - [ ] Scattering theory
+    - Complex energy plane
+  - [ ] (?) Lead-up to *T*-matrix
   - [ ] Amplitudes and intensities
     - From transition matrix to partial waves
     - (?) Difference with amplitude analysis
@@ -90,9 +92,12 @@ Note that the pages should be condense and serve as a guide to more specific lit
     - (Covariant) tensor formalisms
     - Spin-projection formalisms
 - [ ] **Dynamics**
-  - [ ] Breit-Wigner
-  - [ ] Flatté
   - [ ] *K*-matrix
+  - [ ] Special cases of *K*-matrix:
+    - Breit-Wigner
+    - Flatté
+  - [ ] Note on unitarity
+  - [ ] Poles versus resonances
 - [ ] **Experimental data**
   - [ ] Experiment types: formation vs production
   - [ ] Input data: momentum tuples
@@ -106,10 +111,10 @@ Note that the pages should be condense and serve as a guide to more specific lit
 - [ ] **Overview of latest insights**
   - [ ] Exotic states
 - [ ] *Other concepts* [*re-categorize!*]
-  - [ ] What is a resonance?
   - [ ] Phase-space
   - [ ] Coherent vs incoherent
   - [ ] *P*-vector
+  - [ ] (?) *S*-matrix
   - [ ] (?) Spin density
   - [ ] Constituent Quark Model
     - Asymptotic freedom and color confinement

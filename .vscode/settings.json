@@ -10,7 +10,7 @@
   },
   "cSpell.ignoreWords": ["recommonmark", "treiman"],
   "cSpell.language": "en-US",
-  "cSpell.words": ["multiplet", "multiplets", "rescattering"],
+  "cSpell.words": ["multiplet", "multiplets", "rescattering", "unitarity"],
   "editor.rulers": [80],
   "files.associations": {
     "*.inc": "restructuredtext"
