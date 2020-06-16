@@ -8,9 +8,11 @@ branches:
     - /\d+\.\d+.*/
 
 install:
-  - sudo apt-get -y install pandoc
   - pip3 install -r requirements.txt
   - pip3 install .
+
+before_script:
+  - sudo apt-get -y install pandoc
 
 script:
   - make linkcheck
@@ -37,4 +39,10 @@ jobs:
     - name: "Python 3.7 on macOS (xcode11.2)"
       os: osx
       osx_image: xcode11.2
+      addons:
+        homebrew:
+          update: false
+          packages:
+            - pandoc
       language: shell
+      before_script: echo
