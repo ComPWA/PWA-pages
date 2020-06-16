@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.com/ComPWA/PWA-pages.svg?branch=master
+  :alt: Travis CI
+  :target: https://travis-ci.com/ComPWA/PWA-pages
+
 .. image:: https://readthedocs.org/projects/pwa/badge/?version=latest
   :alt: Documentation build status
   :target: https://pwa.readthedocs.io

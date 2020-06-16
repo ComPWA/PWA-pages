@@ -1,0 +1,48 @@
+language: python
+os: linux
+dist: bionic
+
+branches:
+  only:
+    - master
+    - /\d+\.\d+.*/
+
+install:
+  - pip3 install -r requirements.txt
+  - pip3 install .
+
+before_script:
+  - sudo apt-get -y install pandoc
+
+script:
+  - make linkcheck
+  - make html
+
+jobs:
+  include:
+    - name: "Style checks"
+      python: 3.7
+      script:
+        - pip3 install -r requirements-dev.txt
+        - black . --check
+        - rstcheck $(find -type f -name "*.rst")
+
+    - name: "Python 3.6 on Ubuntu 18.04"
+      python: 3.6
+
+    - name: "Python 3.7 on Ubuntu 18.04"
+      python: 3.7
+
+    - name: "Python 3.8 on Ubuntu 18.04"
+      python: 3.8
+
+    - name: "Python 3.7 on macOS (xcode11.2)"
+      os: osx
+      osx_image: xcode11.2
+      addons:
+        homebrew:
+          update: false
+          packages:
+            - pandoc
+      language: shell
+      before_script: echo
