@@ -7,6 +7,7 @@
     "*.inc": "restructuredtext"
   },
   "git.rebaseWhenSync": true,
+  "python.formatting.provider": "black",
   "restructuredtext.builtDocumentationPath": "${workspaceFolder}/build/html",
   "restructuredtext.confPath": "${workspaceFolder}/conf.py",
   "rewrap.wrappingColumn": 79
