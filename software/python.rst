@@ -7,7 +7,7 @@ been installed.
 pre-commit hook
 ---------------
 
-The `pre-commit <https://pre-commit.com/>`_ tool helps you to automatise
+The `pre-commit <https://pre-commit.com/>`_ tool helps you to automatize
 certain formatter and linting checks locally whenever you make a Git commit. To
 activate, run the following:
 
@@ -32,7 +32,8 @@ commit` with the flag :command:`--no-verify`, or :command:`-n`.
 tox automation
 --------------
 
-A tool that tests *all* relevant files is `tox <https://tox.readthedocs.io/>`_.
-The tests that `tox <https://tox.readthedocs.io/>`_ runs are defined in the
-`tox.ini <https://github.com/ComPWA/pycompwa/blob/master/tox.ini>`_ file in the
-main directory.
+A tool that tests *all* relevant files is `tox
+<https://tox.readthedocs.io/>`__. The tests that `tox
+<https://tox.readthedocs.io/>`__ runs are defined in the `tox.ini
+<https://github.com/ComPWA/pycompwa/blob/master/tox.ini>`_ file in the main
+directory.

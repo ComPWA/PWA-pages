@@ -7,7 +7,6 @@ Tips & Tricks
   other helpful tools!
 
 
-
 Code Quality & Conventions
 --------------------------
 A highly recommended read for learning how to write good code:
@@ -29,7 +28,7 @@ Visual Studio Code
 ^^^^^^^^^^^^^^^^^^
 
 We have good experience with the open source code editor `Visual Studio Code
-<https://code.visualstudio.com/>`_. VS Code is free and works on Linux, Max,
+<https://code.visualstudio.com/>`__. VS Code is free and works on Linux, Max,
 and Windows (particularly well integrated with `WSL
 <https://docs.microsoft.com/en-us/windows/wsl/about>`_).
 
