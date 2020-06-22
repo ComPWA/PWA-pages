@@ -1,8 +1,6 @@
 {
   "cSpell.language": "en-US",
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "files.associations": {
     "*.inc": "restructuredtext"
   },
