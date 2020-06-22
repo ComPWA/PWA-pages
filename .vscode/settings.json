@@ -8,7 +8,16 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.ignoreWords": ["recommonmark", "treiman"],
+  "cSpell.ignoreWords": [
+    "grube",
+    "ketzer",
+    "kutschke",
+    "recommonmark",
+    "richman",
+    "ryabchikov",
+    "tanabashi",
+    "treiman"
+  ],
   "cSpell.language": "en-US",
   "cSpell.words": ["multiplet", "multiplets", "rescattering", "unitarity"],
   "editor.rulers": [80],

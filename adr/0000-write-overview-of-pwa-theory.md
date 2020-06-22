@@ -135,3 +135,25 @@ different techniques.
 - [ ] _Challenges_ [*Move to separate analysis sub-page?*]
   - [ ] Overlapping resonances
   - [ ] Coupled channels
+
+## Some useful resources on PWA theory
+
+_By order of publication year_
+
+- [Richman, ‘An Experimenter’s Guide to the Helicity Formalism’ (1985)](http://inspirehep.net/record/202987/?ln=en)
+
+- [Chung et al., ‘Partial wave analysis in _K_-matrix formalism’ (1995)](http://doi.wiley.com/10.1002/andp.19955070504)
+
+- [Chung, ‘A Primer on K-Matrix Formalism — Version VII’ (1996)](https://pdfs.semanticscholar.org/88b1/01a5300736f78293cf10116c32e5d25e3c91.pdf)
+
+- [Kutschke, ‘An Angular Distribution Cookbook’ (1996)](https://home.fnal.gov/~kutschke/Angdist/angdist.ps)
+
+- [Peters, ‘A Primer on Partial Wave Analysis’ (2004)](https://arxiv.org/abs/hep-ph/0412069)
+
+- [Chung, ‘Spin Formalisms [Updated Version] (2014)](https://suchung.web.cern.ch/spinfm1.pdf)
+
+- [Ketzer, Grube, and Ryabchikov, ‘Light-Meson Spectroscopy with COMPASS’ (2019)](https://arxiv.org/abs/1909.06366)
+
+- [Tanabashi et al., ‘PDG, section on Kinematics’ (2020)](http://pdg.lbl.gov/2020/reviews/rpp2020-rev-resonances.pdf)
+
+- [Tanabashi et al., ‘PDG, section on Resonances (2020)](http://pdg.lbl.gov/2020/reviews/rpp2020-rev-resonances.pdf)
