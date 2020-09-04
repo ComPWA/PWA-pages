@@ -24,7 +24,6 @@ extensions = [
     "myst_parser",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
-    "sphinx.ext.todo",
     "sphinx_copybutton",
     "sphinxcontrib.bibtex",
 ]
@@ -44,8 +43,6 @@ exclude_patterns = [
     "Thumbs.db",
     "build",
 ]
-
-todo_include_todos = False
 
 # Cross-referencing configuration
 default_role = "py:obj"
