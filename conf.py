@@ -30,7 +30,6 @@ exclude_patterns = [
     ".DS_Store",
     "README.md",
     "Thumbs.db",
-    "adr/template.md",
     "build",
 ]
 

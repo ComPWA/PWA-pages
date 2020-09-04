@@ -56,9 +56,3 @@ platforms? Welcome to contact the `Common Partial Wave Analysis
 
    theory/index
    software/index
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   adr/index
