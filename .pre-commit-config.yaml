@@ -17,7 +17,11 @@ repos:
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
-        exclude: cspell.json
+        exclude: >
+          (?x)^(
+            cspell.json|
+            .*\.bib
+          )$
       - id: mixed-line-ending
       - id: trailing-whitespace
 
