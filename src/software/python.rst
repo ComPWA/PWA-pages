@@ -32,8 +32,7 @@ commit` with the flag :command:`--no-verify`, or :command:`-n`.
 tox automation
 --------------
 
-A tool that tests *all* relevant files is `tox
-<https://tox.readthedocs.io/>`__. The tests that `tox
-<https://tox.readthedocs.io/>`__ runs are defined in the `tox.ini
+A tool that tests *all* relevant files is :doc:`tox <tox:index>`. The tests
+that :doc:`tox <tox:index>` runs are defined in the `tox.ini
 <https://github.com/ComPWA/pycompwa/blob/master/tox.ini>`_ file in the main
 directory.

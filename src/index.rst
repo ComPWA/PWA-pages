@@ -5,7 +5,7 @@ Welcome to the Partial Wave Analysis pages!
 
   * - .. image:: https://readthedocs.org/projects/pwa/badge/?version=latest
         :alt: Documentation build status
-        :target: https://pwa.readthedocs.io
+        :target: https://pwa.readthedocs.io/en/latest/
 
       .. image:: https://img.shields.io/badge/License-GPLv3+-blue.svg
         :alt: GPLv3+ license

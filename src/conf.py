@@ -61,6 +61,7 @@ intersphinx_mapping = {
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
     ),
+    "tox": ("https://tox.readthedocs.io/en/latest/", None),
 }
 
 # Settings for autosectionlabel
