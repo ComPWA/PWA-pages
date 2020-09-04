@@ -20,8 +20,6 @@ not answer those bigger questions.
 These pages aim to provide context to some of the major literature, so that
 they are easier to understand.
 
-.. cspell:ignore zreferences
-
 .. toctree::
   :maxdepth: 2
 
@@ -31,6 +29,6 @@ they are easier to understand.
   theory/measurements
   theory/topics
   theory/glossary
-  theory/zreferences
+  theory/references
 
 .. https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#unresolved-citations-across-documents
