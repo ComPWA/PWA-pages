@@ -1,5 +1,19 @@
-# Build folders
-build/
+# Temporary files
+.ipynb_checkpoints/
+condaenv.*
 
-# Visual Studio Code
-*.code-workspace
+# Build files
+*.egg-info/
+*build/
+.fuse_*
+dist/
+htmlcov/
+version.py
+
+# Virtual environments
+*venv/
+.tox/
+
+# Settings
+**.code-workspace
+.idea/

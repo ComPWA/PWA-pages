@@ -22,7 +22,7 @@ contribute:
 
 1. Log into GitHub with your account and fork the ComPWA repository
 2. Get a local copy of repository: |br|
-   ``git clone git@github.com:YOURACCOUNT/pycompwa.git`` |br|
+   ``git clone git@github.com:YOUR_ACCOUNT/pycompwa.git`` |br|
    (this uses the SSH protocol, so you need to `set your SSH keys
    <https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification>`_
    first)
@@ -69,7 +69,7 @@ can your contributions be added main repository through a `pull request
     + Mark them as resolved ``git add <filename>``
     + Continue the rebase ``git rebase --continue``
 * Push your changes to your fork: |br|
-  ``git push origin <branchname>`` |br|
+  ``git push origin <branch_name>`` |br|
   This step 'synchronizes' your local branch and the branch in your fork. It is
   not required after every commit, but it is certainly necessary once you are
   ready to merge your code into ``upstream``.
@@ -83,7 +83,7 @@ can your contributions be added main repository through a `pull request
 .. tip::
   It can be useful to push your local branch to your fork under a different
   name using: |br|
-  ``git push origin <local-branchname>:<remote-branchname>``
+  ``git push origin <local-branch-name>:<remote-branch-name>``
 
 Once you think your contribution is finished and can be merged into the main
 repository:

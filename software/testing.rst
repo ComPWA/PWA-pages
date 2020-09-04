@@ -1,3 +1,5 @@
+.. cspell:ignore pycompwa's
+
 Unit testing
 ------------
 

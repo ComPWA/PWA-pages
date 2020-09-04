@@ -96,7 +96,7 @@ condense overview with an abbreviated SHA-1. Here it's ``e41a065`` and
 It's important to realize that the Git repository now contains *three files*:
 an empty :file:`file1.txt` in the first commit, a :file:`file1.txt` with "some
 content" in the second commit, and empty :file:`file2.txt` in both commits.
-This is the core of version control: Git has organised these three file
+This is the core of version control: Git has organized these three file
 versions in two 'snapshot' commits and has recorded how the files in those
 commits relate to each other.
 

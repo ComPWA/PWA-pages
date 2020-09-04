@@ -35,7 +35,7 @@ following extensions:
   <https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html>`_
 * `ruler
   <https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/ruler/readme.html>`_
-* `sphellchecker
+* `spellchecker
   <https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html>`_
 
 

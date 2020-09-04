@@ -1,0 +1,26 @@
+name-template: PWA Pages $NEXT_PATCH_VERSION
+tag-template: $NEXT_PATCH_VERSION
+
+categories:
+  - title: 📖 Theory
+    label: 📖 Theory
+  - title: 📖 Analysis
+    label: 📖 Analysis
+  - title: 📖 Software
+    label: 📖 Software
+  - title: 🔨 Internals
+    labels:
+      - 🖱️ DX
+      - 💡 Enhancement
+      - 🔨 Maintenance
+
+change-template: "- $TITLE (#$NUMBER)"
+sort-direction: ascending
+template: |
+  # Release $NEXT_PATCH_VERSION
+
+  $CHANGES
+
+  ## Contributors since [$PREVIOUS_TAG](https://github.com/ComPWA/PWA-pages/releases/tag/$PREVIOUS_TAG)
+
+  $CONTRIBUTORS

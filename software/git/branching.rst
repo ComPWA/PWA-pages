@@ -1,3 +1,5 @@
+.. cspell:ignore Git's
+
 Trying out different ideas: branching
 -------------------------------------
 
@@ -42,28 +44,28 @@ branch, run:
 
 .. code-block:: shell
 
-    git checkout new_idea
+  git checkout new_idea
 
 .. sidebar:: Checkout ambiguity
 
-    The :command:`git checkout` command is a tricky one: it `functions
-    differently depending on context
-    <https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified>`_. In the
-    context of the examples here, :command:`git checkout` does two things: it
-    (1) tries to unpack the files of the branch to which you try to switch to
-    the working directory and, (2) if that succeeds, moves the ``HEAD`` to that
-    other branch. In this context, :command:`git checkout` is a safe to use:
-    Git will warn you and abort the checkout if the unpacking were to overwrite
-    *modified* files.
+  The :command:`git checkout` command is a tricky one: it `functions
+  differently depending on context
+  <https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified>`_. In the
+  context of the examples here, :command:`git checkout` does two things: it (1)
+  tries to unpack the files of the branch to which you try to switch to the
+  working directory and, (2) if that succeeds, moves the ``HEAD`` to that other
+  branch. In this context, :command:`git checkout` is a safe to use: Git will
+  warn you and abort the checkout if the unpacking were to overwrite *modified*
+  files.
 
-    Imagine, however, that you have modified :file:`file1.txt` and left it
-    unstaged. If you now run :command:`git checkout file1.txt`, Git would
-    overwrite :file:`file1.txt` with the version of the latest commit to the
-    current branch **without warning**. The behaviour is completely different
-    than before: Git doesn't move ``HEAD`` either. To address the confusion,
-    the Git developers `introduced two new commands
-    <https://www.infoq.com/news/2019/08/git-2-23-switch-restore/>`_, but
-    checkout remains most commonly used.
+  Imagine, however, that you have modified :file:`file1.txt` and left it
+  unstaged. If you now run :command:`git checkout file1.txt`, Git would
+  overwrite :file:`file1.txt` with the version of the latest commit to the
+  current branch **without warning**. The behavior is completely different than
+  before: Git doesn't move ``HEAD`` either. To address the confusion, the Git
+  developers `introduced two new commands
+  <https://www.infoq.com/news/2019/08/git-2-23-switch-restore/>`_, but checkout
+  remains most commonly used.
 
 In this case, all this command did, was let the ``HEAD`` point to the
 ``new_idea`` branch. Remember that the ``HEAD`` represents the state of the
@@ -165,7 +167,7 @@ can even just run :command:`git merge --abort` to land back safely in the
 untouched ``master`` branch!
 
 Here, let's just remove all lines but for "some content" (the ``master``) and
-safe the file. Then it's a matter of staging the modifed :file:`file1.txt` and
+safe the file. Then it's a matter of staging the modified :file:`file1.txt` and
 creating a new **merge commit**. This time, we commit the :command:`-m` message
 flag for the :command:`git commit` command. Git will launch `vi
 <https://en.wikipedia.org/wiki/Vi>`_ with a pre-generated merge message. Just

@@ -55,6 +55,6 @@ local branches. If you checkout a remote branch, Git therefore only creates a
 local copy of that remote branch.
 
 You can add an arbitrary number of remotes. In a team project, it's common to
-have one main repository (here `github.com/CompWA/Compwa
+have one main repository (here `github.com/CompWA/ComPWA
 <https://github.com/ComPWA/ComPWA>`_) that you add as a remote named
 ``upstream``:
