@@ -1,6 +1,6 @@
 # Welcome to the Partial Wave Analysis pages!
 
-![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)
+[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io/en/latest/)
 [![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 <br>
 [![CI status](https://github.com/ComPWA/PWA-pages/workflows/CI/badge.svg)](https://github.com/ComPWA/PWA-pages/actions?query=branch%3Amaster+workflow%3ACI)
