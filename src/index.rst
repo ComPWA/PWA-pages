@@ -5,7 +5,7 @@ Welcome to the Partial Wave Analysis pages!
 
   * - .. image:: https://readthedocs.org/projects/pwa/badge/?version=latest
         :alt: Documentation build status
-        :target: https://pwa.readthedocs.io
+        :target: https://pwa.readthedocs.io/en/latest/
 
       .. image:: https://img.shields.io/badge/License-GPLv3+-blue.svg
         :alt: GPLv3+ license
@@ -28,8 +28,7 @@ Welcome to the Partial Wave Analysis pages!
         :target: https://prettier.io
 
 .. warning::
-
-   These pages and are **under development**.
+  These pages and are **under development**.
 
 The PWA Software Pages serve two purposes:
 
@@ -39,28 +38,21 @@ The PWA Software Pages serve two purposes:
 2. They provide a dynamic platform to collect and maintain knowledge on both
    PWA theory and software tools.
 
-As such, the pages consist two main components: :doc:`theory <theory/index>`
-and :doc:`software <software/index>`. The theory pages are to be a collection
-of the basics of PWA theory, along with references to more in-depth sources.
-This is useful, because it is often difficult for newcomers to find their way
-around in the growing amount of PWA literature and experimental results. The
-software pages serve as a guide through the available software tools that are
-relevant to PWA software development.
-
-Currently, sub-projects of the PWA Pages are:
-
-* `TensorWaves <https://pwa.readthedocs.io/projects/tensorwaves>`_
-* `PWA Expert System <https://pwa.readthedocs.io/projects/expertsystem>`_
-* `ComPWA <https://pwa.readthedocs.io/projects/compwa>`_
-* `pycompwa <https://compwa.github.io>`_
-
-Want to contribute or be part of this collection of PWA documentation
-platforms? Welcome to contact the `Common Partial Wave Analysis
-<https://github.com/ComPWA>`_ organization!
+As such, the pages consist three main components: :doc:`theory <theory>`,
+:doc:`analysis techniques <analysis>`, and :doc:`software <software>`. The
+:doc:`theory pages <theory>` are to be a collection of the basics of PWA
+theory, along with references to more in-depth sources. This is useful, because
+it is often difficult for newcomers to find their way around in the growing
+amount of PWA literature and experimental results. The :doc:`analysis section
+<analysis>` visits some of the common statistics techniques that you need to be
+familiar with to do PWA (and event selection more generally). The
+:doc:`software pages <software>` serve as a guide through the available
+software tools that are relevant to PWA software development.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Table of Contents
+  :maxdepth: 2
+  :caption: Table of Contents
 
-   theory/index
-   software/index
+  theory
+  analysis
+  software

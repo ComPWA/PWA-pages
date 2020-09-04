@@ -40,7 +40,7 @@ contribute:
 
 You repeat the following steps until your contribution is finished. Only then
 can your contributions be added main repository through a `pull request
-<https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests>`_
+<https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests>`_
 (PR).
 
 * ... edit some files ...

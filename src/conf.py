@@ -25,6 +25,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx_copybutton",
+    "sphinxcontrib.bibtex",
 ]
 
 source_suffix = [
@@ -60,6 +61,7 @@ intersphinx_mapping = {
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
     ),
+    "tox": ("https://tox.readthedocs.io/en/latest/", None),
 }
 
 # Settings for autosectionlabel

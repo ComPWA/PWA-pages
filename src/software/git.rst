@@ -1,6 +1,9 @@
 Working with Git
 ================
 
+.. warning::
+  These pages and are **under development**.
+
 The source code `of ComPWA <https://github.com/ComPWA/ComPWA>`_ and `of
 pycompwa <https://github.com/ComPWA/pycompwa>`_ is maintained through `Git
 <https://git-scm.com/>`_, a distributed version control system that has become
@@ -21,8 +24,9 @@ a team on a project that you get to use Git in its full scope.
 These pages illustrates some of the main Git operations you use when working on
 ComPWA projects. The instructions start from the basics, but are worth to read
 even if you have used Git for a longer time already. New terms are linked to
-the relevant section in the `Pro Git <https://git-scm.com/book/en/>`_ book, one
-of the most accessible resources on Git (and available in several languages!).
+the relevant section in the `Pro Git <https://git-scm.com/book/en/v2>`_ book,
+one of the most accessible resources on Git (and available in several
+languages!).
 
 .. note::
 
