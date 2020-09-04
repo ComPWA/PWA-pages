@@ -1,5 +1,15 @@
-# -- Project information -----------------------------------------------------
+"""Configuration file for the Sphinx documentation builder.
 
+This file only contains a selection of the most common options. For a full
+list see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
+
+import os
+import shutil
+import subprocess
+
+# -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 copyright = "2020"
 author = "Common Partial-Wave Analysis"
@@ -7,10 +17,11 @@ author = "Common Partial-Wave Analysis"
 
 # -- General configuration ---------------------------------------------------
 
+# The master toctree document
 master_doc = "index"
 
 extensions = [
-    "recommonmark",
+    "myst_parser",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
@@ -40,7 +51,11 @@ nitpicky = True  # warn if cross-references are missing
 
 # Settings for intersphinx
 intersphinx_mapping = {
-    "compwa": ("https://pwa.readthedocs.io/projects/compwa/en/latest/", None),
+    "ComPWA": ("https://pwa.readthedocs.io/projects/compwa/en/latest/", None),
+    "expertsystem": (
+        "https://pwa.readthedocs.io/projects/expertsystem/en/latest/",
+        None,
+    ),
     "pycompwa": ("https://compwa.github.io/", None),
     "tensorwaves": (
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",

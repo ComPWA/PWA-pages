@@ -48,6 +48,7 @@
         "epub",
         "htmlcov",
         "linkcheck",
+        "markdownlint",
         "maxdepth",
         "mkdir",
         "nbstripout",
