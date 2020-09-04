@@ -21,6 +21,6 @@
   "git.rebaseWhenSync": true,
   "python.formatting.provider": "black",
   "restructuredtext.builtDocumentationPath": "${workspaceFolder}/build/html",
-  "restructuredtext.confPath": "${workspaceFolder}/conf.py",
+  "restructuredtext.confPath": "${workspaceFolder}/src/conf.py",
   "rewrap.wrappingColumn": 79
 }
