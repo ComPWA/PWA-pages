@@ -1,0 +1,64 @@
+{
+    "version": "0.1",
+    "enableFiletypes": [
+        "git-commit",
+        "jupyter",
+        "xml"
+    ],
+    "flagWords": [
+        "colour",
+        "comparision",
+        "favour",
+        "flavour",
+        "hte",
+        "optimise",
+        "paramater",
+        "parmater"
+    ],
+    "ignorePaths": [
+        "*.rst_t",
+        "*.svg",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".pylintrc",
+        ".readthedocs.yml",
+        ".travis.yml",
+        ".vscode/*",
+        ".vscode/.gitignore",
+        "Makefile",
+        "_templates/*",
+        "commitlint.config.js",
+        "conf.py",
+        "cspell.json",
+        "pyproject.toml",
+        "setup.cfg",
+        "setup.py",
+        "tox.ini"
+    ],
+    "language": "en-US",
+    "words": [
+        "blazingly",
+        "conda",
+        "jupyter",
+        "unstaged"
+    ],
+    "ignoreWords": [
+        "apidoc",
+        "autopep",
+        "epub",
+        "htmlcov",
+        "linkcheck",
+        "maxdepth",
+        "mkdir",
+        "nbstripout",
+        "oneline",
+        "pandoc",
+        "pycompwa",
+        "pypi",
+        "pytest",
+        "rebased",
+        "rtfd",
+        "setuptools",
+        "toctree"
+    ]
+}

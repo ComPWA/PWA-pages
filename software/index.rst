@@ -2,10 +2,10 @@ PWA Software Development
 ========================
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
 
-   git
-   documentation
-   python
-   testing
-   tips
+  git
+  documentation
+  python
+  testing
+  tips

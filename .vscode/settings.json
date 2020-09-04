@@ -1,4 +1,7 @@
 {
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -8,7 +11,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.language": "en-US",
+  "cSpell.customFolderDictionaries": ["cspell.json"],
+  "cSpell.enabled": true,
+  "editor.formatOnSave": true,
   "editor.rulers": [80],
   "files.associations": {
     "*.inc": "restructuredtext"
