@@ -3,20 +3,20 @@ Introduction
 
 While the :term:`Standard Model` provides an incredibly accurate description of
 the most fundamental constituents of matter, it remains difficult to describe
-interactions at the level of bound states (:term:`hadrons <Hadron>`). This is
-because the fundamental force that dominates at this range―the :term:`Strong
-force`—is characterized by an :term:`Asymptotic freedom`: it has a strong
+interactions at the level of bound states (:term:`hadrons <hadron>`). This is
+because the fundamental force that dominates at this range―the :term:`strong
+force`—is characterized by an :term:`asymptotic freedom`: it has a strong
 coupling constant at low momentum transfer.
 
 One the one hand, this asymptotic behavior of the strong force forces
-:term:`quarks <Quark>` to bound together in colorless groups (:term:`Color
+:term:`quarks <quark>` to bound together in colorless groups (:term:`color
 confinement`), giving particle physicists an amazingly varied spectrum of quark
 combinations to study. On the other, the asymptotic running of the coupling
 constant makes it almost impossible to predict from first principles how bound
 states of quarks interact at lower energies.
 
 Theoreticians have developed several descriptive models and numerical tools
-(:term:`Lattice QCD` most importantly), but these models often rest on several
+(:term:`lattice QCD` most importantly), but these models often rest on several
 assumptions or fail to describe larger systems. It therefore remains important
 to study particle interactions at the lower energies.
 

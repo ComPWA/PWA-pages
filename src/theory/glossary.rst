@@ -7,40 +7,51 @@ section on these pages.
 
 
 .. glossary::
+  :sorted:
 
-  Asymptotic freedom
-    The fact that the coupling constant of the strong force increases in
-    strength for lower momentum.
+  asymptotic freedom
+    The fact that the :term:`coupling constant` of the strong force increases
+    in strength for lower momentum.
 
-  Color confinement
+  color confinement
     The fact that quarks only exist in colorless, bound states (quark groups of
-    which the colors add up to 'white'). See also :term:`Asymptotic freedom`.
+    which the colors add up to 'white'). See also :term:`asymptotic freedom`.
 
-  Baryon
+  coupling constant
+    <define>
+
+  baryon
     A particle that consists of three quarks.
 
-  Meson
-    A particle that consists of two quarks.
+  hadron
+    Particles that consist of two quarks (:term:`meson`) or three quarks
+    (:term:`baryon`).
 
-  Hadron
-    Particles that consist of two quarks (:term:`Meson`) or three quarks
-    (:term:`Baryon`).
-
-  Lattice QCD
+  lattice QCD
       A numerical tool with which to study particle interactions mediated by
       the strong force at low momentum transfer
 
-  Quark
-    Elementary particle that constitutes hadronic matter.
+  meson
+    A particle that consists of two quarks.
 
   Quantum Chromodynamics (QCD)
-    The theory that describes the strong force on the most fundamental level
+    The theory that describes the strong force on the most fundamental level.
+    See `PDG review on QCD
+    <https://pdg.lbl.gov/2020/reviews/rpp2020-rev-qcd.pdf>`_.
 
-  Quark Constituent Model
+  quark
+    Elementary particle that constitutes hadronic matter.
+
+  Quark Constituent Model (QCM)
     Model with which to describe and categorize matter constituted of quarks
-    (i.e. :term:`hadrons <Hadron>`)
+    (i.e. :term:`hadrons <hadron>`). See `PDG review on the Quark Model
+    <https://pdg.lbl.gov/2020/reviews/rpp2020-rev-quark-model.pdf>`_.
 
-  Strong force
+  resonance
+    See `PDG review on Resonances
+    <https://pdg.lbl.gov/2020/reviews/rpp2020-rev-resonances.pdf>`_
+
+  strong force
     One of the four fundamental forces of the :term:`Standard Model`
 
   Standard Model
