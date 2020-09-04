@@ -1,6 +1,9 @@
 Python developer tools
 ======================
 
+.. warning::
+  These pages and are **under development**.
+
 In the following sections, we'll go through some of the tools that have now
 been installed.
 

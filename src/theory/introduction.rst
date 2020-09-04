@@ -1,6 +1,9 @@
 Introduction
 ============
 
+.. warning::
+  These pages and are **under development**.
+
 While the :term:`Standard Model` provides an incredibly accurate description of
 the most fundamental constituents of matter, it remains difficult to describe
 interactions at the level of bound states (:term:`hadrons <hadron>`). This is
@@ -23,21 +26,22 @@ to study particle interactions at the lower energies.
 Partial Wave Analysis is a collection of techniques that allows us to perform
 these studies.
 
+- Importance of decomposing interactions
+- Strong QCD coupling constant at low momentum transfer
+- Cannot compute intermediate states from theory
+- Need to collect properties: mass, width, spin, parity
 
-Partial waves
--------------
-
-- Schrödinger's equation
-- Separating out angular and radial wave functions using Legendre polynomials
-- What we can see from this and how it relates to analysis techniques
+Scattering theory
+-----------------
 
 Transition amplitude
---------------------
+""""""""""""""""""""
 
+- Amplitudes and intensities
+- (?) Lead-up to :math:`T`-matrix
 - Distinction dynamical part and angular part
 
 .. note::
-
   **The old text**
 
   In general one is interested in gaining knowledge about the interaction of
@@ -94,6 +98,16 @@ Transition amplitude
   known as the isobar model. Here a particle into N final state particles is
   modelled by a sequence of two particle decays. This is also also a assumption
   of the helicity/canonical formalism.
+
+Partial waves
+"""""""""""""
+
+- Decomposition into partial waves
+- Separating out angular and radial wave functions using Legendre polynomials
+- What we can see from this and how it relates to analysis techniques
+- (?) Difference with amplitude analysis
+- Possible initial states: 1, 2, and multi-body
+- Suitable for propagation, not re-scattering
 
 Isobar model
 ------------

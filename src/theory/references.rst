@@ -1,6 +1,9 @@
 Bibliography
 ------------
 
+.. note::
+  List of authors does not yet automatically abbreviate to *et al*.
+
 .. rubric:: References
 
 .. bibliography:: bibliography.bib

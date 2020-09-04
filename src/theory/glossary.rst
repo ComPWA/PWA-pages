@@ -1,6 +1,9 @@
 Glossary
 ========
 
+.. warning::
+  These pages and are **under development**.
+
 The glossary can be used to collect terms that require further explanation or
 linking to literature, but are too general or specific to deserve an own
 section on these pages.

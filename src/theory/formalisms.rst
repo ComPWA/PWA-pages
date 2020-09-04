@@ -1,50 +1,100 @@
+Formalisms
+==========
+
+.. warning::
+  These pages and are **under development**.
+
 Helicity Formalism
 ------------------
 
-Two particle states are the key element here. With these one can construct
-states of total spin :math:`J` and projection :math:`M`.
+- Lorentz-invariance of helicity operator
 
-The probability amplitude of a state with spin J and projection M decaying into
-two particles 1 and 2 with helicities :math:`\lambda_i` and momentum
-:math:`\vec{p}` in the cms frame is given by
-:cite:`chungSpinFormalismsUpdated2014`, p.16.
+- Types
 
-.. math::
+  - Two-body decay amplitude
+  - Sequential two-body decay amplitude
 
-  two body decay amplitude here
+- Definition of angles
 
-In the helicity formalism sequential two body decays are easy to handle
+  - Production angle
+  - Helicity angle
+  - Treiman-Yang angle
+  - Overview of kinematic variables
 
-.. math::
+- Dynamics:
 
-  seq two body decay amplitude here
+  - Wigner-D functions
+  - Clebsch-Gordan coefficients
 
-Then show explicitly what ComPWA implements and which components correspond to
-what part in the equation. So we would refer in the Doxygen docs to
+- Kinematic variables
+- An example
 
-- the Wigner D functions
+.. note::
+  **The old text**
 
-- the Kinematics class
+  Two particle states are the key element here. With these one can construct
+  states of total spin :math:`J` and projection :math:`M`.
 
-- the IntensityBuilderXML with the two functions createSequentialAmplitudeFT
-  createHelicityDecayFT
+  The probability amplitude of a state with spin J and projection M decaying
+  into two particles 1 and 2 with helicities :math:`\lambda_i` and momentum
+  :math:`\vec{p}` in the cms frame is given by
+  :cite:`chungSpinFormalismsUpdated2014`, p.16.
 
-- the dynamical functions
+  .. math::
 
-- the phase space element calculations?
+    two body decay amplitude here
 
-https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html
+  In the helicity formalism sequential two body decays are easy to handle
+
+  .. math::
+
+    seq two body decay amplitude here
+
+  Then show explicitly what ComPWA implements and which components correspond
+  to what part in the equation. So we would refer in the Doxygen docs to
+
+  - the Wigner D functions
+
+  - the Kinematics class
+
+  - the IntensityBuilderXML with the two functions createSequentialAmplitudeFT
+    createHelicityDecayFT
+
+  - the dynamical functions
+
+  - the phase space element calculations?
+
+  https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html
 
 
 Canonical Formalism
 -------------------
 
-The canonical formalism gives access to the orbital angular momentum :math:`L`
-and the coupled Spin :math:`S` arising from a two particle state.
+.. note::
+  **The old text**
+  The canonical formalism gives access to the orbital angular momentum
+  :math:`L` and the coupled Spin :math:`S` arising from a two particle state.
 
-There is a simple connection between the two formalism. Show that here
+  There is a simple connection between the two formalism. Show that here
 
-This expression is simply inserted into equation () and that is it!
+  This expression is simply inserted into equation () and that is it!
 
-The choice of the formalism depends on the physics process being analyzed. Give
-an example here.
+  The choice of the formalism depends on the physics process being analyzed.
+  Give an example here.
+
+
+Lorentz-invariant Formalisms
+----------------------------
+
+Rarita-Schwinger
+""""""""""""""""
+
+
+Other Spin Formalisms
+---------------------
+
+(Covariant) Tensor Formalisms
+"""""""""""""""""""""""""""""
+
+Spin-projection formalisms
+""""""""""""""""""""""""""

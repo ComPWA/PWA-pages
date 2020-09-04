@@ -1,6 +1,9 @@
 Working with Git
 ================
 
+.. warning::
+  These pages and are **under development**.
+
 The source code `of ComPWA <https://github.com/ComPWA/ComPWA>`_ and `of
 pycompwa <https://github.com/ComPWA/pycompwa>`_ is maintained through `Git
 <https://git-scm.com/>`_, a distributed version control system that has become

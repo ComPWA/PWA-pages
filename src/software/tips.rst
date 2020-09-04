@@ -1,9 +1,11 @@
 Tips & Tricks
 =============
 
-.. note::
+.. warning::
+  These pages and are **under development**.
 
-  These notes are preference bound, so please contribute and add if you find
+.. note::
+  These notes are preference-bound, so please contribute and add if you find
   other helpful tools!
 
 

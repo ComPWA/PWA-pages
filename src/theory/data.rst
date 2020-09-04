@@ -1,3 +1,26 @@
+Experimental data
+=================
+
+.. warning::
+  These pages and are **under development**.
+
+Types of experiments
+--------------------
+
+- Formation vs production
+
+PWA data
+--------
+
+- Why are momentum tuples sufficient?
+- How to determine initial 4-momentum?
+- Observables and variables we want to compute
+
+  - Luminosity
+  - Cross-section
+  - Branching fraction
+  - (?) Fit fractions
+
 Comparison with Measurements
 ----------------------------
 
