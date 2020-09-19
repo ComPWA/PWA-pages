@@ -24,7 +24,7 @@ contribute:
 2. Get a local copy of repository: |br|
    ``git clone git@github.com:YOUR_ACCOUNT/pycompwa.git`` |br|
    (this uses the SSH protocol, so you need to `set your SSH keys
-   <https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification>`_
+   <https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification>`_
    first)
 3. Add the main repository as a second remote called ``upstream``: |br|
    ``git remote add upstream git@github.com:ComPWA/pycompwa.git``

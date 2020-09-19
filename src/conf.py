@@ -159,7 +159,6 @@ class MyStyle(UnsrtStyle):
         ]
 
     def format_isbn(self, e):
-
         return href[
             join[
                 "https://isbnsearch.org/isbn/",
@@ -173,10 +172,10 @@ class MyStyle(UnsrtStyle):
 
 
 def remove_dashes_and_spaces(isbn: str) -> str:
-    url = isbn
-    url = url.replace("-", "")
-    url = url.replace(" ", "")
-    return f"https://isbnsearch.org/isbn/{url}"
+    to_remove = ["-", " "]
+    for remove in to_remove:
+        isbn = isbn.replace(remove, "")
+    return isbn
 
 
 def remove_http(input: str) -> str:

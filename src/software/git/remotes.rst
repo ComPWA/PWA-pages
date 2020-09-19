@@ -10,10 +10,10 @@ team. For illustration, we use a `fork
 
 .. note::
 
-    You will need to `create a GitHub account <https://github.com/join>`_
-    first. It is also highly recommended to `set up GitHub with an SSH key
-    <https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_.
-    In the following, we assume that ``$ACCOUNT`` is your GitHub username.
+  You will need to `create a GitHub account <https://github.com/join>`_ first.
+  It is also highly recommended to `set up GitHub with an SSH key
+  <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_.
+  In the following, we assume that ``$ACCOUNT`` is your GitHub username.
 
 First, `fork the ComPWA repository <https://github.com/ComPWA/ComPWA/fork>`_,
 so that you have a copy of that repository under your own user account. To get
@@ -21,9 +21,9 @@ a copy of that repository locally, run:
 
 .. code-block:: shell
 
-    git clone git@github.com:$ACCOUNT/ComPWA.git
-    cd ComPWA
-    git branch -vv
+  git clone git@github.com:$ACCOUNT/ComPWA.git
+  cd ComPWA
+  git branch -vv
 
 The last command shows you that you are automatically checked out to the
 ``master`` branch. It also shows ``origin/master``. This is because the
@@ -34,7 +34,7 @@ your ComPWA fork.
 
 .. code-block:: shell
 
-    git remote -v
+  git remote -v
 
 A remote is just a *protected* collection of branches that mirror the state of
 the remote repository. You can see all these branches, both remote and local,
@@ -42,7 +42,7 @@ with:
 
 .. code-block:: shell
 
-    git branch -a
+  git branch -a
 
 The remote branches are protected in the sense that you can only update them by
 `fetching (downloading) and pushing (uploading)
