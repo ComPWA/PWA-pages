@@ -89,14 +89,15 @@ linkcheck_ignore = []
 myst_update_mathjax = False
 
 # Specify bibliography style
-from pybtex.richtext import Tag, Text
 from pybtex.plugin import register_plugin
+from pybtex.richtext import Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
 from pybtex.style.template import (
     FieldIsMissing,
     _format_list,
     field,
     href,
+    join,
     node,
     sentence,
     words,
@@ -156,6 +157,26 @@ class MyStyle(UnsrtStyle):
                 field("url", raw=True, apply_func=remove_http),
             ]
         ]
+
+    def format_isbn(self, e):
+
+        return href[
+            join[
+                "https://isbnsearch.org/isbn/",
+                field("isbn", raw=True, apply_func=remove_dashes_and_spaces),
+            ],
+            join[
+                "ISBN:",
+                field("isbn", raw=True),
+            ],
+        ]
+
+
+def remove_dashes_and_spaces(isbn: str) -> str:
+    url = isbn
+    url = url.replace("-", "")
+    url = url.replace(" ", "")
+    return f"https://isbnsearch.org/isbn/{url}"
 
 
 def remove_http(input: str) -> str:
