@@ -1,18 +1,15 @@
 Bibliography
 ------------
 
-.. note::
-  List of authors does not yet automatically abbreviate to *et al*.
-
 .. rubric:: References
 
 .. bibliography:: bibliography.bib
-   :style: unsrtalpha
-   :cited:
+  :style: unsrt_et_al
+  :cited:
 
 .. rubric:: Further reading
 
 .. bibliography:: bibliography.bib
-   :style: unsrtalpha
-   :list: bullet
-   :notcited:
+  :style: unsrt_et_al
+  :list: bullet
+  :notcited:
