@@ -1,5 +1,4 @@
-.. title::
-  Main page
+.. title:: Welcome
 
 Welcome to the Partial Wave Analysis pages!
 ===========================================
