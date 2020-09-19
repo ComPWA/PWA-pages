@@ -5,36 +5,30 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
-import os
-import shutil
-import subprocess
-
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 copyright = "2020"
-author = "Common Partial-Wave Analysis"
+author = "Common Partial Wave Analysis"
 
 
 # -- General configuration ---------------------------------------------------
-
-# The master toctree document
-master_doc = "index"
-
-extensions = [
-    "myst_parser",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.intersphinx",
-    "sphinx_copybutton",
-    "sphinxcontrib.bibtex",
-]
 
 source_suffix = [
     ".md",
     ".rst",
 ]
 
-templates_path = [
-    "_templates",
+# The master toctree document.
+master_doc = "index"
+
+extensions = [
+    "myst_parser",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx_copybutton",
+    "sphinx_togglebutton",
+    "sphinxcontrib.bibtex",
 ]
 
 exclude_patterns = [
@@ -44,10 +38,28 @@ exclude_patterns = [
     "build",
 ]
 
+# General sphinx settings
+html_copy_source = True  # needed for download notebook button
+html_show_copyright = False
+html_show_sourcelink = False
+html_show_sphinx = False
+html_sourcelink_suffix = ""
+html_theme = "sphinx_book_theme"
+html_theme_options = {
+    "repository_url": "https://github.com/ComPWA/PWA-pages",
+    "repository_branch": "master",
+    "path_to_docs": "src",
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    "use_repository_button": True,
+}
+html_title = "Partial Wave Analysis"
+
 # Cross-referencing configuration
 default_role = "py:obj"
 primary_domain = "py"
 nitpicky = True  # warn if cross-references are missing
+nitpick_ignore = []
 
 # Settings for intersphinx
 intersphinx_mapping = {
@@ -56,7 +68,9 @@ intersphinx_mapping = {
         "https://pwa.readthedocs.io/projects/expertsystem/en/latest/",
         None,
     ),
+    "numpy": ("https://numpy.org/doc/stable/", None),
     "pycompwa": ("https://compwa.github.io/", None),
+    "python": ("https://docs.python.org/3", None),
     "tensorwaves": (
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
@@ -71,25 +85,5 @@ autosectionlabel_prefix_document = True
 linkcheck_anchors = False
 linkcheck_ignore = []
 
-
-# -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = "sphinx_rtd_theme"
-
-html_theme_options = {
-    "canonical_url": "",
-    "analytics_id": "",
-    "logo_only": True,
-    "display_version": True,
-    "prev_next_buttons_location": "both",
-    "style_external_links": False,
-    # Toc options
-    "collapse_navigation": True,
-    "sticky_navigation": True,
-    "navigation_depth": 4,
-    "includehidden": False,
-    "titles_only": False,
-}
+# Settings for myst-parser
+myst_update_mathjax = False

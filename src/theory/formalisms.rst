@@ -29,8 +29,8 @@ Helicity Formalism
 - Kinematic variables
 - An example
 
-.. note::
-  **The old text**
+.. admonition:: The old text
+  :class: dropdown
 
   Two particle states are the key element here. With these one can construct
   states of total spin :math:`J` and projection :math:`M`.
@@ -70,8 +70,9 @@ Helicity Formalism
 Canonical Formalism
 -------------------
 
-.. note::
-  **The old text**
+.. admonition:: The old text
+  :class: dropdown
+
   The canonical formalism gives access to the orbital angular momentum
   :math:`L` and the coupled Spin :math:`S` arising from a two particle state.
 
