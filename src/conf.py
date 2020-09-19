@@ -92,7 +92,15 @@ myst_update_mathjax = False
 from pybtex.richtext import Tag, Text
 from pybtex.plugin import register_plugin
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
-from pybtex.style.template import FieldIsMissing, _format_list, node, sentence
+from pybtex.style.template import (
+    FieldIsMissing,
+    _format_list,
+    field,
+    href,
+    node,
+    sentence,
+    words,
+)
 
 
 @node
@@ -140,6 +148,21 @@ class MyStyle(UnsrtStyle):
             return sentence[formatted_names]
         else:
             return formatted_names
+
+    def format_url(self, e):
+        return words[
+            href[
+                field("url", raw=True),
+                field("url", raw=True, apply_func=remove_http),
+            ]
+        ]
+
+
+def remove_http(input: str) -> str:
+    to_remove = ["https://", "http://"]
+    for remove in to_remove:
+        input = input.replace(remove, "")
+    return input
 
 
 register_plugin("pybtex.style.formatting", "unsrt_et_al", MyStyle)
