@@ -1,4 +1,7 @@
 {
+  "[bibtex]": {
+    "editor.formatOnSave": false
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
