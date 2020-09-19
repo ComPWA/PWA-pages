@@ -41,8 +41,8 @@ Transition amplitude
 - (?) Lead-up to :math:`T`-matrix
 - Distinction dynamical part and angular part
 
-.. note::
-  **The old text**
+.. admonition:: The old text
+  :class: dropdown
 
   In general one is interested in gaining knowledge about the interaction of
   particles. Therefore, particle reaction experiments are performed to validate
