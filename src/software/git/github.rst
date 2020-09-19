@@ -102,20 +102,20 @@ Commit conventions
 * In the master branch, it should be possible to compile and test the framework
   **in each commit**. In your own topic branches, it is recommended to commit
   frequently (WIP keyword), but `squash those commits
-  <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`_
-  to compilable commits upon submitting a merge request.
+  <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`_ to compilable
+  commits upon submitting a merge request.
+
 * Please use `conventional commit messages
   <https://www.conventionalcommits.org/>`_: start the commit subject line with
   a semantic keyword (see e.g. `Angular
   <https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type>`_ or
-  `these examples
-  <https://seesparkbox.com/foundry/semantic_commit_messages>`_,
+  `these examples <https://seesparkbox.com/foundry/semantic_commit_messages>`_,
   followed by `a column <https://git-scm.com/docs/git-interpret-trailers>`_,
   then the message. The subject line should be in imperative mood—just imagine
-  the commit to give a command to the code framework. So for instance:
-  ``feat: add coverage report tools`` or ``fix: remove ...``. The message
-  should be in present tense, but you can add whatever you want there (like
-  hyperlinks for references).
+  the commit to give a command to the code framework. So for instance: ``feat:
+  add coverage report tools`` or ``fix: remove ...``. The message should be in
+  present tense, but you can add whatever you want there (like hyperlinks for
+  references).
 
 
 Linear commit history

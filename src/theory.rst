@@ -32,6 +32,4 @@ up more information or even try out some PWA software demos right away!
   theory/results
   theory/topics
   theory/glossary
-  theory/references
-
-.. https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#unresolved-citations-across-documents
+  theory/z.references
