@@ -5,6 +5,11 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
+from docutils import nodes
+from typing import Dict
+
+from sphinx.application import Sphinx
+
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 copyright = "2020"
@@ -94,6 +99,27 @@ linkcheck_ignore = []
 
 # Settings for myst-parser
 myst_update_mathjax = False
+
+# Add roles to simplify external linnks
+def setup(app: Sphinx):
+    app.add_role(
+        "wiki", autolink("https://en.wikipedia.org/wiki/%s", {"_": " "})
+    )
+
+
+def autolink(pattern: str, replace_mapping: Dict[str, str]):
+    def role(
+        name, rawtext, text: str, lineno, inliner, options={}, content=[]
+    ):
+        output_text = text
+        for search, replace in replace_mapping.items():
+            output_text = output_text.replace(search, replace)
+        url = pattern % (text,)
+        node = nodes.reference(rawtext, output_text, refuri=url, **options)
+        return [node], []
+
+    return role
+
 
 # Specify bibliography style
 from pybtex.plugin import register_plugin
