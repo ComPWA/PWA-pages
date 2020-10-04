@@ -16,15 +16,15 @@ section on these pages.
     The fact that the :term:`coupling constant` of the strong force increases
     in strength for lower momentum.
 
+  baryon
+    A particle that consists of three quarks.
+
   color confinement
     The fact that quarks only exist in colorless, bound states (quark groups of
     which the colors add up to 'white'). See also :term:`asymptotic freedom`.
 
   coupling constant
     <define>
-
-  baryon
-    A particle that consists of three quarks.
 
   hadron
     Particles that consist of two quarks (:term:`meson`) or three quarks
@@ -54,8 +54,8 @@ section on these pages.
     See `PDG review on Resonances
     <https://pdg.lbl.gov/2020/reviews/rpp2020-rev-resonances.pdf>`_
 
-  strong force
-    One of the four fundamental forces of the :term:`Standard Model`
-
   Standard Model
     Most fundamental description of matter and forces
+
+  strong force
+    One of the four fundamental forces of the :term:`Standard Model`
