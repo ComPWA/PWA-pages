@@ -30,8 +30,14 @@ repos:
     hooks:
       - id: black
 
+  - repo: https://github.com/PyCQA/doc8
+    rev: 0.8.1
+    hooks:
+      - id: doc8
+        args: ["-q"]
+
   - repo: https://github.com/prettier/prettier
-    rev: 2.1.1
+    rev: 2.1.2
     hooks:
       - id: prettier
         language_version: 12.18.2 # prettier does not specify node correctly
