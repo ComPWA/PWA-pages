@@ -27,9 +27,16 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx_copybutton",
+    "sphinx_math_dollar",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
 ]
+mathjax_config = {
+    "tex2jax": {
+        "inlineMath": [["\\(", "\\)"]],
+        "displayMath": [["\\[", "\\]"]],
+    },
+}
 
 exclude_patterns = [
     ".DS_Store",

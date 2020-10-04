@@ -33,12 +33,11 @@ Helicity Formalism
   :class: dropdown
 
   Two particle states are the key element here. With these one can construct
-  states of total spin :math:`J` and projection :math:`M`.
+  states of total spin $J$ and projection $M$.
 
   The probability amplitude of a state with spin J and projection M decaying
-  into two particles 1 and 2 with helicities :math:`\lambda_i` and momentum
-  :math:`\vec{p}` in the cms frame is given by
-  :cite:`chungSpinFormalismsUpdated2014`, p.16.
+  into two particles 1 and 2 with helicities $\lambda_i$ and momentum $\vec{p}$
+  in the cms frame is given by :cite:`chungSpinFormalismsUpdated2014`, p.16.
 
   .. math::
 
@@ -73,8 +72,8 @@ Canonical Formalism
 .. admonition:: The old text
   :class: dropdown
 
-  The canonical formalism gives access to the orbital angular momentum
-  :math:`L` and the coupled Spin :math:`S` arising from a two particle state.
+  The canonical formalism gives access to the orbital angular momentum $L$ and
+  the coupled Spin $S$ arising from a two particle state.
 
   There is a simple connection between the two formalism. Show that here
 
