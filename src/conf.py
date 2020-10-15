@@ -65,17 +65,17 @@ nitpick_ignore = []
 intersphinx_mapping = {
     "ComPWA": ("https://pwa.readthedocs.io/projects/compwa/en/latest/", None),
     "expertsystem": (
-        "https://pwa.readthedocs.io/projects/expertsystem/en/latest/",
+        "https://pwa.readthedocs.io/projects/expertsystem/en/stable/",
         None,
     ),
     "numpy": ("https://numpy.org/doc/stable/", None),
-    "pycompwa": ("https://compwa.github.io/", None),
-    "python": ("https://docs.python.org/3", None),
+    "pycompwa": ("https://compwa.github.io", None),
+    "python": ("https://docs.python.org/3/", None),
     "tensorwaves": (
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
     ),
-    "tox": ("https://tox.readthedocs.io/en/latest/", None),
+    "tox": ("https://tox.readthedocs.io/en/stable/", None),
 }
 
 # Settings for autosectionlabel

@@ -53,8 +53,16 @@ software tools that are relevant to PWA software development.
 
 .. toctree::
   :maxdepth: 2
-  :caption: Table of Contents
 
   theory
   analysis
   software
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Related projects
+  :hidden:
+
+  PWA Expert System <http://expertsystem.rtfd.io>
+  TensorWaves <http://tensorwaves.rtfd.io>
+  pycompwa <https://compwa.github.io>
