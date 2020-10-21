@@ -24,17 +24,17 @@ PWA data
 Comparison with Measurements
 ----------------------------
 
-Luminosity :math:`L`
+Luminosity $L$
 
-Measurements :math:`N`
+Measurements $N$
 
-Cross section :math:`\sigma`
+Cross section $\sigma$
 
 .. math::
 
   \frac{dN}{d\Phi_f} = L \cdot \frac{d\sigma}{d\Phi_f}
 
-Number of events in a infinitesimal phase space element :math:`\Phi_f` is
+Number of events in a infinitesimal phase space element $\Phi_f$ is
 proportional to the cross section of a initial state transitioning to the final
 state in the infinitesimal phase space element.
 

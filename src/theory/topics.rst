@@ -8,13 +8,13 @@ Other topics (**re-categorize!**)
 
 - Phase-space
 - Coherent vs incoherent
-- :math:`P`-vector
-- (?) :math:`S`-matrix
+- $P$-vector
+- (?) $S$-matrix
 - (?) Spin density
 - Constituent Quark Model
 
   - Asymptotic freedom and color confinement
-  - :math:`J^CP(I^G)`
+  - $J^CP(I^G)$
   - Multiplets categorization
   - Importance of experimental data
 

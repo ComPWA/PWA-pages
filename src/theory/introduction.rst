@@ -38,7 +38,7 @@ Transition amplitude
 """"""""""""""""""""
 
 - Amplitudes and intensities
-- (?) Lead-up to :math:`T`-matrix
+- (?) Lead-up to $T$-matrix
 - Distinction dynamical part and angular part
 
 .. admonition:: The old text
@@ -51,7 +51,7 @@ Transition amplitude
   from the experiment and the theoretical model is needed.
 
   The probability amplitude :cite:`weinbergQuantumTheoryFields1995`, p.113 of
-  an initial state :math:`\Psi_i` going to a final state :math:`\Psi_f` is:
+  an initial state $\Psi_i$ going to a final state $\Psi_f$ is:
 
   .. math::
 
@@ -65,7 +65,7 @@ Transition amplitude
   states, since many experimental measurements fall under these two
   categories:
 
-  1. Single particles in the initial state (:math:`N_I=1`)
+  1. Single particles in the initial state ($N_I=1$)
 
      This is a single particle decaying into the final state particles. Here
      the decay rate :cite:`weinbergQuantumTheoryFields1995`, p.136 is
@@ -74,10 +74,10 @@ Transition amplitude
 
          d\Gamma(i \rightarrow f) = 2\pi |M_{fi}|^2 \delta^4(p_f - p_i) d\Phi_f
 
-     :math:`d\Phi_f` is the phase space element of the final state, which is
+     $d\Phi_f$ is the phase space element of the final state, which is
      needed to make a comparison with data. More on this below.
 
-  2. Two particles in the initial state (:math:`N_I=2`)
+  2. Two particles in the initial state ($N_I=2$)
 
      The cross section of a two particle scattering/production process
      :cite:`weinbergQuantumTheoryFields1995`, p.137 is
@@ -86,7 +86,7 @@ Transition amplitude
 
          d\sigma(i \rightarrow f) = (2\pi)^4 u_i^{-1} |M_{fi}|^2 \delta^4(p_f - p_i) d\Phi_f
 
-     with :math:`u_i^{-1}` the relative velocity of the initial state
+     with $u_i^{-1}$ the relative velocity of the initial state
      particles.
 
   Describing multi body problems (more than 2) is a difficult task, since the

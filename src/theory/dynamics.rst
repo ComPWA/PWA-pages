@@ -4,14 +4,14 @@ Dynamics
 .. warning::
   These pages and are **under development**.
 
-:math:`K`-matrix
-----------------
+$K$-matrix
+----------
 
 - Introduce with references to :ref:`theory/introduction:Transition amplitude`
-- Definition in terms of :math:`T`-matrix
+- Definition in terms of $T$-matrix
 
-Special cases of the :math:`K`-matrix
--------------------------------------
+Special cases of the $K$-matrix
+-------------------------------
 
 Breit-Wigner
 """"""""""""

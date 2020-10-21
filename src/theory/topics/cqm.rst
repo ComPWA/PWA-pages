@@ -14,16 +14,16 @@ Asymptotic Freedom
 Mesons and Baryons
 ------------------
 
-* Quantum numbers (:math:`J^{CP}(I^G)`)
-    - baryon number :math:`B`
-    - hypercharge :math:`Y`
-    - charge :math:`Q`
-    - orbital angular momentum :math:`L`
-    - total spin :math:`J`
-    - parity :math:`P`
-    - charge :math:`Q`
-    - isospin :math:`I`
-    - general parity :math:`G`
+* Quantum numbers ($J^{CP}(I^G)$)
+    - baryon number $B$
+    - hypercharge $Y$
+    - charge $Q$
+    - orbital angular momentum $L$
+    - total spin $J$
+    - parity $P$
+    - charge $Q$
+    - isospin $I$
+    - general parity $G$
 * multiplets
     - pseudoscalar mesons
     - vector mesons
