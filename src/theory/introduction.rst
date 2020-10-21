@@ -38,7 +38,8 @@ Transition amplitude
 """"""""""""""""""""
 
 - Amplitudes and intensities
-- (?) Lead-up to $T$-matrix
+- Scattering operator $S$ (:term:`S-matrix`)
+- Lead-up to $T$-matrix (:term:`transition operator`)
 - Distinction dynamical part and angular part
 
 .. admonition:: The old text
@@ -102,7 +103,38 @@ Transition amplitude
 Partial waves
 """""""""""""
 
-- Decomposition into partial waves
+Decomposition into partial waves (:cite:`petersPrimerPartialWave2004`, p.3):
+
+  Consider an incident wave $\left|i\right> = \Psi_i$. In an experimental
+  setting, we can assume a vanishing potential at $t\rightarrow\infty$, which
+  allows us to expand the incoming wave in terms of
+  :wiki:`Legendre_polynomials` $P_l$, with $l$ the :dfn:`angular orbital
+  momentum`:
+
+  .. math::
+
+    \Psi_i(r,\theta) = \sum_{l=0}^\infty U_l(r) P_l(\theta)
+
+  The $U_l$ factor can be parametrized further. At this stage, it is important
+  to point that the angular orbital momentum of the incoming state is used to
+  characterize specific systems. Here, it is common to use the labels used for
+  `electron orbitals
+  <https://scienceworld.wolfram.com/physics/ElectronOrbital.html>`_:
+
+  ===  =====  ======================
+  $l$  Label         Origin
+  ===  =====  ======================
+  0    s      "sharp"
+  1    p      "principal"
+  2    d      "diffuse"
+  3    f      "fundamental"
+  4    g      *rest is alphabetical*
+  ...  ...    ...
+  ===  =====  ======================
+
+  In PWA, it is therefore common to distinguish these wave contributions as
+  $S$-wave, $P$-wave, etc.
+
 - Separating out angular and radial wave functions using Legendre polynomials
 - What we can see from this and how it relates to analysis techniques
 - (?) Difference with amplitude analysis
