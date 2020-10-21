@@ -31,6 +31,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
+    "sphinx.ext.todo",
     "sphinx_copybutton",
     "sphinx_math_dollar",
     "sphinx_togglebutton",
@@ -66,6 +67,7 @@ html_theme_options = {
     "use_repository_button": True,
 }
 html_title = "Partial Wave Analysis"
+todo_include_todos = True
 
 # Cross-referencing configuration
 default_role = "py:obj"
