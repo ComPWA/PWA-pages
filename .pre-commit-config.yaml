@@ -36,6 +36,12 @@ repos:
       - id: doc8
         args: ["-q"]
 
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.3.8
+    hooks:
+      - id: nbstripout
+        files: ".ipynb"
+
   - repo: https://github.com/prettier/prettier
     rev: 2.1.2
     hooks:

@@ -28,6 +28,7 @@ master_doc = "index"
 
 extensions = [
     "myst_parser",
+    "nbsphinx",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
@@ -101,6 +102,14 @@ linkcheck_ignore = []
 
 # Settings for myst-parser
 myst_update_mathjax = False
+
+# Settings for nbsphinx
+print("\033[93;1mWill run Jupyter notebooks!\033[0m")
+nbsphinx_execute = "always"
+nbsphinx_timeout = -1
+nbsphinx_execute_arguments = [
+    "--InlineBackend.figure_formats={'svg', 'pdf'}",
+]
 
 # Add roles to simplify external linnks
 def setup(app: Sphinx):
