@@ -64,6 +64,7 @@
         "autopep",
         "expertsystem",
         "htmlcov",
+        "infty",
         "linkcheck",
         "markdownlint",
         "maxdepth",
