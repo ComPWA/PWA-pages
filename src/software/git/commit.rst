@@ -54,10 +54,9 @@ snapshots (called "`commits
 that store **all files**, but does so smartly: files that haven't changed with
 regard to the previous commit are only stored as a link to that previous
 commit. A commit has to be given a short description (a message), but is always
-uniquely identifiable, because it is marked with a `SHA-1 checksum
-<https://en.wikipedia.org/wiki/SHA-1>`_ over all files that it contains (plus a
-timestamp). To :command:`git commit` the staged file with a certain message
-(:command:`-m`), run:
+uniquely identifiable, because it is marked with a :wiki:`SHA-1` checksum over
+all files that it contains (plus a timestamp). To :command:`git commit` the
+staged file with a certain message (:command:`-m`), run:
 
 .. code-block:: shell
 

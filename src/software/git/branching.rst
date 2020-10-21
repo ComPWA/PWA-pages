@@ -169,9 +169,9 @@ untouched ``master`` branch!
 Here, let's just remove all lines but for "some content" (the ``master``) and
 safe the file. Then it's a matter of staging the modified :file:`file1.txt` and
 creating a new **merge commit**. This time, we commit the :command:`-m` message
-flag for the :command:`git commit` command. Git will launch `vi
-<https://en.wikipedia.org/wiki/Vi>`_ with a pre-generated merge message. Just
-safe it (:command:`:x`) and Git will use it as a commit message.
+flag for the :command:`git commit` command. Git will launch :wiki:`Vi` with a
+pre-generated merge message. Just safe it (:command:`:x`) and Git will use it
+as a commit message.
 
 .. code-block:: shell
 
