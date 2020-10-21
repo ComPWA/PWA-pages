@@ -48,6 +48,11 @@ color = "F7C57B"
 name = "📖 Theory"
 description = "About PWA theory"
 
+["📝 Docs"]
+color = "bfd4f2"
+name = "📝 Docs"
+description = "Improvements or additions to documentation"
+
 ["🔨 Maintenance"]
 color = "FFCD8F"
 name = "🔨 Maintenance"

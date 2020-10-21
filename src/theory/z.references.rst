@@ -1,6 +1,9 @@
 Bibliography
 ------------
 
+.. tip:: Download this bibliography as BibTeX :download:`here
+  </theory/bibliography.bib>`.
+
 .. rubric:: References
 
 .. bibliography:: bibliography.bib
