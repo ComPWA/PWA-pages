@@ -1,6 +1,6 @@
 # Welcome to the Partial Wave Analysis pages!
 
-[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io/en/latest/)
+[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
 [![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 <br>
 [![CI status](https://github.com/ComPWA/PWA-pages/workflows/CI/badge.svg)](https://github.com/ComPWA/PWA-pages/actions?query=branch%3Amaster+workflow%3ACI)
@@ -9,4 +9,4 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 This repository contains the source code for the
-[pwa.rtfd.io](https://pwa.readthedocs.io/en/latest/) pages.
+[pwa.rtfd.io](https://pwa.readthedocs.io) pages.
