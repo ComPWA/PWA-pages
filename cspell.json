@@ -86,6 +86,7 @@
         "propto",
         "pycompwa",
         "pygments",
+        "pylint",
         "pypi",
         "pyplot",
         "pytest",

@@ -10,6 +10,19 @@ dist/
 htmlcov/
 version.py
 
+# Python temporary files
+*.egg-info/
+*.pyc
+.coverage
+.coverage.*
+.eggs/
+.ipynb_checkpoints/
+.mypy*/
+.pytest_cache/
+.tox/
+__pycache__/
+prof/
+
 # Virtual environments
 *venv/
 .tox/

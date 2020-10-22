@@ -1,0 +1,25 @@
+# To see other available options:
+#   pylint --generate-rcfile > .pylintrc_new
+# and compare the output
+
+[VARIABLES]
+init-import=yes
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # done by pydocstyle
+    C0115,  # done by pydocstyle
+    C0116,  # done by pydocstyle
+    C0330,  # https://github.com/psf/black/issues/48
+    RST203, # unexpected indentation
+    RST301, # related to google style docstring
+    logging-fstring-interpolation,
+    not-callable,
+    unused-import,  # https://www.flake8rules.com/rules/F401
+
+[MASTER]
+ignore=
+    conf.py
+
+[SIMILARITIES]
+ignore-imports=yes # https://stackoverflow.com/a/30007053
