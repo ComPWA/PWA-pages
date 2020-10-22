@@ -1,3 +1,5 @@
+# type: ignore
+
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full
@@ -5,9 +7,9 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
-from docutils import nodes
 from typing import Dict
 
+from docutils import nodes
 from sphinx.application import Sphinx
 
 # -- Project information -----------------------------------------------------

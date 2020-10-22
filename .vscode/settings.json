@@ -11,6 +11,11 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -24,8 +29,17 @@
   "git.rebaseWhenSync": true,
   "githubPullRequests.telemetry.enabled": false,
   "gitlens.advanced.telemetry.enabled": false,
+  "python.analysis.autoImportCompletions": false,
+  "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
-  "python.linting.enabled": false,
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pylintCategorySeverity.refactor": "Information",
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintUseMinimalCheckers": false,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": false,

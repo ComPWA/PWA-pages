@@ -1,0 +1,11 @@
+{
+  "exclude": [".git", ".tox"],
+  "include": ["setup.py", "src"],
+  "reportGeneralTypeIssues": false,
+  "reportUnboundVariable": false,
+  "reportUnusedClass": true,
+  "reportUnusedFunction": true,
+  "reportUnusedImport": true,
+  "reportUnusedVariable": true,
+  "stubPath": ""
+}

@@ -30,3 +30,8 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.isort]
+profile = "black"
+src_paths = ["src/pwa_pages"]
+line_length = 79
