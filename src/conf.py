@@ -92,6 +92,7 @@ intersphinx_mapping = {
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
     ),
+    "tf_pwa": ("https://pwa.readthedocs.io/projects/tf-pwa/en/latest/", None),
     "tox": ("https://tox.readthedocs.io/en/stable/", None),
 }
 

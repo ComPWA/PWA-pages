@@ -65,4 +65,5 @@ software tools that are relevant to PWA software development.
 
   PWA Expert System <http://expertsystem.rtfd.io>
   TensorWaves <http://tensorwaves.rtfd.io>
+  TF-PWA <http://tf-pwa.rtfd.io>
   pycompwa <https://compwa.github.io>
