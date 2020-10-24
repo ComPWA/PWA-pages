@@ -68,6 +68,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "expand_sections": ["theory"],
 }
 html_title = "Partial Wave Analysis"
 todo_include_todos = True
@@ -92,6 +93,7 @@ intersphinx_mapping = {
         "https://pwa.readthedocs.io/projects/tensorwaves/en/latest/",
         None,
     ),
+    "tf_pwa": ("https://pwa.readthedocs.io/projects/tf-pwa/en/latest/", None),
     "tox": ("https://tox.readthedocs.io/en/stable/", None),
 }
 

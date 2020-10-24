@@ -26,6 +26,7 @@ PWA Software Packages
 Currently, sub-projects of the PWA Pages are:
 
 * :doc:`TensorWaves <tensorwaves:index>`
+* :doc:`TF-PWA <tf_pwa:index>`
 * :doc:`PWA Expert System <expertsystem:index>`
 * :doc:`ComPWA <ComPWA:index>`
 * :doc:`pycompwa <pycompwa:index>`
