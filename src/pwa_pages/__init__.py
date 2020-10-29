@@ -8,12 +8,12 @@ import numpy as np
 
 def plot(
     function: Callable[[SupportsFloat], Sequence[float]],
-    range: Tuple[float, float],  # pylint: disable=redefined-builtin
+    plot_range: Tuple[float, float],  # pylint: disable=redefined-builtin
     title: Optional[str] = None,
     xlabel: Optional[str] = None,
     ylabel: Optional[str] = None,
 ) -> None:
-    x_1, x_2 = range
+    x_1, x_2 = plot_range
     n_steps = 100
     x_values = np.linspace(x_1, x_2, n_steps)
     y_values = function(x_values)

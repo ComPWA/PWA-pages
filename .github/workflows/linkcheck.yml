@@ -5,10 +5,16 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
 
 jobs:
-  style:
+  check_links:
     name: Check external links
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -22,4 +28,5 @@ jobs:
           pip install .[doc]
           sudo apt-get -y install pandoc
       - name: Check external links
-        run: make linkcheck
+        working-directory: docs
+        run: make ignore-warnings=1 linkcheck

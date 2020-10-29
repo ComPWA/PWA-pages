@@ -1,9 +1,9 @@
 name: pwa-pages
 channels:
   - defaults
-  - conda-forge
 dependencies:
   - python>=3.6
   - pip
+  - graphviz # for binder
   - pip:
       - -e .[dev]

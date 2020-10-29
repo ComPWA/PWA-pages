@@ -1,0 +1,5 @@
+*.doctree
+*.inv
+*build/
+api/
+pwa_pages.svg
