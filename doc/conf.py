@@ -64,7 +64,7 @@ html_theme = "sphinx_book_theme"
 html_theme_options = {
     "repository_url": "https://github.com/ComPWA/PWA-pages",
     "repository_branch": "master",
-    "path_to_docs": "src",
+    "path_to_docs": "doc",
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
