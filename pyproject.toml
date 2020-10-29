@@ -33,5 +33,5 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-src_paths = ["src/pwa_pages"]
+src_paths = ["doc/pwa_pages"]
 line_length = 79
