@@ -2,7 +2,7 @@
 .ipynb_checkpoints/
 condaenv.*
 
-# Build files
+# Build output
 *.egg-info/
 *build/
 .fuse_*
@@ -26,6 +26,7 @@ prof/
 # Virtual environments
 *venv/
 .tox/
+pyvenv*/
 
 # Settings
 **.code-workspace

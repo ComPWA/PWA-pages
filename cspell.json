@@ -70,6 +70,7 @@
         "htmlcov",
         "infty",
         "ipython",
+        "isort",
         "kernelspec",
         "linkcheck",
         "markdownlint",

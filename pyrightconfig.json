@@ -1,6 +1,6 @@
 {
   "exclude": [".git", ".tox"],
-  "include": ["setup.py", "doc"],
+  "include": ["doc", "setup.py"],
   "reportGeneralTypeIssues": false,
   "reportUnboundVariable": false,
   "reportUnusedClass": true,

@@ -1,0 +1,14 @@
+# cspell:ignore prebuilds
+
+tasks:
+  - init: pip install -e .[dev]
+
+github:
+  prebuilds:
+    master: true
+    branches: false
+    pullRequests: true
+    pullRequestsFromForks: true
+    addComment: false
+    addBadge: false
+    addLabel: false
