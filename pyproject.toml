@@ -1,17 +1,16 @@
 [build-system]
 requires = [
-    "setuptools>=30.3.0",
+    "setuptools>=36.2.1", # environment markers
     "setuptools_scm",
     "wheel",
 ]
 
 [tool.setuptools_scm]
-write_to = "version.py"
+write_to = "pwa_pages/version.py"
 
 [tool.black]
 line-length = 79
 target-version = [
-    'py35',
     'py36',
     'py37',
     'py38',
@@ -33,5 +32,5 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-src_paths = ["doc/pwa_pages"]
+src_paths = ["src", "tests"]
 line_length = 79

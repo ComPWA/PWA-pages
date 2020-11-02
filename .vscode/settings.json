@@ -2,6 +2,9 @@
   "[bibtex]": {
     "editor.formatOnSave": false
   },
+  "[ipynb]": {
+    "editor.formatOnSave": false
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -37,17 +40,20 @@
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
+  "python.linting.banditEnabled": false,
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pydocstyleEnabled": true,
+  "python.linting.pylamaEnabled": false,
   "python.linting.pylintCategorySeverity.refactor": "Information",
   "python.linting.pylintEnabled": true,
   "python.linting.pylintUseMinimalCheckers": false,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": false,
-  "restructuredtext.builtDocumentationPath": "${workspaceFolder}/doc/_build/html",
+  "restructuredtext.builtDocumentationPath": "${workspaceFolder}/docs/_build/html",
+  "restructuredtext.confPath": "${workspaceFolder}/doc",
   "rewrap.wrappingColumn": 79,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,

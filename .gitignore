@@ -1,26 +1,21 @@
-# Temporary files
-.ipynb_checkpoints/
-condaenv.*
-
-# Build output
+# Build files
 *.egg-info/
 *build/
+.eggs/
 .fuse_*
 dist/
-htmlcov/
 version.py
 
-# Python temporary files
-*.egg-info/
+# Temporary files
 *.pyc
+*condaenv.*
 .coverage
 .coverage.*
-.eggs/
 .ipynb_checkpoints/
 .mypy*/
 .pytest_cache/
-.tox/
 __pycache__/
+htmlcov/
 prof/
 
 # Virtual environments
@@ -29,5 +24,5 @@ prof/
 pyvenv*/
 
 # Settings
-**.code-workspace
 .idea/
+**.code-workspace
