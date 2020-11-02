@@ -48,7 +48,7 @@ Other PWA packages are:
   ([COMPASS](https://wwwcompass.cern.ch))
 - [PyPWA](https://github.com/JeffersonLab/PyPWA)
   ([Jefferson Lab](https://www.jlab.org))
-- [GPUPWA](http://gitlab.ihep.ac.cn/gpupwa/gpupwa)
+- [GPUPWA](https://sourceforge.net/projects/gpupwa)
   ([BESIII](http://bes3.ihep.ac.cn))
 
 Want to contribute or be part of this collection of PWA documentation
