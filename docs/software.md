@@ -1,6 +1,6 @@
 <!-- cspell:ignore ampli gpupwa rootpwa Universität -->
 
-# Software Development
+# Software
 
 ```{warning}
 These pages and are **under development**.
