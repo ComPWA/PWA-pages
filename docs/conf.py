@@ -153,6 +153,9 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 
 # Settings for linkcheck
 linkcheck_anchors = False
+linkcheck_ignore = [
+    r"https://isbnsearch.org/isbn/\d+",
+]
 
 # Settings for myst_nb
 execution_timeout = -1
