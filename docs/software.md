@@ -45,7 +45,7 @@ Other PWA packages are:
   - [AmpliTF](https://github.com/apoluekt/AmpliTF)
   - [TFA2](https://github.com/apoluekt/TFA2)
 - [ROOTPWA](https://github.com/ROOTPWA-Maintainers/ROOTPWA)
-  ([COMPASS](https://wwwcompass.cern.ch))
+  ([COMPASS](https://home.cern/science/experiments/compass))
 - [PyPWA](https://github.com/JeffersonLab/PyPWA)
   ([Jefferson Lab](https://www.jlab.org))
 - [GPUPWA](https://sourceforge.net/projects/gpupwa)
