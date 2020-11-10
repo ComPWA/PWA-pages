@@ -104,6 +104,7 @@ html_theme_options = {
     "repository_branch": "stable",
     "path_to_docs": "docs",
     "use_edit_page_button": True,
+    "use_download_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
     "launch_buttons": {
@@ -113,7 +114,6 @@ html_theme_options = {
         "thebe": True,
         "thebelab": True,
     },
-    "expand_sections": ["theory"],
     "theme_dev_mode": True,
 }
 html_title = "Partial Wave Analysis"

@@ -4,12 +4,9 @@
 Develop
 =======
 
-.. list-table::
-
-  * - .. image:: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
-        :alt: GitPod
-        :align: left
-        :target: https://gitpod.io/#https://github.com/ComPWA/PWA-pages
+.. image:: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
+  :alt: GitPod
+  :target: https://gitpod.io/#https://github.com/ComPWA/PWA-pages
 
 If you have installed the `pwa_pages` in :ref:`install:Editable mode`, it is
 easy to tweak the source code and try out new ideas immediately, because the
