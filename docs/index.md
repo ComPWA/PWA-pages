@@ -4,22 +4,8 @@
 
 ```
 
-<!-- prettier:disable -->
-
-```{eval-rst}
-.. list-table::
-  :widths: auto
-  :align: left
-
-  * - .. image:: https://img.shields.io/badge/License-GPLv3+-blue.svg
-        :alt: GPLv3+ license
-        :target: https://www.gnu.org/licenses/gpl-3.0-standalone.html
-    - .. image:: https://readthedocs.org/projects/pwa/badge/?version=latest
-        :alt: Documentation build status
-        :target: https://pwa.readthedocs.io
-```
-
-<!-- prettier:enable -->
+[![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
+[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
 
 ```{warning}
 These pages and are **under development**.
