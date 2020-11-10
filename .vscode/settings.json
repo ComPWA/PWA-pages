@@ -12,7 +12,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "off"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -56,6 +57,5 @@
   "restructuredtext.confPath": "${workspaceFolder}/doc",
   "rewrap.wrappingColumn": 79,
   "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
-  "restructuredtext.confPath": "${workspaceFolder}/doc"
+  "telemetry.enableTelemetry": false
 }
