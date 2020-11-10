@@ -67,6 +67,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
+    "sphinx_math_dollar",
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
