@@ -1,5 +1,7 @@
-<!-- cSpell:ignore aquirdturtle docnb dotfiles htmlcov ijmbarr labextension -->
-<!-- cSpell:ignore pylintrc ryantam serverextension testenv -->
+<!--
+cSpell:ignore aquirdturtle autobuild docnb dotfiles htmlcov ijmbarr
+cSpell:ignore labextension pylintrc ryantam serverextension testenv
+-->
 
 # Develop
 
@@ -343,6 +345,18 @@ cd docs
 make html
 ```
 ````
+
+If you are doing a lot of work on the documentation,
+[`sphinx-autobuild`](https://pypi.org/project/sphinx-autobuild) is a nice tool
+to use. Just run:
+
+```bash
+sphinx-autobuild docs docs/_build/html --re-ignore="docs/api/.*" --open-browser
+```
+
+from the main directory. This will start a server
+[http://127.0.0.1:8000](http://127.0.0.1:8000) where you can continuously
+preview the changes you make to the documentation.
 
 ### Preview upon Pull Request
 
