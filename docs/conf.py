@@ -155,6 +155,7 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 # Settings for linkcheck
 linkcheck_anchors = False
 linkcheck_ignore = [
+    "http://127.0.0.1:8000",
     r"https://isbnsearch.org/isbn/\d+",
 ]
 
