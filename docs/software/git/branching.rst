@@ -22,7 +22,7 @@ initializing a repository, Git automatically creates a branch called
 
 .. code-block:: shell
 
-    git branch
+  git branch
 
 There is a ``master`` branch next to the ``HEAD`` (which is in a "detached"
 state). The master moved along on to the second commit you made and stayed
@@ -32,8 +32,8 @@ branch ``new_idea``:
 
 .. code-block:: shell
 
-    git branch new_idea
-    git branch -v
+  git branch new_idea
+  git branch -v
 
 The second commands prints the existing branches along with the commits they
 point to. You'll see that there is a ``new_idea`` branch pointing to the first
@@ -81,19 +81,19 @@ them, and creating a new commit from those changes:
 
 .. code-block:: shell
 
-    echo "this content is much better!" > file1.txt
-    echo "from the new idea" > file2.txt
-    git add -A
-    git commit -m "fix: add content to files"
+  echo "this content is much better!" > file1.txt
+  echo "from the new idea" > file2.txt
+  git add -A
+  git commit -m "fix: add content to files"
 
 There is a nice way to visualize the current situation (so nice, in fact, that
 we label it):
 
 .. code-block:: shell
-    :caption: Visualize branching tree
-    :name: visualize-branches
+  :caption: Visualize branching tree
+  :name: visualize-branches
 
-    git log --graph --all --oneline
+  git log --graph --all --oneline
 
 This shows that there are now three commits: the initial commit, the commit to
 which the ``master`` branch points, and the commit to which the ``new_idea``
@@ -104,12 +104,12 @@ branch and the HEAD currently point. The dashes also nicely display that the
 
 .. code-block:: shell
 
-    mkdir folder
-    mv file2.txt folder/moved_file.txt
-    git add folder
-    git rm file2.txt
-    git status -s
-    git commit -m "refactor: move file"
+  mkdir folder
+  mv file2.txt folder/moved_file.txt
+  git add folder
+  git rm file2.txt
+  git status -s
+  git commit -m "refactor: move file"
 
 Notice that we used :command:`git status -s`, a nice way to summarize the
 situation in the working tree. In this case, it shows that :file:`file2.txt`
@@ -126,8 +126,8 @@ the old ones from the ``master`` branch (but see the sidebar note).
 
 .. code-block:: shell
 
-    git checkout master
-    ls
+  git checkout master
+  ls
 
 Let's see what happens if we `merge
 <https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>`_
@@ -135,7 +135,7 @@ the ``new_idea`` branch *into* the ``master``:
 
 .. code-block::
 
-    git merge new_idea
+  git merge new_idea
 
 Wow, what's this?? Git tells it is "removing :file:`file2.txt`", but then runs
 into a conflict for :file:`file1.txt`. Here we see that *Git does line-wise
@@ -146,17 +146,17 @@ file itself and is waiting for your input. If you have a look in the file:
 
 .. code-block:: shell
 
-    vi file1.txt
+  vi file1.txt
 
 you'll see:
 
 .. code-block::
 
-    <<<<<<< HEAD
-    this content is much better!
-    =======
-    some content
-    >>>>>>> master
+  <<<<<<< HEAD
+  this content is much better!
+  =======
+  some content
+  >>>>>>> master
 
 It shows that "some content" was the line from the ``master`` branch and "this
 content is much better!" came in from the ``HEAD`` (the ``HEAD`` was moved to
@@ -175,8 +175,8 @@ as a commit message.
 
 .. code-block:: shell
 
-    git add file1.txt
-    git commit
+  git add file1.txt
+  git commit
 
 If we again :ref:`visualize the branch structure <visualize-branches>`, we see
 something cool: the "initial commit" branches off into two branches, then
@@ -186,7 +186,7 @@ delete it now that the 'new idea' has been merged with the ``master``:
 
 .. code-block:: shell
 
-    git branch -d new_idea
+  git branch -d new_idea
 
 That's it, the fundamentals of branching! To be sure, the example here is
 trivial, but what makes Git so powerful is that it can handle large numbers of
