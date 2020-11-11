@@ -44,6 +44,7 @@ theory
 analysis
 software
 develop
+about
 API <api/pwa_pages>
 ```
 
