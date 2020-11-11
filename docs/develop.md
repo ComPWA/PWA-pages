@@ -394,9 +394,9 @@ addition, it allows you to check for coverage of specific parts of the code.
 
 Therefore, when writing new tests, try to follow the module and class structure
 of the package. For example, put unit tests that test the functions and methods
-defined of some module called {code}`package.module` module into a test file called
-{file}`test_module.py` that is directly placed under the
-{file}`tests` folder. Similarly, bundle for a class {code}`SomeClass` under a
+defined of some module called {code}`package.module` module into a test file
+called {file}`test_module.py` that is directly placed under the {file}`tests`
+folder. Similarly, bundle for a class {code}`SomeClass` under a
 {code}`TestSomeClass` class in that file and test its methods (say,
 {code}`SomeClass.my_method`) with `TestSomeClass.test_my_method`.
 

@@ -21,14 +21,17 @@ The PWA Software Pages serve two purposes:
 
 As such, the pages consist three main components: [theory](./theory.rst),
 [analysis techniques](./analysis.rst), and [software](./software.rst). The
-[theory pages](./theory.rst) are to be a collection of the basics of PWA
-theory, along with references to more in-depth sources. This is useful, because
-it is often difficult for newcomers to find their way around in the growing
-amount of PWA literature and experimental results. The
+[theory pages](./theory.rst) are to be a collection of the theoretical basis of
+Partial Wave Analysis, along with references to more in-depth sources. This is
+useful, because it is often difficult for newcomers to find their way around in
+the growing amount of PWA literature and experimental results. The
 [analysis section](./analysis.rst) visits some of the common statistics
 techniques that you need to be familiar with to do PWA (and event selection
 more generally). The [software pages](./software.rst) serve as a guide through
 the available software tools that are relevant to PWA software development.
+
+Finally, the [develop page](./develop.md) formulates some conventions and tools
+that are used by {ref}`affiliated software packages <software:Sub-projects>`.
 
 ```{toctree}
 ---
