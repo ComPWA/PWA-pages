@@ -25,6 +25,8 @@ software/z.references
 
 ## PWA Software Packages
 
+### Sub-projects
+
 Currently, sub-projects of the PWA Pages are:
 
 - {doc}`TensorWaves <tensorwaves:index>`
@@ -33,7 +35,13 @@ Currently, sub-projects of the PWA Pages are:
 - {doc}`ComPWA <ComPWA:index>`
 - {doc}`pycompwa <pycompwa:index>`
 
-Other PWA packages are:
+Want to contribute or be part of this collection of PWA documentation
+platforms? Welcome to contact the
+[Common Partial Wave Analysis](https://github.com/ComPWA) organization!
+
+### Other PWA packages
+
+Some other, highly recommended PWA packages are:
 
 - [Pawian](https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware)
   (Ruhr-Universität Bochum for [PANDA](https://panda.gsi.de) /
@@ -51,6 +59,6 @@ Other PWA packages are:
 - [GPUPWA](https://sourceforge.net/projects/gpupwa)
   ([BESIII](http://bes3.ihep.ac.cn))
 
-Want to contribute or be part of this collection of PWA documentation
-platforms? Welcome to contact the
-[Common Partial Wave Analysis](https://github.com/ComPWA) organization!
+Please
+[let us know](https://github.com/ComPWA/PWA-pages/issues/new?title=Missing%20PWA%20package)
+if you have other recommendations!
