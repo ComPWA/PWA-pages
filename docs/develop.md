@@ -79,8 +79,7 @@ pip install -e .
 
 ### Editable installation
 
-When working on the source code of a Python package, it is important that you
-install the package in
+It is most convenient to work on a package if you install the it in
 ["editable" mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs).
 This allows you to tweak the source code and try out new ideas immediately,
 because the source code is considered the 'installation'.
@@ -106,16 +105,12 @@ This will install all required dependencies for the package as well.
 
 ### Optional dependencies
 
-Packages can additional define
+Packages can additionally define
 [optional dependencies](https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies).
 With `pip install` you can install these with
-['extras' syntax](https://www.python.org/dev/peps/pep-0508/#extras), e.g.:
-
-```bash
-pip install -e .[dev]
-```
-
-We follow the following structure to group optional developer dependencies:
+['extras' syntax](https://www.python.org/dev/peps/pep-0508/#extras) (e.g.
+{command}`pip install -e .[dev]`). We follow the following structure to group
+optional developer dependencies:
 
 - {code}`doc` ― tools required to
   {ref}`build documentation <develop:Documentation>`
@@ -128,27 +123,7 @@ We follow the following structure to group optional developer dependencies:
 - {code}`dev` ― contains all of the above, as well as some other helpful tools
   like {ref}`Jupyter Lab <develop:Jupyter Notebooks>`.
 
-### Updating
-
-Whether installing extras or not, it may be that new commits in the repository
-modify the dependencies. In that case, you have to rerun this command after
-pulling new commits from the repository:
-
-```bash
-git checkout master
-git pull
-pip install -e .[dev]
-```
-
-If you still have problems, it may be that certain dependencies have become
-redundant or conflicting. In that case, trash the virtual environment and
-{ref}`create a new one <develop:Virtual environment>`.
-
-## Developer tools
-
-{ref}`As mentioned under "editable" install <develop:Editable installation>`,
-all packages {ref}`related to the PWA pages <software:Sub-projects>` define
-optional dependencies and tools that can be installed with:
+All dependencies relevant for the developer that can be installed with:
 
 ```bash
 pip install -e .[dev]
@@ -168,6 +143,24 @@ Note that [`pyright`](https://github.com/microsoft/pyright) requires Node.js
 v12.x (see install instructions
 [here](https://nodejs.org/en/download/package-manager)).
 ````
+
+### Updating
+
+Whether installing extras or not, it may be that new commits in the repository
+modify the dependencies. In that case, you have to rerun this command after
+pulling new commits from the repository:
+
+```bash
+git checkout master
+git pull
+pip install -e .[dev]
+```
+
+If you still have problems, it may be that certain dependencies have become
+redundant or conflicting. In that case, trash the virtual environment and
+{ref}`create a new one <develop:Virtual environment>`.
+
+## Developer tools
 
 ### Automated style checks
 
