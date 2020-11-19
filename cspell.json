@@ -91,6 +91,7 @@
         "mkdir",
         "modindex",
         "multiplets",
+        "mypy",
         "nbconvert",
         "nbformat",
         "nbstripout",
@@ -120,6 +121,7 @@
         "treiman",
         "unbinned",
         "unsrt",
+        "venv",
         "xlabel",
         "ylabel"
     ]
