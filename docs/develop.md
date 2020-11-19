@@ -1,6 +1,7 @@
 <!--
 cSpell:ignore aquirdturtle autobuild docnb dotfiles htmlcov ijmbarr
-cSpell:ignore labextension pylintrc ryantam serverextension testenv
+cSpell:ignore labextension prettierrc prettierignore pylance pylintrc
+cSpell:ignore pyrightconfig rstcheck ryantam serverextension testenv
 -->
 
 # Develop
@@ -60,11 +61,10 @@ install more than just Python packages.
 All projects {ref}`affiliated with the PWA pages <software:Sub-projects>`
 provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-(see e.g.
-[the one for the PWA-pages](https://github.com/ComPWA/PWA-pages/blob/master/environment.yml))
-that defines the minimal dependencies to run the framework. To create an
-environment specific for this package, simply navigate to the main folder of the
-source code and run:
+(see e.g. {download}`the one for the PWA-pages <../environment.yml>` that
+defines the minimal dependencies to run the framework. To create an environment
+specific for this package, simply navigate to the main folder of the source
+code and run:
 
 ```bash
 conda env create
@@ -146,7 +146,8 @@ optional developer dependencies:
 - {code}`dev` ― contains all of the above, as well as some other helpful tools
   like {ref}`Jupyter Lab <develop:Jupyter Notebooks>`.
 
-All dependencies relevant for the developer that can be installed with:
+All dependencies relevant for the developer (see
+{ref}`develop:Automated coding conventions`) can be installed with:
 
 ```bash
 pip install -e .[dev]
@@ -183,32 +184,31 @@ If you still have problems, it may be that certain dependencies have become
 redundant or conflicting. In that case, trash the virtual environment and
 {ref}`create a new one <develop:Virtual environment>`.
 
-## Developer tools
+## Automated coding conventions
 
-### Automated style checks
+Where possible, we define and enforce our coding conventions through automated
+tools, instead of describing them in documentation. These tools perform their
+checks when you commit files locally (see {ref}`develop:Pre-commit`), when
+{ref}`running tox <develop:tox>`, and when you make a
+{ref}`pull request <develop:Git and GitHub>`.
 
-We try to define and enforce **our coding conventions** as much as possible
-through automated tools instead of describing them in documentation. These
-tools are configured through files such as
-[pyproject.toml](https://github.com/ComPWA/PWA-pages/blob/master/pyproject.toml),
-[.pylintrc](https://github.com/ComPWA/PWA-pages/blob/master/.pylintrc), and
-[tox.ini](https://github.com/ComPWA/PWA-pages/blob/master/tox.ini). If you run
-into persistent linting errors, this may mean we need to further specify our
-conventions. In that case, it's best to
-{ref}`create an issue <develop:Issue management>` and propose a policy change
-that can then be formulated in those config files.
-
-These tools perform their checks in the
-{ref}`CI <develop:Continuous Integration>` when you make a
-{ref}`pull request <develop:Git and GitHub>`, but you can run them locally as
-well through {ref}`tox <develop:Testing>` (we call this 'local CI').
-{ref}`develop:Pre-commit` performs certain style checks upon making a commit.
+The tools are configured through files such as
+[`pyproject.toml`](https://github.com/ComPWA/PWA-pages/blob/master/pyproject.toml),
+[`.pylintrc`](https://github.com/ComPWA/PWA-pages/blob/master/.pylintrc), and
+[`tox.ini`](https://github.com/ComPWA/PWA-pages/blob/master/tox.ini), and the
+workflow files under
+[`.github`](https://github.com/ComPWA/PWA-pages/blob/master/.github). If you
+run into persistent linting errors, this may mean we need to further specify
+our conventions. In that case, it's best to
+{ref}`create an issue <develop:Issue management>` or a
+{ref}`pull request <develop:Git and GitHub>` and propose a policy change that
+can be formulated through those config files.
 
 ### Pre-commit
 
-All **style checks** are enforced through a tool called
-[pre-commit](https://pre-commit.com). This tool needs to be activated, but only
-once, after you clone the repository:
+All {ref}`style checks <develop:Style checks>` are enforced through a tool
+called [{command}`pre-commit`](https://pre-commit.com). This tool needs to be
+activated, but only once, after you clone the repository:
 
 ```bash
 pre-commit install
@@ -219,8 +219,9 @@ The first time you run {command}`pre-commit` after installing or updating its
 checks, it may take some time to initialize.
 ```
 
-Upon committing, `pre-commit` now runs a set of checks as defined in the file
-[.pre-commit-config.yaml](https://github.com/ComPWA/PWA-pages/blob/master/.pre-commit-config.yaml)
+Upon committing, {command}`pre-commit` now runs a set of checks as defined in
+the file
+[{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/PWA-pages/blob/master/.pre-commit-config.yaml)
 over all staged files. You can also quickly run all checks over _all_ indexed
 files in the repository with the command:
 
@@ -228,56 +229,12 @@ files in the repository with the command:
 pre-commit run -a
 ```
 
-This command is also run on GitHub actions whenever you submit a pull request,
-ensuring that all files in the repository follow the conventions set in the
-config files of these tools.
+This command is also run on GitHub actions whenever you
+{ref}`submit a pull request <develop:Collaboration>`, ensuring that all files
+in the repository follow the same conventions as set in the config files of
+these tools.
 
-### Spelling
-
-Throughout this repository, we follow American English
-([en-us](https://www.andiamo.co.uk/resources/iso-language-codes)) spelling
-conventions. As a tool, we use
-[cSpell](https://github.com/streetsidesoftware/cspell/blob/master/packages/cspell/README.md),
-because it allows to check variable names in camel case and snake case. This
-way, a spelling checker helps you in avoid mistakes in the code as well!
-
-Accepted words are tracked through the {file}`cspell.json` file. As with the
-other config files, {file}`cspell.json` formulates our conventions with regard
-to spelling and can be continuously updated while our code base develops. In
-the file, the `words` section lists words that you want to see as suggested
-corrections, while `ignoreWords` are just the words that won't be flagged. Try
-to be sparse in adding words: if some word is just specific to one file, you
-can [ignore it inline](https://www.npmjs.com/package/cspell#ignore), or you can
-add the file to the `ignorePaths` section if you want to ignore it completely.
-
-It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
-[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-extension: it provides linting, suggests corrections from the {code}`words`
-section, and enables you to quickly add or ignore words through the
-{file}`cspell.json` file. Alternatively, you can
-[run cSpell](https://www.npmjs.com/package/cspell#installation) on the entire
-code base (with {code}`cspell $(git ls-files)`), but for that your system
-requires [npm](https://www.npmjs.com).
-
-## Testing
-
-````{margin} Profiling
-To get an idea of performance per component, run
-
-```bash
-pytest --profile-svg
-```
-and check the stats and the {file}`prof/combined.svg` output file.
-````
-
-The fastest way to run all tests is with the command:
-
-```bash
-pytest -n auto
-```
-
-The flag {command}`-n auto` causes {code}`pytest` to
-[run with a distributed strategy](https://pypi.org/project/pytest-xdist).
+### Tox
 
 More thorough checks can be run in one go with the following command:
 
@@ -290,26 +247,128 @@ overview of the progress. See {ref}`tox:parallel_mode`.
 tox -p
 ```
 
-This command will run {code}`pytest`, build the documentation, and verify
+This command will [run `pytest`](#testing),
+{ref}`build the documentation <develop:Documentation>`, and verify
 cross-references in the documentation and the API. It's especially recommended
 to **run tox before submitting a pull request!**
 
-More specialized {code}`tox` tests are defined in the
-[tox.ini](https://github.com/ComPWA/expertsystem/blob/master/tox.ini) config
-file, under each {code}`testenv` section. You can list all environments, along
-with a description of what they do, by running:
+More specialized {command}`tox` tests are defined in the
+{download}`tox.ini <../tox.ini>` config file, under each {code}`testenv`
+section. You can list all environments, along with a description of what they
+do, by running:
 
 ```bash
 tox -av
 ```
 
+### GitHub Actions
+
+All {ref}`style checks <develop:Automated style checks>`, testing of the
+{ref}`documentation and links <develop:Documentation>`, and
+{ref}`unit tests <develop:Testing>` are performed upon each pull request
+through [GitHub Actions](https://docs.github.com/en/actions) (see status
+overview [here](https://github.com/ComPWA/PWA-pages/actions)). All checks
+performed for each PR have to pass before the PR can be merged.
+
+## Style checks
+
+### Formatting
+
+Formatters are tools that automatically format source code, or some document.
+Naturally, this speeds up your own programming, but these tools are
+particularly important when {ref}`collaborating <develop:Collaboration>`,
+because a standardized format avoids line conflicts in Git.
+
+For the Python source code, we use [`black`](https://black.readthedocs.io) and
+[`isort`](https://isort.readthedocs.io). For other code, we use
+[Prettier](https://prettier.io). All of these formatters are "opinionated
+formatters": they offer only limited configuration options as, to make
+formatting as conform as possible.
+
+{ref}`develop:Pre-commit` automatically strips Jupyter notebook of any output
+cells. Notebook cells can be formatted with
+[`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io).
+See more info at {ref}`develop:Jupyter Notebooks`.
+
+### Linting
+
+Linters point out when certain style conventions are not correctly followed.
+Unlike with {ref}`formatters <develop:Formatting>`, you have to fix the errors
+yourself.
+
+As mentioned in {ref}`develop:Automated coding conventions`, style conventions
+are formulated in config files. For linters, we use the following:
+
+- {download}`.markdownlint.json <../.markdownlint.json>`
+  - [markdownlint](https://github.com/DavidAnson/markdownlint)
+- {download}`pyproject.toml <../pyproject.toml>`
+  - {ref}`black <develop:Formatting>`
+  - {ref}`isort <develop:Formatting>`
+- {download}`pyrightconfig.json <../pyrightconfig.json>`
+  - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+  - [Pyright](https://github.com/microsoft/pyright)
+- {download}`setup.cfg <../setup.cfg>`
+  - [doc8](https://pypi.org/project/doc8)
+  - [mypy](http://mypy-lang.org)
+  - [rstcheck](https://pypi.org/project/rstcheck)
+- {download}`tox.ini <../tox.ini>`
+  - [flake8](https://flake8.pycqa.org)
+  - [pydocstyle](https://pydocstyle.pycqa.org)
+
+````{toggle}
+```{note}
+As an illustration of automated checks, we list the files here with links to
+the actual files as to ensure that these files still exist and that
+this documentation remains up to date.
+```
+````
+
+### Spelling
+
+Throughout this repository, we follow American English
+([en-us](https://www.andiamo.co.uk/resources/iso-language-codes)) spelling
+conventions. As a tool, we use
+[cSpell](https://github.com/streetsidesoftware/cspell/blob/master/packages/cspell/README.md),
+because it allows to check variable names in camel case and snake case. This
+way, a spelling checker helps you avoid mistakes in the code as well!
+
+Accepted words are tracked through the {download}`cspell.json <../cspell.json>`
+file. As with the other config files, {download}`cspell.json <../cspell.json>`
+formulates our conventions with regard to spelling and can be continuously
+updated while our code base develops. In the file, the `words` section lists
+words that you want to see as suggested corrections, while `ignoreWords` are
+just the words that won't be flagged. Try to be sparse in adding words: if some
+word is just specific to one file, you can
+[ignore it inline](https://www.npmjs.com/package/cspell#ignore), or you can add
+the file to the `ignorePaths` section if you want to ignore it completely.
+
+It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
+[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+extension: it provides linting, suggests corrections from the {code}`words`
+section, and enables you to quickly add or ignore words through the
+{file}`cspell.json` file. Alternatively, you can
+[run cSpell](https://www.npmjs.com/package/cspell#installation) on the entire
+code base (with {code}`cspell $(git ls-files)`), but for that your system
+requires [npm](https://www.npmjs.com).
+
+## Testing
+
+The fastest way to run all tests is with the command:
+
+```bash
+pytest -n auto
+```
+
+The flag {command}`-n auto` causes {code}`pytest` to
+[run with a distributed strategy](https://pypi.org/project/pytest-xdist).
+
 ````{margin}
 ```{tip}
 In VScode, you can
-visualize which lines in the code base are covered by tests with the
-[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters)
-extension (for this you need to run {code}`pytest` with the flag
-{code}`--cov-report=xml`).
+visualize test coverage are covered with
+[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
+For this you need to run {command}`pytest` with the flag
+{command}`--cov-report=xml`).
 ```
 ````
 
@@ -320,6 +379,14 @@ tox -e cov
 ```
 
 and opening {file}`htmlcov/index.html` in a browser.
+
+To get an idea of performance per component, run
+
+```bash
+pytest --profile-svg
+```
+
+and check the stats and the {file}`prof/combined.svg` output file.
 
 ```{dropdown} Organizing unit tests
 When **unit** tests are well-organized, you avoid writing duplicate tests. In
@@ -335,6 +402,11 @@ defined of some module called {code}`package.module` module into a test file cal
 
 If possible, also try to order the tests by alphabetical order (that is, the
 order of the {code}`import` statements).
+```
+
+```{note}
+Jupyter notebooks can also be used as tests. See more info
+{ref}`here <develop:Jupyter Notebooks>`.
 ```
 
 ## Documentation
@@ -367,14 +439,13 @@ If you are doing a lot of work on the documentation,
 to use. Just run:
 
 ```bash
-sphinx-autobuild docs docs/_build/html --re-ignore="docs/api/.*" --open-browser
+tox -e doc-live
 ```
 
-from the main directory. This will start a server
-[http://127.0.0.1:8000](http://127.0.0.1:8000) where you can continuously
-preview the changes you make to the documentation.
+This will start a server [http://127.0.0.1:8000](http://127.0.0.1:8000) where
+you can continuously preview the changes you make to the documentation.
 
-### Preview upon Pull Request
+### Documentation preview
 
 A nice feature of [Read the Docs](https://readthedocs.org), where we host our
 documentation, is that documentation is built for each pull request as well.
@@ -387,7 +458,7 @@ We make use of [Markedly Structured Text](https://myst-parser.readthedocs.io)
 (MyST), so you can write the documentation in either
 [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
 or [Markdown](https://www.markdownguide.org). In addition, it's easy to write
-(interactive) code examples in Jupyter notebooks and host them on the website,
+(interactive) code examples in Jupyter notebooks and host them on the website
 (see [MyST-NB](https://myst-nb.readthedocs.io))!
 
 ### Jupyter Notebooks
@@ -433,7 +504,7 @@ tox -e docnb
 This command takes more time than `tox -e doc`, but it is good practice to do
 this before you submit a pull request.
 
-## Git and GitHub
+## Collaboration
 
 The source code of all related repositories is maintained with Git and
 published through GitHub. We keep track of issues with the code, documentation,
@@ -488,9 +559,12 @@ Publicly available are:
   style for the PR title. This is because we follow a
   [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
   and the PR title will become the eventual commit message. Note that a
-  conventional commit message style is
-  [enforced through GitHub Actions](https://github.com/ComPWA/PWA-pages/actions?query=workflow%3A%22PR+linting%22),
-  as well as {ref}`PR labels <develop:Issue management>`.
+  conventional commit message style, as well as
+  {ref}`PR labels <develop:Issue management>`, are
+  {ref}`enforced through GitHub Actions <develop:GitHub Actions>` (see overview
+  [here](https://github.com/ComPWA/PWA-pages/actions?query=workflow%3A%22PR+linting%22)).
+  The corresponding configuration file is
+  {download}`commitlint.config.js <../commitlint.config.js>`.
 
 - PRs can only be merged through 'squash and merge'. There, you will see a
   summary based on the separate commits that constitute this PR. Leave the
@@ -514,15 +588,6 @@ releases are automatically published to PyPI when a new tag with such release
 notes is created (see
 [setuptools-scm](https://pypi.org/project/setuptools-scm)).
 
-### Continuous Integration
-
-All {ref}`style checks <develop:Automated style checks>`, testing of the
-{ref}`documentation and links <develop:Documentation>`, and
-{ref}`unit tests <develop:Testing>` are performed upon each pull request
-through [GitHub Actions](https://docs.github.com/en/actions) (see status
-overview [here](https://github.com/ComPWA/PWA-pages/actions)). All checks
-performed for each PR have to pass before the PR can be merged.
-
 ## Code editors
 
 ### Visual Studio code
@@ -533,15 +598,12 @@ extensions.
 
 If you add or open this repository as a
 [VSCode workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces),
-the file
-[`.vscode/settings.json`](https://github.com/ComPWA/PWA-pages/blob/master/.vscode/settings.json)
-will ensure that you have the right developer settings for this repository. In
+the file {download}`.vscode/settings.json <../.vscode/settings.json>` will
+ensure that you have the right developer settings for this repository. In
 addition, VSCode will automatically recommend you to install a number of
 extensions that we use when working on this code base.
 [They are defined](https://code.visualstudio.com/updates/v1_6#_workspace-extension-recommendations)
-in the
-[.vscode/extensions.json](https://github.com/ComPWA/PWA-pages/blob/master/.vscode/extensions.json)
-file.
+in the {download}`.vscode/extensions.json <../.vscode/extensions.json>` file.
 
 You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
@@ -559,4 +621,5 @@ conda env create
 conda activate pwa  # or whatever the name is
 pip install -e .[dev]
 code .  # open folder in VSCode
+```
 ````
