@@ -13,6 +13,29 @@ possible, we use the
 [source code of the PWA-pages repository](https://github.com/ComPWA/PWA-pages)
 as example, because its file structure is comparable to that of the others.
 
+`````{tip}
+To get started, simply run:
+
+````{tabbed} Conda
+```shell
+conda env create
+conda activate pwa
+pip install -e .[dev]
+pre-commit install
+```
+````
+
+````{tabbed} Python venv
+```shell
+python3 -m venv ./venv
+source ./venv/bin/activate
+pip install -e .[dev]
+pre-commit install
+````
+
+See {ref}`develop:Virtual environment` for more info.
+`````
+
 ## Local set-up
 
 ### Virtual environment
