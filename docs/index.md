@@ -41,16 +41,10 @@ theory
 analysis
 software
 develop
+API <api/pwa_pages>
 ```
 
 - {ref}`Python API <modindex>`
-
-```{toctree}
----
-hidden:
----
-api
-```
 
 ```{toctree}
 ---
