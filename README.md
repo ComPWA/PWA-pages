@@ -12,3 +12,7 @@
 
 This repository contains the source code for the
 [pwa.rtfd.io](https://pwa.readthedocs.io) pages.
+
+## Contribute
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md)
