@@ -33,6 +33,8 @@ the available software tools that are relevant to PWA software development.
 Finally, the [develop page](./develop.md) formulates some conventions and tools
 that are used by {ref}`affiliated software packages <software:Sub-projects>`.
 
+## Table of Contents
+
 ```{toctree}
 ---
 maxdepth: 2
