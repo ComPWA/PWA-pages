@@ -19,6 +19,7 @@ from sphinx.application import Sphinx
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 package = "pwa_pages"
+repo_name = "PWA-pages"
 copyright = "2020, ComPWA"
 author = "Common Partial Wave Analysis"
 
@@ -103,7 +104,7 @@ html_show_sphinx = False
 html_sourcelink_suffix = ""
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": "https://github.com/ComPWA/PWA-pages",
+    "repository_url": f"https://github.com/ComPWA/{repo_name}",
     "repository_branch": "stable",
     "path_to_docs": "docs",
     "use_download_button": True,
