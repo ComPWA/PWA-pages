@@ -1,4 +1,5 @@
 # Output files
+*.gv
 *.json
 *.npy
 *.pdf
