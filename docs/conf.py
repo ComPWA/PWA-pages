@@ -32,7 +32,7 @@ subprocess.call(
     " ".join(
         [
             "sphinx-apidoc",
-            "../src/pwa_pages/",
+            f"../src/{package}/",
             "-o api/",
             "--force",
             "--no-toc",
@@ -55,7 +55,7 @@ source_suffix = {
 # The master toctree document.
 master_doc = "index"
 modindex_common_prefix = [
-    "pwa_pages.",
+    f"{package}.",
 ]
 
 extensions = [
@@ -106,8 +106,8 @@ html_theme_options = {
     "repository_url": "https://github.com/ComPWA/PWA-pages",
     "repository_branch": "stable",
     "path_to_docs": "docs",
-    "use_edit_page_button": True,
     "use_download_button": True,
+    "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
     "launch_buttons": {
@@ -128,7 +128,6 @@ viewcode_follow_imported_members = True
 default_role = "py:obj"
 primary_domain = "py"
 nitpicky = True  # warn if cross-references are missing
-nitpick_ignore = []
 
 # Intersphinx settings
 intersphinx_mapping = {
@@ -199,7 +198,8 @@ if "READTHEDOCS" in os.environ or "GITHUB_WORKFLOW" in os.environ:
             [
                 "HOME=.",  # in case of calling through tox
                 "pydeps",
-                "../src/pwa_pages",
+                f"../src/{package}",
+                "-o module_structure.svg",
                 "--exclude *._*",  # hide private modules
                 "--max-bacon=2",  # hide external dependency submodules
                 "--noshow",
@@ -207,9 +207,9 @@ if "READTHEDOCS" in os.environ or "GITHUB_WORKFLOW" in os.environ:
         ),
         shell=True,
     )
-    if os.path.exists("pwa_pages.svg"):
-        with open("api/pwa_pages.rst", "a") as stream:
-            stream.write("\n.. image:: /pwa_pages.svg")
+    if os.path.exists("module_structure.svg"):
+        with open(f"api/{package}.rst", "a") as stream:
+            stream.write("\n.. image:: /module_structure.svg")
 
 # Add roles to simplify external linnks
 def setup(app: Sphinx):
