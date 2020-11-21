@@ -47,6 +47,8 @@ API <api/pwa_pages>
 ```
 
 - {ref}`Python API <modindex>`
+- {ref}`General Index <genindex>`
+- {ref}`Search <search>`
 
 ```{toctree}
 ---
