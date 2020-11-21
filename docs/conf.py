@@ -18,11 +18,13 @@ from sphinx.application import Sphinx
 
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
+package = "pwa_pages"
 copyright = "2020, ComPWA"
 author = "Common Partial Wave Analysis"
 
-__release = get_distribution("pwa_pages").version
-version = ".".join(__release.split(".")[:3])
+if os.path.exists(f"../src/{package}/version.py"):
+    __release = get_distribution(package).version
+    version = ".".join(__release.split(".")[:3])
 
 # -- Generate API skeleton ----------------------------------------------------
 shutil.rmtree("api", ignore_errors=True)
