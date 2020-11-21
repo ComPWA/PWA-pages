@@ -28,6 +28,7 @@
         ".vscode/*",
         ".vscode/.gitignore",
         "Makefile",
+        "codecov.yml",
         "cspell.json",
         "docs/_templates/*",
         "docs/conf.py",
