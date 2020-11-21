@@ -51,11 +51,17 @@
   "python.linting.pylintEnabled": true,
   "python.linting.pylintUseMinimalCheckers": false,
   "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestArgs": ["--color=no", "--no-cov"],
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": false,
   "restructuredtext.builtDocumentationPath": "${workspaceFolder}/docs/_build/html",
-  "restructuredtext.confPath": "${workspaceFolder}/doc",
+  "restructuredtext.confPath": "${workspaceFolder}/docs",
   "rewrap.wrappingColumn": 79,
+  "search.exclude": {
+    "**/tests/**/__init__.py": true,
+    "docs/tox.ini": true,
+    "tests/tox.ini": true
+  },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false
 }
