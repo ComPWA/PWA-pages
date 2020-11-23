@@ -32,13 +32,19 @@ Disadvantages:
 ComPWA ideas to break this:
 
 - Open source
+- Developer experience before functionality
 - Collaboration-independent
 - Industry standards
 - Modern documentation
 
-Note: ComPWA rather sacrifices functionality for design and developer
-experience related developments. The flexible branching model aims to make up
-for the functionality loss.
+**Note:** The first two points a crucial. ComPWA rather sacrifices
+functionality for design and developer experience related developments. A lot
+of other frameworks have started with the same ideal of having a good software
+design etc, but soon begin to drop those ideals. We believe that only by
+sticking to those ideals, a long term available and collaboration wide common
+tool is possible.
+
+The flexible branching model aims to make up for the functionality loss.
 
 ### Open source
 
@@ -48,13 +54,14 @@ for the functionality loss.
 ### Developer Experience
 
 - Easy to setup for developers
+- Code modularity & transparency facilitates extension of the framework
 - Facilitate using industry techniques and tools in software development for
   PWA
 
 ### Design
 
 - Code modularity and transparency. For example separation of the
-  `expertsystem` and `tensorwaves`. First takes incorporates the physics and
+  `expertsystem` and `tensorwaves`. The former includes all of the physics and
   builds an amplitude model. `Tensorwaves` can use amplitude models and perform
   fits, but does not include any physics logic.
 - Accommodate both stable development and flexibility for ongoing analyses
