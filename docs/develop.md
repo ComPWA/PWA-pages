@@ -160,7 +160,7 @@ If you have Node.js (`npm`) on your system, you can run a few additional
 checks. Install these packages as follows (possibly with administrator rights):
 
 ```bash
-npm install -g cspell markdownlint-cli pyright
+npm install -g cspell pyright
 ```
 
 Note that [`pyright`](https://github.com/microsoft/pyright) requires Node.js

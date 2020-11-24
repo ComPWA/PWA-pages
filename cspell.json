@@ -18,8 +18,10 @@
     ],
     "ignorePaths": [
         "*.bib",
+        "*.root",
         "*.rst_t",
         "*.svg",
+        "*particle*.*ml",
         ".gitignore",
         ".gitpod.*",
         ".pre-commit-config.yaml",
