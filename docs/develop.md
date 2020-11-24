@@ -506,11 +506,11 @@ this before you submit a pull request.
 
 ## Collaboration
 
-The source code of all related repositories is maintained with Git and
-published through GitHub. We keep track of issues with the code, documentation,
-and developer set-up with GitHub issues (see for instance
-[here](https://github.com/ComPWA/PWA-pages/issues)). This is also the place
-where you can
+The source code of all related repositories is maintained with
+[Git](https://git-scm.com) and [GitHub](https://github.com). We keep track of
+issues with the code, documentation, and developer set-up with GitHub issues
+(see for instance [here](https://github.com/ComPWA/PWA-pages/issues)). This is
+also the place where you can
 [report bugs](https://github.com/ComPWA/PWA-pages/issues/new/choose).
 
 ### Issue management
@@ -528,6 +528,71 @@ Publicly available are:
 
 - [Milestones](https://github.com/ComPWA/PWA-pages/milestones?direction=asc&sort=title&state=open):
   way to bundle issues for upcoming releases.
+
+- [Releases](https://github.com/ComPWA/PWA-pages/releases) (see
+  {ref}`develop:Milestones and releases`)
+
+### Branching model
+
+While our aim is to maintain long-term, stable projects,
+{ref}`PWA software projects <software:Sub-projects>` are academic projects that
+are subject to change and often require swift modifications or new features for
+ongoing analyses. For this reason, we work in different layers of development.
+These layers are represented by Git branches.
+
+![Epic branches](./_static/epic-branches.svg)
+
+#### `stable` branch
+
+Represents the _latest release_ of the package that can be found on both the
+GitHub release page and on PyPI (see {ref}`develop:Milestones and releases`).
+The documentation of the `stable` branch is also the default view
+{ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
+[expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
+
+#### `master` branch
+
+Represents the upcoming release of the package. This branch is not guaranteed
+to be stable, but has high {ref}`CI standards <develop:Continuous Integration>`
+and can only be updated through reviewed pull requests. The documentation of
+the `master` branch can be found on RTD under "latest", see e.g.
+[expertsystem.rtfd.io/en/latest](https://expertsystem.rtfd.io/en/latest).
+
+#### Epic branches
+
+```{margin}
+The word ["epic"](https://www.atlassian.com/agile/project-management/epics) is
+used in
+[agile software development](https://en.wikipedia.org/wiki/Agile_software_development).
+```
+
+When working on a feature or larger refactoring that may take a longer time
+(think of implementing a new PWA formalism), we isolate its development under
+an 'epic branch', separate from the `master` branch. Eventually, this epic
+branch is to be merged back into the master, until then it is available for
+discussion and testing.
+
+Pull requests to an epic branch require no code review and the CI checks are
+less strict. This allows for faster development, while still offering the
+possibility to discuss new implementations and
+{ref}`keeping track of related issues <develop:Issue management>`.
+
+Epic branches can be installed through PyPI as well. Say that a certain epic is
+located under the branch `epic/some-title` and that the source code is located
+under
+[https://github.com/ComPWA/expertsystem](https://github.com/compwa/expertsystem),
+it can be installed as follows:
+
+```bash
+python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-title
+```
+
+#### Feature branches
+
+The {ref}`develop:master branch` and {ref}`develop:epic branches` can be
+updated through pull requests. It is best to create such a pull request from a
+separate branch, which does not have any CI or code review restrictions. We
+call this a "feature branch".
 
 ### Commit conventions
 
@@ -553,15 +618,15 @@ Publicly available are:
   [Epic](https://blog.zenhub.com/working-with-epics-in-github) and split up
   into smaller tasks.
 
-- Before creating a pull request, run `tox`. See also {ref}`develop:Testing`.
+- Before creating a pull request, run `tox`. See also {ref}`develop:Tox`.
 
 - Also use a [conventional commit message](https://www.conventionalcommits.org)
   style for the PR title. This is because we follow a
   [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
   and the PR title will become the eventual commit message. Note that a
-  conventional commit message style, as well as
-  {ref}`PR labels <develop:Issue management>`, are
-  {ref}`enforced through GitHub Actions <develop:GitHub Actions>` (see overview
+  conventional commit message style is
+  {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a
+  check on {ref}`PR labels <develop:Issue management>` (see overview
   [here](https://github.com/ComPWA/PWA-pages/actions?query=workflow%3A%22PR+linting%22)).
   The corresponding configuration file is
   {download}`commitlint.config.js <../commitlint.config.js>`.
