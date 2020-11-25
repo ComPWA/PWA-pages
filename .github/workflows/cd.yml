@@ -1,4 +1,4 @@
-# cspell:ignore noreply prereleased pypa
+# cspell:ignore noreply prereleased pypa reqs
 
 name: CD
 
@@ -22,7 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[doc]
+          pip install -r .reqs/doc.txt
+          pip install .
           sudo apt-get -y install pandoc graphviz
       - name: Build documentation and run notebooks
         working-directory: docs
@@ -46,7 +47,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[precommit]
+          pip install -r .reqs/sty.txt
+          pip install .
           sudo npm install -g cspell pyright
       - name: Perform style checks
         run: pre-commit run -a

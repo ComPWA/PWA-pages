@@ -1,7 +1,7 @@
 <!--
 cSpell:ignore aquirdturtle autobuild docnb dotfiles htmlcov ijmbarr
 cSpell:ignore labextension prettierrc prettierignore pylance pylintrc
-cSpell:ignore pyrightconfig rstcheck ryantam serverextension testenv
+cSpell:ignore pyrightconfig reqs rstcheck ryantam serverextension testenv
 -->
 
 # Develop
@@ -21,7 +21,6 @@ To get started, simply run:
 ```shell
 conda env create
 conda activate pwa
-pip install -e .[dev]
 pre-commit install
 ```
 ````
@@ -30,7 +29,8 @@ pre-commit install
 ```shell
 python3 -m venv ./venv
 source ./venv/bin/activate
-pip install -e .[dev]
+pip install -r requirements-dev.txt  # pin all dependencies
+pip install -e .
 pre-commit install
 ````
 
@@ -126,34 +126,27 @@ python3 setup.py develop
 
 This will install all required dependencies for the package as well.
 
-### Optional dependencies
+### Additional dependencies
 
-Packages can additionally define
-[optional dependencies](https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies).
-With `pip install` you can install these with
-['extras' syntax](https://www.python.org/dev/peps/pep-0508/#extras) (e.g.
-{command}`pip install -e .[dev]`). We follow the following structure to group
-optional developer dependencies:
+Developers require several additional tools besides the dependencies required
+to run the package itself (see {ref}`develop:Automated coding conventions`). To
+ensure that developers use exactly the same version of those tools
+(deterministic and reproducible), we define those additional tools
+[requirements files](https://pip.pypa.io/en/stable/user_guide/#requirements-files)
+that have their dependencies 'pinned' through
+[`pip-tools`](https://pypi.org/project/pip-tools).
 
-- {code}`doc` ― tools required to
-  {ref}`build documentation <develop:Documentation>`
-- {code}`format` ― tools that automate formatting, such as
-  [black](https://black.readthedocs.io) and
-  [isort](https://isort.readthedocs.io)
-- {code}`lint` ― tools that point out bugs, typos, and other issues, such as
-  [pylint](https://www.pylint.org)
-- {code}`test` ― requirements for {ref}`runtime tests <develop:Testing>`
-- {code}`dev` ― contains all of the above, as well as some other helpful tools
-  like {ref}`Jupyter Lab <develop:Jupyter Notebooks>`.
-
-All dependencies relevant for the developer (see
-{ref}`develop:Automated coding conventions`) can be installed with:
+All these additional dependencies can be installed as follows. Note that we
+install the package in {ref}`editable install <develop:Editable installation>`
+_after_ all requirements have been been pinned with the
+{file}`requirements-dev.txt` file.
 
 ```bash
-pip install -e .[dev]
+pip install -r requirements-dev.txt
+pip install -e .
 ```
 
-We explain some of those tools in the following sections.
+We explain some of those additional tools in the following sections.
 
 ````{dropdown} Node.js packages
 If you have Node.js (`npm`) on your system, you can run a few additional
@@ -162,10 +155,19 @@ checks. Install these packages as follows (possibly with administrator rights):
 ```bash
 npm install -g cspell pyright
 ```
+````
 
-Note that [`pyright`](https://github.com/microsoft/pyright) requires Node.js
-v12.x (see install instructions
-[here](https://nodejs.org/en/download/package-manager)).
+````{dropdown} Upgrading dependencies
+The additional dependencies are defined (unpinned!) in the {file}`*.in` files
+under the {file}`.reqs` folder. To upgrade the 'pinned' requirements under
+{file}`requirements-dev.txt`, use {ref}`develop:Tox`:
+
+```bash
+tox -e upgrade
+```
+
+Internally, this command calls a specific sequence of
+[`pip-compile`](https://pypi.org/project/pip-tools) commands.
 ````
 
 ### Updating
@@ -177,7 +179,7 @@ pulling new commits from the repository:
 ```bash
 git checkout master
 git pull
-pip install -e .[dev]
+pip install -r requirements-dev.txt
 ```
 
 If you still have problems, it may be that certain dependencies have become
@@ -247,7 +249,8 @@ overview of the progress. See {ref}`tox:parallel_mode`.
 tox -p
 ```
 
-This command will [run `pytest`](#testing),
+This command will [run `pytest`](#testing), perform all
+{ref}`style checks <develop:Style checks>`,
 {ref}`build the documentation <develop:Documentation>`, and verify
 cross-references in the documentation and the API. It's especially recommended
 to **run tox before submitting a pull request!**
@@ -260,6 +263,10 @@ do, by running:
 ```bash
 tox -av
 ```
+
+Note that {command}`tox` works with its own virtual environments. These
+environments install
+{ref}`'pinned' dependencies <develop:Additional dependencies>`.
 
 ### GitHub Actions
 
@@ -477,7 +484,7 @@ contains a few Jupyter notebooks. These notebooks are run and tested whenever
 you make a {ref}`pull request <develop:Git and GitHub>`. If you want to improve
 those notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
-{ref}`installed with the dev requirements <develop:Optional dependencies>`.
+{ref}`installed with the dev requirements <develop:Additional dependencies>`.
 Jupyter Lab offers a nicer developer experience than the default Jupyter
 notebook editor does.
 
@@ -684,7 +691,6 @@ git clone https://github.com/ComPWA/PWA-pages.git  # or some other repo
 cd PWA-pages
 conda env create
 conda activate pwa  # or whatever the name is
-pip install -e .[dev]
 code .  # open folder in VSCode
 ```
 ````
