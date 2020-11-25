@@ -1,3 +1,5 @@
+# cspell:ignore reqs
+
 name: CI for epics
 
 on:
@@ -21,7 +23,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[doc]
+          pip install -r .reqs/doc.txt
+          pip install .
           sudo apt-get -y install pandoc graphviz
       - name: Build documentation and run notebooks
         working-directory: docs
@@ -39,6 +42,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[ci]
+          pip install -r .reqs/sty.txt
+          pip install .
       - name: Perform style checks
         run: tox -e sty
