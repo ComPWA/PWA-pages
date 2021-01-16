@@ -14,3 +14,4 @@ sphinx-panels
 sphinx-thebe
 sphinx-togglebutton
 sphinxcontrib-bibtex >= 2
+sympy
