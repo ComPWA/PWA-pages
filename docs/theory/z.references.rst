@@ -4,18 +4,18 @@ Bibliography
 ------------
 
 .. tip:: Download this bibliography as BibTeX :download:`here
-  </theory/bibliography.bib>`.
+  </bibliography-Theory.bib>`.
 
 .. rubric:: References
 
-.. bibliography:: bibliography.bib
+.. bibliography:: /bibliography-Theory.bib
   :style: unsrt_et_al
   :labelprefix: T
   :cited:
 
 .. rubric:: Further reading
 
-.. bibliography:: bibliography.bib
+.. bibliography:: /bibliography-Theory.bib
   :style: unsrt_et_al
   :labelprefix: T
   :list: bullet
