@@ -192,7 +192,7 @@ Where possible, we define and enforce our coding conventions through automated
 tools, instead of describing them in documentation. These tools perform their
 checks when you commit files locally (see {ref}`develop:Pre-commit`), when
 {ref}`running tox <develop:tox>`, and when you make a
-{ref}`pull request <develop:Git and GitHub>`.
+{ref}`pull request <develop:Collaboration>`.
 
 The tools are configured through files such as
 [`pyproject.toml`](https://github.com/ComPWA/PWA-pages/blob/master/pyproject.toml),
@@ -203,7 +203,7 @@ workflow files under
 run into persistent linting errors, this may mean we need to further specify
 our conventions. In that case, it's best to
 {ref}`create an issue <develop:Issue management>` or a
-{ref}`pull request <develop:Git and GitHub>` and propose a policy change that
+{ref}`pull request <develop:Collaboration>` and propose a policy change that
 can be formulated through those config files.
 
 ### Pre-commit
@@ -270,7 +270,7 @@ environments install
 
 ### GitHub Actions
 
-All {ref}`style checks <develop:Automated style checks>`, testing of the
+All {ref}`style checks <develop:Style checks>`, testing of the
 {ref}`documentation and links <develop:Documentation>`, and
 {ref}`unit tests <develop:Testing>` are performed upon each pull request
 through [GitHub Actions](https://docs.github.com/en/actions) (see status
@@ -472,16 +472,16 @@ or [Markdown](https://www.markdownguide.org). In addition, it's easy to write
 
 ````{margin}
 ```{tip}
-Sometimes it happens that your Jupyter installation does not recognize
-your {ref}`virtual environment <install:Step 2: Create a virtual environment>`.
-In that case, have a look at
+Sometimes it happens that your Jupyter installation does not recognize your
+{ref}`virtual environment <develop:Virtual environment>`. In that case, have a
+look at
 [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
 ```
 ````
 
 The [docs](https://github.com/ComPWA/PWA-pages/tree/master/docs) folder
 contains a few Jupyter notebooks. These notebooks are run and tested whenever
-you make a {ref}`pull request <develop:Git and GitHub>`. If you want to improve
+you make a {ref}`pull request <develop:Collaboration>`. If you want to improve
 those notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
 {ref}`installed with the dev requirements <develop:Additional dependencies>`.
@@ -560,9 +560,9 @@ The documentation of the `stable` branch is also the default view
 #### `master` branch
 
 Represents the upcoming release of the package. This branch is not guaranteed
-to be stable, but has high {ref}`CI standards <develop:Continuous Integration>`
-and can only be updated through reviewed pull requests. The documentation of
-the `master` branch can be found on RTD under "latest", see e.g.
+to be stable, but has high {ref}`CI standards <develop:GitHub Actions>` and can
+only be updated through reviewed pull requests. The documentation of the
+`master` branch can be found on RTD under "latest", see e.g.
 [expertsystem.rtfd.io/en/latest](https://expertsystem.rtfd.io/en/latest).
 
 #### Epic branches
