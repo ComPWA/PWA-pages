@@ -1,10 +1,10 @@
--r ../requirements.txt
+-r requirements.in
 
 # Requirements to build documentation
 graphviz
 ipywidgets
 jupyter
-myst-nb
+myst-nb < 0.11  # myst_admonition_enable
 pydeps
 Sphinx >= 3
 sphinx-book-theme
@@ -13,4 +13,4 @@ sphinx-math-dollar
 sphinx-panels
 sphinx-thebe
 sphinx-togglebutton
-sphinxcontrib-bibtex
+sphinxcontrib-bibtex < 2

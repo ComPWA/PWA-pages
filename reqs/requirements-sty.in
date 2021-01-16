@@ -1,4 +1,4 @@
--r ../requirements.txt
+-r requirements.in
 
 pre-commit >= 1.4.0
 
@@ -13,7 +13,7 @@ flake8-blind-except
 flake8-bugbear
 flake8-builtins
 flake8-rst-docstrings
-mypy
+mypy >= 0.570  # attrs support
 pep8-naming
 pydocstyle
 pylint
