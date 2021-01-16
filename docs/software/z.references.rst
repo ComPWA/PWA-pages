@@ -4,18 +4,18 @@ Bibliography
 ------------
 
 .. tip:: Download this bibliography as BibTeX :download:`here
-  </software/bibliography.bib>`.
+  </bibliography-Software.bib>`.
 
 .. rubric:: References
 
-.. bibliography:: bibliography.bib
+.. bibliography:: /bibliography-Software.bib
   :style: unsrt_et_al
   :labelprefix: S
   :cited:
 
 .. rubric:: Further reading
 
-.. bibliography:: bibliography.bib
+.. bibliography:: /bibliography-Software.bib
   :style: unsrt_et_al
   :labelprefix: S
   :list: bullet

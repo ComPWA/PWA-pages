@@ -151,6 +151,12 @@ intersphinx_mapping = {
 # Settings for autosectionlabel
 autosectionlabel_prefix_document = True
 
+# Settings for bibtex
+bibtex_bibfiles = [
+    "bibliography-Software.bib",
+    "bibliography-Theory.bib",
+]
+
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. "  # doctest
