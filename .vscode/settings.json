@@ -37,6 +37,12 @@
   "files.associations": {
     "*.inc": "restructuredtext"
   },
+  "files.watcherExclude": {
+    "**/*_cache/**": true,
+    "**/.eggs/**": true,
+    "**/.git/**": true,
+    "**/.tox/**": true
+  },
   "git.rebaseWhenSync": true,
   "githubPullRequests.telemetry.enabled": false,
   "gitlens.advanced.telemetry.enabled": false,
@@ -62,8 +68,8 @@
   "rewrap.wrappingColumn": 79,
   "search.exclude": {
     "**/tests/**/__init__.py": true,
-    ".reqs/*.txt": true,
     "docs/tox.ini": true,
+    "reqs/3.*/*.txt": true,
     "tests/tox.ini": true
   },
   "telemetry.enableCrashReporter": false,

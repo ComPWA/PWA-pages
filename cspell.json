@@ -2,8 +2,7 @@
     "version": "0.1",
     "enableFiletypes": [
         "git-commit",
-        "jupyter",
-        "xml"
+        "jupyter"
     ],
     "flagWords": [
         "analyse",
@@ -28,8 +27,6 @@
         ".pre-commit-config.yaml",
         ".pylintrc",
         ".readthedocs.yml",
-        ".reqs/*.in",
-        ".reqs/*.txt",
         ".vscode/*",
         ".vscode/.gitignore",
         "Makefile",
@@ -39,6 +36,8 @@
         "docs/conf.py",
         "pyproject.toml",
         "pyrightconfig.json",
+        "reqs/**/*.in",
+        "reqs/**/*.txt",
         "requirements*.txt",
         "setup.cfg",
         "setup.py",
