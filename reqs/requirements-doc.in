@@ -13,4 +13,4 @@ sphinx-math-dollar
 sphinx-panels
 sphinx-thebe
 sphinx-togglebutton
-sphinxcontrib-bibtex
+sphinxcontrib-bibtex < 2
