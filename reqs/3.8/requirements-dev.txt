@@ -39,7 +39,7 @@ flake8==3.8.4
 gitdb==4.0.5
 gitpython==3.1.12
 graphviz==0.16
-identify==1.5.12
+identify==1.5.13
 idna==2.10
 imagesize==1.2.0
 importlib-metadata==3.4.0
@@ -52,7 +52,7 @@ jedi==0.18.0
 jinja2==2.11.2
 json5==0.9.5
 jsonschema==3.2.0
-jupyter-cache==0.4.1
+jupyter-cache==0.4.2
 jupyter-client==6.1.11
 jupyter-console==6.2.0
 jupyter-core==4.7.0
@@ -104,7 +104,7 @@ prompt-toolkit==3.0.10
 ptyprocess==0.7.0
 py==1.10.0
 pybtex-docutils==1.0.0
-pybtex==0.23.0
+pybtex==0.24.0
 pycodestyle==2.6.0
 pycparser==2.20
 pydata-sphinx-theme==0.4.1
