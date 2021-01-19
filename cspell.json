@@ -69,6 +69,7 @@
         "matplotlib",
         "numpy",
         "pseudoscalar",
+        "sympy",
         "unitarity",
         "unstaged"
     ],
@@ -131,6 +132,7 @@
         "unsrt",
         "venv",
         "xlabel",
+        "xlim",
         "ylabel"
     ]
 }
