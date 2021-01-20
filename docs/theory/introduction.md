@@ -104,10 +104,11 @@ of the helicity/canonical formalism.
 
 Decomposition into partial waves ({cite}`petersPrimerPartialWave2004`, p.3):
 
-> Consider an incident wave $left|iright> = Psi_i$. In an experimental setting,
-> we can assume a vanishing potential at $trightarrowinfty$, which allows us to
-> expand the incoming wave in terms of {wiki}`Legendre_polynomials` $P_l$, with
-> $l$ the {dfn}`angular orbital momentum`:
+> Consider an incident wave $\left|i\right> = Psi_i$. In an experimental
+> setting, we can assume a vanishing potential at $t\rightarrow\infty$, which
+> allows us to expand the incoming wave in terms of
+> {wiki}`Legendre_polynomials` $P_l$, with $l$ the
+> {dfn}`angular orbital momentum`:
 >
 > ```{math}
 >
