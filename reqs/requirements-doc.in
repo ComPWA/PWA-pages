@@ -4,7 +4,7 @@
 graphviz
 ipywidgets
 jupyter
-myst-nb < 0.11  # myst_admonition_enable
+myst-nb >= 0.11  # myst_admonition_enable
 Sphinx >= 3
 sphinx-book-theme
 sphinx-copybutton
