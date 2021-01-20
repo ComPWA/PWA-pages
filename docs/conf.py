@@ -192,6 +192,7 @@ myst_enable_extensions = [
     "amsmath",
     "colon_fence",
     "dollarmath",
+    "smartquotes",
 ]
 myst_update_mathjax = False
 
