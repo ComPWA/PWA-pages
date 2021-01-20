@@ -14,28 +14,33 @@ possible, we use the
 [source code of the PWA-pages repository](https://github.com/ComPWA/PWA-pages)
 as example, because its file structure is comparable to that of the others.
 
-`````{tip}
-To get started, simply run:
+::::{tip} To get started, simply run:
 
-````{tabbed} Conda
+:::{tabbed} Conda
+
 ```shell
 conda env create
 conda activate pwa
 pre-commit install
 ```
-````
 
-````{tabbed} Python venv
+:::
+
+:::{tabbed} Python venv
+
 ```shell
 python3 -m venv ./venv
 source ./venv/bin/activate
 pip install -r requirements-dev.txt  # pin all dependencies
 pip install -e .
 pre-commit install
-````
+```
+
+:::
 
 See {ref}`develop:Virtual environment` for more info.
-`````
+
+::::
 
 ## Local set-up
 
@@ -52,7 +57,8 @@ Two common tools to manage virtual environments are Conda or Python's built-in
 `venv`. In either case, you have to activate the environment whenever you want
 to run the framework or use the developer tools.
 
-````{tabbed} Conda environment
+:::{tabbed} Conda environment
+
 [Conda/Anaconda](https://www.anaconda.com) can be installed without
 administrator rights, see instructions on
 [this page](https://www.anaconda.com/distribution). In addition, Conda can
@@ -74,9 +80,11 @@ Conda now creates an environment with a name that is defined in the
 {file}`environment.yml` file. In addition, it will install the framework in
 ["editable" mode](#editable-installation), so that you can start developing
 right away.
-````
 
-````{tabbed} Python venv
+:::
+
+:::{tabbed} Python venv
+
 Alternatively, you can use
 [Python's `venv`](https://docs.python.org/3/library/venv.html), if you have
 that available on your system. Navigate to some convenient folder and run:
@@ -98,7 +106,8 @@ dependencies (see ["editable" mode](#editable-installation)):
 ```bash
 pip install -e .
 ```
-````
+
+:::
 
 ### Editable installation
 
@@ -117,12 +126,15 @@ the repository you want to work on, navigate into it, and run:
 python3 -m pip install -e .
 ```
 
-````{toggle}
+:::{toggle}
+
 Internally, this just calls
+
 ```bash
 python3 setup.py develop
 ```
-````
+
+:::
 
 This will install all required dependencies for the package as well.
 
@@ -148,16 +160,19 @@ pip install -e .
 
 We explain some of those additional tools in the following sections.
 
-````{dropdown} Node.js packages
+:::{dropdown} Node.js packages
+
 If you have Node.js (`npm`) on your system, you can run a few additional
 checks. Install these packages as follows (possibly with administrator rights):
 
 ```bash
 npm install -g cspell pyright
 ```
-````
 
-````{dropdown} Upgrading dependencies
+:::
+
+:::{dropdown} Upgrading dependencies
+
 The additional dependencies are defined (unpinned!) in the {file}`*.in` files
 under the {file}`.reqs` folder. To upgrade the 'pinned' requirements under
 {file}`requirements-dev.txt`, use {ref}`develop:Tox`:
@@ -168,7 +183,8 @@ tox -e upgrade
 
 Internally, this command calls a specific sequence of
 [`pip-compile`](https://pypi.org/project/pip-tools) commands.
-````
+
+:::
 
 ### Updating
 
@@ -322,13 +338,15 @@ are formulated in config files. For linters, we use the following:
   - [flake8](https://flake8.pycqa.org)
   - [pydocstyle](https://pydocstyle.pycqa.org)
 
-````{toggle}
+:::{toggle}
+
 ```{note}
 As an illustration of automated checks, we list the files here with links to
 the actual files as to ensure that these files still exist and that
 this documentation remains up to date.
 ```
-````
+
+:::
 
 ### Spelling
 
@@ -369,7 +387,8 @@ pytest -n auto
 The flag {command}`-n auto` causes {code}`pytest` to
 [run with a distributed strategy](https://pypi.org/project/pytest-xdist).
 
-````{margin}
+:::{margin}
+
 ```{tip}
 In VScode, you can
 visualize test coverage are covered with
@@ -377,7 +396,8 @@ visualize test coverage are covered with
 For this you need to run {command}`pytest` with the flag
 {command}`--cov-report=xml`).
 ```
-````
+
+:::
 
 Try to keep test coverage high. You can compute current coverage by running
 
@@ -432,14 +452,16 @@ repositories with the command:
 tox -e doc
 ```
 
-````{toggle}
+:::{toggle}
+
 Alternatively, you can run `sphinx-build` yourself as follows:
 
 ```bash
 cd docs
 make html
 ```
-````
+
+:::
 
 If you are doing a lot of work on the documentation,
 [`sphinx-autobuild`](https://pypi.org/project/sphinx-autobuild) is a nice tool
@@ -470,14 +492,16 @@ or [Markdown](https://www.markdownguide.org). In addition, it's easy to write
 
 ### Jupyter Notebooks
 
-````{margin}
+:::{margin}
+
 ```{tip}
 Sometimes it happens that your Jupyter installation does not recognize your
 {ref}`virtual environment <develop:Virtual environment>`. In that case, have a
 look at
 [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
 ```
-````
+
+:::
 
 The [docs](https://github.com/ComPWA/PWA-pages/tree/master/docs) folder
 contains a few Jupyter notebooks. These notebooks are run and tested whenever
@@ -681,7 +705,8 @@ You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
 as the VSCode settings that come with this are folder settings.
 
-````{dropdown} Conda and VSCode
+:::{dropdown} Conda and VSCode
+
 Projects related to the PWA pages are best developed
 {ref}`with Conda <develop:Virtual environment>` and VSCode. The complete
 developer install procedure then becomes:
@@ -693,4 +718,5 @@ conda env create
 conda activate pwa  # or whatever the name is
 code .  # open folder in VSCode
 ```
-````
+
+:::
