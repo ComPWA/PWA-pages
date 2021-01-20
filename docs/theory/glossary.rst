@@ -52,6 +52,10 @@ section on these pages.
   coupling constant
     <define>
 
+  damping factor
+  form factor
+    Often defined with the symbol $B_{\alpha_i}$.
+
   formation experiment
     Experiments where particles $A$ and $B$ are collided, resulting in a
     reaction:
