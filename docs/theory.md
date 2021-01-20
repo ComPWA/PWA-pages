@@ -1,8 +1,8 @@
-Theory
-======
+# Theory
 
-.. warning::
-  These pages and are **under development**.
+```{warning}
+These pages and are **under development**.
+```
 
 What is Partial Wave Analysis? What are the waves? What makes them 'partial'?
 And what is the purpose of analyzing such partial waves? While these questions
@@ -19,17 +19,19 @@ that do not answer those bigger questions.
 
 These pages aim to provide context to some of the major literature, so that
 they are easier to understand. The pages are interlinked to both original
-literature and :doc:`PWA software packages <software>`, so you can easily look
+literature and {doc}`PWA software packages <software>`, so you can easily look
 up more information or even try out some PWA software demos right away!
 
-.. toctree::
-  :maxdepth: 2
-
-  theory/introduction
-  theory/formalisms
-  theory/dynamics
-  theory/data
-  theory/results
-  theory/topics
-  theory/glossary
-  theory/z.references
+```{toctree}
+---
+maxdepth: 2
+---
+theory/introduction
+theory/formalisms
+theory/dynamics
+theory/data
+theory/results
+theory/topics
+theory/glossary
+theory/z.references
+```

@@ -1,16 +1,17 @@
-.. cspell:ignore aitchison tanabashi
+<!--- cspell:ignore aitchison tanabashi
+-->
 
-Glossary
-========
+# Glossary
 
-.. warning::
-  These pages and are **under development**.
+```{warning}
+These pages and are **under development**.
+```
 
 The glossary can be used to collect terms that require further explanation or
 linking to literature, but are too general or specific to deserve an own
 section on these pages.
 
-
+```{eval-rst}
 .. glossary::
   :sorted:
 
@@ -124,3 +125,4 @@ section on these pages.
 
   strong force
     One of the four fundamental forces of the :term:`Standard Model`
+```

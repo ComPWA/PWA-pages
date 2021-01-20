@@ -188,7 +188,10 @@ nb_render_priority = {
 nb_render_priority["doctest"] = nb_render_priority["html"]
 
 # Settings for myst-parser
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = [
+    "colon_fence",
+    "dollarmath",
+]
 myst_update_mathjax = False
 
 # Settings for Thebe cell output
