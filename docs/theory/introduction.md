@@ -121,18 +121,14 @@ Decomposition into partial waves ({cite}`petersPrimerPartialWave2004`, p.3):
 > characterize specific systems. Here, it is common to use the labels used for
 > [electron orbitals](https://scienceworld.wolfram.com/physics/ElectronOrbital.html):
 >
-> ```{eval-rst}
-> ===  =====  ======================
-> $l$  Label         Origin
-> ===  =====  ======================
-> 0    s      "sharp"
-> 1    p      "principal"
-> 2    d      "diffuse"
-> 3    f      "fundamental"
-> 4    g      *rest is alphabetical*
-> ...  ...    ...
-> ===  =====  ======================
-> ```
+> | $l$ | Label | Origin                 |
+> | --- | ----- | ---------------------- |
+> | 0   | s     | "sharp"                |
+> | 1   | p     | "principal"            |
+> | 2   | d     | "diffuse"              |
+> | 3   | f     | "fundamental"          |
+> | 4   | g     | _rest is alphabetical_ |
+> | ... | ...   | ...                    |
 >
 > In PWA, it is therefore common to distinguish these wave contributions as
 > $S$-wave, $P$-wave, etc.
