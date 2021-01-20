@@ -1,8 +1,8 @@
-Miscellaneous topics
-====================
+# Miscellaneous topics
 
-.. warning::
-  These pages and are **under development**.
+```{warning}
+These pages and are **under development**.
+```
 
 Other topics (**re-categorize!**)
 
@@ -21,8 +21,10 @@ Other topics (**re-categorize!**)
 - Overlapping resonances
 - Coupled channels
 
-.. toctree::
-    :maxdepth: 2
-
-    topics/sm
-    topics/cqm
+```{toctree}
+---
+maxdepth: 2
+---
+topics/sm
+topics/cqm
+```
