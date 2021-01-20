@@ -197,27 +197,6 @@ thebe_config = {
     "repository_branch": html_theme_options["repository_branch"],
 }
 
-# -- Visualize dependencies ---------------------------------------------------
-if "READTHEDOCS" in os.environ or "GITHUB_WORKFLOW" in os.environ:
-    print("Generating module dependency tree...")
-    subprocess.call(
-        " ".join(
-            [
-                "HOME=.",  # in case of calling through tox
-                "pydeps",
-                f"../src/{package}",
-                "-o module_structure.svg",
-                "--exclude *._*",  # hide private modules
-                "--max-bacon=2",  # hide external dependency submodules
-                "--noshow",
-            ]
-        ),
-        shell=True,
-    )
-    if os.path.exists("module_structure.svg"):
-        with open(f"api/{package}.rst", "a") as stream:
-            stream.write("\n.. image:: /module_structure.svg")
-
 # Add roles to simplify external linnks
 def setup(app: Sphinx):
     app.add_role(
