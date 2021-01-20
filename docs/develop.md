@@ -72,7 +72,7 @@ defines the minimal dependencies to run the framework. To create an environment
 specific for this package, simply navigate to the main folder of the source
 code and run:
 
-```bash
+```shell
 conda env create
 ```
 
@@ -89,21 +89,21 @@ Alternatively, you can use
 [Python's `venv`](https://docs.python.org/3/library/venv.html), if you have
 that available on your system. Navigate to some convenient folder and run:
 
-```bash
+```shell
 python3 -m venv ./venv
 ```
 
 This creates a folder called {file}`venv` where all Python packages will be
 contained. To activate the environment, run:
 
-```bash
+```shell
 source ./venv/bin/activate
 ```
 
 Now you can safely install the package you want to working on, as well as any
 dependencies (see ["editable" mode](#editable-installation)):
 
-```bash
+```shell
 pip install -e .
 ```
 
@@ -122,7 +122,7 @@ flag. Simply
 [clone](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#_git_cloning)
 the repository you want to work on, navigate into it, and run:
 
-```bash
+```shell
 python3 -m pip install -e .
 ```
 
@@ -130,7 +130,7 @@ python3 -m pip install -e .
 
 Internally, this just calls
 
-```bash
+```shell
 python3 setup.py develop
 ```
 
@@ -153,7 +153,7 @@ install the package in {ref}`editable install <develop:Editable installation>`
 _after_ all requirements have been been pinned with the
 {file}`requirements-dev.txt` file.
 
-```bash
+```shell
 pip install -r requirements-dev.txt
 pip install -e .
 ```
@@ -165,7 +165,7 @@ We explain some of those additional tools in the following sections.
 If you have Node.js (`npm`) on your system, you can run a few additional
 checks. Install these packages as follows (possibly with administrator rights):
 
-```bash
+```shell
 npm install -g cspell pyright
 ```
 
@@ -177,7 +177,7 @@ The additional dependencies are defined (unpinned!) in the {file}`*.in` files
 under the {file}`.reqs` folder. To upgrade the 'pinned' requirements under
 {file}`requirements-dev.txt`, use {ref}`develop:Tox`:
 
-```bash
+```shell
 tox -e upgrade
 ```
 
@@ -192,7 +192,7 @@ Whether installing extras or not, it may be that new commits in the repository
 modify the dependencies. In that case, you have to rerun this command after
 pulling new commits from the repository:
 
-```bash
+```shell
 git checkout master
 git pull
 pip install -r requirements-dev.txt
@@ -228,7 +228,7 @@ All {ref}`style checks <develop:Style checks>` are enforced through a tool
 called [{command}`pre-commit`](https://pre-commit.com). This tool needs to be
 activated, but only once, after you clone the repository:
 
-```bash
+```shell
 pre-commit install
 ```
 
@@ -243,7 +243,7 @@ the file
 over all staged files. You can also quickly run all checks over _all_ indexed
 files in the repository with the command:
 
-```bash
+```shell
 pre-commit run -a
 ```
 
@@ -261,7 +261,7 @@ The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer
 overview of the progress. See {ref}`tox:parallel_mode`.
 ```
 
-```bash
+```shell
 tox -p
 ```
 
@@ -276,7 +276,7 @@ More specialized {command}`tox` tests are defined in the
 section. You can list all environments, along with a description of what they
 do, by running:
 
-```bash
+```shell
 tox -av
 ```
 
@@ -380,7 +380,7 @@ requires [npm](https://www.npmjs.com).
 
 The fastest way to run all tests is with the command:
 
-```bash
+```shell
 pytest -n auto
 ```
 
@@ -401,7 +401,7 @@ For this you need to run {command}`pytest` with the flag
 
 Try to keep test coverage high. You can compute current coverage by running
 
-```bash
+```shell
 tox -e cov
 ```
 
@@ -409,7 +409,7 @@ and opening {file}`htmlcov/index.html` in a browser.
 
 To get an idea of performance per component, run
 
-```bash
+```shell
 pytest --profile-svg
 ```
 
@@ -448,7 +448,7 @@ code are valid and correctly interlinked.
 You can quickly build the documentation from the root directory of any of the
 repositories with the command:
 
-```bash
+```shell
 tox -e doc
 ```
 
@@ -456,7 +456,7 @@ tox -e doc
 
 Alternatively, you can run `sphinx-build` yourself as follows:
 
-```bash
+```shell
 cd docs
 make html
 ```
@@ -467,7 +467,7 @@ If you are doing a lot of work on the documentation,
 [`sphinx-autobuild`](https://pypi.org/project/sphinx-autobuild) is a nice tool
 to use. Just run:
 
-```bash
+```shell
 tox -e doc-live
 ```
 
@@ -514,7 +514,7 @@ notebook editor does.
 
 In addition, we recommend to install a few extensions:
 
-```bash
+```shell
 jupyter labextension install jupyterlab-execute-time
 jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 jupyter labextension install @aquirdturtle/collapsible_headings
@@ -528,7 +528,7 @@ Now, if you want to test all notebooks in the documentation folder and check
 what their output cells will look like in the {ref}`develop:Documentation`, you
 can do this with:
 
-```bash
+```shell
 tox -e docnb
 ```
 
@@ -614,7 +614,7 @@ under
 [https://github.com/ComPWA/expertsystem](https://github.com/compwa/expertsystem),
 it can be installed as follows:
 
-```bash
+```shell
 python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-title
 ```
 
@@ -711,7 +711,7 @@ Projects related to the PWA pages are best developed
 {ref}`with Conda <develop:Virtual environment>` and VSCode. The complete
 developer install procedure then becomes:
 
-```bash
+```shell
 git clone https://github.com/ComPWA/PWA-pages.git  # or some other repo
 cd PWA-pages
 conda env create
