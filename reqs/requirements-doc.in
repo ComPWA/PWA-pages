@@ -5,6 +5,7 @@ graphviz
 ipywidgets
 jupyter
 myst-nb >= 0.11  # myst_admonition_enable
+myst-parser != 0.13.2 # https://github.com/executablebooks/MyST-Parser/issues/299
 Sphinx >= 3
 sphinx-book-theme
 sphinx-copybutton
