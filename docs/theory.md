@@ -1,3 +1,5 @@
+<!-- cspell:ignore kmatrix -->
+
 # Theory
 
 ```{warning}
@@ -29,6 +31,7 @@ maxdepth: 2
 theory/introduction
 theory/formalisms
 theory/dynamics
+theory/kmatrix
 theory/data
 theory/results
 theory/topics

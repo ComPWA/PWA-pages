@@ -27,5 +27,14 @@ ignore=
 # Note that some interface classes also just have a single method
 min-public-methods=0
 
+[BASIC]
+good-names=
+    i,
+    j,
+    k,
+    q,
+    x,
+    _,
+
 [SIMILARITIES]
 ignore-imports=yes # https://stackoverflow.com/a/30007053

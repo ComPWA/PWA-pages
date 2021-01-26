@@ -46,6 +46,7 @@
     "language": "en-US",
     "words": [
         "besiii",
+        "blatt",
         "blazingly",
         "breit",
         "brookhaven",
@@ -61,17 +62,20 @@
         "glueball",
         "glueballs",
         "gordan",
+        "hankel",
         "helicities",
         "helicity",
         "hypercharge",
         "isospin",
         "jupyter",
+        "lambdify",
         "matplotlib",
         "numpy",
         "pseudoscalar",
         "sympy",
         "unitarity",
-        "unstaged"
+        "unstaged",
+        "weisskopf"
     ],
     "ignoreWords": [
         "apidoc",
@@ -83,6 +87,7 @@
         "eval",
         "expertsystem",
         "genindex",
+        "getsource",
         "graphviz",
         "htmlcov",
         "infty",
