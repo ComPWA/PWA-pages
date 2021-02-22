@@ -2,6 +2,15 @@
 #   pylint --generate-rcfile > .pylintrc_new
 # and compare the output
 
+[BASIC]
+good-names=
+    i,
+    j,
+    k,
+    q,
+    x,
+    _,
+
 [VARIABLES]
 init-import=yes
 
@@ -13,6 +22,7 @@ disable=
     C0330,  # https://github.com/psf/black/issues/48
     RST203, # unexpected indentation
     RST301, # related to google style docstring
+    R0801,  # similar lines # https://github.com/PyCQA/pylint/issues/214
     logging-fstring-interpolation,
     not-callable,
     unused-import,  # https://www.flake8rules.com/rules/F401
