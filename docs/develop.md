@@ -581,6 +581,8 @@ The documentation of the `stable` branch is also the default view
 {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
 [expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
 
+(master-branch)=
+
 #### `master` branch
 
 Represents the upcoming release of the package. This branch is not guaranteed
@@ -620,10 +622,10 @@ python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-titl
 
 #### Feature branches
 
-The {ref}`develop:master branch` and {ref}`develop:epic branches` can be
-updated through pull requests. It is best to create such a pull request from a
-separate branch, which does not have any CI or code review restrictions. We
-call this a "feature branch".
+The {ref}`master-branch` and {ref}`develop:epic branches` can be updated
+through pull requests. It is best to create such a pull request from a separate
+branch, which does not have any CI or code review restrictions. We call this a
+"feature branch".
 
 ### Commit conventions
 
