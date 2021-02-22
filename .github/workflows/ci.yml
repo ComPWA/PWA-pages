@@ -7,16 +7,10 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
 
 jobs:
   documentation:
     name: Build documentation and run notebooks
-    if: github.event.pull_request.draft == false
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +30,6 @@ jobs:
 
   style:
     name: Style checks
-    if: github.event.pull_request.draft == false
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2

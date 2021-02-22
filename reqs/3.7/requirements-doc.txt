@@ -28,7 +28,7 @@ graphviz==0.16
 idna==2.10
 imagesize==1.2.0
 importlib-metadata==3.4.0
-ipykernel==5.4.3
+ipykernel==5.5.0
 ipython-genutils==0.2.0
 ipython==7.20.0
 ipywidgets==7.6.3
@@ -51,7 +51,7 @@ mdit-py-plugins==0.2.5
 mistune==0.8.4
 mpmath==1.2.1
 myst-nb==0.11.1
-myst-parser==0.13.3
+myst-parser==0.13.5
 nbclient==0.5.2
 nbconvert==5.6.1
 nbdime==2.1.0
@@ -93,7 +93,7 @@ sphinx-math-dollar==1.2
 sphinx-panels==0.5.2
 sphinx-thebe==0.0.8
 sphinx-togglebutton==0.2.3
-sphinx==3.5.0
+sphinx==3.5.1
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-bibtex==2.1.4
 sphinxcontrib-devhelp==1.0.2
