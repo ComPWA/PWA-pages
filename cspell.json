@@ -84,6 +84,9 @@
         "doctests",
         "eval",
         "expertsystem",
+        "figsize",
+        "fontsize",
+        "frameon",
         "genindex",
         "graphviz",
         "htmlcov",
@@ -137,6 +140,7 @@
         "venv",
         "xlabel",
         "xlim",
-        "ylabel"
+        "ylabel",
+        "ylim"
     ]
 }
