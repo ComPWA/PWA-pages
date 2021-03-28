@@ -166,7 +166,7 @@ If you have Node.js (`npm`) on your system, you can run a few additional
 checks. Install these packages as follows (possibly with administrator rights):
 
 ```shell
-npm install -g cspell pyright
+npm install -g pyright
 ```
 
 :::
@@ -355,7 +355,8 @@ Throughout this repository, we follow American English
 conventions. As a tool, we use
 [cSpell](https://github.com/streetsidesoftware/cspell/blob/master/packages/cspell/README.md),
 because it allows to check variable names in camel case and snake case. This
-way, a spelling checker helps you avoid mistakes in the code as well!
+way, a spelling checker helps you avoid mistakes in the code as well! cSpell is
+enforced through pre-commit.
 
 Accepted words are tracked through the {download}`cspell.json <../cspell.json>`
 file. As with the other config files, {download}`cspell.json <../cspell.json>`
@@ -371,10 +372,7 @@ It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
 [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 extension: it provides linting, suggests corrections from the {code}`words`
 section, and enables you to quickly add or ignore words through the
-{file}`cspell.json` file. Alternatively, you can
-[run cSpell](https://www.npmjs.com/package/cspell#installation) on the entire
-code base (with {code}`cspell $(git ls-files)`), but for that your system
-requires [npm](https://www.npmjs.com).
+{file}`cspell.json` file.
 
 ## Testing
 
