@@ -4,12 +4,12 @@
 
 [BASIC]
 good-names=
+    _,
     i,
     j,
     k,
     q,
     x,
-    _,
 
 [VARIABLES]
 init-import=yes
@@ -30,6 +30,8 @@ disable=
 [MASTER]
 ignore=
     conf.py
+ignore-patterns=
+    .*\.pyi
 
 [DESIGN]
 # Minimum number of public methods for a class (see R0903). Default is 2.

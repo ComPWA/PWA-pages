@@ -30,6 +30,7 @@
         ".vscode/*",
         ".vscode/.gitignore",
         "Makefile",
+        "docs/adr/*/*",
         "codecov.yml",
         "cspell.json",
         "docs/_templates/*",
@@ -41,7 +42,8 @@
         "requirements*.txt",
         "setup.cfg",
         "setup.py",
-        "tox.ini"
+        "tox.ini",
+        "typings"
     ],
     "language": "en-US",
     "words": [
