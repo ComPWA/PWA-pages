@@ -20,7 +20,7 @@ software/documentation
 software/python
 software/testing
 software/tips
-software/z.references
+software/references
 ```
 
 ## PWA Software Packages

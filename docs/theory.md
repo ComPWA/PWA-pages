@@ -33,5 +33,5 @@ theory/data
 theory/results
 theory/topics
 theory/glossary
-theory/z.references
+theory/references
 ```
