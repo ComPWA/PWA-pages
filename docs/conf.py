@@ -156,6 +156,7 @@ bibtex_bibfiles = [
     "bibliography-Software.bib",
     "bibliography-Theory.bib",
 ]
+bibtex_reference_style = "author_year"
 
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
