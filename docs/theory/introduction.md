@@ -102,7 +102,7 @@ of the helicity/canonical formalism.
 
 ### Partial waves
 
-Decomposition into partial waves ({cite}`petersPrimerPartialWave2004`, p.3):
+Decomposition into partial waves {cite}`petersPrimerPartialWave2004`, p.3:
 
 > Consider an incident wave $\left|i\right> = Psi_i$. In an experimental
 > setting, we can assume a vanishing potential at $t\rightarrow\infty$, which

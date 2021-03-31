@@ -156,7 +156,7 @@ bibtex_bibfiles = [
     "bibliography-Software.bib",
     "bibliography-Theory.bib",
 ]
-bibtex_reference_style = "author_year"
+bibtex_reference_style = "author_year_no_comma"
 
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
@@ -225,6 +225,10 @@ def autolink(pattern: str, replace_mapping: Dict[str, str]):
 
 
 # Specify bibliography style
+import dataclasses
+from typing import Union
+
+import sphinxcontrib.bibtex.plugin
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import Tag, Text
@@ -239,6 +243,22 @@ from pybtex.style.template import (
     node,
     sentence,
     words,
+)
+from sphinxcontrib.bibtex.style.referencing import BracketStyle
+from sphinxcontrib.bibtex.style.referencing.author_year import (
+    AuthorYearReferenceStyle,
+)
+
+
+@dataclasses.dataclass
+class NoCommaReferenceStyle(AuthorYearReferenceStyle):
+    author_year_sep: Union["BaseText", str] = " "
+
+
+sphinxcontrib.bibtex.plugin.register_plugin(
+    "sphinxcontrib.bibtex.style.referencing",
+    "author_year_no_comma",
+    NoCommaReferenceStyle,
 )
 
 
