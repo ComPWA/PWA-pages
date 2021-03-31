@@ -1,3 +1,5 @@
+<!-- cspell:ignore aaij marangotto -->
+
 # Helicity formalism
 
 ```{warning}
@@ -78,3 +80,18 @@ The choice of the formalism depends on the physics process being analyzed. Give
 an example here.
 
 :::
+
+## Alignment problem
+
+Recommended literature:
+
+<!-- markdownlint-disable -->
+
+- General introductions to helicity angles: <br>
+  {cite}`kutschkeAngularDistributionCookbook1996, richmanExperimenterGuideHelicity1984`
+- Suggested solutions: <br>
+  {cite}`chenCoherentHelicityAmplitude2017, marangottoHelicityAmplitudesGeneric2020, wangNovelMethodTest2020, jpaccollaborationDalitzplotDecompositionThreebody2020`
+- LHCb study that led to these solution papers: <br>
+  {cite}`aaijObservationResonancesConsistent2015`
+
+<!-- markdownlint-enable -->
