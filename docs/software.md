@@ -16,10 +16,6 @@ maxdepth: 2
 caption: Table of contents
 ---
 software/git
-software/documentation
-software/python
-software/testing
-software/tips
 software/references
 ```
 

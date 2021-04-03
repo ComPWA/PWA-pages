@@ -26,9 +26,9 @@ cd ComPWA
 git branch -vv
 ```
 
-The last command shows you that you are automatically checked out to the
-`master` branch. It also shows `origin/master`. This is because the
-{command}`git clone` command added a
+The last command shows you that you are automatically checked out to the `main`
+branch. It also shows `origin/main`. This is because the {command}`git clone`
+command added a
 [remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) named
 `origin` to your local Git repository pointing to your the SSH address of your
 ComPWA fork.

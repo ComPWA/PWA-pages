@@ -193,7 +193,7 @@ modify the dependencies. In that case, you have to rerun this command after
 pulling new commits from the repository:
 
 ```shell
-git checkout master
+git checkout main
 git pull
 pip install -r requirements-dev.txt
 ```
@@ -211,13 +211,13 @@ checks when you commit files locally (see {ref}`develop:Pre-commit`), when
 {ref}`pull request <develop:Collaboration>`.
 
 The tools are configured through files such as
-[`pyproject.toml`](https://github.com/ComPWA/PWA-pages/blob/master/pyproject.toml),
-[`.pylintrc`](https://github.com/ComPWA/PWA-pages/blob/master/.pylintrc), and
-[`tox.ini`](https://github.com/ComPWA/PWA-pages/blob/master/tox.ini), and the
+[`pyproject.toml`](https://github.com/ComPWA/PWA-pages/blob/main/pyproject.toml),
+[`.pylintrc`](https://github.com/ComPWA/PWA-pages/blob/main/.pylintrc), and
+[`tox.ini`](https://github.com/ComPWA/PWA-pages/blob/main/tox.ini), and the
 workflow files under
-[`.github`](https://github.com/ComPWA/PWA-pages/blob/master/.github). If you
-run into persistent linting errors, this may mean we need to further specify
-our conventions. In that case, it's best to
+[`.github`](https://github.com/ComPWA/PWA-pages/blob/main/.github). If you run
+into persistent linting errors, this may mean we need to further specify our
+conventions. In that case, it's best to
 {ref}`create an issue <develop:Issue management>` or a
 {ref}`pull request <develop:Collaboration>` and propose a policy change that
 can be formulated through those config files.
@@ -239,7 +239,7 @@ checks, it may take some time to initialize.
 
 Upon committing, {command}`pre-commit` now runs a set of checks as defined in
 the file
-[{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/PWA-pages/blob/master/.pre-commit-config.yaml)
+[{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/PWA-pages/blob/main/.pre-commit-config.yaml)
 over all staged files. You can also quickly run all checks over _all_ indexed
 files in the repository with the command:
 
@@ -501,10 +501,10 @@ look at
 
 :::
 
-The [docs](https://github.com/ComPWA/PWA-pages/tree/master/docs) folder
-contains a few Jupyter notebooks. These notebooks are run and tested whenever
-you make a {ref}`pull request <develop:Collaboration>`. If you want to improve
-those notebooks, we recommend working with
+The [docs](https://github.com/ComPWA/PWA-pages/tree/main/docs) folder contains
+a few Jupyter notebooks. These notebooks are run and tested whenever you make a
+{ref}`pull request <develop:Collaboration>`. If you want to improve those
+notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
 {ref}`installed with the dev requirements <develop:Additional dependencies>`.
 Jupyter Lab offers a nicer developer experience than the default Jupyter
@@ -579,14 +579,14 @@ The documentation of the `stable` branch is also the default view
 {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
 [expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
 
-(master-branch)=
+(main-branch)=
 
-#### `master` branch
+#### `main` branch
 
 Represents the upcoming release of the package. This branch is not guaranteed
 to be stable, but has high {ref}`CI standards <develop:GitHub Actions>` and can
-only be updated through reviewed pull requests. The documentation of the
-`master` branch can be found on RTD under "latest", see e.g.
+only be updated through reviewed pull requests. The documentation of the `main`
+branch can be found on RTD under "latest", see e.g.
 [expertsystem.rtfd.io/en/latest](https://expertsystem.rtfd.io/en/latest).
 
 #### Epic branches
@@ -599,9 +599,9 @@ used in
 
 When working on a feature or larger refactoring that may take a longer time
 (think of implementing a new PWA formalism), we isolate its development under
-an 'epic branch', separate from the `master` branch. Eventually, this epic
-branch is to be merged back into the master, until then it is available for
-discussion and testing.
+an 'epic branch', separate from the `main` branch. Eventually, this epic branch
+is to be merged back into the `main`, until then it is available for discussion
+and testing.
 
 Pull requests to an epic branch require no code review and the CI checks are
 less strict. This allows for faster development, while still offering the
@@ -620,10 +620,10 @@ python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-titl
 
 #### Feature branches
 
-The {ref}`master-branch` and {ref}`develop:epic branches` can be updated
-through pull requests. It is best to create such a pull request from a separate
-branch, which does not have any CI or code review restrictions. We call this a
-"feature branch".
+The {ref}`main-branch` and {ref}`develop:epic branches` can be updated through
+pull requests. It is best to create such a pull request from a separate branch,
+which does not have any CI or code review restrictions. We call this a "feature
+branch".
 
 ### Commit conventions
 
@@ -665,7 +665,7 @@ branch, which does not have any CI or code review restrictions. We call this a
 - PRs can only be merged through 'squash and merge'. There, you will see a
   summary based on the separate commits that constitute this PR. Leave the
   relevant commits in as bullet points. See the
-  [commit history](https://github.com/ComPWA/PWA-pages/commits/master) for
+  [commit history](https://github.com/ComPWA/PWA-pages/commits/main) for
   examples. This comes in especially handy when
   {ref}`drafting a release <develop:Milestones and releases>`!
 
@@ -678,7 +678,7 @@ see for instance
 
 Release notes are
 [automatically generated from the PRs](https://github.com/release-drafter/release-drafter)
-that were merged into the master branch since the previous tag. The changelog
+that were merged into the main branch since the previous tag. The changelog
 there is generated from the PR titles and categorized by issue label. New
 releases are automatically published to PyPI when a new tag with such release
 notes is created (see

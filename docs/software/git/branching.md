@@ -15,16 +15,16 @@ their own branch and you can safely bring those ideas together later on (see
 
 At core, a branch is just a label to a commit that moves on to the next if you
 {command}`git commit`. In fact, when you make your first commit after
-initializing a repository, Git automatically creates a branch called `master`.
-In {doc}`our example <commit>`, you can see this when running:
+initializing a repository, Git automatically creates a branch called `main`. In
+{doc}`our example <commit>`, you can see this when running:
 
 ```shell
 git branch
 
 ```
 
-There is a `master` branch next to the `HEAD` (which is in a "detached" state).
-The master moved along on to the second commit you made and stayed there after
+There is a `main` branch next to the `HEAD` (which is in a "detached" state).
+The main moved along on to the second commit you made and stayed there after
 you checked out the first commit. We can start a new branch from that first
 commit (the one that contains two empty files). Let's call this new branch
 `new_idea`:
@@ -37,7 +37,7 @@ git branch -v
 
 The second commands prints the existing branches along with the commits they
 point to. You'll see that there is a `new_idea` branch pointing to the first
-commit, next to the `master` branch, which is indeed pointing to the second
+commit, next to the `main` branch, which is indeed pointing to the second
 commit ("feat: add content"). The `HEAD` is still "detached", even though it
 points to the same commit as `new_idea`. To let the `HEAD` point to the new
 branch, run:
@@ -98,11 +98,11 @@ git log --graph --all --oneline
 ```
 
 This shows that there are now three commits: the initial commit, the commit to
-which the `master` branch points, and the commit to which the `new_idea` branch
+which the `main` branch points, and the commit to which the `new_idea` branch
 and the HEAD currently point. The dashes also nicely display that the
-`new_idea` branch **diverted** from the `master` branch and that the "initial
+`new_idea` branch **diverted** from the `main` branch and that the "initial
 commit" is their common parent. We can continue developing the `new_idea`
-branch while the `master` branch stays where it is:
+branch while the `main` branch stays where it is:
 
 ```shell
 mkdir folder
@@ -121,18 +121,18 @@ In this case, it noticed that {file}`file2.txt` was only moved and renamed.
 
 If we again {ref}`visualize the branching structure <visualize-branches>`, we
 see that the `new_idea` branch moved forward by one commit. When we checkout
-the `master` again, Git removes the `new_idea` versions of {file}`file1.txt`
-and {file}`file2.txt` from the working directory and unpacks the old ones from
-the `master` branch (but see the sidebar note).
+the `main` again, Git removes the `new_idea` versions of {file}`file1.txt` and
+{file}`file2.txt` from the working directory and unpacks the old ones from the
+`main` branch (but see the sidebar note).
 
 ```shell
-git checkout master
+git checkout main
 ls
 ```
 
 Let's see what happens if we
 [merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-the `new_idea` branch _into_ the `master`:
+the `new_idea` branch _into_ the `main`:
 
 ```shell
 git merge new_idea
@@ -141,8 +141,8 @@ git merge new_idea
 Wow, what's this?? Git tells it is "removing {file}`file2.txt`", but then runs
 into a conflict for {file}`file1.txt`. Here we see that _Git does line-wise
 file comparisons_! Git noticed that the line in {file}`file1.txt` is different
-in `new_idea` than in `master`. It has indicated that difference within the
-file itself and is waiting for your input. If you have a look in the file:
+in `new_idea` than in `main`. It has indicated that difference within the file
+itself and is waiting for your input. If you have a look in the file:
 
 ```shell
 vi file1.txt
@@ -155,19 +155,19 @@ you'll see:
  this content is much better!
  =======
  some content
- >>>>>>> master
+ >>>>>>> main
 ```
 
-It shows that "some content" was the line from the `master` branch and "this
+It shows that "some content" was the line from the `main` branch and "this
 content is much better!" came in from the `HEAD` (the `HEAD` was moved to
 `new_idea`). _It's up to you what to do with this._ You can choose one of these
 two, write something entirely new, or leave it like this (not recommended, of
 course). If you think the merge is completely messed up, you can even just run
-{command}`git merge --abort` to land back safely in the untouched `master`
+{command}`git merge --abort` to land back safely in the untouched `main`
 branch!
 
-Here, let's just remove all lines but for "some content" (the `master`) and
-safe the file. Then it's a matter of staging the modified {file}`file1.txt` and
+Here, let's just remove all lines but for "some content" (the `main`) and safe
+the file. Then it's a matter of staging the modified {file}`file1.txt` and
 creating a new **merge commit**. This time, we commit the {command}`-m` message
 flag for the {command}`git commit` command. Git will launch {wiki}`Vi` with a
 pre-generated merge message. Just safe it ({command}`:x`) and Git will use it
@@ -180,9 +180,9 @@ git commit
 
 If we again {ref}`visualize the branch structure <visualize-branches>`, we see
 something cool: the "initial commit" branches off into two branches, then
-merges into a final "Merge branch 'new_idea'" commit to which the `master`
-branch has moved. The `new_idea` branch is in its old place, but we can just
-delete it now that the 'new idea' has been merged with the `master`:
+merges into a final "Merge branch 'new_idea'" commit to which the `main` branch
+has moved. The `new_idea` branch is in its old place, but we can just delete it
+now that the 'new idea' has been merged with the `main`:
 
 ```shell
 git branch -d new_idea

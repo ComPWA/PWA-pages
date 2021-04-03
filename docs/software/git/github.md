@@ -30,7 +30,7 @@ You can name the repository with any name you wish: `upstream` is just a common
 label for the main repository.
 
 Note that the remote from which you cloned the repository is named `origin` by
-default (here: your fork). A local `master` branch is automatically checked out
+default (here: your fork). A local `main` branch is automatically checked out
 from the origin after the clone. You can list all branches with
 `git branch -a`.
 
@@ -52,8 +52,8 @@ can your contributions be added main repository through a
 - Synchronize with the changes from the main repository/upstream:
 
   - Fetch new changes: <br> `git fetch upstream`
-  - Re-apply your current branch commits to the head of the `upstream` master
-    branch: <br> `git rebase -i upstream/master`
+  - Re-apply your current branch commits to the head of the `upstream` main
+    branch: <br> `git rebase -i upstream/main`
   - At this point, conflicts between your changes and those from the main
     `upstream` repository may occur. If no conflicts appeared, then you are
     finished and you can continue coding or push your work onto you fork.
@@ -89,17 +89,17 @@ using: <br> `git push origin <local-branch-name>:<remote-branch-name>`
 Once you think your contribution is finished and can be merged into the main
 repository:
 
-- Make sure your the latest commits from the `upstream/master` are rebased onto
+- Make sure your the latest commits from the `upstream/main` are rebased onto
   your new branch and pushed to your fork
 - Log into GitHub with your account and create a PR. This is a request to merge
-  the changes in your fork branch with the `master` branch of the pycompwa or
+  the changes in your fork branch with the `main` branch of the pycompwa or
   ComPWA repository.
 - While the PR is open, commits pushed to the fork branch behind your PR will
   immediately appear in the PR.
 
 ## Commit conventions
 
-- In the master branch, it should be possible to compile and test the framework
+- In the main branch, it should be possible to compile and test the framework
   **in each commit**. In your own topic branches, it is recommended to commit
   frequently (WIP keyword), but
   [squash those commits](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
