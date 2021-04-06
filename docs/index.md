@@ -57,8 +57,10 @@ API <api/pwa_pages>
 caption: Related projects
 hidden:
 ---
-PWA Expert System <http://expertsystem.rtfd.io>
-TensorWaves <http://tensorwaves.rtfd.io>
-TF-PWA <http://tf-pwa.rtfd.io>
+AmpForm <https://ampform.rtfd.io>
+QRules <https://qrules.rtfd.io>
+TensorWaves <https://tensorwaves.rtfd.io>
+TF-PWA <https://tf-pwa.rtfd.io>
+PWA Expert System <https://expertsystem.rtfd.io>
 pycompwa <https://compwa.github.io>
 ```
