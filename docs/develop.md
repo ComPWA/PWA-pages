@@ -436,7 +436,7 @@ Jupyter notebooks can also be used as tests. See more info
 
 ## Documentation
 
-The documentation that you find on [pwa.rtfd.io](http://pwa.rtfd.io) and its
+The documentation that you find on [pwa.rtfd.io](https://pwa.rtfd.io) and its
 sub-projects is built with [Sphinx](https://www.sphinx-doc.org). Sphinx also
 [builds the API page](https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html)
 of the packages and therefore checks whether the
