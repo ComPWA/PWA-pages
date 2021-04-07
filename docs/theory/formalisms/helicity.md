@@ -28,9 +28,7 @@ These pages and are **under development**.
 - Kinematic variables
 - An example
 
-:::{dropdown} The old text
-
-Two particle states are the key element here. With these one can construct
+<!-- Two particle states are the key element here. With these one can construct
 states of total spin $J$ and projection $M$.
 
 The probability amplitude of a state with spin J and projection M decaying into
@@ -61,15 +59,11 @@ what part in the equation. So we would refer in the Doxygen docs to
 
 - the phase space element calculations?
 
-[IntensityBuilderXML](https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html)
-
-:::
+[IntensityBuilderXML](https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html) -->
 
 ## Canonical formulation
 
-:::{dropdown} The old text
-
-The canonical formalism gives access to the orbital angular momentum $L$ and
+<!-- The canonical formalism gives access to the orbital angular momentum $L$ and
 the coupled Spin $S$ arising from a two particle state.
 
 There is a simple connection between the two formalism. Show that here
@@ -77,9 +71,7 @@ There is a simple connection between the two formalism. Show that here
 This expression is simply inserted into equation () and that is it!
 
 The choice of the formalism depends on the physics process being analyzed. Give
-an example here.
-
-:::
+an example here. -->
 
 ## Alignment problem
 
