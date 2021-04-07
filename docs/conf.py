@@ -99,11 +99,13 @@ autodoc_default_options = {
 }
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
+html_css_files = ["custom.css"]
 html_favicon = "_static/favicon.ico"
 html_show_copyright = False
 html_show_sourcelink = False
 html_show_sphinx = False
 html_sourcelink_suffix = ""
+html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
     "repository_url": f"https://github.com/ComPWA/{repo_name}",
