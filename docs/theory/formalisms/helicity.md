@@ -50,7 +50,7 @@ $$
 Then show explicitly what ComPWA implements and which components correspond to
 what part in the equation. So we would refer in the Doxygen docs to
 
-- the Wigner D functions
+- the Wigner-$D$ functions
 
 - the Kinematics class
 
