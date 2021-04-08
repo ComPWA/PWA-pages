@@ -208,20 +208,51 @@ thebe_config = {
     "repository_branch": html_theme_options["repository_branch"],
 }
 
-# Add roles to simplify external linnks
+# Add roles to simplify external links
+pdg_version = 2020
+
+
 def setup(app: Sphinx):
     app.add_role(
-        "wiki", autolink("https://en.wikipedia.org/wiki/%s", {"_": " "})
+        "wiki",
+        wikilink("https://en.wikipedia.org/wiki/%s"),
+    )
+    app.add_role(
+        "pdg-listing",
+        role=pdglink(
+            f"https://pdg.lbl.gov/{pdg_version}/listings/rpp{pdg_version}-list-%s.pdf"
+        ),
+    )
+    app.add_role(
+        "pdg-review",
+        role=pdglink(
+            f"https://pdg.lbl.gov/{pdg_version}/reviews/rpp{pdg_version}-rev-%s.pdf"
+        ),
     )
 
 
-def autolink(pattern: str, replace_mapping: Dict[str, str]):
+def pdglink(pattern: str):
     def role(
-        name, rawtext, text: str, lineno, inliner, options={}, content=[]
+        name, rawtext: str, text: str, lineno, inliner, options={}, content=[]
+    ):
+        label = text
+        label = f"§ {label}"
+        url = text
+        url = url.lower()
+        url = url.replace(" ", "-")
+        url = pattern % (url,)
+        node = nodes.reference(rawtext, label, refuri=url, **options)
+        return [node], []
+
+    return role
+
+
+def wikilink(pattern: str):
+    def role(
+        name, rawtext: str, text: str, lineno, inliner, options={}, content=[]
     ):
         output_text = text
-        for search, replace in replace_mapping.items():
-            output_text = output_text.replace(search, replace)
+        output_text = output_text.replace("_", " ")
         url = pattern % (text,)
         node = nodes.reference(rawtext, output_text, refuri=url, **options)
         return [node], []
