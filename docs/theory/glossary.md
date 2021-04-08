@@ -19,16 +19,20 @@ K-matrix
 
   A real, symmetric and hermitian operator that is defined from the
   {term}`T-matrix` through $K^{-1} = T^{-1} + iI$. See
-  {cite}`badalyanResonancesCoupledChannels1982,chungPartialWaveAnalysis1995,tanabashi48Resonances2019`.
+  {cite}`badalyanResonancesCoupledChannels1982,chungPartialWaveAnalysis1995`
+  and {cite}`particledatagroupReviewParticlePhysics2020`, Section 49
+  (Resonances).
 
 P-vector
 
   First described in {cite}`aitchisonMatrixFormalismOverlapping1972`. See also
-  {cite}`chungPartialWaveAnalysis1995,tanabashi48Resonances2019`.
+  {cite}`chungPartialWaveAnalysis1995` and
+  {cite}`particledatagroupReviewParticlePhysics2020`, Section 49 (Resonances).
 
 Q-vector
 
-  See {cite}`chungPartialWaveAnalysis1995,tanabashi48Resonances2019`.
+  See {cite}`chungPartialWaveAnalysis1995` and
+  {cite}`particledatagroupReviewParticlePhysics2020`, Section 49 (Resonances).
 
 S-matrix
 scattering operator
@@ -79,8 +83,8 @@ formation experiment
   Here, $R$ is the resonance in which one is often interested in
   {term}`hadron spectroscopy`.
 
-  See {cite}`tanabashi48Resonances2019`. Related: {term}`production
-  experiment`.
+  See {cite}`particledatagroupReviewParticlePhysics2020`, Section 49
+  (Resonances). Related: {term}`production experiment`.
 
 hadron
 
@@ -121,7 +125,8 @@ spectator particle
   case is comparable to a {term}`formation experiment`, while the second
   represents a decay process of particle $Z$.
 
-  See {cite}`tanabashi48Resonances2019`.
+  See {cite}`particledatagroupReviewParticlePhysics2020`, Section 49
+  (Resonances).
 
 Quantum Chromodynamics (QCD)
 
@@ -135,11 +140,13 @@ quark
 Quark Constituent Model (QCM)
 
   Model with which to describe and categorize matter constituted of quarks
-  (i.e. {term}`hadrons <hadron>`). See {cite}`tanabashi15QuarkModel2019`.
+  (i.e. {term}`hadrons <hadron>`). See
+  {cite}`particledatagroupReviewParticlePhysics2020`, Section 15.
 
 resonance
 
-  See {cite}`tanabashi48Resonances2019`.
+  See {cite}`particledatagroupReviewParticlePhysics2020`, Section 49
+  (Resonances).
 
 Standard Model
 

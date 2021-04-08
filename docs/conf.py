@@ -170,6 +170,7 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
+    "https://doi.org/10.1093/ptep/ptaa104",
     r"https://isbnsearch.org/isbn/\d+",
 ]
 

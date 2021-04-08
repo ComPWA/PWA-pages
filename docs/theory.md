@@ -11,7 +11,7 @@ Partial Wave Analysis (PWA), there are but few sources that give a satisfying
 answer to these more contextual questions.
 
 PWA is a specialized field that requires one to understand some of the most
-complicated aspects of the Standard Model as well as be up-to-date about the
+complicated aspects of the Standard Model, as well as be up-to-date about the
 latest research from hadron spectrometry. For this reason, PWA research papers
 often merely glance of their place within particle physics and dive into the
 formulas right away, leaving newcomers overwhelmed by theoretical subtleties
