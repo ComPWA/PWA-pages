@@ -1,4 +1,4 @@
-<!--- cspell:ignore aitchison tanabashi -->
+<!--- cspell:ignore aitchison badalyan tanabashi -->
 
 # Glossary
 
@@ -19,7 +19,7 @@ K-matrix
 
   A real, symmetric and hermitian operator that is defined from the
   {term}`T-matrix` through $K^{-1} = T^{-1} + iI$. See
-  {cite}`chungPartialWaveAnalysis1995,tanabashi48Resonances2019`.
+  {cite}`badalyanResonancesCoupledChannels1982,chungPartialWaveAnalysis1995,tanabashi48Resonances2019`.
 
 P-vector
 
