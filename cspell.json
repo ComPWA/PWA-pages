@@ -73,7 +73,8 @@
         "pseudoscalar",
         "sympy",
         "unitarity",
-        "unstaged"
+        "unstaged",
+        "zemach"
     ],
     "ignoreWords": [
         "apidoc",

@@ -1,9 +1,15 @@
-# Lorentz-invariant Formalisms
+# Tensor formalisms
 
 ## Rarita-Schwinger
 
-## Other Spin Formalisms
+## Other spin formalisms
 
-### (Covariant) Tensor Formalisms
+### Covariant Tensor formalisms
 
-### Spin-projection formalisms
+{cite}`anisovichMomentoperatorExpansionTwomeson2002`
+
+## Non-covariant tensor formalisms
+
+{cite}`zemachUseAngularMomentumTensors1965`
+
+## Spin-projection formalisms
