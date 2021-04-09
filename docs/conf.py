@@ -279,7 +279,6 @@ from pybtex.style.template import (
     sentence,
     words,
 )
-from sphinxcontrib.bibtex.style.referencing import BracketStyle
 from sphinxcontrib.bibtex.style.referencing.author_year import (
     AuthorYearReferenceStyle,
 )
