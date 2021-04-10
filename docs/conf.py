@@ -72,6 +72,7 @@ extensions = [
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
+    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -209,10 +210,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from docutils.nodes import Node as docutils_Node
 from docutils.nodes import system_message
 from docutils.parsers.rst.states import Inliner
-from sphinx.application import Sphinx
-from sphinx.util.typing import RoleFunction
-
-pdg_version = 2020
+from sphinx.application import Sphinx  # type: ignore
+from sphinx.util.typing import RoleFunction  # type: ignore
 
 
 def setup(app: Sphinx) -> Dict[str, Any]:
@@ -220,46 +219,10 @@ def setup(app: Sphinx) -> Dict[str, Any]:
         "wiki",
         wikilink("https://en.wikipedia.org/wiki/%s"),
     )
-    app.add_role(
-        "pdg-listing",
-        role=pdglink(
-            f"https://pdg.lbl.gov/{pdg_version}/listings/rpp{pdg_version}-list-%s.pdf"
-        ),
-    )
-    app.add_role(
-        "pdg-review",
-        role=pdglink(
-            f"https://pdg.lbl.gov/{pdg_version}/reviews/rpp{pdg_version}-rev-%s.pdf"
-        ),
-    )
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,
     }
-
-
-def pdglink(pattern: str) -> RoleFunction:
-    def role(
-        name: str,
-        rawtext: str,
-        text: str,
-        lineno: int,
-        inliner: Inliner,
-        options: Optional[Dict] = None,
-        content: Optional[List[str]] = None,
-    ) -> Tuple[List[docutils_Node], List[system_message]]:
-        label = text
-        label = f"§ {label}"
-        url = text
-        url = url.lower()
-        url = url.replace(" ", "-")
-        url = pattern % (url,)
-        if options is None:
-            options = dict()
-        node = nodes.reference(rawtext, label, refuri=url, **options)
-        return [node], []
-
-    return role
 
 
 def wikilink(pattern: str) -> RoleFunction:
@@ -288,11 +251,11 @@ import dataclasses
 from typing import Union
 
 import sphinxcontrib.bibtex.plugin  # type: ignore
-from pybtex.database import Entry
-from pybtex.plugin import register_plugin
-from pybtex.richtext import BaseText, Tag, Text
-from pybtex.style.formatting.unsrt import Style as UnsrtStyle
-from pybtex.style.template import (
+from pybtex.database import Entry  # type: ignore
+from pybtex.plugin import register_plugin  # type: ignore
+from pybtex.richtext import BaseText, Tag, Text  # type: ignore
+from pybtex.style.formatting.unsrt import Style as UnsrtStyle  # type: ignore
+from pybtex.style.template import (  # type: ignore
     FieldIsMissing,
     Node,
     _format_list,

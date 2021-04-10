@@ -15,4 +15,5 @@ sphinx-panels
 sphinx-thebe
 sphinx-togglebutton
 sphinxcontrib-bibtex >= 2.2  # bibtex_reference_style
+sphinxcontrib-hep-pdgref
 sympy
