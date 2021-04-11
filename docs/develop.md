@@ -358,21 +358,22 @@ because it allows to check variable names in camel case and snake case. This
 way, a spelling checker helps you avoid mistakes in the code as well! cSpell is
 enforced through pre-commit.
 
-Accepted words are tracked through the {download}`cspell.json <../cspell.json>`
-file. As with the other config files, {download}`cspell.json <../cspell.json>`
-formulates our conventions with regard to spelling and can be continuously
-updated while our code base develops. In the file, the `words` section lists
-words that you want to see as suggested corrections, while `ignoreWords` are
-just the words that won't be flagged. Try to be sparse in adding words: if some
-word is just specific to one file, you can
-[ignore it inline](https://www.npmjs.com/package/cspell#ignore), or you can add
-the file to the `ignorePaths` section if you want to ignore it completely.
+Accepted words are tracked through the
+{download}`.cspell.json <../.cspell.json>` file. As with the other config
+files, {download}`.cspell.json <../.cspell.json>` formulates our conventions
+with regard to spelling and can be continuously updated while our code base
+develops. In the file, the `words` section lists words that you want to see as
+suggested corrections, while `ignoreWords` are just the words that won't be
+flagged. Try to be sparse in adding words: if some word is just specific to one
+file, you can [ignore it inline](https://www.npmjs.com/package/cspell#ignore),
+or you can add the file to the `ignorePaths` section if you want to ignore it
+completely.
 
 It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
 [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 extension: it provides linting, suggests corrections from the {code}`words`
 section, and enables you to quickly add or ignore words through the
-{file}`cspell.json` file.
+{file}`.cspell.json` file.
 
 ## Testing
 
