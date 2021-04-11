@@ -20,20 +20,20 @@ K-matrix
   A real, symmetric and hermitian operator that is defined from the
   {term}`T-matrix` through $K^{-1} = T^{-1} + iI$. See
   {cite}`badalyanResonancesCoupledChannels1982,chungPartialWaveAnalysis1995`
-  and {cite}`particledatagroupReviewParticlePhysics2020`
-  ({pdg-review}`Resonances`).
+  and {pdg-review}`Resonances`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
 
 P-vector
 
   First described in {cite}`aitchisonMatrixFormalismOverlapping1972`. See also
-  {cite}`chungPartialWaveAnalysis1995` and
-  {cite}`particledatagroupReviewParticlePhysics2020` ({pdg-review}`Resonances`).
+  {cite}`chungPartialWaveAnalysis1995` and {pdg-review}`Resonances`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
 
 Q-vector
 
   See {cite}`chungPartialWaveAnalysis1995` and
-  {cite}`particledatagroupReviewParticlePhysics2020`
-  ({pdg-review}`Resonances`).
+  {pdg-review}`Resonances`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
 
 S-matrix
 scattering operator
@@ -84,8 +84,9 @@ formation experiment
   Here, $R$ is the resonance in which one is often interested in
   {term}`hadron spectroscopy`.
 
-  See {cite}`particledatagroupReviewParticlePhysics2020`
-  ({pdg-review}`Resonances`). Related: {term}`production experiment`.
+  See {pdg-review}`Resonances`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`. Related:
+  {term}`production experiment`.
 
 hadron
 
@@ -126,13 +127,14 @@ spectator particle
   case is comparable to a {term}`formation experiment`, while the second
   represents a decay process of particle $Z$.
 
-  See {cite}`particledatagroupReviewParticlePhysics2020`
-  ({pdg-review}`Resonances`).
+  See {pdg-review}`Resonances`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
 
 Quantum Chromodynamics (QCD)
 
   The theory that describes the strong force on the most fundamental level. See
-  {cite}`particledatagroupReviewParticlePhysics2020` ({pdg-review}`qcd`).
+  {pdg-review}`QCD`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
 
 quark
 
@@ -142,12 +144,12 @@ Quark Constituent Model (QCM)
 
   Model with which to describe and categorize matter constituted of quarks
   (i.e. {term}`hadrons <hadron>`). See
-  {cite}`particledatagroupReviewParticlePhysics2020`
+  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`
   ({pdg-review}`Quark Model`).
 
 resonance
 
-  See {cite}`particledatagroupReviewParticlePhysics2020`
+  See {cite:labelpar}`particledatagroupReviewParticlePhysics2020`
   ({pdg-review}`Resonances`).
 
 Standard Model
