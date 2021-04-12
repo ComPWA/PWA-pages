@@ -16,13 +16,13 @@
         "parmater"
     ],
     "ignorePaths": [
+        "**/.cspell.json",
         "*.bib",
         "*.ico",
         "*.root",
         "*.rst_t",
         "*.svg",
         "*particle*.*ml",
-        ".cspell.json",
         ".gitignore",
         ".gitpod.*",
         ".pre-commit-config.yaml",
