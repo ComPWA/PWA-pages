@@ -1,7 +1,7 @@
 <!--
 cSpell:ignore aquirdturtle autobuild docnb dotfiles htmlcov ijmbarr
 cSpell:ignore labextension prettierrc prettierignore pylance pylintrc
-cSpell:ignore pyrightconfig reqs rstcheck ryantam serverextension testenv
+cSpell:ignore pyrightconfig rstcheck ryantam serverextension testenv
 -->
 
 # Develop
@@ -31,8 +31,7 @@ pre-commit install
 ```shell
 python3 -m venv ./venv
 source ./venv/bin/activate
-pip install -r requirements-dev.txt  # pin all dependencies
-pip install -e .
+python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
 pre-commit install
 ```
 
@@ -53,9 +52,11 @@ is helpful in case something goes wrong with the dependencies: just trash the
 environment and recreate it. In addition, you can easily install other versions
 of the dependencies, without affecting other packages you may be working on.
 
-Two common tools to manage virtual environments are Conda or Python's built-in
-`venv`. In either case, you have to activate the environment whenever you want
-to run the framework or use the developer tools.
+Two common tools to manage virtual environments are
+[Conda](https://www.anaconda.com) and
+[Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In
+either case, you have to activate the environment whenever you want to run the
+framework or use the developer tools.
 
 :::{tabbed} Conda environment
 
@@ -67,10 +68,9 @@ install more than just Python packages.
 All projects {ref}`affiliated with the PWA pages <software:Sub-projects>`
 provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-(see e.g. {download}`the one for the PWA-pages <../environment.yml>` that
-defines the minimal dependencies to run the framework. To create an environment
-specific for this package, simply navigate to the main folder of the source
-code and run:
+({download}`environment.yml <../environment.yml>`) that defines the minimal
+dependencies to run the framework. To create an environment specific for this
+package, simply navigate to the main folder of the source code and run:
 
 ```shell
 conda env create
@@ -111,14 +111,15 @@ pip install -e .
 
 ### Editable installation
 
-It is most convenient to work on a package if you install the it in
+When developing a package, it is most convenient if you install it in
 ["editable" mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs).
 This allows you to tweak the source code and try out new ideas immediately,
 because the source code is considered the 'installation'.
 
-With `pip install`, a package can be installed in "editable" mode with the
-[`--editable`](https://pip.pypa.io/en/stable/reference/pip_install/#install-editable)
-flag. Simply
+With [`pip install`](https://pip.pypa.io/en/stable/reference/pip_install), a
+package can be installed in "editable" mode with the
+[`-e` flag](https://pip.pypa.io/en/stable/reference/pip_install/#install-editable).
+Simply
 [clone](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#_git_cloning)
 the repository you want to work on, navigate into it, and run:
 
@@ -136,66 +137,80 @@ python3 setup.py develop
 
 :::
 
-This will install all required dependencies for the package as well.
+This will also install all dependencies required by the package.
 
-### Additional dependencies
+### Optional dependencies
+
+Some packages suggest
+[optional dependencies](https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies).
+They can be installed with
+[`pip`'s "extras" syntax](https://packaging.python.org/tutorials/installing-packages/#installing-setuptools-extras).
+Some examples would be:
+
+```shell
+pip install tensorwaves[jax,scipy]
+pip install .[test]  # local directory, not editable
+pip install -e .[dev]  #  editable + all dev requirements
+```
 
 Developers require several additional tools besides the dependencies required
-to run the package itself (see {ref}`develop:Automated coding conventions`). To
-ensure that developers use exactly the same version of those tools
-(deterministic and reproducible), we define those additional tools
-[requirements files](https://pip.pypa.io/en/stable/user_guide/#requirements-files)
-that have their dependencies 'pinned' through
-[`pip-tools`](https://pypi.org/project/pip-tools).
+to run the package itself (see {ref}`develop:Automated coding conventions`).
+All those additional requirements can be installed with the last example.
 
-All these additional dependencies can be installed as follows. Note that we
-install the package in {ref}`editable install <develop:Editable installation>`
-_after_ all requirements have been been pinned with the
-{file}`requirements-dev.txt` file.
+### Pinning dependency versions
 
-```shell
-pip install -r requirements-dev.txt
-pip install -e .
-```
+To ensure that developers use exactly the same versions of the package
+dependencies and developer requirements, some of the repositories provide
+[constraint files](https://pip.pypa.io/en/stable/user_guide/#constraints-files).
+These files can be used as follows to 'pin' all versions of installed packages:
 
-We explain some of those additional tools in the following sections.
+:::{margin}
 
-:::{dropdown} Node.js packages
-
-If you have Node.js (`npm`) on your system, you can run a few additional
-checks. Install these packages as follows (possibly with administrator rights):
-
-```shell
-npm install -g pyright
-```
+Requirements may differ per Python version. Each version of Python therefore
+requires a different constraint file.
 
 :::
 
-:::{dropdown} Upgrading dependencies
-
-The additional dependencies are defined (unpinned!) in the {file}`*.in` files
-under the {file}`.reqs` folder. To upgrade the 'pinned' requirements under
-{file}`requirements-dev.txt`, use {ref}`develop:Tox`:
-
 ```shell
-tox -e upgrade
+python3 -m pip install -c .constraints/py-3.8.txt -e .
 ```
 
-Internally, this command calls a specific sequence of
-[`pip-compile`](https://pypi.org/project/pip-tools) commands.
+The syntax works just as well for {ref}`develop:Optional dependencies`:
+
+```shell
+python3 -m pip install -c .constraints/py-3.8.txt -e .[doc,sty]
+python3 -m pip install -c .constraints/py-3.8.txt -e .[test]
+python3 -m pip install -c .constraints/py-3.8.txt -e .[dev]
+```
+
+:::{margin}
+
+Constraint files are updated automatically with
+[`pip-tools`](https://github.com/jazzband/pip-tools) through
+{ref}`develop:GitHub Actions`.
+
+:::
+
+:::{note}
+
+This set-up ensures that the framework _deterministic and reproducible_ (up to
+testing) for all commits, which is vital for both users (doing analysis) and
+for developers ({ref}`continuous integration <develop:GitHub Actions>`). In
+other words, it provides a way out of
+["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 
 :::
 
 ### Updating
 
-Whether installing extras or not, it may be that new commits in the repository
-modify the dependencies. In that case, you have to rerun this command after
-pulling new commits from the repository:
+It may be that new commits in the repository modify the dependencies. In that
+case, you have to rerun this command after pulling new commits from the
+repository:
 
 ```shell
 git checkout main
 git pull
-pip install -r requirements-dev.txt
+pip install -c .constraints/py3.8.txt -e .[dev]
 ```
 
 If you still have problems, it may be that certain dependencies have become
@@ -282,7 +297,7 @@ tox -av
 
 Note that {command}`tox` works with its own virtual environments. These
 environments install
-{ref}`'pinned' dependencies <develop:Additional dependencies>`.
+{ref}`'pinned' dependencies <develop:Optional dependencies>`.
 
 ### GitHub Actions
 
@@ -322,21 +337,24 @@ yourself.
 As mentioned in {ref}`develop:Automated coding conventions`, style conventions
 are formulated in config files. For linters, we use the following:
 
+- {download}`.cspell.json <../.cspell.json>`
+  - [cSpell: spell checker for code](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
 - {download}`.markdownlint.json <../.markdownlint.json>`
   - [markdownlint](https://github.com/DavidAnson/markdownlint)
 - {download}`pyproject.toml <../pyproject.toml>`
   - {ref}`black <develop:Formatting>`
   - {ref}`isort <develop:Formatting>`
+- {download}`.mypy.ini <../.mypy.ini>`
+  - [mypy](http://mypy-lang.org)
+- {download}`.prettierrc <../.prettierrc>`
+  - [Prettier](https://prettier.io)
 - {download}`pyrightconfig.json <../pyrightconfig.json>`
   - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
   - [Pyright](https://github.com/microsoft/pyright)
-- {download}`setup.cfg <../setup.cfg>`
-  - [doc8](https://pypi.org/project/doc8)
-  - [mypy](http://mypy-lang.org)
-  - [rstcheck](https://pypi.org/project/rstcheck)
 - {download}`tox.ini <../tox.ini>`
   - [flake8](https://flake8.pycqa.org)
   - [pydocstyle](https://pydocstyle.pycqa.org)
+  - [pytest](https://docs.pytest.org)
 
 :::{toggle}
 
@@ -507,7 +525,7 @@ a few Jupyter notebooks. These notebooks are run and tested whenever you make a
 {ref}`pull request <develop:Collaboration>`. If you want to improve those
 notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
-{ref}`installed with the dev requirements <develop:Additional dependencies>`.
+{ref}`installed with the dev requirements <develop:Optional dependencies>`.
 Jupyter Lab offers a nicer developer experience than the default Jupyter
 notebook editor does.
 
