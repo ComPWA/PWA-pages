@@ -1,0 +1,122 @@
+repos:
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+        exclude: >
+          (?x)^(
+            .*\.bib|
+            .*\.svg|
+            \.cspell\.json
+          )$
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: https://github.com/ComPWA/repo-maintenance
+    rev: 0.0.10
+    hooks:
+      - id: check-dev-files
+      - id: fix-first-nbcell
+        args:
+          - --replace
+      - id: fix-nbformat-version
+
+  - repo: https://github.com/ComPWA/mirrors-cspell
+    rev: v5.3.12
+    hooks:
+      - id: cspell
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.3.5
+    hooks:
+      - id: editorconfig-checker
+        exclude: >
+          (?x)^(
+            .*\.py
+          )$
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.27.1
+    hooks:
+      - id: markdownlint
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.2.1
+    hooks:
+      - id: prettier
+        language_version: 12.18.2 # prettier does not specify node correctly
+
+  - repo: https://github.com/ComPWA/mirrors-pyright
+    rev: v1.1.130
+    hooks:
+      - id: pyright
+
+  # The following tools have to be install locally, because they can also be
+  # used by code editors (e.g. linting and format-on-save).
+
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: black
+        language: system
+        types:
+          - python
+
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: system
+        types:
+          - python
+
+      - id: isort
+        name: isort
+        entry: isort
+        language: system
+        types:
+          - python
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types:
+          - python
+
+      - id: nbstripout
+        name: nbstripout
+        entry: nbstripout
+        language: system
+        types:
+          - jupyter
+
+      - id: pydocstyle
+        name: pydocstyle
+        entry: pydocstyle
+        language: system
+        types:
+          - python
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        args:
+          - --rcfile=.pylintrc
+          - --score=no
+        language: system
+        types:
+          - python
