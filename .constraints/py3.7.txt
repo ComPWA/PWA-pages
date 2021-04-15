@@ -38,7 +38,7 @@ flake8-polyfill==1.0.2
 flake8-rst-docstrings==0.0.14
 flake8==3.9.0
 gitdb==4.0.7
-gitpython==3.1.13
+gitpython==3.1.14
 graphviz==0.16
 identify==2.2.3
 idna==2.10
