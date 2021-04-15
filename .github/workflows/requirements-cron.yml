@@ -47,13 +47,12 @@ jobs:
           python-version: 3.7
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pre-commit
+          python3 -m pip install --upgrade pip
+          python3 -m pip install --upgrade pre-commit
       - name: Perform style checks
         run: pre-commit autoupdate
       - uses: actions/upload-artifact@v2
         with:
-          name: pre-commit
           path: .pre-commit-config.yaml
 
   push:
@@ -68,7 +67,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           path: .constraints
-      - run: mv -f .constraints/.pre-commit-config.yaml .
+      - run: |
+          mv -f artifact/.pre-commit-config.yml .. || true
+          mv -f artifact/* . || true
+        working-directory: .constraints
       - run: git status -s
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
