@@ -59,7 +59,6 @@ extensions = [
     "myst_nb",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
-    "sphinx.ext.doctest",
     "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
@@ -187,7 +186,6 @@ nb_render_priority = {
         "text/plain",
     )
 }
-nb_render_priority["doctest"] = nb_render_priority["html"]
 
 # Settings for myst-parser
 myst_enable_extensions = [
