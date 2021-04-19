@@ -132,18 +132,14 @@ nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
 intersphinx_mapping = {
+    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "ComPWA": ("https://pwa.readthedocs.io/projects/compwa/en/latest", None),
-    "expertsystem": (
-        "https://pwa.readthedocs.io/projects/expertsystem/en/stable",
-        None,
-    ),
+    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "mypy": ("https://mypy.readthedocs.io/en/stable", None),
     "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
-    "tensorwaves": (
-        "https://pwa.readthedocs.io/projects/tensorwaves/en/stable",
-        None,
-    ),
+    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
+    "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
     "tf_pwa": ("https://pwa.readthedocs.io/projects/tf-pwa/en/latest", None),
     "tox": ("https://tox.readthedocs.io/en/stable", None),
 }

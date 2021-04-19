@@ -50,6 +50,7 @@
     ],
     "language": "en-US",
     "words": [
+        "ampform",
         "besiii",
         "blazingly",
         "breit",
@@ -75,6 +76,7 @@
         "matplotlib",
         "numpy",
         "pseudoscalar",
+        "qrules",
         "sympy",
         "unitarity",
         "unstaged",
