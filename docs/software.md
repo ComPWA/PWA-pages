@@ -44,8 +44,8 @@ Some other, highly recommended PWA packages are:
 - [Pawian](https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware)
   (Ruhr-Universität Bochum for [PANDA](https://panda.gsi.de) /
   [BESIII](http://bes3.ihep.ac.cn))
-- [Laura++](https://laura.hepforge.org/) ([LHCb](https://lhcb.web.cern.ch))
-  {cite}`backLauraDalitzPlot2018`
+- [Laura++](https://doi.org/10.1016/j.cpc.2018.04.017)
+  ([LHCb](https://lhcb.web.cern.ch)) {cite}`backLauraDalitzPlot2018`
 - [TensorFlowAnalysis](https://gitlab.cern.ch/poluekt/TensorFlowAnalysis)
   ([LHCb](https://lhcb.web.cern.ch))
   - [AmpliTF](https://github.com/apoluekt/AmpliTF)
