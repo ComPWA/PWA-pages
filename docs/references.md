@@ -4,8 +4,7 @@
 
 :::{tip}
 
-Download this bibliography as BibTeX
-{download}`here </bibliography-Theory.bib>`.
+Download this bibliography as BibTeX {download}`here </bibliography.bib>`.
 
 :::
 
@@ -13,7 +12,7 @@ Download this bibliography as BibTeX
 
 :::
 
-```{bibliography} /bibliography-Theory.bib
+```{bibliography} /bibliography.bib
 ---
 style: unsrt_et_al
 labelprefix: T
@@ -25,7 +24,7 @@ cited:
 
 :::
 
-```{bibliography} /bibliography-Theory.bib
+```{bibliography} /bibliography.bib
 ---
 style: unsrt_et_al
 labelprefix: T

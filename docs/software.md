@@ -12,11 +12,9 @@ Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer)!
 
 ```{toctree}
 ---
-maxdepth: 2
-caption: Table of contents
+hidden:
 ---
-software/git
-software/references
+git
 ```
 
 ## PWA Software Packages
@@ -45,7 +43,7 @@ Some other, highly recommended PWA packages are:
   (Ruhr-Universität Bochum for [PANDA](https://panda.gsi.de) /
   [BESIII](http://bes3.ihep.ac.cn))
 - [Laura++](https://doi.org/10.1016/j.cpc.2018.04.017)
-  ([LHCb](https://lhcb.web.cern.ch)) {cite}`backLauraDalitzPlot2018`
+  ([LHCb](https://lhcb.web.cern.ch))
 - [TensorFlowAnalysis](https://gitlab.cern.ch/poluekt/TensorFlowAnalysis)
   ([LHCb](https://lhcb.web.cern.ch))
   - [AmpliTF](https://github.com/apoluekt/AmpliTF)

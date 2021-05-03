@@ -149,8 +149,7 @@ autosectionlabel_prefix_document = True
 
 # Settings for bibtex
 bibtex_bibfiles = [
-    "bibliography-Software.bib",
-    "bibliography-Theory.bib",
+    "bibliography.bib",
 ]
 bibtex_reference_style = "author_year_no_comma"
 
