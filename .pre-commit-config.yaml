@@ -33,6 +33,7 @@ repos:
         args:
           - --replace
       - id: fix-nbformat-version
+      - id: format-setup-cfg
 
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.10.0
