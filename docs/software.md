@@ -14,7 +14,7 @@ Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer)!
 ---
 hidden:
 ---
-git
+software/git
 ```
 
 ## PWA Software Packages
