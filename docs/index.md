@@ -34,7 +34,6 @@ introduction
 formalisms
 dynamics
 data
-results
 topics
 software
 analysis
