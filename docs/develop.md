@@ -484,8 +484,10 @@ If you are doing a lot of work on the documentation,
 [`sphinx-autobuild`](https://pypi.org/project/sphinx-autobuild) is a nice tool
 to use. Just run:
 
+<!-- cspell:ignore doclive -->
+
 ```shell
-tox -e doc-live
+tox -e doclive
 ```
 
 This will start a server [http://127.0.0.1:8000](http://127.0.0.1:8000) where
@@ -527,19 +529,8 @@ notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
 Jupyter Lab offers a nicer developer experience than the default Jupyter
-notebook editor does.
-
-In addition, we recommend to install a few extensions:
-
-```shell
-jupyter labextension install jupyterlab-execute-time
-jupyter labextension install @ijmbarr/jupyterlab_spellchecker
-jupyter labextension install @aquirdturtle/collapsible_headings
-jupyter labextension install @ryantam626/jupyterlab_code_formatter
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-
-jupyter serverextension enable --py jupyterlab_code_formatter
-```
+notebook editor does. A few useful Jupyter Lab plugins are also installed
+through the {ref}`optional dependencies <develop:Optional dependencies>`.
 
 Now, if you want to test all notebooks in the documentation folder and check
 what their output cells will look like in the {ref}`develop:Documentation`, you
@@ -550,7 +541,13 @@ tox -e docnb
 ```
 
 This command takes more time than `tox -e doc`, but it is good practice to do
-this before you submit a pull request.
+this before you submit a pull request. It's also possible to continuously
+generate the HTML pages _including cell output_ while you work on the notebooks
+with:
+
+```shell
+EXECUTE_NB= tox -e doclive
+```
 
 ## Collaboration
 
