@@ -114,7 +114,6 @@
         "mypy",
         "nbconvert",
         "nbformat",
-        "nbstripout",
         "notcited",
         "oneline",
         "pandoc",
