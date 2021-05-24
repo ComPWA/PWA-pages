@@ -26,7 +26,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.19
+    rev: 0.0.21
     hooks:
       - id: check-dev-files
         args:
@@ -73,7 +73,7 @@ repos:
         language_version: 12.18.2 # prettier does not specify node correctly
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.139
+    rev: v1.1.142
     hooks:
       - id: pyright
 
