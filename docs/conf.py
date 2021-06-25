@@ -140,7 +140,6 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
-    "tf_pwa": ("https://tf-pwa.readthedocs.io/en/latest", None),
     "tox": ("https://tox.readthedocs.io/en/stable", None),
 }
 

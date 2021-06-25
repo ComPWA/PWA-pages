@@ -26,9 +26,8 @@ Currently, sub-projects of the PWA Pages are:
 - {doc}`QRules <qrules:index>`
 - {doc}`AmpForm <ampform:index>`
 - {doc}`TensorWaves <tensorwaves:index>`
-- {doc}`TF-PWA <tf_pwa:index>`
-- {doc}`ComPWA <ComPWA:index>`
-- {doc}`pycompwa <pycompwa:index>`
+- {doc}`ComPWA <ComPWA:index>` (deprecated)
+- {doc}`pycompwa <pycompwa:index>` (deprecated)
 - {doc}`PWA Expert System <expertsystem:index>` (deprecated)
 
 Want to contribute or be part of this collection of PWA documentation
@@ -50,10 +49,13 @@ Some other, highly recommended PWA packages are:
   - [TFA2](https://github.com/apoluekt/TFA2)
 - [ROOTPWA](https://github.com/ROOTPWA-Maintainers/ROOTPWA)
   ([COMPASS](https://home.cern/science/experiments/compass))
-- [PyPWA](https://github.com/JeffersonLab/PyPWA)
-  ([Jefferson Lab](https://www.jlab.org))
+- [PyPWA](https://pypwa.jlab.org) ([Jefferson Lab](https://www.jlab.org))
 - [GPUPWA](https://sourceforge.net/projects/gpupwa)
   ([BESIII](http://bes3.ihep.ac.cn))
+- [AmpGen](https://github.com/GooFit/AmpGen/blob/master/README.md)
+- [AmpTools](https://github.com/mashephe/AmpTools)
+- [TF-PWA](https://tf-pwa.rtfd.io) ([BESIII](http://bes3.ihep.ac.cn) /
+  [LHCb](https://lhcb.web.cern.ch))
 
 Please
 [let us know](https://github.com/ComPWA/PWA-pages/issues/new?title=Missing%20PWA%20package)

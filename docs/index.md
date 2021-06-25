@@ -56,5 +56,4 @@ hidden:
 AmpForm <https://ampform.rtfd.io>
 QRules <https://qrules.rtfd.io>
 TensorWaves <https://tensorwaves.rtfd.io>
-TF-PWA <https://tf-pwa.rtfd.io>
 ```
