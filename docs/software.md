@@ -6,9 +6,12 @@
 These pages and are **under development**.
 ```
 
-```{tip}
-Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer)!
-```
+:::{tip}
+
+Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
+[Towards a HEP Software Training curriculum](https://hepsoftwarefoundation.org/training/curriculum.html)!
+
+:::
 
 ```{toctree}
 ---
@@ -17,24 +20,26 @@ hidden:
 software/git
 ```
 
-## PWA Software Packages
-
-### Sub-projects
+## Affiliated projects
 
 Currently, sub-projects of the PWA Pages are:
 
 - {doc}`QRules <qrules:index>`
 - {doc}`AmpForm <ampform:index>`
 - {doc}`TensorWaves <tensorwaves:index>`
-- {doc}`ComPWA <ComPWA:index>` (deprecated)
-- {doc}`pycompwa <pycompwa:index>` (deprecated)
-- {doc}`PWA Expert System <expertsystem:index>` (deprecated)
+
+These packages originated from the following (deprecated) projects:
+
+- {doc}`ComPWA <ComPWA:index>` and its Python interface,
+  {doc}`pycompwa <pycompwa:index>`
+- {doc}`PWA Expert System <expertsystem:index>` (split into
+  {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`)
 
 Want to contribute or be part of this collection of PWA documentation
 platforms? Welcome to contact the
 [Common Partial Wave Analysis](https://github.com/ComPWA) organization!
 
-### Other PWA packages
+## Other recommendations
 
 Some other, highly recommended PWA packages are:
 

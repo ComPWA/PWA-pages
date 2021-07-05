@@ -9,8 +9,8 @@ cSpell:ignore pyrightconfig rstcheck ryantam serverextension testenv
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/PWA-pages)
 
 This page describes some of the tools and conventions followed by the PWA pages
-and by {ref}`affiliated PWA software projects <software:Sub-projects>`. Where
-possible, we use the
+and by {ref}`affiliated PWA software projects <software:Affiliated projects>`.
+Where possible, we use the
 [source code of the PWA-pages repository](https://github.com/ComPWA/PWA-pages)
 as example, because its file structure is comparable to that of the others.
 
@@ -65,8 +65,8 @@ administrator rights, see instructions on
 [this page](https://www.anaconda.com/distribution). In addition, Conda can
 install more than just Python packages.
 
-All projects {ref}`affiliated with the PWA pages <software:Sub-projects>`
-provide a
+All projects
+{ref}`affiliated with the PWA pages <software:Affiliated projects>` provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ({download}`environment.yml <../environment.yml>`) that defines the minimal
 dependencies to run the framework. To create an environment specific for this
@@ -580,10 +580,10 @@ Publicly available are:
 ### Branching model
 
 While our aim is to maintain long-term, stable projects,
-{ref}`PWA software projects <software:Sub-projects>` are academic projects that
-are subject to change and often require swift modifications or new features for
-ongoing analyses. For this reason, we work in different layers of development.
-These layers are represented by Git branches.
+{ref}`PWA software projects <software:Affiliated projects>` are academic
+projects that are subject to change and often require swift modifications or
+new features for ongoing analyses. For this reason, we work in different layers
+of development. These layers are represented by Git branches.
 
 ![Epic branches](./_static/epic-branches.svg)
 
