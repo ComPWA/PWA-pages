@@ -14,8 +14,9 @@ These pages and are **under development**.
 
 The PWA Software Pages serve two purposes:
 
-1. They aim to bring together the many Partial Wave Analysis frameworks out
-   there on the market through interlinked documentation.
+1. They aim to bring together the
+   {ref}`many Partial Wave Analysis frameworks <software:Other PWA packages>`
+   out there on the market through interlinked documentation.
 
 2. They provide a dynamic platform to collect and maintain knowledge on both
    PWA theory and software tools.
