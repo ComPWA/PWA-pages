@@ -6,9 +6,15 @@ These pages and are **under development**.
 
 ## Types of experiments
 
+:::{todo}
+
 - Formation vs production
 
+:::
+
 ## PWA data
+
+:::{todo}
 
 - Why are momentum tuples sufficient?
 - How to determine initial 4-momentum?
@@ -19,7 +25,19 @@ These pages and are **under development**.
   - Branching fraction
   - (?) Fit fractions
 
+:::
+
 ## Comparison with Measurements
+
+<!-- markdownlint-disable -->
+<!-- prettier-ignore-start -->
+:::{todo}
+---
+class: dropdown
+---
+<!-- prettier-ignore-end -->
+
+<!-- markdownlint-enable -->
 
 Luminosity $L$
 
@@ -38,3 +56,5 @@ state in the infinitesimal phase space element.
 This section should clear up the phase space element problem we are having. I'm
 not sure its just a plotting problem. Since there one makes the transition from
 unbinned to binned data...
+
+:::

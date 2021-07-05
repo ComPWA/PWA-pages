@@ -14,7 +14,7 @@ details, see the {doc}`develop page <develop>`.
 Partial Wave Analysis is a complicated research discipline, where several
 aspects of quantum field theory, experimental physics, statistics, regression
 analysis, and high-performance computing come together. This has led to
-{ref}`a large number of PWA frameworks <software:Other PWA packages>` that
+{ref}`a large number of PWA frameworks <software:Other recommendations>` that
 taylor to the need of each collaboration.
 
 This state of affairs is only natural: research requires a flexible and

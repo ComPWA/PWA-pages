@@ -1,10 +1,10 @@
-<!-- cspell:ignore aaij marangotto -->
-
 # Helicity formalism
 
 ```{warning}
 These pages and are **under development**.
 ```
+
+:::{todo}
 
 - Lorentz-invariance of helicity operator
 
@@ -27,6 +27,8 @@ These pages and are **under development**.
 
 - Kinematic variables
 - An example
+
+:::
 
 <!-- Two particle states are the key element here. With these one can construct
 states of total spin $J$ and projection $M$.
@@ -77,6 +79,7 @@ an example here. -->
 
 Recommended literature:
 
+<!-- cspell:ignore aaij marangotto -->
 <!-- markdownlint-disable -->
 
 - General introductions to helicity angles: <br>
