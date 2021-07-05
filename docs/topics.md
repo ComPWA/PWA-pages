@@ -4,6 +4,8 @@
 These pages and are **under development**.
 ```
 
+:::{todo}
+
 Other topics (**re-categorize!**)
 
 - Phase-space
@@ -20,6 +22,8 @@ Other topics (**re-categorize!**)
 
 - Overlapping resonances
 - Coupled channels
+
+:::
 
 ```{toctree}
 ---

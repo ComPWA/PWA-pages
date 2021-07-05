@@ -122,7 +122,7 @@ html_theme_options = {
 }
 html_title = "Partial Wave Analysis"
 pygments_style = "sphinx"
-todo_include_todos = False
+todo_include_todos = True
 viewcode_follow_imported_members = True
 
 # Cross-referencing configuration

@@ -6,10 +6,16 @@ These pages and are **under development**.
 
 ## Asymptotic Freedom
 
+:::{todo}
+
 - Confinement property of the strong force
 - Constituent Quark Model: only colorless bound states
 
+:::
+
 ## Mesons and Baryons
+
+:::{todo}
 
 - Quantum numbers ($J^{CP}(I^G)$)
 
@@ -27,3 +33,5 @@ These pages and are **under development**.
 
   - pseudoscalar mesons
   - vector mesons
+
+:::
