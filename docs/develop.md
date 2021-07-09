@@ -7,6 +7,7 @@ cSpell:ignore pyrightconfig rstcheck ryantam serverextension testenv
 # Develop
 
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/PWA-pages)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ComPWA/PWA-pages)
 
 This page describes some of the tools and conventions followed by the PWA pages
 and by {ref}`affiliated PWA software projects <software:Affiliated projects>`.
