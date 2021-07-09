@@ -248,10 +248,12 @@ activated, but only once, after you clone the repository:
 pre-commit install
 ```
 
-```{margin} Initializing pre-commit
+:::{margin} Initializing pre-commit
+
 The first time you run {command}`pre-commit` after installing or updating its
 checks, it may take some time to initialize.
-```
+
+:::
 
 Upon committing, {command}`pre-commit` now runs a set of checks as defined in
 the file
@@ -272,10 +274,12 @@ these tools.
 
 More thorough checks can be run in one go with the following command:
 
-```{margin} Running jobs in parallel
+:::{margin} Running jobs in parallel
+
 The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer
 overview of the progress. See {ref}`tox:parallel_mode`.
-```
+
+:::
 
 ```shell
 tox -p
@@ -357,15 +361,17 @@ are formulated in config files. For linters, we use the following:
   - [pydocstyle](https://pydocstyle.pycqa.org)
   - [pytest](https://docs.pytest.org)
 
-:::{toggle}
+::::{toggle}
 
-```{note}
+:::{note}
+
 As an illustration of automated checks, we list the files here with links to
-the actual files as to ensure that these files still exist and that
-this documentation remains up to date.
-```
+the actual files as to ensure that these files still exist and that this
+documentation remains up to date.
 
 :::
+
+::::
 
 ### Spelling
 
@@ -405,17 +411,18 @@ pytest -n auto
 The flag {command}`-n auto` causes {code}`pytest` to
 [run with a distributed strategy](https://pypi.org/project/pytest-xdist).
 
-:::{margin}
+::::{margin}
 
-```{tip}
-In VScode, you can
-visualize test coverage are covered with
+:::{tip}
+
+In VScode, you can visualize test coverage are covered with
 [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
 For this you need to run {command}`pytest` with the flag
 {command}`--cov-report=xml`).
-```
 
 :::
+
+::::
 
 Try to keep test coverage high. You can compute current coverage by running
 
@@ -433,7 +440,8 @@ pytest --profile-svg
 
 and check the stats and the {file}`prof/combined.svg` output file.
 
-```{dropdown} Organizing unit tests
+:::{dropdown} Organizing unit tests
+
 When **unit** tests are well-organized, you avoid writing duplicate tests. In
 addition, it allows you to check for coverage of specific parts of the code.
 
@@ -447,12 +455,15 @@ folder. Similarly, bundle for a class {code}`SomeClass` under a
 
 If possible, also try to order the tests by alphabetical order (that is, the
 order of the {code}`import` statements).
-```
 
-```{note}
+:::
+
+:::{note}
+
 Jupyter notebooks can also be used as tests. See more info
 {ref}`here <develop:Jupyter Notebooks>`.
-```
+
+:::
 
 ## Documentation
 
@@ -512,16 +523,18 @@ or [Markdown](https://www.markdownguide.org). In addition, it's easy to write
 
 ### Jupyter Notebooks
 
-:::{margin}
+::::{margin}
 
-```{tip}
+:::{tip}
+
 Sometimes it happens that your Jupyter installation does not recognize your
 {ref}`virtual environment <develop:Virtual environment>`. In that case, have a
 look at
 [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
-```
 
 :::
+
+::::
 
 The [docs](https://github.com/ComPWA/PWA-pages/tree/main/docs) folder contains
 a few Jupyter notebooks. These notebooks are run and tested whenever you make a
@@ -608,11 +621,13 @@ branch can be found on RTD under "latest", see e.g.
 
 #### Epic branches
 
-```{margin}
+:::{margin}
+
 The word ["epic"](https://www.atlassian.com/agile/project-management/epics) is
 used in
 [agile software development](https://en.wikipedia.org/wiki/Agile_software_development).
-```
+
+:::
 
 When working on a feature or larger refactoring that may take a longer time
 (think of implementing a new PWA formalism), we isolate its development under
