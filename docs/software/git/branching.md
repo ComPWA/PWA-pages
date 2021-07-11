@@ -1,4 +1,4 @@
-<!--- cspell:ignore Git's -->
+<!-- cspell:ignore Git's -->
 
 # Trying out different ideas: branching
 
@@ -20,7 +20,6 @@ initializing a repository, Git automatically creates a branch called `main`. In
 
 ```shell
 git branch
-
 ```
 
 There is a `main` branch next to the `HEAD` (which is in a "detached" state).
@@ -32,7 +31,6 @@ commit (the one that contains two empty files). Let's call this new branch
 ```shell
 git branch new_idea
 git branch -v
-
 ```
 
 The second commands prints the existing branches along with the commits they
@@ -44,7 +42,6 @@ branch, run:
 
 ```shell
 git checkout new_idea
-
 ```
 
 :::{sidebar} Checkout ambiguity

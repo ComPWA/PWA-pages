@@ -1,4 +1,4 @@
-<!--- cspell:ignore aitchison badalyan tanabashi -->
+<!-- cspell:ignore aitchison badalyan tanabashi -->
 
 # Glossary
 
