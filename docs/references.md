@@ -1,4 +1,4 @@
-<!--- cspell:ignore labelprefix -->
+<!-- cspell:ignore labelprefix -->
 
 # Bibliography
 

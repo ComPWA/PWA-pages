@@ -1,4 +1,4 @@
-<!--- cspell:ignore Git's -->
+<!-- cspell:ignore Git's -->
 
 # Trying out different ideas: branching
 
