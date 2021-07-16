@@ -41,7 +41,6 @@ analysis
 glossary
 references
 develop
-about
 API <api/pwa_pages>
 ```
 
@@ -57,4 +56,14 @@ hidden:
 AmpForm <https://ampform.rtfd.io>
 QRules <https://qrules.rtfd.io>
 TensorWaves <https://tensorwaves.rtfd.io>
+```
+
+```{toctree}
+---
+caption: ComPWA Organization
+hidden:
+---
+Website <https://compwa-org.readthedocs.io>
+GitHub Repositories <https://github.com/ComPWA>
+About <https://compwa-org.readthedocs.io/en/stable/about.html>
 ```
