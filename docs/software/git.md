@@ -4,6 +4,17 @@
 These pages and are **under development**.
 ```
 
+:::{tip}
+
+See also:
+
+- 33min video course on freeCodeCamp:
+  [How Git Branches Work](https://www.freecodecamp.org/news/how-git-branches-work)
+- Free [Pro Git](https://git-scm.com/book) book
+- [3-part mini Git workshop with animations](https://docs.google.com/presentation/d/e/2PACX-1vTixpJpawfcKObPfKuZf6nh5zyo2F26X0ZfbrQqVsXJ_F4pxrPz4Sun6gG5sCv8AT3meujlJgUQw5cj/pub)
+
+:::
+
 The source code [of ComPWA](https://github.com/ComPWA/ComPWA) and
 [of pycompwa](https://github.com/ComPWA/pycompwa) is maintained through
 [Git](https://git-scm.com/), a distributed version control system that has
