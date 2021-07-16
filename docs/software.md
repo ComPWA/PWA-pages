@@ -1,6 +1,6 @@
 <!-- cspell:ignore ampli gpupwa rootpwa Universität -->
 
-# Software
+# PWA Frameworks
 
 ```{warning}
 These pages and are **under development**.

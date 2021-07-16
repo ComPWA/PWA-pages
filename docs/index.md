@@ -25,28 +25,37 @@ In addition, the {doc}`develop page <develop>` formulates some conventions and
 tools that are used by
 {ref}`affiliated PWA packages <software:Affiliated projects>`.
 
-## Table of Contents
-
 ```{toctree}
 ---
-maxdepth: 2
+caption: Physics
+hidden:
 ---
 introduction
 formalisms
 dynamics
 data
 topics
+```
+
+```{toctree}
+---
+caption: Software
+hidden:
+---
 software
 analysis
+```
+
+```{toctree}
+---
+caption: Appendices
+hidden:
+---
 glossary
 references
 develop
 API <api/pwa_pages>
 ```
-
-- {ref}`Python API <modindex>`
-- {ref}`General Index <genindex>`
-- {ref}`Search <search>`
 
 ```{toctree}
 ---
