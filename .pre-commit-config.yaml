@@ -57,7 +57,7 @@ repos:
           )$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.27.1
+    rev: v0.28.1
     hooks:
       - id: markdownlint
 
@@ -73,7 +73,7 @@ repos:
         language_version: 12.18.2 # prettier does not specify node correctly
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.157
+    rev: v1.1.160
     hooks:
       - id: pyright
 
