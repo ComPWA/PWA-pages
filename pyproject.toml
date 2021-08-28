@@ -6,31 +6,29 @@ requires = [
 ]
 
 [tool.setuptools_scm]
-write_to = "src/pwa_pages/version.py"
+write_to = "version.py"
 
 [tool.black]
-line-length = 79
-target-version = [
-    'py36',
-    'py37',
-    'py38',
-]
-include = '\.pyi?$'
 exclude = '''
 /(
     .*\.egg-info
     | .*build
     | \.eggs
     | \.git
-    | \.pytest_cache
     | \.tox
     | \.venv
     | \.vscode
     | dist
 )/
 '''
+include = '\.pyi?$'
+line-length = 79
+target-version = [
+    "py36",
+    "py37",
+    "py38",
+]
 
 [tool.isort]
-profile = "black"
-src_paths = ["src", "tests"]
 line_length = 79
+profile = "black"

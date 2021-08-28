@@ -38,12 +38,12 @@ repos:
       - id: format-setup-cfg
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: v1.10.0
+    rev: v1.11.0
     hooks:
       - id: blacken-docs
 
   - repo: https://github.com/ComPWA/mirrors-cspell
-    rev: v5.8.0
+    rev: v5.8.2
     hooks:
       - id: cspell
 
@@ -72,11 +72,6 @@ repos:
       - id: prettier
         language_version: 12.18.2 # prettier does not specify node correctly
 
-  - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.163
-    hooks:
-      - id: pyright
-
   # The following tools have to be install locally, because they can also be
   # used by code editors (e.g. linting and format-on-save).
 
@@ -89,40 +84,9 @@ repos:
         types:
           - python
 
-      - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types:
-          - python
-
       - id: isort
         name: isort
         entry: isort
-        language: system
-        types:
-          - python
-
-      - id: mypy
-        name: mypy
-        entry: mypy
-        language: system
-        types:
-          - python
-
-      - id: pydocstyle
-        name: pydocstyle
-        entry: pydocstyle
-        language: system
-        types:
-          - python
-
-      - id: pylint
-        name: pylint
-        entry: pylint
-        args:
-          - --rcfile=.pylintrc
-          - --score=no
         language: system
         types:
           - python
