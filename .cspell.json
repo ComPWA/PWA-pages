@@ -116,7 +116,6 @@
         "mkdir",
         "modindex",
         "multiplets",
-        "mypy",
         "nbconvert",
         "nbformat",
         "notcited",
