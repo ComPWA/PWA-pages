@@ -102,13 +102,3 @@ repos:
         language: system
         types:
           - python
-
-      - id: pylint
-        name: pylint
-        entry: pylint
-        args:
-          - --rcfile=.pylintrc
-          - --score=no
-        language: system
-        types:
-          - python
