@@ -91,6 +91,7 @@
         "autopep",
         "codemirror",
         "commitlint",
+        "compwa",
         "eval",
         "expertsystem",
         "figsize",
