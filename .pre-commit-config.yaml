@@ -1,3 +1,10 @@
+ci:
+  autoupdate_commit_msg: "ci: autoupdate pre-commit hooks"
+  autoupdate_schedule: monthly
+  skip:
+    # hooks that don't work on pre-commit.ci
+    - editorconfig-checker
+
 repos:
   - repo: meta
     hooks:
