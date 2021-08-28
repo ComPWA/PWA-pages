@@ -6,16 +6,9 @@ requires = [
 ]
 
 [tool.setuptools_scm]
-write_to = "src/pwa_pages/version.py"
+write_to = "version.py"
 
 [tool.black]
-line-length = 79
-target-version = [
-    'py36',
-    'py37',
-    'py38',
-]
-include = '\.pyi?$'
 exclude = '''
 /(
     .*\.egg-info
@@ -28,8 +21,14 @@ exclude = '''
     | dist
 )/
 '''
+include = '\.pyi?$'
+line-length = 79
+target-version = [
+    "py36",
+    "py37",
+    "py38",
+]
 
 [tool.isort]
 line_length = 79
 profile = "black"
-src_paths = ["src"]

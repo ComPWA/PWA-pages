@@ -19,7 +19,7 @@ repo_name = "PWA-pages"
 copyright = "2020, ComPWA"
 author = "Common Partial Wave Analysis"
 
-if os.path.exists(f"../src/{package}/version.py"):
+if os.path.exists("../version.py"):
     __release = get_distribution(package).version
     version = ".".join(__release.split(".")[:3])
 
