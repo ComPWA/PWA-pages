@@ -84,7 +84,6 @@
         "zemach"
     ],
     "ignoreWords": [
-        "apidoc",
         "arange",
         "autopep",
         "codemirror",

@@ -23,23 +23,6 @@ if os.path.exists(f"../src/{package}/version.py"):
     __release = get_distribution(package).version
     version = ".".join(__release.split(".")[:3])
 
-# -- Generate API skeleton ----------------------------------------------------
-shutil.rmtree("api", ignore_errors=True)
-subprocess.call(
-    " ".join(
-        [
-            "sphinx-apidoc",
-            f"../src/{package}/",
-            "-o api/",
-            "--force",
-            "--no-toc",
-            "--templatedir _templates",
-            "--separate",
-        ]
-    ),
-    shell=True,
-)
-
 
 # -- General configuration ---------------------------------------------------
 master_doc = "index.md"

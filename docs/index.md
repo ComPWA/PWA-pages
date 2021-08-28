@@ -49,7 +49,6 @@ hidden:
 ---
 glossary
 references
-API <api/pwa_pages>
 ```
 
 ```{toctree}
