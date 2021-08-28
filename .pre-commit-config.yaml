@@ -80,3 +80,4 @@ repos:
     rev: v2.3.2
     hooks:
       - id: prettier
+        language_version: 12.18.2 # prettier does not specify node correctly
