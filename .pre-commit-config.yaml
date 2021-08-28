@@ -37,6 +37,11 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
+  - repo: https://github.com/psf/black
+    rev: 21.7b0
+    hooks:
+      - id: black
+
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.11.0
     hooks:
@@ -56,6 +61,11 @@ repos:
             .*\.py
           )$
 
+  - repo: https://github.com/pycqa/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
+
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.28.1
     hooks:
@@ -70,23 +80,3 @@ repos:
     rev: v2.3.2
     hooks:
       - id: prettier
-        language_version: 12.18.2 # prettier does not specify node correctly
-
-  # The following tools have to be install locally, because they can also be
-  # used by code editors (e.g. linting and format-on-save).
-
-  - repo: local
-    hooks:
-      - id: black
-        name: black
-        entry: black
-        language: system
-        types:
-          - python
-
-      - id: isort
-        name: isort
-        entry: isort
-        language: system
-        types:
-          - python
