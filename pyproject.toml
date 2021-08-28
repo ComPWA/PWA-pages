@@ -22,7 +22,6 @@ exclude = '''
     | .*build
     | \.eggs
     | \.git
-    | \.pytest_cache
     | \.tox
     | \.venv
     | \.vscode
@@ -31,6 +30,6 @@ exclude = '''
 '''
 
 [tool.isort]
-profile = "black"
-src_paths = ["src", "tests"]
 line_length = 79
+profile = "black"
+src_paths = ["src"]

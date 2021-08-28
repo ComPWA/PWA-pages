@@ -76,8 +76,6 @@ extensions = [
 exclude_patterns = [
     "**.ipynb_checkpoints",
     "*build",
-    "adr*",
-    "tests",
 ]
 
 # General sphinx settings
