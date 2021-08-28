@@ -21,10 +21,6 @@ The PWA Software Pages serve two purposes:
 2. They provide a dynamic platform to collect and maintain knowledge on both
    PWA theory and software tools.
 
-In addition, the {doc}`develop page <develop>` formulates some conventions and
-tools that are used by
-{ref}`affiliated PWA packages <software:Affiliated projects>`.
-
 ```{toctree}
 ---
 caption: Physics
@@ -53,7 +49,6 @@ hidden:
 ---
 glossary
 references
-develop
 API <api/pwa_pages>
 ```
 
@@ -74,5 +69,6 @@ hidden:
 ---
 Website <https://compwa-org.readthedocs.io>
 GitHub Repositories <https://github.com/ComPWA>
+Help developing <https://compwa-org.readthedocs.io/en/stable/develop.html>
 About <https://compwa-org.readthedocs.io/en/stable/about.html>
 ```
