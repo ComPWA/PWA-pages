@@ -44,7 +44,6 @@
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
-  "python.languageServer": "Pylance",
   "python.linting.enabled": false,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestEnabled": false,
