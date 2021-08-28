@@ -84,13 +84,6 @@ repos:
         types:
           - python
 
-      - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types:
-          - python
-
       - id: isort
         name: isort
         entry: isort
