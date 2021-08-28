@@ -121,6 +121,7 @@ html_theme_options = {
     "theme_dev_mode": True,
 }
 html_title = "Partial Wave Analysis"
+panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
 todo_include_todos = True
 viewcode_follow_imported_members = True
