@@ -33,7 +33,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.27
+    rev: 0.0.28
     hooks:
       - id: check-dev-files
         args:
@@ -55,7 +55,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/ComPWA/mirrors-cspell
-    rev: v5.8.2
+    rev: v5.9.0
     hooks:
       - id: cspell
 
