@@ -13,31 +13,16 @@ Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
 
 :::
 
-## Affiliated projects
+## Inventory of PWA frameworks
 
-Currently, sub-projects of the PWA Pages are:
-
-- {doc}`QRules <qrules:index>`
-- {doc}`AmpForm <ampform:index>`
-- {doc}`TensorWaves <tensorwaves:index>`
-
-These packages originated from the following (deprecated) projects:
-
-- {doc}`ComPWA <ComPWA:index>` and its Python interface,
-  {doc}`pycompwa <pycompwa:index>`
-- {doc}`PWA Expert System <expertsystem:index>` (split into
-  {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`)
-
-Want to contribute or be part of this collection of PWA documentation
-platforms? Welcome to contact the
-[Common Partial Wave Analysis](https://github.com/ComPWA) organization!
-
-## Other recommendations
-
-Some other, highly recommended PWA packages are:
+Here is a list of software frameworks or projects for amplitude analysis:
 
 - [AmpGen](https://github.com/GooFit/AmpGen/blob/master/README.md)
 - [AmpTools](https://github.com/mashephe/AmpTools)
+- [ComPWA project](https://compwa-org.readthedocs.io/en/stable/about.html):
+  - [QRules](https://qrules.readthedocs.io)
+  - [AmpForm](https://ampform.readthedocs.io)
+  - [TensorWaves](https://tensorwaves.readthedocs.io)
 - [GPUPWA](https://sourceforge.net/projects/gpupwa)
   ([BESIII](http://bes3.ihep.ac.cn))
 - [Laura++](https://doi.org/10.1016/j.cpc.2018.04.017)
