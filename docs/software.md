@@ -6,7 +6,7 @@
 These pages and are **under development**.
 ```
 
-## Inventory of PWA frameworks
+## Inventory of PWA projects
 
 Here is a list of software frameworks or projects for amplitude analysis:
 
