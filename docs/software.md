@@ -6,13 +6,6 @@
 These pages and are **under development**.
 ```
 
-:::{tip}
-
-Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
-[Towards a HEP Software Training curriculum](https://hepsoftwarefoundation.org/training/curriculum.html)!
-
-:::
-
 ## Inventory of PWA frameworks
 
 Here is a list of software frameworks or projects for amplitude analysis:
@@ -43,6 +36,15 @@ Here is a list of software frameworks or projects for amplitude analysis:
 Please
 [let us know](https://github.com/ComPWA/PWA-pages/issues/new?title=Missing%20PWA%20package)
 if you have other recommendations!
+
+## Software development
+
+:::{tip}
+
+Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
+[Towards a HEP Software Training curriculum](https://hepsoftwarefoundation.org/training/curriculum.html)!
+
+:::
 
 ```{toctree}
 ---
