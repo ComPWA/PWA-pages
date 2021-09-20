@@ -43,6 +43,8 @@ if you have other recommendations!
 
 Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
 [Towards a HEP Software Training curriculum](https://hepsoftwarefoundation.org/training/curriculum.html)!
+For development instructions for the ComPWA organization, see
+[Help developing](https://compwa-org.readthedocs.io/en/stable/develop.html).
 
 :::
 
