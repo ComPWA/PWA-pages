@@ -13,13 +13,6 @@ Have a look at [scikit-hep.org/developer](https://scikit-hep.org/developer) and
 
 :::
 
-```{toctree}
----
-hidden:
----
-software/git
-```
-
 ## Affiliated projects
 
 Currently, sub-projects of the PWA Pages are:
@@ -65,3 +58,10 @@ Some other, highly recommended PWA packages are:
 Please
 [let us know](https://github.com/ComPWA/PWA-pages/issues/new?title=Missing%20PWA%20package)
 if you have other recommendations!
+
+```{toctree}
+---
+hidden:
+---
+software/git
+```
