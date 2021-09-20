@@ -114,13 +114,7 @@ nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
 intersphinx_mapping = {
-    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
-    "ComPWA": ("https://compwa.readthedocs.io/en/latest", None),
-    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
-    "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
-    "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
 }
 
 # Settings for autosectionlabel
