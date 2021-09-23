@@ -3,6 +3,9 @@
 pwa-frameworks:
   - name: AmpGen
     url: https://github.com/GooFit/AmpGen/blob/master/README.md
+    collaboration:
+      - CLEO
+      - LHCb
 
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
@@ -56,6 +59,7 @@ pwa-frameworks:
 
 collaborations:
   BESIII: http://bes3.ihep.ac.cn
+  CLEO: https://www.classe.cornell.edu/Research/CLEO
   COMPASS: https://home.cern/science/experiments/compass
   JLab: https://www.jlab.org
   LHCb: https://lhcb.web.cern.ch
