@@ -1,0 +1,87 @@
+# cspell:ignore Ampli GPUPWA ROOTPWA
+
+pwa-frameworks:
+  - name: AmpGen
+    url: https://github.com/GooFit/AmpGen/blob/master/README.md
+    collaboration:
+      - CLEO
+      - LHCb
+    language:
+      - C++
+
+  - name: AmpTools
+    url: https://github.com/mashephe/AmpTools
+    language:
+      - C++
+
+  - name: ComPWA project
+    url: https://compwa-org.readthedocs.io/en/stable/about.html
+    sub-projects:
+      - name: QRules
+        url: https://qrules.readthedocs.io
+      - name: AmpForm
+        url: https://ampform.readthedocs.io
+      - name: TensorWaves
+        url: https://tensorwaves.readthedocs.io
+    language:
+      - Python
+
+  - name: GPUPWA
+    url: https://sourceforge.net/projects/gpupwa
+    collaboration: BESIII
+    language:
+      - C++
+
+  - name: Laura++
+    url: https://doi.org/10.1016/j.cpc.2018.04.017
+    collaboration: LHCb
+    language:
+      - C++
+
+  - name: Pawian
+    url: https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware
+    collaboration:
+      - BESIII
+      - PANDA
+    language:
+      - C++
+
+  - name: PyPWA
+    url: https://pypwa.jlab.org
+    collaboration: JLab
+    language:
+      - Python
+
+  - name: ROOTPWA
+    url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
+    collaboration: COMPASS
+    language:
+      - C++
+      - Python
+
+  - name: TensorFlowAnalysis
+    url: https://gitlab.cern.ch/poluekt/TensorFlowAnalysis
+    collaboration: LHCb
+    sub-projects:
+      - name: AmpliTF
+        url: https://github.com/apoluekt/AmpliTF
+      - name: TFA2
+        url: https://github.com/apoluekt/TFA2
+    language:
+      - Python
+
+  - name: TF-PWA
+    url: https://tf-pwa.rtfd.io
+    collaboration:
+      - BESIII
+      - LHCb
+    language:
+      - Python
+
+collaborations:
+  BESIII: http://bes3.ihep.ac.cn
+  CLEO: https://www.classe.cornell.edu/Research/CLEO
+  COMPASS: https://home.cern/science/experiments/compass
+  JLab: https://www.jlab.org
+  LHCb: https://lhcb.web.cern.ch
+  PANDA: https://panda.gsi.de
