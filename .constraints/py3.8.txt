@@ -22,7 +22,7 @@ charset-normalizer==2.0.6
 click==7.1.2
 colorama==0.4.4
 cycler==0.10.0
-dataproperty==0.53.0
+dataproperty==0.54.1
 debugpy==1.4.3
 decorator==5.1.0
 defusedxml==0.7.1
@@ -31,11 +31,11 @@ docutils==0.16
 dominate==2.6.0
 entrypoints==0.3
 feynman==2.0.2
-filelock==3.0.12
+filelock==3.3.0
 gitdb==4.0.7
 gitpython==3.1.24
-greenlet==1.1.1
-identify==2.2.15
+greenlet==1.1.2
+identify==2.3.0
 idna==3.2
 imagesize==1.2.0
 importlib-metadata==4.8.1
@@ -47,16 +47,16 @@ isort==5.9.3
 jedi==0.18.0
 jinja2==3.0.1
 json5==0.9.6
-jsonschema==3.2.0
+jsonschema==4.0.1
 jupyter==1.0.0
 jupyter-cache==0.4.3
-jupyter-client==7.0.3
+jupyter-client==7.0.5
 jupyter-console==6.4.0
 jupyter-core==4.8.1
 jupyter-server==1.11.0
 jupyter-server-mathjax==0.2.3
 jupyter-sphinx==0.3.2
-jupyterlab==3.1.13
+jupyterlab==3.1.14
 jupyterlab-code-formatter==1.4.10
 jupyterlab-pygments==0.1.2
 jupyterlab-server==2.8.2
@@ -73,7 +73,7 @@ mdit-py-plugins==0.2.8
 mistune==0.8.4
 mpmath==1.2.1
 mypy-extensions==0.4.3
-myst-nb==0.13.0
+myst-nb==0.13.1
 myst-parser==0.15.2
 nbclassic==0.3.2
 nbclient==0.5.4
@@ -108,14 +108,14 @@ pydata-sphinx-theme==0.6.3
 pygments==2.10.0
 pyparsing==2.4.7
 pyrsistent==0.18.0
-pytablewriter==0.63.0
+pytablewriter==0.64.0
 python-dateutil==2.8.2
-pytz==2021.1
+pytz==2021.3
 pyyaml==5.4.1
 pyzmq==22.3.0
 qtconsole==5.1.1
 qtpy==1.11.2
-regex==2021.9.24
+regex==2021.9.30
 requests==2.26.0
 requests-unixsocket==0.2.0
 send2trash==1.8.0
@@ -160,7 +160,7 @@ webencodings==0.5.1
 websocket-client==1.2.1
 wheel==0.37.0
 widgetsnbextension==3.5.1
-zipp==3.5.0
+zipp==3.6.0
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
