@@ -5,7 +5,7 @@
 #    pip-compile --extra=dev --no-annotate --output-file=.constraints/py3.6.txt
 #
 alabaster==0.7.12
-anyio==3.3.3
+anyio==3.3.4
 argon2-cffi==21.1.0
 async-generator==1.10
 attrs==21.2.0
@@ -16,16 +16,16 @@ beautifulsoup4==4.10.0
 black==21.9b0
 bleach==4.1.0
 certifi==2021.10.8
-cffi==1.14.6
+cffi==1.15.0
 cfgv==3.3.1
 chardet==4.0.0
-charset-normalizer==2.0.6
+charset-normalizer==2.0.7
 click==7.1.2
 colorama==0.4.4
 contextvars==2.4
 cycler==0.10.0
 dataclasses==0.8 ; python_version < "3.7"
-dataproperty==0.54.1
+dataproperty==0.54.2
 decorator==5.1.0
 defusedxml==0.7.1
 distlib==0.3.3
@@ -33,12 +33,12 @@ docutils==0.16
 dominate==2.6.0
 entrypoints==0.3
 feynman==2.0.2
-filelock==3.3.0
+filelock==3.3.1
 gitdb==4.0.7
 gitpython==3.1.18
 greenlet==1.1.2
 identify==2.3.0
-idna==3.2
+idna==3.3
 imagesize==1.2.0
 immutables==0.16
 importlib-metadata==4.8.1
@@ -60,7 +60,7 @@ jupyter-core==4.8.1
 jupyter-server==1.11.1
 jupyter-server-mathjax==0.2.3
 jupyter-sphinx==0.3.2
-jupyterlab==3.1.18
+jupyterlab==3.2.0
 jupyterlab-code-formatter==1.4.10
 jupyterlab-pygments==0.1.2
 jupyterlab-server==2.8.2
@@ -92,11 +92,11 @@ pandocfilters==1.5.0
 parso==0.8.2
 pathspec==0.9.0
 pathvalidate==2.5.0
-pep517==0.11.0
+pep517==0.11.1
 pexpect==4.8.0
 pickleshare==0.7.5
-pillow==8.3.2
-pip-tools==6.3.1
+pillow==8.4.0
+pip-tools==6.4.0
 platformdirs==2.4.0
 pluggy==1.0.0
 pre-commit==2.15.0
@@ -111,10 +111,10 @@ pydata-sphinx-theme==0.6.3
 pygments==2.10.0
 pyparsing==2.4.7
 pyrsistent==0.18.0
-pytablewriter==0.64.0
+pytablewriter==0.64.1
 python-dateutil==2.8.2
 pytz==2021.3
-pyyaml==5.4.1
+pyyaml==6.0
 pyzmq==22.3.0
 qtconsole==5.1.1
 qtpy==1.11.2
@@ -129,7 +129,7 @@ snowballstemmer==2.1.0
 soupsieve==2.2.1
 sphinx==4.2.0
 sphinx-autobuild==2021.3.14
-sphinx-book-theme==0.1.5
+sphinx-book-theme==0.1.6
 sphinx-copybutton==0.4.0
 sphinx-math-dollar==1.2
 sphinx-panels==0.6.0
