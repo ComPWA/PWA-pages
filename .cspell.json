@@ -87,6 +87,7 @@
     "ignoreWords": [
         "arange",
         "autopep",
+        "Autoupdate",
         "codemirror",
         "commitlint",
         "compwa",
@@ -117,6 +118,7 @@
         "multiplets",
         "nbconvert",
         "nbformat",
+        "noreply",
         "notcited",
         "oneline",
         "pandoc",
