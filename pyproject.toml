@@ -21,12 +21,14 @@ exclude = '''
     | dist
 )/
 '''
+experimental-string-processing = true
 include = '\.pyi?$'
 line-length = 79
 target-version = [
     "py36",
     "py37",
     "py38",
+    "py39",
 ]
 
 [tool.isort]
