@@ -1,9 +1,14 @@
 ci:
   autoupdate_commit_msg: "ci: autoupdate pre-commit hooks"
-  autoupdate_schedule: monthly
+  autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
+    # local hooks
+    - flake8
+    - mypy
+    - pylint
     # hooks that don't work on pre-commit.ci
     - editorconfig-checker
+    - pyright
 
 repos:
   - repo: meta
@@ -59,6 +64,15 @@ repos:
     hooks:
       - id: cspell
 
+  - repo: https://github.com/myint/docformatter
+    rev: v1.4
+    hooks:
+      - id: docformatter
+        args:
+          - --in-place
+          - --wrap-descriptions=79
+          - --wrap-summaries=79
+
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.3.54
     hooks:
@@ -82,6 +96,7 @@ repos:
     rev: 1.1.1
     hooks:
       - id: nbqa-black
+      - id: nbqa-flake8
       - id: nbqa-isort
       - id: nbqa-pyupgrade
         args:
@@ -111,9 +126,48 @@ repos:
     hooks:
       - id: prettier
 
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
+
+  - repo: https://github.com/ComPWA/mirrors-pyright
+    rev: v1.1.185
+    hooks:
+      - id: pyright
+
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.29.0
     hooks:
       - id: pyupgrade
         args:
           - --py36-plus
+
+  # The following tools have to be install locally, because they can also be
+  # used by code editors (e.g. linting and format-on-save).
+
+  - repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: system
+        types:
+          - python
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types:
+          - python
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        args:
+          - --rcfile=.pylintrc
+          - --score=no
+        language: system
+        types:
+          - python

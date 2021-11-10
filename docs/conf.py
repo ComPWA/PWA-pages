@@ -1,3 +1,4 @@
+# pylint: disable=invalid-name,no-value-for-parameter
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full
@@ -5,18 +6,42 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
+import dataclasses
 import os
-import shutil
-import subprocess
+from typing import Any, Dict, List, Optional, Tuple, Union
 
+import sphinxcontrib.bibtex.plugin
 from docutils import nodes
+from docutils.nodes import Node as docutils_Node
+from docutils.nodes import system_message
+from docutils.parsers.rst.states import Inliner
 from pkg_resources import get_distribution
+from pybtex.database import Entry
+from pybtex.plugin import register_plugin
+from pybtex.richtext import BaseText, Tag, Text
+from pybtex.style.formatting.unsrt import Style as UnsrtStyle
+from pybtex.style.template import (
+    FieldIsMissing,
+    Node,
+    _format_list,
+    field,
+    href,
+    join,
+    node,
+    sentence,
+    words,
+)
+from sphinx.application import Sphinx
+from sphinx.util.typing import RoleFunction
+from sphinxcontrib.bibtex.style.referencing.author_year import (
+    AuthorYearReferenceStyle,
+)
 
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 package = "pwa_pages"
 repo_name = "PWA-pages"
-copyright = "2020, ComPWA"
+copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 if os.path.exists("../version.py"):
@@ -170,16 +195,8 @@ thebe_config = {
     "repository_branch": html_theme_options["repository_branch"],
 }
 
+
 # Add roles to simplify external links
-from typing import Any, Dict, List, Optional, Tuple
-
-from docutils.nodes import Node as docutils_Node
-from docutils.nodes import system_message
-from docutils.parsers.rst.states import Inliner
-from sphinx.application import Sphinx  # type: ignore
-from sphinx.util.typing import RoleFunction  # type: ignore
-
-
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_role(
         "wiki",
@@ -193,6 +210,7 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 
 def wikilink(pattern: str) -> RoleFunction:
     def role(
+        # pylint: disable=too-many-arguments,unused-argument
         name: str,
         rawtext: str,
         text: str,
@@ -205,38 +223,16 @@ def wikilink(pattern: str) -> RoleFunction:
         output_text = output_text.replace("_", " ")
         url = pattern % (text,)
         if options is None:
-            options = dict()
-        node = nodes.reference(rawtext, output_text, refuri=url, **options)
-        return [node], []
+            options = {}
+        reference_node = nodes.reference(
+            rawtext, output_text, refuri=url, **options
+        )
+        return [reference_node], []
 
     return role
 
 
 # Specify bibliography style
-import dataclasses
-from typing import Union
-
-import sphinxcontrib.bibtex.plugin  # type: ignore
-from pybtex.database import Entry  # type: ignore
-from pybtex.plugin import register_plugin  # type: ignore
-from pybtex.richtext import BaseText, Tag, Text  # type: ignore
-from pybtex.style.formatting.unsrt import Style as UnsrtStyle  # type: ignore
-from pybtex.style.template import (  # type: ignore
-    FieldIsMissing,
-    Node,
-    _format_list,
-    field,
-    href,
-    join,
-    node,
-    sentence,
-    words,
-)
-from sphinxcontrib.bibtex.style.referencing.author_year import (  # type: ignore
-    AuthorYearReferenceStyle,
-)
-
-
 @dataclasses.dataclass
 class NoCommaReferenceStyle(AuthorYearReferenceStyle):
     author_year_sep: Union["BaseText", str] = " "
@@ -250,7 +246,7 @@ sphinxcontrib.bibtex.plugin.register_plugin(
 
 
 @node
-def et_al(children, data, sep="", sep2=None, last_sep=None):  # type: ignore
+def et_al(children, data, sep="", sep2=None, last_sep=None):  # type: ignore[no-untyped-def]
     if sep2 is None:
         sep2 = sep
     if last_sep is None:
@@ -258,21 +254,21 @@ def et_al(children, data, sep="", sep2=None, last_sep=None):  # type: ignore
     parts = [part for part in _format_list(children, data) if part]
     if len(parts) <= 1:
         return Text(*parts)
-    elif len(parts) == 2:
+    if len(parts) == 2:
         return Text(sep2).join(parts)
-    elif len(parts) == 3:
+    if len(parts) == 3:
         return Text(last_sep).join([Text(sep).join(parts[:-1]), parts[-1]])
-    else:
-        return Text(parts[0], Tag("em", " et al"))
+    return Text(parts[0], Tag("em", " et al"))
 
 
 @node
-def names(children, context, role, **kwargs):  # type: ignore
+def names(children, context, role, **kwargs):  # type: ignore[no-untyped-def]
     """Return formatted names."""
     assert not children
     try:
         persons = context["entry"].persons[role]
     except KeyError:
+        # pylint: disable=raise-missing-from
         raise FieldIsMissing(role, context["entry"])
 
     style = context["style"]
@@ -286,14 +282,13 @@ class MyStyle(UnsrtStyle):
     def __init__(self) -> None:
         super().__init__(abbreviate_names=True)
 
-    def format_names(self, role, as_sentence: bool = True) -> Node:  # type: ignore
+    def format_names(self, role, as_sentence: bool = True) -> Node:  # type: ignore[no-untyped-def]
         formatted_names = names(
             role, sep=", ", sep2=" and ", last_sep=", and "
         )
         if as_sentence:
             return sentence[formatted_names]
-        else:
-            return formatted_names
+        return formatted_names
 
     def format_eprint(self, e: Entry) -> Node:
         if "doi" in e.fields:
@@ -330,11 +325,11 @@ def remove_dashes_and_spaces(isbn: str) -> str:
     return isbn
 
 
-def remove_http(input: str) -> str:
+def remove_http(url: str) -> str:
     to_remove = ["https://", "http://"]
     for remove in to_remove:
-        input = input.replace(remove, "")
-    return input
+        url = url.replace(remove, "")
+    return url
 
 
 register_plugin("pybtex.style.formatting", "unsrt_et_al", MyStyle)
