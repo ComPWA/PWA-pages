@@ -6,7 +6,7 @@ requires = [
 ]
 
 [tool.setuptools_scm]
-write_to = "version.py"
+write_to = "src/pwa_pages/version.py"
 
 [tool.black]
 exclude = '''

@@ -39,13 +39,13 @@ from sphinxcontrib.bibtex.style.referencing.author_year import (
 
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
-package = "pwa_pages"
-repo_name = "PWA-pages"
+PACKAGE = "pwa_pages"
+REPO_NAME = "PWA-pages"
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
-if os.path.exists("../version.py"):
-    __release = get_distribution(package).version
+if os.path.exists(f"../src/{PACKAGE}/version.py"):
+    __release = get_distribution(PACKAGE).version
     version = ".".join(__release.split(".")[:3])
 
 
@@ -60,7 +60,7 @@ source_suffix = {
 # The master toctree document.
 master_doc = "index"
 modindex_common_prefix = [
-    f"{package}.",
+    f"{PACKAGE}.",
 ]
 
 extensions = [
@@ -110,7 +110,7 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": f"https://github.com/ComPWA/{repo_name}",
+    "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
     "repository_branch": "main",
     "path_to_docs": "docs",
     "use_download_button": True,
