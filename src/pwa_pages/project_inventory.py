@@ -3,6 +3,7 @@
 
 import argparse
 import re
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 
@@ -10,7 +11,7 @@ import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
-from .github import get_main_languages
+from .github import get_last_contribution, get_main_languages
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -39,10 +40,16 @@ def to_html_table(
             _create_project_entry(project),
             _format_collaboration(project, inventory),
             *language_checkmarks,
+            _fetch_last_commit_date(project),
         )
 
     writer = HtmlTableWriter(
-        headers=["Project", "Collaboration", *selected_languages],
+        headers=[
+            "Project",
+            "Collaboration",
+            *selected_languages,
+            "Last commit",
+        ],
         value_matrix=map(create_row, inventory.projects),
     )
     return writer.dumps()
@@ -125,6 +132,31 @@ def _fetch_languages(url: str, min_percentage: float) -> List[str]:
     if repo_name:
         return get_main_languages(repo_name, min_percentage)
     return []
+
+
+def _fetch_last_commit_date(project: Project) -> str:
+    date_format = "%b %Y"
+    repo_name = __get_github_repo_name(project.url)
+    if repo_name:
+        date = get_last_contribution(repo_name)
+        return date.strftime(date_format)
+    timestamps = _get_subproject_timestamps(project)
+    if timestamps:
+        return max(timestamps).strftime(date_format)
+    return ""
+
+
+def _get_subproject_timestamps(project: Project) -> List[datetime]:
+    if project.sub_projects is None:
+        return []
+    timestamps = []
+    for sub_project in project.sub_projects:
+        repo_name = __get_github_repo_name(sub_project.url)
+        if repo_name is None:
+            continue
+        date = get_last_contribution(repo_name)
+        timestamps.append(date)
+    return timestamps
 
 
 def __get_github_repo_name(url: str) -> Optional[str]:

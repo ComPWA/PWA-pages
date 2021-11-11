@@ -13,6 +13,7 @@ from pwa_pages.project_inventory import (
     _checkmark_language,
     _create_project_entry,
     _fetch_languages,
+    _get_subproject_timestamps,
     export_json_schema,
     fix_html_alignment,
     load_yaml,
@@ -134,3 +135,13 @@ def test_export_export_json_schema(this_dir, docs_dir):
 def test_fetch_languages(url, expected):
     languages = _fetch_languages(url, min_percentage=2.5)
     assert languages == expected
+
+
+def test_get_subproject_timestamps(project_inventory: ProjectInventory):
+    project_name = "ComPWA project"
+    for project in project_inventory.projects:
+        if project.name == project_name:
+            timestamps = _get_subproject_timestamps(project)
+            assert len(timestamps) == 3
+            return
+    raise ValueError(f"Project {project_name} not found")
