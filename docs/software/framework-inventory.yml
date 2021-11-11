@@ -10,6 +10,9 @@ projects:
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
 
+  - name: ComPWA++
+    url: https://github.com/ComPWA/ComPWA
+
   - name: ComPWA project
     url: https://compwa-org.readthedocs.io/en/stable/about.html
     sub_projects:
@@ -22,6 +25,9 @@ projects:
     languages:
       - Python
 
+  - name: cFit
+    url: https://github.com/cfit/cfit
+
   - name: GPUPWA
     url: https://sourceforge.net/projects/gpupwa
     since: 2011
@@ -29,12 +35,24 @@ projects:
     languages:
       - C++
 
+  - name: Hydra
+    url: https://github.com/MultithreadCorner/Hydra
+
+  - name: Ipanema
+    url: https://gitlab.cern.ch/bsm-fleet/Ipanema
+    languages:
+      - C++
+      - CUDA
+
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
     since: 2013
     collaboration: LHCb
     languages:
       - C++
+
+  - name: Mint2
+    url: https://github.com/jdalseno/Mint2
 
   - name: Pawian
     url: https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware

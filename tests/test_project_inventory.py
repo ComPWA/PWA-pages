@@ -20,7 +20,7 @@ from pwa_pages.project_inventory import (
     to_html_table,
 )
 
-__MAX_PROJECTS = 3
+__MAX_PROJECTS = 4
 
 
 class TestProjectInventory:
