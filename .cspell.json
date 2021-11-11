@@ -131,6 +131,7 @@
         "precommit",
         "propto",
         "pycompwa",
+        "pydantic",
         "pydocstyle",
         "pygments",
         "pypi",

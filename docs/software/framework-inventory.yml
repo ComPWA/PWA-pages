@@ -1,41 +1,41 @@
 # cspell:ignore Ampli GPUPWA ROOTPWA
 
-pwa-frameworks:
+projects:
   - name: AmpGen
     url: https://github.com/GooFit/AmpGen/blob/master/README.md
     collaboration:
       - CLEO
       - LHCb
-    language:
+    languages:
       - C++
 
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
-    language:
+    languages:
       - C++
 
   - name: ComPWA project
     url: https://compwa-org.readthedocs.io/en/stable/about.html
-    sub-projects:
+    sub_projects:
       - name: QRules
         url: https://qrules.readthedocs.io
       - name: AmpForm
         url: https://ampform.readthedocs.io
       - name: TensorWaves
         url: https://tensorwaves.readthedocs.io
-    language:
+    languages:
       - Python
 
   - name: GPUPWA
     url: https://sourceforge.net/projects/gpupwa
     collaboration: BESIII
-    language:
+    languages:
       - C++
 
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
     collaboration: LHCb
-    language:
+    languages:
       - C++
 
   - name: Pawian
@@ -43,31 +43,31 @@ pwa-frameworks:
     collaboration:
       - BESIII
       - PANDA
-    language:
+    languages:
       - C++
 
   - name: PyPWA
     url: https://pypwa.jlab.org
     collaboration: JLab
-    language:
+    languages:
       - Python
 
   - name: ROOTPWA
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
     collaboration: COMPASS
-    language:
+    languages:
       - C++
       - Python
 
   - name: TensorFlowAnalysis
     url: https://gitlab.cern.ch/poluekt/TensorFlowAnalysis
     collaboration: LHCb
-    sub-projects:
+    sub_projects:
       - name: AmpliTF
         url: https://github.com/apoluekt/AmpliTF
       - name: TFA2
         url: https://github.com/apoluekt/TFA2
-    language:
+    languages:
       - Python
 
   - name: TF-PWA
@@ -75,7 +75,7 @@ pwa-frameworks:
     collaboration:
       - BESIII
       - LHCb
-    language:
+    languages:
       - Python
 
 collaborations:
