@@ -2,6 +2,7 @@
 
 import os
 from datetime import datetime
+from functools import lru_cache
 from typing import List, Optional
 
 from dateutil.parser import parse as parse_date
@@ -9,6 +10,7 @@ from github import Github
 from github.Repository import Repository
 
 
+@lru_cache()
 def get_main_languages(
     repo_name: str, min_percentage: float = 20
 ) -> List[str]:
@@ -27,6 +29,7 @@ def get_main_languages(
     return main_languages
 
 
+@lru_cache()
 def get_last_contribution(repo_name: str) -> datetime:
     repo = _get_repo(repo_name)
     default_branch = repo.default_branch
@@ -41,8 +44,14 @@ def get_last_contribution(repo_name: str) -> datetime:
     return last_edited
 
 
-def _get_repo(repo_name: str, token: Optional[str] = None) -> Repository:
+@lru_cache()
+def _get_repo(repo_name: str) -> Repository:
+    github = __get_github()
+    return github.get_repo(repo_name)
+
+
+@lru_cache()
+def __get_github(token: Optional[str] = None) -> Github:
     if token is None:
         token = os.environ.get("GITHUB_TOKEN")
-    github = Github(login_or_token=token)
-    return github.get_repo(repo_name)
+    return Github(login_or_token=token)
