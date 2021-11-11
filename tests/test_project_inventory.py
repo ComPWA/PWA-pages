@@ -12,6 +12,7 @@ from pwa_pages.project_inventory import (
     SubProject,
     _checkmark_language,
     _create_project_entry,
+    _fetch_languages,
     export_json_schema,
     fix_html_alignment,
     load_yaml,
@@ -86,14 +87,17 @@ def test_create_project_entry():
 
 def test_checkmark_language():
     project = Project(name="name", url="url", languages=["C++"])
-    assert _checkmark_language(project, "c++") == "✓"
-    assert _checkmark_language(project, "Python") == ""
+    assert _checkmark_language(project, "c++", min_percentage=0) == "✓"
+    assert _checkmark_language(project, "Python", min_percentage=0) == ""
 
 
 @pytest.mark.parametrize("fix_alignment", [False, True])
-def test_to_html_table(project_inventory, fix_alignment):
+@pytest.mark.parametrize("fetch_languages", [True, False])
+def test_to_html_table(project_inventory, fetch_languages, fix_alignment):
     src = to_html_table(
-        project_inventory, selected_languages=["C++", "Python"]
+        project_inventory,
+        selected_languages=["C++", "Python"],
+        fetch_languages=fetch_languages,
     )
     if fix_alignment:
         src = fix_html_alignment(src)
@@ -111,3 +115,22 @@ def test_export_export_json_schema(this_dir, docs_dir):
     with open(docs_dir / "software/project-inventory-schema.json") as stream:
         existing = stream.read()
     assert exported == existing
+
+
+@pytest.mark.parametrize(
+    ("url", "expected"),
+    [
+        (
+            "https://github.com/ComPWA/PWA-Pages",
+            ["Python", "JavaScript"],
+        ),
+        (
+            "https://github.com/ComPWA/ComPWA/blob/master/README.md",
+            ["C++", "CMake"],
+        ),
+        ("https://qrules.rtfd.io", []),
+    ],
+)
+def test_fetch_languages(url, expected):
+    languages = _fetch_languages(url, min_percentage=2.5)
+    assert languages == expected

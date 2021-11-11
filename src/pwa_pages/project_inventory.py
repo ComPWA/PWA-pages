@@ -2,12 +2,15 @@
 """Helper tools for writing tables."""
 
 import argparse
+import re
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 
 import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
+
+from .github import get_main_languages
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -16,11 +19,20 @@ def load_yaml(path: Union[Path, str]) -> dict:
 
 
 def to_html_table(
-    inventory: "ProjectInventory", selected_languages: List[str]
+    inventory: "ProjectInventory",
+    selected_languages: List[str],
+    *,
+    fetch_languages: bool = False,
+    min_percentage: float = 2.5,
 ) -> str:
     def create_row(project: "Project") -> Tuple[str, ...]:
         language_checkmarks = [
-            _checkmark_language(project, language)
+            _checkmark_language(
+                project,
+                language,
+                fetch_languages=fetch_languages,
+                min_percentage=min_percentage,
+            )
             for language in selected_languages
         ]
         return (
@@ -93,11 +105,34 @@ def _create_project_entry(project: Project) -> str:
     return html
 
 
-def _checkmark_language(project: Project, language: str) -> str:
-    languages = set(map(lambda s: s.lower(), project.languages))
-    if language.lower() in languages:
+def _checkmark_language(
+    project: Project,
+    language: str,
+    *,
+    fetch_languages: bool = False,
+    min_percentage: float,
+) -> str:
+    languages = project.languages
+    if not languages and fetch_languages:
+        languages = _fetch_languages(project.url, min_percentage)
+    if language.lower() in map(lambda s: s.lower(), languages):
         return "✓"
     return ""
+
+
+def _fetch_languages(url: str, min_percentage: float) -> List[str]:
+    repo_name = __get_github_repo_name(url)
+    if repo_name:
+        return get_main_languages(repo_name, min_percentage)
+    return []
+
+
+def __get_github_repo_name(url: str) -> Optional[str]:
+    github_url = "https://github.com"
+    match = re.match(fr"^{github_url}/([^/]+)/([^/]+).*$", url)
+    if match:
+        return f"{match[1]}/{match[2]}"
+    return None
 
 
 def _format_collaboration(
