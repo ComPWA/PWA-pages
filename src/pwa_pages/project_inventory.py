@@ -12,7 +12,7 @@ import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
-from .github import (
+from .repo import (
     get_first_contribution,
     get_last_contribution,
     get_main_languages,

@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from pwa_pages.github import (
+from pwa_pages.repo import (
     get_first_contribution,
     get_last_contribution,
     get_main_languages,
