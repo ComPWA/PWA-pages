@@ -5,6 +5,7 @@ from pwa_pages.repo._github import (
     get_first_commit_date,
     get_github_repo,
     get_languages,
+    get_last_modified,
     get_latest_commit_date,
 )
 
@@ -20,6 +21,14 @@ def test_get_latest_commit_date():
     repo = get_github_repo("https://github.com/ComPWA/expertsystem")
     last_commit = get_latest_commit_date(repo)
     assert last_commit.strftime("%Y.%m.%d") == "2021.05.03"
+
+
+def test_get_last_modified():
+    repo = get_github_repo("https://github.com/ComPWA/expertsystem")
+    last_commit = get_latest_commit_date(repo)
+    last_edit = get_last_modified(repo)
+    diff = last_edit - last_commit
+    assert diff.days > 100
 
 
 @pytest.mark.parametrize(

@@ -53,6 +53,14 @@ def get_latest_commit_date(repo: GithubRepository) -> datetime:
     return parse_date(timestamp)
 
 
+def get_last_modified(repo: GithubRepository) -> datetime:
+    if repo.last_modified is None:
+        raise ValueError(
+            f"GitHub repo {repo.full_name} has no last modified timestamp"
+        )
+    return parse_date(repo.last_modified)
+
+
 @lru_cache()
 def get_languages(repo: GithubRepository) -> Dict[str, float]:
     languages = repo.get_languages()
