@@ -121,6 +121,7 @@ def test_export_export_json_schema(this_dir, docs_dir):
 @pytest.mark.parametrize(
     ("url", "first_language"),
     [
+        ("https://gitlab.cern.ch/bsm-fleet/Ipanema", "C"),
         ("https://github.com/ComPWA/PWA-Pages", "Python"),
         ("https://github.com/ComPWA/ComPWA/blob/master/README.md", "C++"),
         ("https://qrules.rtfd.io", None),
