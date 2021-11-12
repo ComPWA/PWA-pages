@@ -16,6 +16,7 @@ from pwa_pages.project_inventory import (
     _get_subproject_timestamps,
     export_json_schema,
     fix_html_alignment,
+    get_first_contribution,
     load_yaml,
     to_html_table,
 )
@@ -141,7 +142,9 @@ def test_get_subproject_timestamps(project_inventory: ProjectInventory):
     project_name = "ComPWA project"
     for project in project_inventory.projects:
         if project.name == project_name:
-            timestamps = _get_subproject_timestamps(project)
+            timestamps = _get_subproject_timestamps(
+                project, get_first_contribution
+            )
             assert len(timestamps) == 3
             return
     raise ValueError(f"Project {project_name} not found")

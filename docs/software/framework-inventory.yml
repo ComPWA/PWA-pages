@@ -24,18 +24,21 @@ projects:
 
   - name: GPUPWA
     url: https://sourceforge.net/projects/gpupwa
+    since: 2011
     collaboration: BESIII
     languages:
       - C++
 
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
+    since: 2013
     collaboration: LHCb
     languages:
       - C++
 
   - name: Pawian
     url: https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware
+    since: 2010
     collaboration:
       - BESIII
       - PANDA

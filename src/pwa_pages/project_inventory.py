@@ -12,7 +12,11 @@ import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
-from .github import get_last_contribution, get_main_languages
+from .github import (
+    get_first_contribution,
+    get_last_contribution,
+    get_main_languages,
+)
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -30,7 +34,10 @@ def to_html_table(
     header_to_formatters: Dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
-        "Latest commit": _fetch_latest_commit_date if fetch else lambda _: "",
+        "Since": _get_first_commit_year if fetch else lambda _: "",
+        "Lastest commit": _fetch_lastest_commit_date
+        if fetch
+        else lambda _: "",
     }
     for language in selected_languages:
         header_to_formatters[language] = partial(
@@ -75,6 +82,7 @@ class Project(BaseModel):
     collaboration: Optional[Union[List[str], str]] = None
     languages: List[str] = []
     sub_projects: Optional[List[SubProject]] = None
+    since: int = 0
 
 
 class ProjectInventory(BaseModel):
@@ -132,19 +140,32 @@ def _fetch_languages(url: str, min_percentage: float) -> List[str]:
     return []
 
 
-def _fetch_latest_commit_date(project: Project) -> str:
-    date_format = "%m/%Y"
+def _fetch_lastest_commit_date(project: Project) -> str:
+    return _get_date(project, get_last_contribution, date_format="%m/%Y")
+
+
+def _get_first_commit_year(project: Project) -> str:
+    if project.since != 0:
+        return str(project.since)
+    return _get_date(project, get_first_contribution, date_format="%Y")
+
+
+def _get_date(
+    project: Project, date_getter: Callable[[str], datetime], date_format: str
+) -> str:
     repo_name = __get_github_repo_name(project.url)
     if repo_name:
-        date = get_last_contribution(repo_name)
+        date = date_getter(repo_name)
         return date.strftime(date_format)
-    timestamps = _get_subproject_timestamps(project)
+    timestamps = _get_subproject_timestamps(project, date_getter)
     if timestamps:
         return max(timestamps).strftime(date_format)
     return ""
 
 
-def _get_subproject_timestamps(project: Project) -> List[datetime]:
+def _get_subproject_timestamps(
+    project: Project, date_getter: Callable[[str], datetime]
+) -> List[datetime]:
     if project.sub_projects is None:
         return []
     timestamps = []
@@ -152,7 +173,7 @@ def _get_subproject_timestamps(project: Project) -> List[datetime]:
         repo_name = __get_github_repo_name(sub_project.url)
         if repo_name is None:
             continue
-        date = get_last_contribution(repo_name)
+        date = date_getter(repo_name)
         timestamps.append(date)
     return timestamps
 
