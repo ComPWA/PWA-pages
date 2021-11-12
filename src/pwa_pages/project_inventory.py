@@ -40,7 +40,7 @@ def to_html_table(
             _create_project_entry(project),
             _format_collaboration(project, inventory),
             *language_checkmarks,
-            _fetch_last_commit_date(project),
+            _fetch_latest_commit_date(project),
         )
 
     writer = HtmlTableWriter(
@@ -48,7 +48,7 @@ def to_html_table(
             "Project",
             "Collaboration",
             *selected_languages,
-            "Last commit",
+            "Latest commit",
         ],
         value_matrix=map(create_row, inventory.projects),
     )
@@ -134,8 +134,8 @@ def _fetch_languages(url: str, min_percentage: float) -> List[str]:
     return []
 
 
-def _fetch_last_commit_date(project: Project) -> str:
-    date_format = "%b %Y"
+def _fetch_latest_commit_date(project: Project) -> str:
+    date_format = "%m/%Y"
     repo_name = __get_github_repo_name(project.url)
     if repo_name:
         date = get_last_contribution(repo_name)
