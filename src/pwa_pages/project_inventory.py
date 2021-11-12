@@ -4,8 +4,9 @@
 import argparse
 import re
 from datetime import datetime
+from functools import partial
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple, Union
+from typing import Callable, Dict, List, Optional, Sequence, Union
 
 import yaml
 from pydantic import BaseModel, root_validator
@@ -23,34 +24,31 @@ def to_html_table(
     inventory: "ProjectInventory",
     selected_languages: List[str],
     *,
-    fetch_languages: bool = False,
+    fetch: bool = False,
     min_percentage: float = 2.5,
 ) -> str:
-    def create_row(project: "Project") -> Tuple[str, ...]:
-        language_checkmarks = [
-            _checkmark_language(
-                project,
-                language,
-                fetch_languages=fetch_languages,
-                min_percentage=min_percentage,
-            )
-            for language in selected_languages
-        ]
-        return (
-            _create_project_entry(project),
-            _format_collaboration(project, inventory),
-            *language_checkmarks,
-            _fetch_latest_commit_date(project),
+    header_to_formatters: Dict[str, Callable[[Project], str]] = {
+        "Project": _create_project_entry,
+        "Collaboration": partial(_format_collaboration, inventory=inventory),
+        "Latest commit": _fetch_latest_commit_date if fetch else lambda _: "",
+    }
+    for language in selected_languages:
+        header_to_formatters[language] = partial(
+            _checkmark_language,
+            language=language,
+            fetch=fetch,
+            min_percentage=min_percentage,
         )
 
     writer = HtmlTableWriter(
-        headers=[
-            "Project",
-            "Collaboration",
-            *selected_languages,
-            "Latest commit",
+        headers=list(header_to_formatters),
+        value_matrix=[
+            tuple(
+                formatter(project)
+                for formatter in header_to_formatters.values()
+            )
+            for project in inventory.projects
         ],
-        value_matrix=map(create_row, inventory.projects),
     )
     return writer.dumps()
 
@@ -116,11 +114,11 @@ def _checkmark_language(
     project: Project,
     language: str,
     *,
-    fetch_languages: bool = False,
+    fetch: bool = False,
     min_percentage: float,
 ) -> str:
     languages = project.languages
-    if not languages and fetch_languages:
+    if not languages and fetch:
         languages = _fetch_languages(project.url, min_percentage)
     if language.lower() in map(lambda s: s.lower(), languages):
         return "✓"

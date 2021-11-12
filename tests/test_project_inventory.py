@@ -93,12 +93,12 @@ def test_checkmark_language():
 
 
 @pytest.mark.parametrize("fix_alignment", [False, True])
-@pytest.mark.parametrize("fetch_languages", [True, False])
-def test_to_html_table(project_inventory, fetch_languages, fix_alignment):
+@pytest.mark.parametrize("fetch", [True, False])
+def test_to_html_table(project_inventory, fetch, fix_alignment):
     src = to_html_table(
         project_inventory,
         selected_languages=["C++", "Python"],
-        fetch_languages=fetch_languages,
+        fetch=fetch,
     )
     if fix_alignment:
         src = fix_html_alignment(src)
