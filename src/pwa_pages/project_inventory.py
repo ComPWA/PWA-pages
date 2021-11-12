@@ -127,9 +127,20 @@ def _checkmark_language(
     languages = project.languages
     if not languages and fetch:
         languages = _fetch_languages(project, min_percentage)
-    if language.lower() in map(lambda s: s.lower(), languages):
+    normalized_language = __replace_language(language).lower()
+    if normalized_language in map(lambda s: s.lower(), languages):
         return "✓"
     return ""
+
+
+def __replace_language(language: str) -> str:
+    replacements = {
+        "C": "C++",
+    }
+    for old, new in replacements.items():
+        if old.lower() == language.lower():
+            return new
+    return language
 
 
 def _fetch_languages(project: Project, min_percentage: float) -> List[str]:
