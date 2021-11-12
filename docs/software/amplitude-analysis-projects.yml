@@ -35,9 +35,6 @@ projects:
     languages:
       - C++
 
-  - name: Hydra
-    url: https://github.com/MultithreadCorner/Hydra
-
   - name: Ipanema
     url: https://gitlab.cern.ch/bsm-fleet/Ipanema
     languages:

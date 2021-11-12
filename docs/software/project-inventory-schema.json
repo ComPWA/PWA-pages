@@ -11,6 +11,7 @@
     },
     "collaborations": {
       "title": "Collaborations",
+      "default": {},
       "type": "object",
       "additionalProperties": {
         "type": "string"
@@ -18,8 +19,7 @@
     }
   },
   "required": [
-    "projects",
-    "collaborations"
+    "projects"
   ],
   "definitions": {
     "SubProject": {
