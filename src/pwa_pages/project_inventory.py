@@ -2,21 +2,16 @@
 """Helper tools for writing tables."""
 
 import argparse
-import re
 from datetime import datetime
 from functools import partial
 from pathlib import Path
-from typing import Callable, Dict, List, Optional, Sequence, Union
+from typing import Callable, Dict, Iterable, List, Optional, Sequence, Union
 
 import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
-from .repo import (
-    get_first_contribution,
-    get_last_contribution,
-    get_main_languages,
-)
+from .repo import Repo, get_repo
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -34,7 +29,7 @@ def to_html_table(
     header_to_formatters: Dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
-        "Since": _get_first_commit_year if fetch else lambda _: "",
+        "Since": _fetch_first_commit_year if fetch else lambda _: "",
         "Lastest commit": _fetch_lastest_commit_date
         if fetch
         else lambda _: "",
@@ -127,63 +122,68 @@ def _checkmark_language(
 ) -> str:
     languages = project.languages
     if not languages and fetch:
-        languages = _fetch_languages(project.url, min_percentage)
+        languages = _fetch_languages(project, min_percentage)
     if language.lower() in map(lambda s: s.lower(), languages):
         return "✓"
     return ""
 
 
-def _fetch_languages(url: str, min_percentage: float) -> List[str]:
-    repo_name = __get_github_repo_name(url)
-    if repo_name:
-        return get_main_languages(repo_name, min_percentage)
-    return []
+def _fetch_languages(project: Project, min_percentage: float) -> List[str]:
+    repo = get_repo(project.url)
+    if repo is None:
+        return []
+    return repo.filter_languages(min_percentage)
 
 
 def _fetch_lastest_commit_date(project: Project) -> str:
-    return _get_date(project, get_last_contribution, date_format="%m/%Y")
+    return _get_date(
+        project,
+        date_getter=lambda p: p.latest_commit,
+        min_or_max=max,
+        date_format="%m/%Y",
+    )
 
 
-def _get_first_commit_year(project: Project) -> str:
+def _fetch_first_commit_year(project: Project) -> str:
     if project.since != 0:
         return str(project.since)
-    return _get_date(project, get_first_contribution, date_format="%Y")
+    return _get_date(
+        project,
+        date_getter=lambda p: p.first_commit,
+        min_or_max=min,
+        date_format="%Y",
+    )
 
 
 def _get_date(
-    project: Project, date_getter: Callable[[str], datetime], date_format: str
+    project: Project,
+    date_getter: Callable[[Repo], datetime],
+    date_format: str,
+    min_or_max: Callable[[Iterable[datetime]], datetime],
 ) -> str:
-    repo_name = __get_github_repo_name(project.url)
-    if repo_name:
-        date = date_getter(repo_name)
+    repo = get_repo(project.url)
+    if repo is not None:
+        date = date_getter(repo)
         return date.strftime(date_format)
     timestamps = _get_subproject_timestamps(project, date_getter)
     if timestamps:
-        return max(timestamps).strftime(date_format)
+        return min_or_max(timestamps).strftime(date_format)
     return ""
 
 
 def _get_subproject_timestamps(
-    project: Project, date_getter: Callable[[str], datetime]
+    project: Project, date_getter: Callable[[Repo], datetime]
 ) -> List[datetime]:
     if project.sub_projects is None:
         return []
     timestamps = []
     for sub_project in project.sub_projects:
-        repo_name = __get_github_repo_name(sub_project.url)
-        if repo_name is None:
+        repo = get_repo(sub_project.url)
+        if repo is None:
             continue
-        date = date_getter(repo_name)
+        date = date_getter(repo)
         timestamps.append(date)
     return timestamps
-
-
-def __get_github_repo_name(url: str) -> Optional[str]:
-    github_url = "https://github.com"
-    match = re.match(fr"^{github_url}/([^/]+)/([^/]+).*$", url)
-    if match:
-        return f"{match[1]}/{match[2]}"
-    return None
 
 
 def _format_collaboration(
