@@ -61,8 +61,8 @@ def test_extract_github_repo_name_error(url):
 
 def test_get_github_repo():
     repo = get_github_repo("https://github.com/ComPWA/ComPWA")
-    collaborators = {c.login for c in repo.get_collaborators()}
-    assert "redeboer" in collaborators
+    languages = list(repo.get_languages())
+    assert languages[0] == "C++"
 
 
 @pytest.mark.parametrize(
