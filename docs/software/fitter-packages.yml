@@ -1,0 +1,17 @@
+# cspell:ignore Ampli GPUPWA ROOTPWA
+
+projects:
+  - name: GooFit
+    url: https://github.com/GooFit/GooFit
+
+  - name: Hydra
+    url: https://github.com/MultithreadCorner/Hydra
+
+  - name: RooFit
+    url: https://root.cern/manual/roofit
+    since: 2000
+    languages:
+      - C++
+
+  - name: zfit
+    url: https://github.com/zfit/zfit

@@ -26,4 +26,5 @@ jobs:
           sudo apt-get -y install graphviz pandoc
       - name: Check external links
         working-directory: docs
-        run: make ignore-warnings=1 linkcheck
+        run:
+          READTHEDOCS_VERSION=$GITHUB_HEAD_REF make ignore-warnings=1 linkcheck

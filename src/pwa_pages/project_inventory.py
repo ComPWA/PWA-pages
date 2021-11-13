@@ -25,6 +25,7 @@ def to_html_table(
     *,
     fetch: bool = False,
     min_percentage: float = 2.5,
+    hide_columns: Optional[Iterable[str]] = None,
 ) -> str:
     header_to_formatters: Dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
@@ -41,6 +42,9 @@ def to_html_table(
             fetch=fetch,
             min_percentage=min_percentage,
         )
+    if hide_columns is not None:
+        for hide in hide_columns:
+            del header_to_formatters[hide]
 
     writer = HtmlTableWriter(
         headers=list(header_to_formatters),
@@ -82,7 +86,7 @@ class Project(BaseModel):
 
 class ProjectInventory(BaseModel):
     projects: List[Project]
-    collaborations: Dict[str, str]
+    collaborations: Dict[str, str] = {}
 
     @root_validator()
     def _check_collaboration_exists(cls, values: dict) -> dict:  # noqa: N805
@@ -123,9 +127,20 @@ def _checkmark_language(
     languages = project.languages
     if not languages and fetch:
         languages = _fetch_languages(project, min_percentage)
-    if language.lower() in map(lambda s: s.lower(), languages):
+    normalized_language = __replace_language(language).lower()
+    if normalized_language in map(lambda s: s.lower(), languages):
         return "✓"
     return ""
+
+
+def __replace_language(language: str) -> str:
+    replacements = {
+        "C": "C++",
+    }
+    for old, new in replacements.items():
+        if old.lower() == language.lower():
+            return new
+    return language
 
 
 def _fetch_languages(project: Project, min_percentage: float) -> List[str]:

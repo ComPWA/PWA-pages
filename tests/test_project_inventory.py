@@ -20,7 +20,7 @@ from pwa_pages.project_inventory import (
     to_html_table,
 )
 
-__MAX_PROJECTS = 3
+__MAX_PROJECTS = 4
 
 
 class TestProjectInventory:
@@ -55,9 +55,16 @@ def docs_dir(this_dir) -> Path:
 
 @pytest.fixture(scope="session")
 def project_inventory(docs_dir: Path) -> ProjectInventory:
-    inventory_path = docs_dir / "software/framework-inventory.yml"
+    inventory_path = docs_dir / "software/amplitude-analysis-projects.yml"
     inventory_dict = load_yaml(inventory_path)
     inventory_dict["projects"] = inventory_dict["projects"][:__MAX_PROJECTS]
+    return ProjectInventory(**inventory_dict)
+
+
+@pytest.fixture(scope="session")
+def fitter_packages(docs_dir: Path) -> ProjectInventory:
+    inventory_path = docs_dir / "software/fitter-packages.yml"
+    inventory_dict = load_yaml(inventory_path)
     return ProjectInventory(**inventory_dict)
 
 
@@ -67,6 +74,13 @@ def test_load_project_inventory(project_inventory: ProjectInventory):
     assert inventory.projects[0].name == "AmpGen"
     assert "BESIII" in inventory.collaborations
     assert inventory.collaborations["BESIII"] == "http://bes3.ihep.ac.cn"
+
+
+def test_load_fitter_packages(fitter_packages: ProjectInventory):
+    assert len(fitter_packages.projects) > 1
+    # cspell:words zfit
+    assert "zfit" in {p.name for p in fitter_packages.projects}
+    assert "GooFit" in {p.name for p in fitter_packages.projects}
 
 
 def test_create_project_entry():
@@ -92,8 +106,8 @@ def test_checkmark_language():
     assert _checkmark_language(project, "Python", min_percentage=0) == ""
 
 
+@pytest.mark.parametrize("fetch", [False, True])
 @pytest.mark.parametrize("fix_alignment", [False, True])
-@pytest.mark.parametrize("fetch", [True, False])
 def test_to_html_table(project_inventory, fetch, fix_alignment):
     src = to_html_table(
         project_inventory,
@@ -106,6 +120,17 @@ def test_to_html_table(project_inventory, fetch, fix_alignment):
     assert src.startswith("<table>")
     assert src.count("<thead>") == 1
     assert src.count("<tr>") == __MAX_PROJECTS + 1
+
+
+def test_to_html_table_hide_columns(fitter_packages):
+    src = to_html_table(
+        fitter_packages,
+        selected_languages=["C++", "Python"],
+        fetch=False,
+        hide_columns=["Collaboration"],
+    )
+    assert src.startswith("<table>")
+    assert "Collaboration" not in src
 
 
 def test_export_export_json_schema(this_dir, docs_dir):
