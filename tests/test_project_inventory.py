@@ -116,6 +116,14 @@ def test_to_html_table(project_inventory, fetch, fix_alignment):
     )
     if fix_alignment:
         src = fix_html_alignment(src)
+        if fetch:
+            assert (
+                '<td style="text-align:center; vertical-align:top">2020</td>'
+                in src
+            )
+    else:
+        if fetch:
+            assert '<td align="right">2020</td>' in src
     # cspell: ignore thead
     assert src.startswith("<table>")
     assert src.count("<thead>") == 1

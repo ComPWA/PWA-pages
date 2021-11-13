@@ -150,7 +150,7 @@ repos:
   - repo: local
     hooks:
       - id: update-json-schema
-        name: Update JSON validation schema for projects
+        name: Update JSON schemas for project inventories
         entry: export-json-schema
         language: system
         pass_filenames: false

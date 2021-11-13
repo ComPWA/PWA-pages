@@ -2,6 +2,7 @@
 """Helper tools for writing tables."""
 
 import argparse
+import re
 from datetime import datetime
 from functools import partial
 from pathlib import Path
@@ -63,7 +64,13 @@ def fix_html_alignment(src: str) -> str:
     left_align_style = 'style="text-align:left; vertical-align:top"'
     center_align_style = 'style="text-align:center; vertical-align:top"'
     src = src.replace(
-        '<td align="left">✓</td>', f"<td {center_align_style}>✓</td>"
+        '<td align="left">✓</td>',
+        f"<td {center_align_style}>✓</td>",
+    )
+    src = re.sub(
+        r'<td align="right">([0-9]{4})</td>',
+        fr"<td {center_align_style}>\1</td>",
+        src,
     )
     src = src.replace('align="left"', left_align_style)
     src = src.replace("<th>", f"<th {left_align_style}>")
@@ -127,8 +134,14 @@ def _checkmark_language(
     languages = project.languages
     if not languages and fetch:
         languages = _fetch_languages(project, min_percentage)
-    normalized_language = __replace_language(language).lower()
-    if normalized_language in map(lambda s: s.lower(), languages):
+        if project.sub_projects is not None:
+            for sub_project in project.sub_projects:
+                sub_languages = _fetch_languages(sub_project, min_percentage)
+                languages.extend(sub_languages)
+    normalized_languages = map(
+        lambda s: __replace_language(s).lower(), languages
+    )
+    if language.lower() in normalized_languages:
         return "✓"
     return ""
 
@@ -143,7 +156,9 @@ def __replace_language(language: str) -> str:
     return language
 
 
-def _fetch_languages(project: Project, min_percentage: float) -> List[str]:
+def _fetch_languages(
+    project: Union[Project, SubProject], min_percentage: float
+) -> List[str]:
     repo = get_repo(project.url)
     if repo is None:
         return []
@@ -177,12 +192,14 @@ def _get_date(
     min_or_max: Callable[[Iterable[datetime]], datetime],
 ) -> str:
     repo = get_repo(project.url)
+    time_stamps = []
     if repo is not None:
-        date = date_getter(repo)
-        return date.strftime(date_format)
-    timestamps = _get_subproject_timestamps(project, date_getter)
-    if timestamps:
-        return min_or_max(timestamps).strftime(date_format)
+        main_timestamp = date_getter(repo)
+        time_stamps.append(main_timestamp)
+    sub_time_stamps = _get_subproject_timestamps(project, date_getter)
+    time_stamps.extend(sub_time_stamps)
+    if time_stamps:
+        return min_or_max(time_stamps).strftime(date_format)
     return ""
 
 
