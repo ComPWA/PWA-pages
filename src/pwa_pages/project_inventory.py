@@ -131,8 +131,10 @@ def _checkmark_language(
             for sub_project in project.sub_projects:
                 sub_languages = _fetch_languages(sub_project, min_percentage)
                 languages.extend(sub_languages)
-    normalized_language = __replace_language(language).lower()
-    if normalized_language in map(lambda s: s.lower(), languages):
+    normalized_languages = map(
+        lambda s: __replace_language(s).lower(), languages
+    )
+    if language.lower() in normalized_languages:
         return "✓"
     return ""
 
