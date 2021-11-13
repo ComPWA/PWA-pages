@@ -7,6 +7,7 @@
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/PWA-pages)
 [![CI status](https://github.com/ComPWA/PWA-pages/workflows/CI/badge.svg)](https://github.com/ComPWA/PWA-pages/actions?query=branch%3Amain+workflow%3ACI)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen)](https://github.com/pre-commit/pre-commit)
+[![Test coverage](https://codecov.io/gh/ComPWA/PWA-pages/branch/main/graph/badge.svg)](https://codecov.io/gh/ComPWA/PWA-pages)
 [![Spelling checked](https://img.shields.io/badge/cspell-checked-brightgreen.svg)](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
