@@ -2,6 +2,7 @@
 """Helper tools for writing tables."""
 
 import argparse
+import re
 from datetime import datetime
 from functools import partial
 from pathlib import Path
@@ -63,7 +64,13 @@ def fix_html_alignment(src: str) -> str:
     left_align_style = 'style="text-align:left; vertical-align:top"'
     center_align_style = 'style="text-align:center; vertical-align:top"'
     src = src.replace(
-        '<td align="left">✓</td>', f"<td {center_align_style}>✓</td>"
+        '<td align="left">✓</td>',
+        f"<td {center_align_style}>✓</td>",
+    )
+    src = re.sub(
+        r'<td align="right">([0-9]{4})</td>',
+        fr"<td {center_align_style}>\1</td>",
+        src,
     )
     src = src.replace('align="left"', left_align_style)
     src = src.replace("<th>", f"<th {left_align_style}>")
