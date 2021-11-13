@@ -127,6 +127,10 @@ def _checkmark_language(
     languages = project.languages
     if not languages and fetch:
         languages = _fetch_languages(project, min_percentage)
+        if project.sub_projects is not None:
+            for sub_project in project.sub_projects:
+                sub_languages = _fetch_languages(sub_project, min_percentage)
+                languages.extend(sub_languages)
     normalized_language = __replace_language(language).lower()
     if normalized_language in map(lambda s: s.lower(), languages):
         return "✓"
@@ -143,7 +147,9 @@ def __replace_language(language: str) -> str:
     return language
 
 
-def _fetch_languages(project: Project, min_percentage: float) -> List[str]:
+def _fetch_languages(
+    project: Union[Project, SubProject], min_percentage: float
+) -> List[str]:
     repo = get_repo(project.url)
     if repo is None:
         return []
