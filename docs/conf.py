@@ -10,7 +10,7 @@ import dataclasses
 import os
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-import sphinxcontrib.bibtex.plugin
+import sphinxcontrib.bibtex.plugin  # type: ignore[import]
 from docutils import nodes
 from docutils.nodes import Node as docutils_Node
 from docutils.nodes import system_message
