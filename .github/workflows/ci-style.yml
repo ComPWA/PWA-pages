@@ -29,6 +29,7 @@ jobs:
           pre-commit run flake8 -a --color always
           pre-commit run mypy -a --color always
           pre-commit run pylint -a --color always
+          pre-commit run update-json-schema -a --color always
       - name: Run pre-commit hooks that don't work on pre-commit.ci
         run: |
           pre-commit run editorconfig-checker -a --color always

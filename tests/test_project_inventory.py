@@ -12,6 +12,7 @@ from pwa_pages.project_inventory import (
     SubProject,
     _checkmark_language,
     _create_project_entry,
+    export_json_schema,
     fix_html_alignment,
     load_yaml,
     to_html_table,
@@ -41,9 +42,18 @@ class TestProjectInventory:
 
 
 @pytest.fixture(scope="session")
-def project_inventory() -> ProjectInventory:
-    this_dir = Path(__file__).parent
-    inventory_path = this_dir / "../docs/software/framework-inventory.yml"
+def this_dir() -> Path:
+    return Path(__file__).parent
+
+
+@pytest.fixture(scope="session")
+def docs_dir(this_dir) -> Path:
+    return this_dir / "../docs"
+
+
+@pytest.fixture(scope="session")
+def project_inventory(docs_dir: Path) -> ProjectInventory:
+    inventory_path = docs_dir / "software/framework-inventory.yml"
     inventory_dict = load_yaml(inventory_path)
     inventory_dict["projects"] = inventory_dict["projects"][:__MAX_PROJECTS]
     return ProjectInventory(**inventory_dict)
@@ -91,3 +101,13 @@ def test_to_html_table(project_inventory, fix_alignment):
     assert src.startswith("<table>")
     assert src.count("<thead>") == 1
     assert src.count("<tr>") == __MAX_PROJECTS + 1
+
+
+def test_export_export_json_schema(this_dir, docs_dir):
+    output_path = str(this_dir / "exported-schema.json")
+    assert export_json_schema([output_path]) == 0
+    with open(output_path) as stream:
+        exported = stream.read()
+    with open(docs_dir / "software/project-inventory-schema.json") as stream:
+        existing = stream.read()
+    assert exported == existing

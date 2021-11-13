@@ -1,6 +1,7 @@
 # pylint: disable=no-name-in-module, no-self-argument, no-self-use
 """Helper tools for writing tables."""
 
+import argparse
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 
@@ -132,3 +133,27 @@ def _enumerate_html_links(list_of_entries: Sequence[str]) -> str:
     html = "<li>".join(list_of_entries)
     html = "<li>" + html
     return html
+
+
+def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
+    parser = argparse.ArgumentParser(
+        "Create a JSON validation schema for a software project inventory"
+        " file\n"
+    )
+    parser.add_argument(
+        "path",
+        type=str,
+        nargs="?",
+        default="docs/software/project-inventory-schema.json",
+        help="Output path to write the JSON schema to",
+    )
+    args = parser.parse_args(argv)
+    schema = ProjectInventory.schema_json(indent=2)
+    schema += "\n"
+    with open(args.path, "w") as stream:
+        stream.write(schema)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(export_json_schema())
