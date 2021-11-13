@@ -120,22 +120,20 @@ def test_export_export_json_schema(this_dir, docs_dir):
 
 
 @pytest.mark.parametrize(
-    ("url", "expected"),
+    ("url", "first_language"),
     [
-        (
-            "https://github.com/ComPWA/PWA-Pages",
-            ["Python", "JavaScript"],
-        ),
-        (
-            "https://github.com/ComPWA/ComPWA/blob/master/README.md",
-            ["C++", "CMake"],
-        ),
-        ("https://qrules.rtfd.io", []),
+        ("https://github.com/ComPWA/PWA-Pages", "Python"),
+        ("https://github.com/ComPWA/ComPWA/blob/master/README.md", "C++"),
+        ("https://qrules.rtfd.io", None),
     ],
 )
-def test_fetch_languages(url, expected):
+def test_fetch_languages(url, first_language):
     languages = _fetch_languages(url, min_percentage=2.5)
-    assert languages == expected
+    if first_language is None:
+        assert len(languages) == 0
+    else:
+        assert len(languages) > 0
+        assert languages[0] == first_language
 
 
 def test_get_subproject_timestamps(project_inventory: ProjectInventory):
