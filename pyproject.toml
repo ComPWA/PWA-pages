@@ -34,3 +34,26 @@ target-version = [
 [tool.isort]
 line_length = 79
 profile = "black"
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--extend-ignore=E402,F821",
+]
+
+[tool.pyright]
+exclude = [
+    ".git",
+    ".tox",
+    "docs/_build",
+]
+include = [
+    "docs",
+    "src",
+]
+reportGeneralTypeIssues = false
+reportPrivateImportUsage = false
+reportUnboundVariable = false
+reportUnusedClass = true
+reportUnusedFunction = true
+reportUnusedImport = true
+reportUnusedVariable = true

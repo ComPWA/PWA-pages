@@ -15,7 +15,6 @@ vscode:
   extensions:
     - bungcip.better-toml
     - christian-kohler.path-intellisense
-    - codestream.codestream
     - davidanson.vscode-markdownlint
     - eamodio.gitlens
     - editorconfig.editorconfig
@@ -23,11 +22,12 @@ vscode:
     - executablebookproject.myst-highlight
     - github.vscode-pull-request-github
     - ms-python.python
+    - ms-python.vscode-pylance
     - ms-vsliveshare.vsliveshare
     - redhat.vscode-yaml
+    - ryanluker.vscode-coverage-gutters
     - stkb.rewrap
     - streetsidesoftware.code-spell-checker
     - travisillig.vscode-json-stable-stringify
-    - trentrand.git-commit-helper-vscode
     - tyriar.sort-lines
     - yzhang.markdown-all-in-one
