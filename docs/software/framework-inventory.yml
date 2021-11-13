@@ -14,28 +14,31 @@ projects:
     url: https://compwa-org.readthedocs.io/en/stable/about.html
     sub_projects:
       - name: QRules
-        url: https://qrules.readthedocs.io
+        url: https://github.com/ComPWA/qrules
       - name: AmpForm
-        url: https://ampform.readthedocs.io
+        url: https://github.com/ComPWA/ampform
       - name: TensorWaves
-        url: https://tensorwaves.readthedocs.io
+        url: https://github.com/ComPWA/tensorwaves
     languages:
       - Python
 
   - name: GPUPWA
     url: https://sourceforge.net/projects/gpupwa
+    since: 2011
     collaboration: BESIII
     languages:
       - C++
 
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
+    since: 2013
     collaboration: LHCb
     languages:
       - C++
 
   - name: Pawian
     url: https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware
+    since: 2010
     collaboration:
       - BESIII
       - PANDA

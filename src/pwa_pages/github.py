@@ -7,6 +7,7 @@ from typing import List, Optional
 
 from dateutil.parser import parse as parse_date
 from github import Github
+from github.Commit import Commit
 from github.Repository import Repository
 
 
@@ -30,6 +31,19 @@ def get_main_languages(
 
 
 @lru_cache()
+def get_first_contribution(repo_name: str) -> datetime:
+    repo = _get_repo(repo_name)
+    commits = repo.get_commits().reversed
+    first_commit: Commit = commits[0]
+    timestamp = first_commit.last_modified
+    if timestamp is None:
+        raise ValueError(
+            f"First commit of GitHub repo {repo_name} has no timestamp"
+        )
+    return parse_date(timestamp)
+
+
+@lru_cache()
 def get_last_contribution(repo_name: str) -> datetime:
     repo = _get_repo(repo_name)
     default_branch = repo.default_branch
@@ -40,8 +54,7 @@ def get_last_contribution(repo_name: str) -> datetime:
             f"Last commit on default branch {default_branch} of"
             f" {repo.url} has no timestamp"
         )
-    last_edited = parse_date(timestamp)
-    return last_edited
+    return parse_date(timestamp)
 
 
 @lru_cache()

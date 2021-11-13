@@ -3,14 +3,20 @@
 
 import argparse
 import re
+from datetime import datetime
+from functools import partial
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple, Union
+from typing import Callable, Dict, List, Optional, Sequence, Union
 
 import yaml
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
-from .github import get_main_languages
+from .github import (
+    get_first_contribution,
+    get_last_contribution,
+    get_main_languages,
+)
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -22,28 +28,34 @@ def to_html_table(
     inventory: "ProjectInventory",
     selected_languages: List[str],
     *,
-    fetch_languages: bool = False,
+    fetch: bool = False,
     min_percentage: float = 2.5,
 ) -> str:
-    def create_row(project: "Project") -> Tuple[str, ...]:
-        language_checkmarks = [
-            _checkmark_language(
-                project,
-                language,
-                fetch_languages=fetch_languages,
-                min_percentage=min_percentage,
-            )
-            for language in selected_languages
-        ]
-        return (
-            _create_project_entry(project),
-            _format_collaboration(project, inventory),
-            *language_checkmarks,
+    header_to_formatters: Dict[str, Callable[[Project], str]] = {
+        "Project": _create_project_entry,
+        "Collaboration": partial(_format_collaboration, inventory=inventory),
+        "Since": _get_first_commit_year if fetch else lambda _: "",
+        "Lastest commit": _fetch_lastest_commit_date
+        if fetch
+        else lambda _: "",
+    }
+    for language in selected_languages:
+        header_to_formatters[language] = partial(
+            _checkmark_language,
+            language=language,
+            fetch=fetch,
+            min_percentage=min_percentage,
         )
 
     writer = HtmlTableWriter(
-        headers=["Project", "Collaboration", *selected_languages],
-        value_matrix=map(create_row, inventory.projects),
+        headers=list(header_to_formatters),
+        value_matrix=[
+            tuple(
+                formatter(project)
+                for formatter in header_to_formatters.values()
+            )
+            for project in inventory.projects
+        ],
     )
     return writer.dumps()
 
@@ -70,6 +82,7 @@ class Project(BaseModel):
     collaboration: Optional[Union[List[str], str]] = None
     languages: List[str] = []
     sub_projects: Optional[List[SubProject]] = None
+    since: int = 0
 
 
 class ProjectInventory(BaseModel):
@@ -109,11 +122,11 @@ def _checkmark_language(
     project: Project,
     language: str,
     *,
-    fetch_languages: bool = False,
+    fetch: bool = False,
     min_percentage: float,
 ) -> str:
     languages = project.languages
-    if not languages and fetch_languages:
+    if not languages and fetch:
         languages = _fetch_languages(project.url, min_percentage)
     if language.lower() in map(lambda s: s.lower(), languages):
         return "✓"
@@ -125,6 +138,44 @@ def _fetch_languages(url: str, min_percentage: float) -> List[str]:
     if repo_name:
         return get_main_languages(repo_name, min_percentage)
     return []
+
+
+def _fetch_lastest_commit_date(project: Project) -> str:
+    return _get_date(project, get_last_contribution, date_format="%m/%Y")
+
+
+def _get_first_commit_year(project: Project) -> str:
+    if project.since != 0:
+        return str(project.since)
+    return _get_date(project, get_first_contribution, date_format="%Y")
+
+
+def _get_date(
+    project: Project, date_getter: Callable[[str], datetime], date_format: str
+) -> str:
+    repo_name = __get_github_repo_name(project.url)
+    if repo_name:
+        date = date_getter(repo_name)
+        return date.strftime(date_format)
+    timestamps = _get_subproject_timestamps(project, date_getter)
+    if timestamps:
+        return max(timestamps).strftime(date_format)
+    return ""
+
+
+def _get_subproject_timestamps(
+    project: Project, date_getter: Callable[[str], datetime]
+) -> List[datetime]:
+    if project.sub_projects is None:
+        return []
+    timestamps = []
+    for sub_project in project.sub_projects:
+        repo_name = __get_github_repo_name(sub_project.url)
+        if repo_name is None:
+            continue
+        date = date_getter(repo_name)
+        timestamps.append(date)
+    return timestamps
 
 
 def __get_github_repo_name(url: str) -> Optional[str]:

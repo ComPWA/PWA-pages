@@ -13,8 +13,10 @@ from pwa_pages.project_inventory import (
     _checkmark_language,
     _create_project_entry,
     _fetch_languages,
+    _get_subproject_timestamps,
     export_json_schema,
     fix_html_alignment,
+    get_first_contribution,
     load_yaml,
     to_html_table,
 )
@@ -92,12 +94,12 @@ def test_checkmark_language():
 
 
 @pytest.mark.parametrize("fix_alignment", [False, True])
-@pytest.mark.parametrize("fetch_languages", [True, False])
-def test_to_html_table(project_inventory, fetch_languages, fix_alignment):
+@pytest.mark.parametrize("fetch", [True, False])
+def test_to_html_table(project_inventory, fetch, fix_alignment):
     src = to_html_table(
         project_inventory,
         selected_languages=["C++", "Python"],
-        fetch_languages=fetch_languages,
+        fetch=fetch,
     )
     if fix_alignment:
         src = fix_html_alignment(src)
@@ -118,19 +120,29 @@ def test_export_export_json_schema(this_dir, docs_dir):
 
 
 @pytest.mark.parametrize(
-    ("url", "expected"),
+    ("url", "first_language"),
     [
-        (
-            "https://github.com/ComPWA/PWA-Pages",
-            ["Python", "JavaScript"],
-        ),
-        (
-            "https://github.com/ComPWA/ComPWA/blob/master/README.md",
-            ["C++", "CMake"],
-        ),
-        ("https://qrules.rtfd.io", []),
+        ("https://github.com/ComPWA/PWA-Pages", "Python"),
+        ("https://github.com/ComPWA/ComPWA/blob/master/README.md", "C++"),
+        ("https://qrules.rtfd.io", None),
     ],
 )
-def test_fetch_languages(url, expected):
+def test_fetch_languages(url, first_language):
     languages = _fetch_languages(url, min_percentage=2.5)
-    assert languages == expected
+    if first_language is None:
+        assert len(languages) == 0
+    else:
+        assert len(languages) > 0
+        assert languages[0] == first_language
+
+
+def test_get_subproject_timestamps(project_inventory: ProjectInventory):
+    project_name = "ComPWA project"
+    for project in project_inventory.projects:
+        if project.name == project_name:
+            timestamps = _get_subproject_timestamps(
+                project, get_first_contribution
+            )
+            assert len(timestamps) == 3
+            return
+    raise ValueError(f"Project {project_name} not found")

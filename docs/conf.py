@@ -8,6 +8,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import dataclasses
 import os
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 import sphinxcontrib.bibtex.plugin  # type: ignore[import]
@@ -186,7 +187,11 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
     "smartquotes",
+    "substitution",
 ]
+myst_substitutions = {
+    "build_date": datetime.today().strftime("%d %B %Y"),
+}
 myst_update_mathjax = False
 
 # Settings for Thebe cell output

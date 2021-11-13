@@ -2,7 +2,16 @@ from typing import List
 
 import pytest
 
-from pwa_pages.github import get_last_contribution, get_main_languages
+from pwa_pages.github import (
+    get_first_contribution,
+    get_last_contribution,
+    get_main_languages,
+)
+
+
+def test_get_first_contribution():
+    first_commit_date = get_first_contribution("ComPWA/ComPWA")
+    assert first_commit_date.year == 2012
 
 
 def test_get_last_contribution():
