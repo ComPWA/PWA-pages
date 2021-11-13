@@ -2,7 +2,7 @@
 
 projects:
   - name: AmpGen
-    url: https://github.com/GooFit/AmpGen/blob/master/README.md
+    url: https://github.com/GooFit/AmpGen
     collaboration:
       - CLEO
       - LHCb
