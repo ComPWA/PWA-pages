@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 
 import yaml
-from IPython.display import HTML
 from pydantic import BaseModel, root_validator
 from pytablewriter import HtmlTableWriter
 
@@ -36,7 +35,7 @@ def to_html_table(
     return writer.dumps()
 
 
-def render_html_table(src: str) -> HTML:
+def fix_html_alignment(src: str) -> str:
     left_align_style = 'style="text-align:left; vertical-align:top"'
     center_align_style = 'style="text-align:center; vertical-align:top"'
     src = src.replace(
@@ -44,7 +43,7 @@ def render_html_table(src: str) -> HTML:
     )
     src = src.replace('align="left"', left_align_style)
     src = src.replace("<th>", f"<th {left_align_style}>")
-    return HTML(src)
+    return src
 
 
 class SubProject(BaseModel):

@@ -12,6 +12,7 @@ from pwa_pages.project_inventory import (
     SubProject,
     _checkmark_language,
     _create_project_entry,
+    fix_html_alignment,
     load_yaml,
     to_html_table,
 )
@@ -79,10 +80,13 @@ def test_checkmark_language():
     assert _checkmark_language(project, "Python") == ""
 
 
-def test_to_html_table(project_inventory):
+@pytest.mark.parametrize("fix_alignment", [False, True])
+def test_to_html_table(project_inventory, fix_alignment):
     src = to_html_table(
         project_inventory, selected_languages=["C++", "Python"]
     )
+    if fix_alignment:
+        src = fix_html_alignment(src)
     # cspell: ignore thead
     assert src.startswith("<table>")
     assert src.count("<thead>") == 1
