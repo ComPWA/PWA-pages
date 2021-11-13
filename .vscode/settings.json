@@ -53,7 +53,7 @@
   "python.linting.pylamaEnabled": false,
   "python.linting.pylintCategorySeverity.refactor": "Information",
   "python.linting.pylintEnabled": true,
-  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": false,
   "rewrap.wrappingColumn": 79,
   "search.exclude": {
     "*/.pydocstyle": true,

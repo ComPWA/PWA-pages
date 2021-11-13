@@ -49,7 +49,6 @@ exclude = [
 include = [
     "docs",
     "src",
-    "tests",
 ]
 reportGeneralTypeIssues = false
 reportPrivateImportUsage = false
