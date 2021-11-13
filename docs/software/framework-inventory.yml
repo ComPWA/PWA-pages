@@ -61,8 +61,6 @@ projects:
         url: https://github.com/apoluekt/AmpliTF
       - name: TFA2
         url: https://github.com/apoluekt/TFA2
-    languages:
-      - Python
 
   - name: TF-PWA
     url: https://github.com/jiangyi15/tf-pwa

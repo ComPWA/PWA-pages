@@ -16,7 +16,6 @@ from pwa_pages.project_inventory import (
     _get_subproject_timestamps,
     export_json_schema,
     fix_html_alignment,
-    get_first_contribution,
     load_yaml,
     to_html_table,
 )
@@ -122,13 +121,15 @@ def test_export_export_json_schema(this_dir, docs_dir):
 @pytest.mark.parametrize(
     ("url", "first_language"),
     [
+        ("https://gitlab.cern.ch/bsm-fleet/Ipanema", "C"),
         ("https://github.com/ComPWA/PWA-Pages", "Python"),
         ("https://github.com/ComPWA/ComPWA/blob/master/README.md", "C++"),
         ("https://qrules.rtfd.io", None),
     ],
 )
 def test_fetch_languages(url, first_language):
-    languages = _fetch_languages(url, min_percentage=2.5)
+    project = Project(name="dummy", url=url)
+    languages = _fetch_languages(project, min_percentage=2.5)
     if first_language is None:
         assert len(languages) == 0
     else:
@@ -141,7 +142,7 @@ def test_get_subproject_timestamps(project_inventory: ProjectInventory):
     for project in project_inventory.projects:
         if project.name == project_name:
             timestamps = _get_subproject_timestamps(
-                project, get_first_contribution
+                project, date_getter=lambda p: p.latest_commit
             )
             assert len(timestamps) == 3
             return
