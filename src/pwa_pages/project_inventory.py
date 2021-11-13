@@ -192,12 +192,14 @@ def _get_date(
     min_or_max: Callable[[Iterable[datetime]], datetime],
 ) -> str:
     repo = get_repo(project.url)
+    time_stamps = []
     if repo is not None:
-        date = date_getter(repo)
-        return date.strftime(date_format)
-    timestamps = _get_subproject_timestamps(project, date_getter)
-    if timestamps:
-        return min_or_max(timestamps).strftime(date_format)
+        main_timestamp = date_getter(repo)
+        time_stamps.append(main_timestamp)
+    sub_time_stamps = _get_subproject_timestamps(project, date_getter)
+    time_stamps.extend(sub_time_stamps)
+    if time_stamps:
+        return min_or_max(time_stamps).strftime(date_format)
     return ""
 
 
