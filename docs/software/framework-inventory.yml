@@ -6,13 +6,9 @@ projects:
     collaboration:
       - CLEO
       - LHCb
-    languages:
-      - C++
 
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
-    languages:
-      - C++
 
   - name: ComPWA project
     url: https://compwa-org.readthedocs.io/en/stable/about.html
@@ -47,17 +43,12 @@ projects:
       - C++
 
   - name: PyPWA
-    url: https://pypwa.jlab.org
+    url: https://github.com/JeffersonLab/PyPWA
     collaboration: JLab
-    languages:
-      - Python
 
   - name: ROOTPWA
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
     collaboration: COMPASS
-    languages:
-      - C++
-      - Python
 
   - name: TensorFlowAnalysis
     url: https://gitlab.cern.ch/poluekt/TensorFlowAnalysis
@@ -71,12 +62,10 @@ projects:
       - Python
 
   - name: TF-PWA
-    url: https://tf-pwa.rtfd.io
+    url: https://github.com/jiangyi15/tf-pwa
     collaboration:
       - BESIII
       - LHCb
-    languages:
-      - Python
 
 collaborations:
   BESIII: http://bes3.ihep.ac.cn
