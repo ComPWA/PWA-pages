@@ -22,8 +22,6 @@ projects:
         url: https://github.com/ComPWA/ampform
       - name: TensorWaves
         url: https://github.com/ComPWA/tensorwaves
-    languages:
-      - Python
 
   - name: cFit
     url: https://github.com/cfit/cfit
@@ -37,9 +35,6 @@ projects:
 
   - name: Ipanema
     url: https://gitlab.cern.ch/bsm-fleet/Ipanema
-    languages:
-      - C++
-      - CUDA
 
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
