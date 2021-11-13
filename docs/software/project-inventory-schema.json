@@ -1,0 +1,91 @@
+{
+  "title": "ProjectInventory",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "title": "Projects",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Project"
+      }
+    },
+    "collaborations": {
+      "title": "Collaborations",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "projects",
+    "collaborations"
+  ],
+  "definitions": {
+    "SubProject": {
+      "title": "SubProject",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ]
+    },
+    "Project": {
+      "title": "Project",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "languages": {
+          "title": "Languages",
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sub_projects": {
+          "title": "Sub Projects",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubProject"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ]
+    }
+  }
+}

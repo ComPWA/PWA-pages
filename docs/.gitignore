@@ -3,4 +3,3 @@
 *build/
 
 !_static/*
-!software/framework-inventory.yml
