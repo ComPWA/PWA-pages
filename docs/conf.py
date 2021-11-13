@@ -8,6 +8,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import dataclasses
 import os
+import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 
@@ -44,6 +45,13 @@ PACKAGE = "pwa_pages"
 REPO_NAME = "PWA-pages"
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
+
+# https://docs.readthedocs.io/en/stable/builds.html
+BRANCH = os.environ.get("READTHEDOCS_VERSION", default="main")
+if BRANCH == "latest":
+    BRANCH = "main"
+if re.match(r"^\d+$", BRANCH):  # PR preview
+    BRANCH = "main"
 
 if os.path.exists(f"../src/{PACKAGE}/version.py"):
     __release = get_distribution(PACKAGE).version
@@ -165,7 +173,6 @@ linkcheck_ignore = [
 
 # Settings for myst_nb
 execution_timeout = -1
-jupyter_execute_notebooks = "force"
 nb_output_stderr = "remove"
 nb_render_priority = {
     "html": (
@@ -181,6 +188,11 @@ nb_render_priority = {
     )
 }
 
+jupyter_execute_notebooks = "off"
+if "EXECUTE_NB" in os.environ:
+    print("\033[93;1mWill run Jupyter notebooks!\033[0m")
+    jupyter_execute_notebooks = "force"
+
 # Settings for myst-parser
 myst_enable_extensions = [
     "amsmath",
@@ -190,6 +202,7 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_substitutions = {
+    "branch": BRANCH,
     "build_date": datetime.today().strftime("%d %B %Y"),
 }
 myst_update_mathjax = False
