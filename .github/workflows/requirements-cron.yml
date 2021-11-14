@@ -51,10 +51,10 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: "ci: update pip constraints and pre-commit"
+          commit-message: "ci: update pip constraints and pre-commit config"
           committer: GitHub <noreply@github.com>
           author: GitHub <noreply@github.com>
-          title: "ci: update pip constraints and pre-commit"
+          title: "ci: update pip constraints and pre-commit config"
           labels: |
             🖱️ DX
           branch-suffix: timestamp
