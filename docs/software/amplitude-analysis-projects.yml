@@ -10,7 +10,7 @@ projects:
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
 
-  - name: ComPWA++
+  - name: ComPWA (C++)
     url: https://github.com/ComPWA/ComPWA
 
   - name: ComPWA project
