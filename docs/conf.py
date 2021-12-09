@@ -52,7 +52,10 @@ if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
     BRANCH = "main"
-REPO_NAME = os.environ.get("REPO", REPO_NAME)
+env_repo_name = os.environ.get("REPO")
+if env_repo_name:
+    REPO_NAME = env_repo_name
+
 
 if os.path.exists(f"../src/{PACKAGE}/version.py"):
     __release = get_distribution(PACKAGE).version
