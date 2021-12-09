@@ -42,7 +42,7 @@ from sphinxcontrib.bibtex.style.referencing.author_year import (
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = "PWA-pages"
+REPO_NAME = "ComPWA/PWA-pages"
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
@@ -52,6 +52,7 @@ if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
     BRANCH = "main"
+REPO_NAME = os.environ.get("REPO", REPO_NAME)
 
 if os.path.exists(f"../src/{PACKAGE}/version.py"):
     __release = get_distribution(PACKAGE).version
@@ -119,7 +120,7 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
+    "repository_url": f"https://github.com/{REPO_NAME}",
     "repository_branch": "main",
     "path_to_docs": "docs",
     "use_download_button": True,
@@ -204,6 +205,7 @@ myst_enable_extensions = [
 myst_substitutions = {
     "branch": BRANCH,
     "build_date": datetime.today().strftime("%d %B %Y"),
+    "repo": REPO_NAME,
 }
 myst_update_mathjax = False
 
