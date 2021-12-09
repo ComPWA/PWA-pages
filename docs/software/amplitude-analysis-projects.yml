@@ -33,6 +33,9 @@ projects:
     languages:
       - C++
 
+  - name: HAMMER
+    url: https://gitlab.com/mpapucci/Hammer
+
   - name: Ipanema
     url: https://gitlab.cern.ch/bsm-fleet/Ipanema
 
