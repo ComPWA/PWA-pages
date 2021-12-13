@@ -3,7 +3,7 @@
 # Glossary
 
 ```{warning}
-These pages and are **under development**.
+These pages are **under development**.
 ```
 
 The glossary can be used to collect terms that require further explanation or
