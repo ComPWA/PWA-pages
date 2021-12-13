@@ -1,7 +1,7 @@
 # Constituent Quark Model
 
 ```{warning}
-These pages and are **under development**.
+These pages are **under development**.
 ```
 
 ## Asymptotic Freedom

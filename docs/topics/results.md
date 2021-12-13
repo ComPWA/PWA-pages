@@ -1,7 +1,7 @@
 # Overview of latest insights
 
 ```{warning}
-These pages and are **under development**.
+These pages are **under development**.
 ```
 
 :::{todo}

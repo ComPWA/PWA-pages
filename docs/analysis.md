@@ -1,7 +1,7 @@
 # Analysis techniques
 
 ```{warning}
-These pages and are **under development**.
+These pages are **under development**.
 ```
 
 ```{toctree}

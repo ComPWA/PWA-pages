@@ -9,7 +9,7 @@
 [![Spelling checked](https://img.shields.io/badge/cspell-checked-brightgreen.svg)](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
 
 ```{warning}
-These pages and are **under development**.
+These pages are **under development**.
 ```
 
 The PWA Software Pages serve two purposes:
