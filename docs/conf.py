@@ -47,7 +47,7 @@ copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
-BRANCH = os.environ.get("READTHEDOCS_VERSION", default="main")
+BRANCH = os.environ.get("READTHEDOCS_VERSION", "main")
 if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
