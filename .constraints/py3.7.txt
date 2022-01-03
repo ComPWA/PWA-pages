@@ -114,7 +114,7 @@ pep517==0.12.0
 pep8-naming==0.12.1
 pexpect==4.8.0
 pickleshare==0.7.5
-pillow==8.4.0
+pillow==9.0.0
 pip-tools==6.4.0
 platformdirs==2.4.1
 pluggy==1.0.0
@@ -195,7 +195,7 @@ types-pyyaml==6.0.1
 types-setuptools==57.4.5
 typing-extensions==4.0.1
 urllib3==1.26.7
-virtualenv==20.12.1
+virtualenv==20.13.0
 wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.2.3
