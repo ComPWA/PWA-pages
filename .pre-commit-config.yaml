@@ -48,8 +48,6 @@ repos:
         args:
           - --pin-requirements
       - id: fix-first-nbcell
-        args:
-          - --replace
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
