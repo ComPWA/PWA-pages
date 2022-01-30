@@ -86,6 +86,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
+    "sphinx_codeautolink",
     "sphinx_copybutton",
     "sphinx_math_dollar",
     "sphinx_panels",
@@ -112,6 +113,7 @@ autodoc_default_options = {
         ]
     ),
 }
+codeautolink_concat_default = True
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
