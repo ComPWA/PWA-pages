@@ -79,7 +79,7 @@ an example here. -->
 
 Recommended literature:
 
-<!-- cspell:ignore aaij marangotto -->
+<!-- cspell:ignore aaij Dalitzplot jpaccollaboration marangotto Threebody -->
 <!-- markdownlint-disable -->
 
 - General introductions to helicity angles: <br>
