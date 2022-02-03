@@ -6,6 +6,8 @@
 
 ### Covariant Tensor formalisms
 
+<!-- cspell:ignore anisovich Momentoperator Twomeson -->
+
 {cite}`anisovichMomentoperatorExpansionTwomeson2002`
 
 ## Non-covariant tensor formalisms
