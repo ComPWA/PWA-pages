@@ -69,7 +69,7 @@ def fix_html_alignment(src: str) -> str:
     )
     src = re.sub(
         r'<td align="right">([0-9]{4})</td>',
-        fr"<td {center_align_style}>\1</td>",
+        rf"<td {center_align_style}>\1</td>",
         src,
     )
     src = src.replace('align="left"', left_align_style)

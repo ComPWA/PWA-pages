@@ -98,6 +98,7 @@
         "codemirror",
         "commitlint",
         "compwa",
+        "concat",
         "dateutil",
         "eval",
         "expertsystem",

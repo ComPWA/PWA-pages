@@ -22,7 +22,7 @@ def get_github_repo(url: str) -> GithubRepository:
 @lru_cache()
 def extract_github_repo_name(url: str) -> str:
     github_url = "https://github.com"
-    match = re.match(fr"^{github_url}/([^/]+)/([^/]+).*$", url)
+    match = re.match(rf"^{github_url}/([^/]+)/([^/]+).*$", url)
     if match is None:
         return ""
     return f"{match[1]}/{match[2]}"
