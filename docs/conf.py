@@ -87,6 +87,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx_codeautolink",
+    "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_math_dollar",
     "sphinx_panels",
@@ -176,6 +177,7 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://doi.org/10.1093/ptep/ptaa104",
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
+    "https://suchung.web.cern.ch",
 ]
 
 # Settings for myst_nb
@@ -214,6 +216,16 @@ myst_substitutions = {
     "repo": REPO_NAME,
 }
 myst_update_mathjax = False
+
+# Settings for sphinx_comments
+comments_config = {
+    "hypothesis": True,
+    "utterances": {
+        "repo": f"ComPWA/{REPO_NAME}",
+        "issue-term": "pathname",
+        "label": "📝 Docs",
+    },
+}
 
 # Settings for Thebe cell output
 thebe_config = {
