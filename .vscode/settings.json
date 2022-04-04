@@ -2,9 +2,6 @@
   "[bibtex]": {
     "editor.formatOnSave": false
   },
-  "[ipynb]": {
-    "editor.formatOnSave": false
-  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -37,8 +34,11 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "githubPullRequests.telemetry.enabled": false,
-  "gitlens.advanced.telemetry.enabled": false,
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/linkcheck.yml",
+    ".github/workflows/ci-tests.yml",
+    ".github/workflows/ci-docs.yml"
+  ],
   "myst.preview.extensions": [
     "amsmath",
     "colon_fence",
@@ -48,7 +48,6 @@
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
-  "python.languageServer": "Pylance",
   "python.linting.banditEnabled": false,
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
@@ -72,8 +71,7 @@
     "*/.pydocstyle": true,
     ".constraints/*.txt": true
   },
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
     "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
   }
