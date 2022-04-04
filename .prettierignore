@@ -1,2 +1,4 @@
+*.ipynb
 .cspell.json
 docs/software/*.json
+LICENSE
