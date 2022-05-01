@@ -118,11 +118,6 @@ repos:
             metadata.colab.name
             metadata.colab.provenance
             metadata.interpreter
-            metadata.language_info.codemirror_mode
-            metadata.language_info.file_extension
-            metadata.language_info.mimetype
-            metadata.language_info.nbconvert_exporter
-            metadata.language_info.pygments_lexer
             metadata.notify_time
             metadata.toc
             metadata.toc-autonumbering
