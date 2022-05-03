@@ -79,13 +79,13 @@ an example here. -->
 
 Recommended literature:
 
-<!-- cspell:ignore aaij Dalitzplot jpaccollaboration marangotto Threebody -->
+<!-- cspell:ignore aaij Dalitzplot mikhasenko marangotto Threebody -->
 <!-- markdownlint-disable -->
 
 - General introductions to helicity angles: <br>
   {cite}`kutschkeAngularDistributionCookbook1996, richmanExperimenterGuideHelicity1984`
 - Suggested solutions: <br>
-  {cite}`chenCoherentHelicityAmplitude2017, marangottoHelicityAmplitudesGeneric2020, wangNovelMethodTest2020, jpaccollaborationDalitzplotDecompositionThreebody2020`
+  {cite}`chenCoherentHelicityAmplitude2017, marangottoHelicityAmplitudesGeneric2020, wangNovelMethodTest2020, mikhasenkoDalitzplotDecompositionThreebody2020`
 - LHCb study that led to these solution papers: <br>
   {cite}`aaijObservationResonancesConsistent2015`
 
