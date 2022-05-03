@@ -18,7 +18,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -42,7 +42,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.119
+    rev: 0.0.124
     hooks:
       - id: check-dev-files
         args:
@@ -61,7 +61,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.9.0
+    rev: v5.9.1
     hooks:
       - id: cspell
 
@@ -118,11 +118,6 @@ repos:
             metadata.colab.name
             metadata.colab.provenance
             metadata.interpreter
-            metadata.language_info.codemirror_mode
-            metadata.language_info.file_extension
-            metadata.language_info.mimetype
-            metadata.language_info.nbconvert_exporter
-            metadata.language_info.pygments_lexer
             metadata.notify_time
             metadata.toc
             metadata.toc-autonumbering
@@ -130,6 +125,7 @@ repos:
             metadata.toc-showmarkdowntxt
             metadata.toc-showtags
             metadata.varInspector
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.6.2
     hooks:
@@ -141,12 +137,12 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.234
+    rev: v1.1.243
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.1
+    rev: v2.32.0
     hooks:
       - id: pyupgrade
         args:
@@ -162,7 +158,7 @@ repos:
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.14.2
+    rev: 0.14.3
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
