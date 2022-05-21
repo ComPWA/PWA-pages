@@ -114,11 +114,11 @@ class ProjectInventory(BaseModel):
 def _create_project_entry(project: Project) -> str:
     html = _form_html_link(name=project.name, url=project.url)
     if project.sub_projects is not None:
-        sub_project_links = map(
-            lambda s: _form_html_link(name=s.name, url=s.url),
-            project.sub_projects,
-        )
-        enumerated_projects = _enumerate_html_links(list(sub_project_links))
+        sub_project_links = [
+            _form_html_link(name=s.name, url=s.url)
+            for s in project.sub_projects
+        ]
+        enumerated_projects = _enumerate_html_links(sub_project_links)
         html += enumerated_projects
     return html
 
@@ -137,9 +137,7 @@ def _checkmark_language(
             for sub_project in project.sub_projects:
                 sub_languages = _fetch_languages(sub_project, min_percentage)
                 languages.extend(sub_languages)
-    normalized_languages = map(
-        lambda s: __replace_language(s).lower(), languages
-    )
+    normalized_languages = (__replace_language(s).lower() for s in languages)
     if language.lower() in normalized_languages:
         return "✓"
     return ""
@@ -225,8 +223,8 @@ def _format_collaboration(
         return ""
     if isinstance(collaborations, str):
         collaborations = [collaborations]
-    collaborations_links = map(
-        lambda c: _form_collaboration_link(inventory, c), collaborations
+    collaborations_links = (
+        _form_collaboration_link(inventory, c) for c in collaborations
     )
     return " / ".join(collaborations_links)
 
