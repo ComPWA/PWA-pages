@@ -53,7 +53,7 @@ if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
     BRANCH = "main"
-env_repo_name = os.environ.get("REPO")
+env_repo_name = os.environ.get("GITHUB_REPO")
 if env_repo_name:
     REPO_NAME = env_repo_name
 
@@ -244,7 +244,7 @@ nb_output_stderr = "remove"
 nb_execution_mode = "off"
 if "EXECUTE_NB" in os.environ:
     print("\033[93;1mWill run Jupyter notebooks!\033[0m")
-    nb_execution_mode = "force"
+    nb_execution_mode = "cache"
 
 # Settings for myst-parser
 myst_enable_extensions = [
