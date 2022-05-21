@@ -53,7 +53,7 @@ if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
     BRANCH = "main"
-env_repo_name = os.environ.get("REPO")
+env_repo_name = os.environ.get("GITHUB_REPO")
 if env_repo_name:
     REPO_NAME = env_repo_name
 
