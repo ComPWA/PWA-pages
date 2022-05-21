@@ -60,6 +60,7 @@
         "blazingly",
         "breit",
         "brookhaven",
+        "checkmark",
         "chromodynamics",
         "clebsch",
         "conda",
@@ -91,6 +92,7 @@
     ],
     "ignoreWords": [
         "arange",
+        "attribs",
         "autopep",
         "autoupdate",
         "bdist",

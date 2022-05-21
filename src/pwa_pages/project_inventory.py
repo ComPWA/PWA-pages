@@ -1,3 +1,4 @@
+# cspell:ignore subproject
 # pylint: disable=no-name-in-module, no-self-argument, no-self-use
 """Helper tools for writing tables."""
 
@@ -32,9 +33,7 @@ def to_html_table(
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
         "Since": _fetch_first_commit_year if fetch else lambda _: "",
-        "Lastest commit": _fetch_lastest_commit_date
-        if fetch
-        else lambda _: "",
+        "Latest commit": _fetch_latest_commit_date if fetch else lambda _: "",
     }
     for language in selected_languages:
         header_to_formatters[language] = partial(
@@ -106,9 +105,9 @@ class ProjectInventory(BaseModel):
                 collaborations = [project.collaboration]
             else:
                 collaborations = project.collaboration
-            for collab in collaborations:
-                if collab not in defined_collaborations:
-                    raise ValueError(f"No collaboration defined for {collab}")
+            for col in collaborations:
+                if col not in defined_collaborations:
+                    raise ValueError(f"No collaboration defined for {col}")
         return values
 
 
@@ -165,7 +164,7 @@ def _fetch_languages(
     return repo.filter_languages(min_percentage)
 
 
-def _fetch_lastest_commit_date(project: Project) -> str:
+def _fetch_latest_commit_date(project: Project) -> str:
     return _get_date(
         project,
         date_getter=lambda p: p.latest_commit,
