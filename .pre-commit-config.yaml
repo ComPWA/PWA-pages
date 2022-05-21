@@ -80,7 +80,9 @@ repos:
       - id: editorconfig-checker
         exclude: >
           (?x)^(
-            .*\.py
+            .*\.md|
+            .*\.py|
+            LICENSE
           )$
 
   - repo: https://github.com/pycqa/isort

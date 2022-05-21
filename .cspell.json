@@ -111,6 +111,7 @@
         "htmlcov",
         "infty",
         "ipykernel",
+        "ipynb",
         "isinstance",
         "isort",
         "jupyterlab",
