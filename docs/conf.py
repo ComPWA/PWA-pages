@@ -95,7 +95,7 @@ extensions = [
     "sphinx_codeautolink",
     "sphinx_comments",
     "sphinx_copybutton",
-    "sphinx_panels",
+    "sphinx_design",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
@@ -150,7 +150,6 @@ html_theme_options = {
     },
 }
 html_title = "Partial Wave Analysis"
-panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
 todo_include_todos = True
 viewcode_follow_imported_members = True
