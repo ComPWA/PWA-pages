@@ -36,9 +36,7 @@ from pybtex.style.template import (
 )
 from sphinx.application import Sphinx
 from sphinx.util.typing import RoleFunction
-from sphinxcontrib.bibtex.style.referencing.author_year import (
-    AuthorYearReferenceStyle,
-)
+from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
 
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
@@ -196,8 +194,7 @@ def get_minor_version(package_name: str) -> str:
     matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
     if matches is None:
         raise ValueError(
-            "Could not find documentation for"
-            f" {package_name} v{installed_version}"
+            f"Could not find documentation for {package_name} v{installed_version}"
         )
     return matches[1]
 
@@ -306,9 +303,7 @@ def wikilink(pattern: str) -> RoleFunction:
         url = pattern % (text,)
         if options is None:
             options = {}
-        reference_node = nodes.reference(
-            rawtext, output_text, refuri=url, **options
-        )
+        reference_node = nodes.reference(rawtext, output_text, refuri=url, **options)
         return [reference_node], []
 
     return role
@@ -365,9 +360,7 @@ class MyStyle(UnsrtStyle):
         super().__init__(abbreviate_names=True)
 
     def format_names(self, role, as_sentence: bool = True) -> Node:  # type: ignore[no-untyped-def]
-        formatted_names = names(
-            role, sep=", ", sep2=" and ", last_sep=", and "
-        )
+        formatted_names = names(role, sep=", ", sep2=" and ", last_sep=", and ")
         if as_sentence:
             return sentence[formatted_names]
         return formatted_names

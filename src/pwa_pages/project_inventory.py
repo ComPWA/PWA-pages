@@ -49,10 +49,7 @@ def to_html_table(
     writer = HtmlTableWriter(
         headers=list(header_to_formatters),
         value_matrix=[
-            tuple(
-                formatter(project)
-                for formatter in header_to_formatters.values()
-            )
+            tuple(formatter(project) for formatter in header_to_formatters.values())
             for project in inventory.projects
         ],
     )
@@ -115,8 +112,7 @@ def _create_project_entry(project: Project) -> str:
     html = _form_html_link(name=project.name, url=project.url)
     if project.sub_projects is not None:
         sub_project_links = [
-            _form_html_link(name=s.name, url=s.url)
-            for s in project.sub_projects
+            _form_html_link(name=s.name, url=s.url) for s in project.sub_projects
         ]
         enumerated_projects = _enumerate_html_links(sub_project_links)
         html += enumerated_projects
@@ -215,9 +211,7 @@ def _get_subproject_timestamps(
     return timestamps
 
 
-def _format_collaboration(
-    project: Project, inventory: "ProjectInventory"
-) -> str:
+def _format_collaboration(project: Project, inventory: "ProjectInventory") -> str:
     collaborations = project.collaboration
     if collaborations is None:
         return ""
@@ -252,8 +246,7 @@ def _enumerate_html_links(list_of_entries: Sequence[str]) -> str:
 
 def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        "Create a JSON validation schema for a software project inventory"
-        " file\n"
+        "Create a JSON validation schema for a software project inventory file\n"
     )
     parser.add_argument(
         "path",

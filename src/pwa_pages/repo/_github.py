@@ -55,9 +55,7 @@ def get_latest_commit_date(repo: GithubRepository) -> datetime:
 
 def get_last_modified(repo: GithubRepository) -> datetime:
     if repo.last_modified is None:
-        raise ValueError(
-            f"GitHub repo {repo.full_name} has no last modified timestamp"
-        )
+        raise ValueError(f"GitHub repo {repo.full_name} has no last modified timestamp")
     return parse_date(repo.last_modified)
 
 
@@ -66,8 +64,7 @@ def get_languages(repo: GithubRepository) -> Dict[str, float]:
     languages = repo.get_languages()
     total_lines = sum(languages.values())
     return {
-        language: 100 * lines / total_lines
-        for language, lines in languages.items()
+        language: 100 * lines / total_lines for language, lines in languages.items()
     }
 
 
