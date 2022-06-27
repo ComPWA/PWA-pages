@@ -6,11 +6,7 @@ from typing import Dict, List, Optional, Union
 import attr
 
 from . import _github, _gitlab
-from ._github import (
-    GithubRepository,
-    extract_github_repo_name,
-    get_github_repo,
-)
+from ._github import GithubRepository, extract_github_repo_name, get_github_repo
 from ._gitlab import GitlabProject, get_gitlab_repo, split_gitlab_repo_url
 
 

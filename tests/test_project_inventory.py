@@ -1,5 +1,5 @@
 # cspell:ignore subproject
-# pylint: disable=no-self-use, redefined-outer-name
+# pylint: disable=redefined-outer-name
 from pathlib import Path
 from textwrap import dedent
 
@@ -38,9 +38,7 @@ class TestProjectInventory:
             """
         )
         config = yaml.safe_load(yaml_content)
-        with pytest.raises(
-            ValidationError, match=r"No collaboration defined for SSC"
-        ):
+        with pytest.raises(ValidationError, match=r"No collaboration defined for SSC"):
             ProjectInventory(**config)
 
 
@@ -118,10 +116,7 @@ def test_to_html_table(project_inventory, fetch, fix_alignment):
     if fix_alignment:
         src = fix_html_alignment(src)
         if fetch:
-            assert (
-                '<td style="text-align:center; vertical-align:top">2020</td>'
-                in src
-            )
+            assert '<td style="text-align:center; vertical-align:top">2020</td>' in src
     else:
         if fetch:
             assert '<td align="right">2020</td>' in src
