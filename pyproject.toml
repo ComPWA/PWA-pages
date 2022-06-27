@@ -22,7 +22,6 @@ exclude = '''
 )/
 '''
 include = '\.pyi?$'
-line-length = 79
 preview = true
 target-version = [
     "py36",
@@ -33,10 +32,12 @@ target-version = [
 ]
 
 [tool.isort]
-line_length = 79
 profile = "black"
 
 [tool.nbqa.addopts]
+black = [
+    "--line-length=85",
+]
 flake8 = [
     "--extend-ignore=E402,F821",
 ]
