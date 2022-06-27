@@ -80,6 +80,7 @@ repos:
       - id: editorconfig-checker
         exclude: >
           (?x)^(
+            .*\.ipynb|
             .*\.md|
             .*\.py|
             LICENSE
