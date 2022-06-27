@@ -18,7 +18,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
+    rev: v4.3.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -42,7 +42,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.128
+    rev: 0.0.131
     hooks:
       - id: check-dev-files
         args:
@@ -61,7 +61,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.9.1
+    rev: v6.0.0
     hooks:
       - id: cspell
 
@@ -129,7 +129,7 @@ repos:
             metadata.varInspector
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.6.2
+    rev: v2.7.1
     hooks:
       - id: prettier
 
@@ -139,12 +139,12 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.247
+    rev: v1.1.255
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.32.1
+    rev: v2.34.0
     hooks:
       - id: pyupgrade
         args:
@@ -160,7 +160,7 @@ repos:
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.15.0
+    rev: 0.16.1
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
