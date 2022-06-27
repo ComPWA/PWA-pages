@@ -18,7 +18,6 @@ from docutils import nodes
 from docutils.nodes import Node as docutils_Node
 from docutils.nodes import system_message
 from docutils.parsers.rst.states import Inliner
-from pkg_resources import get_distribution
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import BaseText, Tag, Text
@@ -38,6 +37,13 @@ from sphinx.application import Sphinx
 from sphinx.util.typing import RoleFunction
 from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
 
+if sys.version_info < (3, 8):
+    from importlib_metadata import PackageNotFoundError
+    from importlib_metadata import version as get_package_version
+else:
+    from importlib.metadata import PackageNotFoundError
+    from importlib.metadata import version as get_package_version
+
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
@@ -55,10 +61,11 @@ env_repo_name = os.environ.get("GITHUB_REPO")
 if env_repo_name:
     REPO_NAME = env_repo_name
 
-
-if os.path.exists(f"../src/{PACKAGE}/version.py"):
-    __release = get_distribution(PACKAGE).version
-    version = ".".join(__release.split(".")[:3])
+try:
+    __VERSION = get_package_version(PACKAGE)
+    version = ".".join(__VERSION.split(".")[:3])
+except PackageNotFoundError:
+    pass
 
 
 # -- General configuration ---------------------------------------------------
