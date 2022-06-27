@@ -1,5 +1,5 @@
 # cspell:ignore subproject
-# pylint: disable=no-self-use, redefined-outer-name
+# pylint: disable=redefined-outer-name
 from pathlib import Path
 from textwrap import dedent
 

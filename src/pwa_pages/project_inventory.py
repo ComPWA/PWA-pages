@@ -1,5 +1,5 @@
 # cspell:ignore subproject
-# pylint: disable=no-name-in-module, no-self-argument, no-self-use
+# pylint: disable=no-name-in-module, no-self-argument
 """Helper tools for writing tables."""
 
 import argparse
