@@ -39,12 +39,7 @@
     ".github/workflows/ci-tests.yml",
     ".github/workflows/ci-docs.yml"
   ],
-  "myst.preview.extensions": [
-    "amsmath",
-    "colon_fence",
-    "dollarmath",
-    "tasklist"
-  ],
+  "myst.preview.extensions": ["amsmath", "colon_fence", "dollarmath", "tasklist"],
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
