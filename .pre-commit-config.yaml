@@ -51,7 +51,7 @@ repos:
       - id: format-setup-cfg
 
   - repo: https://github.com/psf/black
-    rev: 22.3.0
+    rev: 22.6.0
     hooks:
       - id: black
 
@@ -140,7 +140,7 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.255
+    rev: v1.1.256
     hooks:
       - id: pyright
 
