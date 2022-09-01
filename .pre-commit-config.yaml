@@ -51,7 +51,7 @@ repos:
       - id: format-setup-cfg
 
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 22.8.0
     hooks:
       - id: black
 
@@ -61,12 +61,12 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.0.0
+    rev: v6.8.1
     hooks:
       - id: cspell
 
   - repo: https://github.com/myint/docformatter
-    rev: v1.4
+    rev: v1.5.0
     hooks:
       - id: docformatter
         args:
@@ -92,12 +92,12 @@ repos:
       - id: isort
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.31.1
+    rev: v0.32.2
     hooks:
       - id: markdownlint
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.3.1
+    rev: 1.4.0
     hooks:
       - id: nbqa-black
         additional_dependencies:
@@ -109,7 +109,7 @@ repos:
           - --py36-plus
 
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.5.0
+    rev: 0.6.0
     hooks:
       - id: nbstripout
         args:
@@ -130,7 +130,7 @@ repos:
             metadata.varInspector
             metadata.vscode
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.7.1
+    rev: v3.0.0-alpha.0
     hooks:
       - id: prettier
 
@@ -140,12 +140,12 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.257
+    rev: v1.1.269
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.34.0
+    rev: v2.37.3
     hooks:
       - id: pyupgrade
         args:
@@ -161,7 +161,7 @@ repos:
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.17.0
+    rev: 0.18.2
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
