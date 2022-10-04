@@ -106,6 +106,7 @@
         "compwa",
         "concat",
         "dateutil",
+        "docnb",
         "eval",
         "expertsystem",
         "figsize",
