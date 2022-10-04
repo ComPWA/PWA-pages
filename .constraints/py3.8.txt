@@ -75,7 +75,7 @@ jupyter-client==7.3.5
 jupyter-console==6.4.4
 jupyter-core==4.11.1
 jupyter-server==1.19.1
-jupyterlab==3.4.7
+jupyterlab==3.4.8
 jupyterlab-code-formatter==1.5.3
 jupyterlab-markup==1.1.0
 jupyterlab-myst==0.1.6 ; python_version >= "3.7.0"
