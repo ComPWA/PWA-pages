@@ -4,7 +4,9 @@ updates:
     directory: "/"
     assignees:
       - redeboer
+    commit-message:
+      prefix: MAINT
     labels:
-      - 🖱️ DX
+      - 🔨 Maintenance
     schedule:
       interval: monthly
