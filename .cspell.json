@@ -95,6 +95,7 @@
         "zemach"
     ],
     "ignoreWords": [
+        "MAINT",
         "arange",
         "attribs",
         "autopep",
@@ -106,6 +107,7 @@
         "compwa",
         "concat",
         "dateutil",
+        "docnb",
         "eval",
         "expertsystem",
         "figsize",
@@ -125,7 +127,6 @@
         "labelpar",
         "linkcheck",
         "macos",
-        "MAINT",
         "markdownlint",
         "mathrm",
         "maxdepth",
