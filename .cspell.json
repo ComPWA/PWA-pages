@@ -88,6 +88,7 @@
         "numpy",
         "pseudoscalar",
         "pylint",
+        "PYTHONHASHSEED",
         "qrules",
         "sympy",
         "unitarity",
