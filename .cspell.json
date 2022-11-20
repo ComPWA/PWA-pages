@@ -27,6 +27,7 @@
         "*.svg",
         "*particle*.*ml",
         ".constraints/*.txt",
+        ".editorconfig",
         ".flake8*",
         ".gitignore",
         ".gitpod.*",
