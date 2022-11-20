@@ -9,6 +9,7 @@ ignore-patterns=
 [MESSAGES CONTROL]
 disable=
     duplicate-code, # https://github.com/PyCQA/pylint/issues/214
+    import-error, # already handled by pyright
     logging-fstring-interpolation,
     missing-class-docstring,    # pydocstyle
     missing-function-docstring, # pydocstyle

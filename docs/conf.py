@@ -47,19 +47,21 @@ else:
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = "ComPWA/PWA-pages"
+REPO_NAME = os.environ.get("GITHUB_REPO", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
-BRANCH = os.environ.get("READTHEDOCS_VERSION", "main")
-if BRANCH == "latest":
-    BRANCH = "main"
-if re.match(r"^\d+$", BRANCH):  # PR preview
-    BRANCH = "main"
-env_repo_name = os.environ.get("GITHUB_REPO")
-if env_repo_name:
-    REPO_NAME = env_repo_name
+def get_branch_name() -> str:
+    branch_name = os.environ.get("READTHEDOCS_VERSION", "main")
+    if branch_name == "latest":
+        return "main"
+    if re.match(r"^\d+$", branch_name):  # PR preview
+        return "main"
+    return branch_name
+
+
+BRANCH = get_branch_name()
 
 try:
     __VERSION = get_package_version(PACKAGE)
@@ -361,7 +363,7 @@ def names(children, context, role, **kwargs):  # type: ignore[no-untyped-def]
     return et_al(**kwargs)[formatted_names].format_data(context)
 
 
-class MyStyle(UnsrtStyle):
+class MyStyle(UnsrtStyle):  # pyright: ignore[reportUntypedBaseClass]
     def __init__(self) -> None:
         super().__init__(abbreviate_names=True)
 
