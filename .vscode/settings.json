@@ -43,6 +43,7 @@
     ".github/workflows/ci-docs.yml"
   ],
   "myst.preview.extensions": ["amsmath", "colon_fence", "dollarmath", "tasklist"],
+  "pylint.importStrategy": "fromEnvironment",
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
@@ -52,8 +53,7 @@
   "python.linting.mypyEnabled": true,
   "python.linting.pydocstyleEnabled": true,
   "python.linting.pylamaEnabled": false,
-  "python.linting.pylintCategorySeverity.refactor": "Information",
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
   "python.testing.autoTestDiscoverOnSaveEnabled": false,
   "python.testing.pytestArgs": [
     "--color=no",
