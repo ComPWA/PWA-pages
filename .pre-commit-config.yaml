@@ -50,6 +50,25 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.19.2
+    hooks:
+      - id: check-jsonschema
+        name: Check project inventory YAML files
+        language: python
+        files: docs/software/.*\.yml
+        types: [yaml]
+        args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
+
+  - repo: local
+    hooks:
+      - id: update-json-schema
+        name: Update JSON schemas for project inventories
+        entry: export-json-schema
+        language: system
+        pass_filenames: false
+        files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
+
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
@@ -78,6 +97,7 @@ repos:
     rev: 2.6.1
     hooks:
       - id: editorconfig-checker
+        name: editorconfig
         exclude: >
           (?x)^(
             .*\.ipynb|
@@ -85,6 +105,15 @@ repos:
             .*\.py|
             LICENSE
           )$
+
+  - repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: system
+        types:
+          - python
 
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
@@ -95,6 +124,16 @@ repos:
     rev: v0.32.2
     hooks:
       - id: markdownlint
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        require_serial: true
+        types:
+          - python
 
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.5.3
@@ -129,6 +168,7 @@ repos:
             metadata.toc-showtags
             metadata.varInspector
             metadata.vscode
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.4
     hooks:
@@ -138,6 +178,18 @@ repos:
     rev: 6.1.1
     hooks:
       - id: pydocstyle
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        args:
+          - --rcfile=.pylintrc
+          - --score=no
+        language: system
+        types:
+          - python
 
   - repo: https://github.com/ComPWA/mirrors-pyright
     rev: v1.1.280
@@ -150,52 +202,3 @@ repos:
       - id: pyupgrade
         args:
           - --py36-plus
-
-  - repo: local
-    hooks:
-      - id: update-json-schema
-        name: Update JSON schemas for project inventories
-        entry: export-json-schema
-        language: system
-        pass_filenames: false
-        files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
-
-  - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.19.2
-    hooks:
-      - id: check-jsonschema
-        name: Check project inventory YAML files
-        language: python
-        files: docs/software/.*\.yml
-        types: [yaml]
-        args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
-
-  # The following tools have to be install locally, because they can also be
-  # used by code editors (e.g. linting and format-on-save).
-
-  - repo: local
-    hooks:
-      - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types:
-          - python
-
-      - id: mypy
-        name: mypy
-        entry: mypy
-        language: system
-        require_serial: true
-        types:
-          - python
-
-      - id: pylint
-        name: pylint
-        entry: pylint
-        args:
-          - --rcfile=.pylintrc
-          - --score=no
-        language: system
-        types:
-          - python
