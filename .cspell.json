@@ -93,6 +93,7 @@
         "zemach"
     ],
     "ignoreWords": [
+        "MAINT",
         "arange",
         "attribs",
         "autopep",
@@ -124,7 +125,6 @@
         "labelpar",
         "linkcheck",
         "macos",
-        "MAINT",
         "markdownlint",
         "mathrm",
         "maxdepth",
