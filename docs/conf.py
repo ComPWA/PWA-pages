@@ -1,4 +1,5 @@
 # pylint: disable=invalid-name,no-value-for-parameter
+# pyright: reportMissingImports=false
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full
@@ -320,7 +321,9 @@ def wikilink(pattern: str) -> RoleFunction:
 
 # Specify bibliography style
 @dataclasses.dataclass
-class NoCommaReferenceStyle(AuthorYearReferenceStyle):
+class NoCommaReferenceStyle(
+    AuthorYearReferenceStyle  # pyright: ignore[reportUntypedBaseClass]
+):
     author_year_sep: Union["BaseText", str] = " "
 
 
