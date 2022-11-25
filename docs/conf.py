@@ -239,6 +239,7 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://doi.org/10.1093/ptep/ptaa104",
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
+    "https://physique.cuso.ch",
     "https://suchung.web.cern.ch",
 ]
 
