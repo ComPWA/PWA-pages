@@ -388,7 +388,7 @@ class MyStyle(UnsrtStyle):  # pyright: ignore[reportUntypedBaseClass]
             ]
         ]
 
-    def format_isbn(self, e: Entry) -> Node:
+    def format_isbn(self, e: Entry) -> Node:  # pylint: disable=unused-argument
         return href[
             join[
                 "https://isbnsearch.org/isbn/",
