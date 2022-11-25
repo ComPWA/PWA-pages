@@ -1,10 +1,6 @@
 {
     "version": "0.2",
-    "enableFiletypes": [
-        "git-commit",
-        "julia",
-        "jupyter"
-    ],
+    "enableFiletypes": ["git-commit", "julia", "jupyter"],
     "flagWords": [
         "analyse",
         "colour",
@@ -27,6 +23,7 @@
         "*.svg",
         "*particle*.*ml",
         ".constraints/*.txt",
+        ".editorconfig",
         ".flake8*",
         ".gitignore",
         ".gitpod.*",
@@ -88,6 +85,7 @@
         "numpy",
         "pseudoscalar",
         "pylint",
+        "PYTHONHASHSEED",
         "qrules",
         "sympy",
         "unitarity",
@@ -95,6 +93,7 @@
         "zemach"
     ],
     "ignoreWords": [
+        "MAINT",
         "arange",
         "attribs",
         "autopep",
@@ -126,7 +125,6 @@
         "labelpar",
         "linkcheck",
         "macos",
-        "MAINT",
         "markdownlint",
         "mathrm",
         "maxdepth",

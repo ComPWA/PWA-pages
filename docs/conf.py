@@ -1,4 +1,5 @@
 # pylint: disable=invalid-name,no-value-for-parameter
+# pyright: reportMissingImports=false
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full
@@ -47,19 +48,21 @@ else:
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = "ComPWA/PWA-pages"
+REPO_NAME = os.environ.get("GITHUB_REPO", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
-BRANCH = os.environ.get("READTHEDOCS_VERSION", "main")
-if BRANCH == "latest":
-    BRANCH = "main"
-if re.match(r"^\d+$", BRANCH):  # PR preview
-    BRANCH = "main"
-env_repo_name = os.environ.get("GITHUB_REPO")
-if env_repo_name:
-    REPO_NAME = env_repo_name
+def get_branch_name() -> str:
+    branch_name = os.environ.get("READTHEDOCS_VERSION", "main")
+    if branch_name == "latest":
+        return "main"
+    if re.match(r"^\d+$", branch_name):  # PR preview
+        return "main"
+    return branch_name
+
+
+BRANCH = get_branch_name()
 
 try:
     __VERSION = get_package_version(PACKAGE)
@@ -237,6 +240,7 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://doi.org/10.1093/ptep/ptaa104",
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
+    "https://physique.cuso.ch",
     "https://suchung.web.cern.ch",
 ]
 
@@ -317,7 +321,9 @@ def wikilink(pattern: str) -> RoleFunction:
 
 # Specify bibliography style
 @dataclasses.dataclass
-class NoCommaReferenceStyle(AuthorYearReferenceStyle):
+class NoCommaReferenceStyle(
+    AuthorYearReferenceStyle  # pyright: ignore[reportUntypedBaseClass]
+):
     author_year_sep: Union["BaseText", str] = " "
 
 
@@ -361,7 +367,7 @@ def names(children, context, role, **kwargs):  # type: ignore[no-untyped-def]
     return et_al(**kwargs)[formatted_names].format_data(context)
 
 
-class MyStyle(UnsrtStyle):
+class MyStyle(UnsrtStyle):  # pyright: ignore[reportUntypedBaseClass]
     def __init__(self) -> None:
         super().__init__(abbreviate_names=True)
 
@@ -386,7 +392,7 @@ class MyStyle(UnsrtStyle):
             ]
         ]
 
-    def format_isbn(self, e: Entry) -> Node:
+    def format_isbn(self, e: Entry) -> Node:  # pylint: disable=unused-argument
         return href[
             join[
                 "https://isbnsearch.org/isbn/",
