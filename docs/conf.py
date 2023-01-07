@@ -2,9 +2,9 @@
 # pyright: reportMissingImports=false
 """Configuration file for the Sphinx documentation builder.
 
-This file only contains a selection of the most common options. For a full
-list see the documentation:
-https://www.sphinx-doc.org/en/master/usage/configuration.html
+This file only contains a selection of the most common options. For a full list
+see the documentation: https://www.sphinx-
+doc.org/en/master/usage/configuration.html
 """
 
 import dataclasses
@@ -51,6 +51,7 @@ PACKAGE = "pwa_pages"
 REPO_NAME = os.environ.get("GITHUB_REPO", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
+
 
 # https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
