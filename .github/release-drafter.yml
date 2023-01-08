@@ -32,6 +32,8 @@ replacers:
 sort-direction: ascending
 
 template: |
-  _See all documentation for this version [here](https://pwa.rtfd.io)._
+  _See all documentation for this version [here](https://PWA-pages.rtfd.io/en/$NEXT_PATCH_VERSION)._
 
   $CHANGES
+
+  _The full changelog as commits can be found [here](https://github.com/ComPWA/PWA-pages/compare/$PREVIOUS_TAG...$NEXT_PATCH_VERSION)._
