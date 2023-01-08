@@ -12,6 +12,7 @@ import os
 import re
 import sys
 from datetime import datetime
+from functools import lru_cache
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 import sphinxcontrib.bibtex.plugin  # type: ignore[import]
@@ -245,14 +246,25 @@ linkcheck_ignore = [
     "https://suchung.web.cern.ch",
 ]
 
+
 # Settings for myst_nb
+def get_execution_mode() -> str:
+    if "FORCE_EXECUTE_NB" in os.environ:
+        print_once("\033[93;1mWill run ALL Jupyter notebooks!\033[0m")
+        return "force"
+    if "EXECUTE_NB" in os.environ:
+        return "cache"
+    return "off"
+
+
+@lru_cache(maxsize=None)
+def print_once(message: str) -> None:
+    print(message)
+
+
+nb_execution_mode = get_execution_mode()
 nb_execution_timeout = -1
 nb_output_stderr = "remove"
-
-nb_execution_mode = "off"
-if "EXECUTE_NB" in os.environ:
-    print("\033[93;1mWill run Jupyter notebooks!\033[0m")
-    nb_execution_mode = "cache"
 
 # Settings for myst-parser
 myst_enable_extensions = [
