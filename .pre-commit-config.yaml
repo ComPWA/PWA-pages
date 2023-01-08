@@ -47,6 +47,8 @@ repos:
       - id: check-dev-files
         args:
           - --pin-requirements=bimonthly
+          - --repo-name=PWA-pages
+          - --repo-title=PWA Pages
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
