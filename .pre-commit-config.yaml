@@ -42,7 +42,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.163
+    rev: 0.0.164
     hooks:
       - id: check-dev-files
         args:
@@ -52,24 +52,17 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
-  - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.20.0
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.6.0
     hooks:
-      - id: check-jsonschema
-        name: Check project inventory YAML files
-        language: python
-        files: docs/software/.*\.yml
-        types: [yaml]
-        args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
-
-  - repo: local
-    hooks:
-      - id: update-json-schema
-        name: Update JSON schemas for project inventories
-        entry: export-json-schema
-        language: system
-        pass_filenames: false
-        files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
+      - id: nbqa-black
+        additional_dependencies:
+          - black>=22.1.0
+      - id: nbqa-flake8
+      - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args:
+          - --py36-plus
 
   - repo: https://github.com/psf/black
     rev: 22.12.0
@@ -80,6 +73,16 @@ repos:
     rev: v1.12.1
     hooks:
       - id: blacken-docs
+
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.20.0
+    hooks:
+      - id: check-jsonschema
+        name: Check project inventory YAML files
+        language: python
+        files: docs/software/.*\.yml
+        types: [yaml]
+        args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v6.17.1
@@ -137,18 +140,6 @@ repos:
         types:
           - python
 
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.6.0
-    hooks:
-      - id: nbqa-black
-        additional_dependencies:
-          - black>=22.1.0
-      - id: nbqa-flake8
-      - id: nbqa-isort
-      - id: nbqa-pyupgrade
-        args:
-          - --py36-plus
-
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
     hooks:
@@ -204,3 +195,12 @@ repos:
       - id: pyupgrade
         args:
           - --py36-plus
+
+  - repo: local
+    hooks:
+      - id: update-json-schema
+        name: Update JSON schemas for project inventories
+        entry: export-json-schema
+        language: system
+        pass_filenames: false
+        files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
