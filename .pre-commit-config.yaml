@@ -8,7 +8,6 @@ ci:
     - pylint
     - update-json-schema
     # hooks that don't work on pre-commit.ci
-    - editorconfig-checker
     - pyright
 
 repos:
@@ -42,11 +41,13 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.159
+    rev: 1c12f71
     hooks:
       - id: check-dev-files
         args:
           - --pin-requirements=bimonthly
+          - --repo-name=PWA-pages
+          - --repo-title=PWA Pages
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
