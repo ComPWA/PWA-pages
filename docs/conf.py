@@ -247,6 +247,7 @@ linkcheck_ignore = [
 # Settings for myst_nb
 nb_execution_timeout = -1
 nb_output_stderr = "remove"
+nb_execution_show_tb = True
 
 nb_execution_mode = "off"
 if "EXECUTE_NB" in os.environ:
