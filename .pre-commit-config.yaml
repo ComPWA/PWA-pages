@@ -41,10 +41,11 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 1c12f71
+    rev: f742cde
     hooks:
       - id: check-dev-files
         args:
+          - --ci-skipped-tests=all
           - --no-macos
           - --pin-requirements=bimonthly
           - --repo-name=PWA-pages
