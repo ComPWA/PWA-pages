@@ -45,6 +45,7 @@ repos:
     hooks:
       - id: check-dev-files
         args:
+          - --no-macos
           - --pin-requirements=bimonthly
           - --repo-name=PWA-pages
           - --repo-title=PWA Pages
