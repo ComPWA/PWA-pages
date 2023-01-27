@@ -50,6 +50,18 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
 
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.5.3
+    hooks:
+      - id: nbqa-black
+        additional_dependencies:
+          - black>=22.1.0
+      - id: nbqa-flake8
+      - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args:
+          - --py36-plus
+
   - repo: https://github.com/sirosen/check-jsonschema
     rev: 0.19.2
     hooks:
@@ -134,18 +146,6 @@ repos:
         require_serial: true
         types:
           - python
-
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.5.3
-    hooks:
-      - id: nbqa-black
-        additional_dependencies:
-          - black>=22.1.0
-      - id: nbqa-flake8
-      - id: nbqa-isort
-      - id: nbqa-pyupgrade
-        args:
-          - --py36-plus
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
