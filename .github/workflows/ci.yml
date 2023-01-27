@@ -31,7 +31,7 @@ jobs:
   pytest:
     uses: ComPWA/actions/.github/workflows/pytest.yml@dev
     with:
-      coverage-target: PWA_pages
+      coverage-target: pwa_pages
       skipped-python-versions: all
       specific-pip-packages: ${{ inputs.specific-pip-packages }}
   style:
