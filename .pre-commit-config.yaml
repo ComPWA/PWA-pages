@@ -90,15 +90,6 @@ repos:
     hooks:
       - id: cspell
 
-  - repo: https://github.com/PyCQA/docformatter
-    rev: v1.6.0.rc1
-    hooks:
-      - id: docformatter
-        args:
-          - --in-place
-          - --wrap-descriptions=79
-          - --wrap-summaries=79
-
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.7.1
     hooks:
