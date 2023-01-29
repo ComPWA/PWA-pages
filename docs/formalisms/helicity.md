@@ -61,7 +61,8 @@ what part in the equation. So we would refer in the Doxygen docs to
 
 - the phase space element calculations?
 
-[IntensityBuilderXML](https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html) -->
+[IntensityBuilderXML](https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html)
+-->
 
 ## Canonical formulation
 
