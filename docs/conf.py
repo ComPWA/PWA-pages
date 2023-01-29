@@ -240,6 +240,7 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
+    "http://cgl.soic.indiana.edu/jpac/References.html",
     "https://doi.org/10.1093/ptep/ptaa104",
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
     "https://physique.cuso.ch",
@@ -266,6 +267,7 @@ nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
 nb_execution_timeout = -1
 nb_output_stderr = "remove"
+nb_execution_show_tb = True
 
 # Settings for myst-parser
 myst_enable_extensions = [
