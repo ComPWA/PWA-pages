@@ -49,27 +49,33 @@ else:
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = os.environ.get("GITHUB_REPOSITORY", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 
-# https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
-    branch_name = os.environ.get("READTHEDOCS_VERSION")
-    if branch_name is None:
-        branch_name = os.environ.get("GITHUB_REF", "main")
-        if re.match(r"^\d+/[a-z]+$", branch_name):  # type: ignore[arg-type]
+    branch = os.environ.get("READTHEDOCS_VERSION")
+    if branch == "latest":
+        branch = "main"
+    if branch is None:
+        branch = os.environ.get("GITHUB_REF", "main")
+        if re.match(r"^\d+/[a-z]+$", branch):  # type: ignore[arg-type]
             return "main"  # PR preview
-        branch_name = branch_name.replace("refs/heads/", "")  # type: ignore[union-attr]
-        branch_name = branch_name.replace("refs/pull/", "")
-        branch_name = branch_name.replace("refs/tags/", "")
-    if branch_name == "latest":
-        return "main"
-    return branch_name
+        branch = branch.replace("refs/heads/", "")  # type: ignore[union-attr]
+        branch = branch.replace("refs/pull/", "")
+        branch = branch.replace("refs/tags/", "")
+    print(f"  Branch name: {branch}")
+    return branch
+
+
+def get_repository_name() -> str:
+    repo = os.environ.get("GITHUB_REPOSITORY", "ComPWA/PWA-pages")
+    print(f"  Repository: {repo}")
+    return repo
 
 
 BRANCH = get_branch_name()
+REPO_NAME = get_repository_name()
 
 try:
     __VERSION = get_package_version(PACKAGE)
