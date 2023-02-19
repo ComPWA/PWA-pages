@@ -59,13 +59,11 @@ def get_branch_name() -> str:
         branch = "main"
     if branch is None:
         branch = os.environ.get("GITHUB_REF", "main")
-        raise ValueError(f'"{branch}"')
+        branch = branch.replace("refs/heads/", "")  # type: ignore[union-attr]
+        branch = branch.replace("refs/pull/", "")
+        branch = branch.replace("refs/tags/", "")
         if re.match(r"^\d+/[a-z]+$", branch) is not None:  # type: ignore[arg-type]
             branch = "main"  # PR preview
-        else:
-            branch = branch.replace("refs/heads/", "")  # type: ignore[union-attr]
-            branch = branch.replace("refs/pull/", "")
-            branch = branch.replace("refs/tags/", "")
     print(f"  Branch name: {branch}")
     return branch
 
