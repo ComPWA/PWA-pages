@@ -56,9 +56,12 @@ author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
-    branch_name = os.environ.get(
-        "READTHEDOCS_VERSION", os.environ.get("GITHUB_REF_NAME", "main")
-    )
+    branch_name = os.environ.get("READTHEDOCS_VERSION")
+    if branch_name is None:
+        branch_name = os.environ.get("GITHUB_REF", "main")
+        branch_name = branch_name.replace("refs/heads/", "")  # type: ignore[union-attr]
+        branch_name = branch_name.replace("refs/pull/", "")
+        branch_name = branch_name.replace("refs/tags/", "")
     if branch_name == "latest":
         return "main"
     if re.match(r"^\d+$", branch_name):  # PR preview
