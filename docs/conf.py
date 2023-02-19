@@ -65,7 +65,7 @@ def get_branch_name() -> str:
             branch = branch.replace("refs/heads/", "")  # type: ignore[union-attr]
             branch = branch.replace("refs/pull/", "")
             branch = branch.replace("refs/tags/", "")
-    print(f"  Branch name: {branch}")
+    print(f'  Branch name: "{branch}"')
     return branch
 
 
