@@ -56,7 +56,9 @@ author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
-    branch_name = os.environ.get("READTHEDOCS_VERSION", "main")
+    branch_name = os.environ.get(
+        "READTHEDOCS_VERSION", os.environ.get("GITHUB_REF_NAME", "main")
+    )
     if branch_name == "latest":
         return "main"
     if re.match(r"^\d+$", branch_name):  # PR preview
@@ -140,7 +142,7 @@ html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
     "repository_url": f"https://github.com/{REPO_NAME}",
-    "repository_branch": "main",
+    "repository_branch": BRANCH,
     "path_to_docs": "docs",
     "use_download_button": True,
     "use_edit_page_button": True,
