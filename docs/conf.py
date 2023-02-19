@@ -49,22 +49,33 @@ else:
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = os.environ.get("GITHUB_REPO", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 
-# https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
-    branch_name = os.environ.get("READTHEDOCS_VERSION", "main")
-    if branch_name == "latest":
-        return "main"
-    if re.match(r"^\d+$", branch_name):  # PR preview
-        return "main"
-    return branch_name
+    branch = os.environ.get("READTHEDOCS_VERSION")
+    if branch == "latest":
+        branch = "main"
+    if branch is None:
+        branch = os.environ.get("GITHUB_REF", "main")
+        branch = branch.replace("refs/heads/", "")  # type: ignore[union-attr]
+        branch = branch.replace("refs/pull/", "")
+        branch = branch.replace("refs/tags/", "")
+        if re.match(r"^\d+/[a-z]+$", branch) is not None:  # type: ignore[arg-type]
+            branch = "main"  # PR preview
+    print(f"  Branch name: {branch}")
+    return branch
+
+
+def get_repository_name() -> str:
+    repo = os.environ.get("GITHUB_REPOSITORY", "ComPWA/PWA-pages")
+    print(f"  Repository: {repo}")
+    return repo
 
 
 BRANCH = get_branch_name()
+REPO_NAME = get_repository_name()
 
 try:
     __VERSION = get_package_version(PACKAGE)
@@ -140,7 +151,7 @@ html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
     "repository_url": f"https://github.com/{REPO_NAME}",
-    "repository_branch": "main",
+    "repository_branch": BRANCH,
     "path_to_docs": "docs",
     "use_download_button": True,
     "use_edit_page_button": True,
