@@ -49,7 +49,7 @@ else:
 # -- Project information -----------------------------------------------------
 project = "PWA Software Pages"
 PACKAGE = "pwa_pages"
-REPO_NAME = os.environ.get("GITHUB_REPO", "ComPWA/PWA-pages")
+REPO_NAME = os.environ.get("GITHUB_REPOSITORY", "ComPWA/PWA-pages")
 copyright = "2020, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
