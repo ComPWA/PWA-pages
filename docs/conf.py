@@ -252,6 +252,7 @@ linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "http://cgl.soic.indiana.edu/jpac/References.html",
+    "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.1093/ptep/ptaa104",
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
     "https://physique.cuso.ch",
