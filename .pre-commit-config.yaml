@@ -2,13 +2,12 @@ ci:
   autoupdate_commit_msg: "MAINT: update pip constraints and pre-commit"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
-    # local hooks
     - flake8
     - mypy
     - pylint
-    - update-json-schema
-    # hooks that don't work on pre-commit.ci
     - pyright
+    - taplo
+    - update-json-schema
 
 repos:
   - repo: meta
@@ -188,6 +187,11 @@ repos:
         args:
           - --py36-plus
 
+  - repo: https://github.com/ComPWA/mirrors-taplo
+    rev: v0.8.0
+    hooks:
+      - id: taplo
+
   - repo: local
     hooks:
       - id: update-json-schema
@@ -196,8 +200,3 @@ repos:
         language: system
         pass_filenames: false
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
-
-  - repo: https://github.com/ComPWA/mirrors-taplo
-    rev: v0.8.0
-    hooks:
-      - id: taplo
