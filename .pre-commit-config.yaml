@@ -196,3 +196,8 @@ repos:
         language: system
         pass_filenames: false
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
+
+  - repo: https://github.com/ComPWA/mirrors-taplo
+    rev: v0.8.0
+    hooks:
+      - id: taplo
