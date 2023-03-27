@@ -50,13 +50,10 @@ projects:
     url: https://github.com/jdalseno/Mint2
 
   - name: Pawian
-    url: https://panda-wiki.gsi.de/foswiki/bin/view/PWA/PawianPwaSoftware
-    since: 2010
+    url: https://gitlab.ep1.rub.de/pwa/Pawian
     collaboration:
       - BESIII
       - PANDA
-    languages:
-      - C++
 
   - name: PyPWA
     url: https://github.com/JeffersonLab/PyPWA

@@ -143,6 +143,7 @@ graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
 html_favicon = "_static/favicon.ico"
+html_last_updated_fmt = "%-d %B %Y"
 html_show_copyright = False
 html_show_sourcelink = False
 html_show_sphinx = False
