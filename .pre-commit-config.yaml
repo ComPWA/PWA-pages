@@ -85,7 +85,7 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.30.1
+    rev: v6.31.0
     hooks:
       - id: cspell
 
