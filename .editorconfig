@@ -7,7 +7,7 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.ipynb]
+[*.{ipynb,md}]
 indent_size = 1
 
 [*.{py,toml}]
@@ -16,6 +16,9 @@ indent_size = 4
 # when adding words through vscode, this is the resulting output format
 [.cspell.json]
 indent_size = 4
+
+[LICENSE]
+indent_size = unset
 
 [setup.cfg]
 indent_size = 4
