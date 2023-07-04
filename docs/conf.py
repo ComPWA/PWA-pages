@@ -24,20 +24,12 @@ from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import BaseText, Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
-from pybtex.style.template import (
-    FieldIsMissing,
-    Node,
-    _format_list,
-    field,
-    href,
-    join,
-    node,
-    sentence,
-    words,
-)
+from pybtex.style.template import (FieldIsMissing, Node, _format_list, field,
+                                   href, join, node, sentence, words)
 from sphinx.application import Sphinx
 from sphinx.util.typing import RoleFunction
-from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
+from sphinxcontrib.bibtex.style.referencing.author_year import \
+    AuthorYearReferenceStyle
 
 if sys.version_info < (3, 8):
     from importlib_metadata import PackageNotFoundError

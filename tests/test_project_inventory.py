@@ -7,19 +7,14 @@ import pytest
 import yaml
 from pydantic import ValidationError
 
-from pwa_pages.project_inventory import (
-    Project,
-    ProjectInventory,
-    SubProject,
-    _checkmark_language,
-    _create_project_entry,
-    _fetch_languages,
-    _get_subproject_timestamps,
-    export_json_schema,
-    fix_html_alignment,
-    load_yaml,
-    to_html_table,
-)
+from pwa_pages.project_inventory import (Project, ProjectInventory, SubProject,
+                                         _checkmark_language,
+                                         _create_project_entry,
+                                         _fetch_languages,
+                                         _get_subproject_timestamps,
+                                         export_json_schema,
+                                         fix_html_alignment, load_yaml,
+                                         to_html_table)
 
 __MAX_PROJECTS = 4
 

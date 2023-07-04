@@ -1,13 +1,9 @@
 import pytest
 
-from pwa_pages.repo._github import (
-    extract_github_repo_name,
-    get_first_commit_date,
-    get_github_repo,
-    get_languages,
-    get_last_modified,
-    get_latest_commit_date,
-)
+from pwa_pages.repo._github import (extract_github_repo_name,
+                                    get_first_commit_date, get_github_repo,
+                                    get_languages, get_last_modified,
+                                    get_latest_commit_date)
 
 
 def test_get_first_commit_date():
