@@ -26,7 +26,6 @@ preview = true
 target-version = [
     "py310",
     "py311",
-    "py36",
     "py37",
     "py38",
     "py39",
@@ -141,6 +140,7 @@ extend-select = [
     "D",
     "EM",
     "ERA",
+    "FA",
     "I",
     "ICN",
     "INP",
