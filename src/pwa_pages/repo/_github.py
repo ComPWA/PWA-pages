@@ -38,9 +38,7 @@ def get_first_commit_date(repo: GithubRepository) -> datetime:
     timestamp = first_commit.last_modified
     if timestamp is None:
         msg = f"First commit on of GitHub repo {repo.full_name} has no timestamp"
-        raise ValueError(
-            msg
-        )
+        raise ValueError(msg)
     return parse_date(timestamp)
 
 
@@ -50,10 +48,11 @@ def get_latest_commit_date(repo: GithubRepository) -> datetime:
     latest_commit = repo.get_commit(default_branch)
     timestamp = latest_commit.last_modified
     if timestamp is None:
-        msg = f"Last commit on default branch {default_branch} of {repo.url} has no timestamp"
-        raise ValueError(
-            msg
+        msg = (
+            f"Last commit on default branch {default_branch} of {repo.url} has no"
+            " timestamp"
         )
+        raise ValueError(msg)
     return parse_date(timestamp)
 
 
