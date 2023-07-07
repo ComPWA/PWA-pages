@@ -2,6 +2,7 @@
 # cspell:ignore subproject
 
 import argparse
+import json
 import re
 from datetime import datetime
 from functools import partial
@@ -89,7 +90,7 @@ class ProjectInventory(BaseModel):
     projects: List[Project]
     collaborations: Dict[str, str] = {}
 
-    @root_validator()
+    @root_validator(skip_on_failure=True)
     def _check_collaboration_exists(cls, values: dict) -> dict:  # noqa: N805
         defined_collaborations = set(values["collaborations"])
         project: Project
@@ -255,10 +256,11 @@ def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
         help="Output path to write the JSON schema to",
     )
     args = parser.parse_args(argv)
-    schema = ProjectInventory.schema_json(indent=2)
-    schema += "\n"
+    schema = ProjectInventory.model_json_schema()
+    json_schema = json.dumps(schema, indent=2)
+    json_schema += "\n"
     with open(args.path, "w") as stream:
-        stream.write(schema)
+        stream.write(json_schema)
     return 0
 
 
