@@ -1,11 +1,10 @@
-# pylint: disable=invalid-name,no-value-for-parameter
-# pyright: reportMissingImports=false
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full list see the
 documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+# pyright: reportMissingImports=false
 
 import dataclasses
 import os
@@ -200,7 +199,7 @@ def get_version(package_name: str) -> str:
         if not line:
             continue
         line_segments = tuple(line.split("=="))
-        if len(line_segments) != 2:
+        if len(line_segments) != 2:  # noqa: PLR2004
             continue
         _, installed_version, *_ = line_segments
         installed_version = installed_version.strip()
@@ -219,9 +218,8 @@ def get_minor_version(package_name: str) -> str:
         return installed_version
     matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
     if matches is None:
-        raise ValueError(
-            f"Could not find documentation for {package_name} v{installed_version}"
-        )
+        msg = f"Could not find documentation for {package_name} v{installed_version}"
+        raise ValueError(msg)
     return matches[1]
 
 
@@ -330,8 +328,7 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 
 
 def wikilink(pattern: str) -> RoleFunction:
-    def role(
-        # pylint: disable=too-many-arguments,unused-argument
+    def role(  # noqa: PLR0913
         name: str,
         rawtext: str,
         text: str,
@@ -375,9 +372,9 @@ def et_al(children, data, sep="", sep2=None, last_sep=None):  # type: ignore[no-
     parts = [part for part in _format_list(children, data) if part]
     if len(parts) <= 1:
         return Text(*parts)
-    if len(parts) == 2:
+    if len(parts) == 2:  # noqa: PLR2004
         return Text(sep2).join(parts)
-    if len(parts) == 3:
+    if len(parts) == 3:  # noqa: PLR2004
         return Text(last_sep).join([Text(sep).join(parts[:-1]), parts[-1]])
     return Text(parts[0], Tag("em", " et al"))
 
@@ -389,8 +386,7 @@ def names(children, context, role, **kwargs):  # type: ignore[no-untyped-def]
     try:
         persons = context["entry"].persons[role]
     except KeyError:
-        # pylint: disable=raise-missing-from
-        raise FieldIsMissing(role, context["entry"])
+        raise FieldIsMissing(role, context["entry"]) from None
 
     style = context["style"]
     formatted_names = [
@@ -424,7 +420,7 @@ class MyStyle(UnsrtStyle):  # pyright: ignore[reportUntypedBaseClass]
             ]
         ]
 
-    def format_isbn(self, e: Entry) -> Node:  # pylint: disable=unused-argument
+    def format_isbn(self, e: Entry) -> Node:
         return href[
             join[
                 "https://isbnsearch.org/isbn/",

@@ -1,8 +1,8 @@
-# cspell:ignore subproject
-# pylint: disable=no-name-in-module, no-self-argument
 """Helper tools for writing tables."""
+# cspell:ignore subproject
 
 import argparse
+import json
 import re
 from datetime import datetime
 from functools import partial
@@ -29,7 +29,7 @@ def to_html_table(
     min_percentage: float = 2.5,
     hide_columns: Optional[Iterable[str]] = None,
 ) -> str:
-    header_to_formatters: Dict[str, Callable[[Project], str]] = {
+    header_to_formatters: Dict[str, Callable[[Project], str]] = {  # noqa: FA100
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
         "Since": _fetch_first_commit_year if fetch else lambda _: "",
@@ -69,8 +69,7 @@ def fix_html_alignment(src: str) -> str:
         src,
     )
     src = src.replace('align="left"', left_align_style)
-    src = src.replace("<th>", f"<th {left_align_style}>")
-    return src
+    return src.replace("<th>", f"<th {left_align_style}>")
 
 
 class SubProject(BaseModel):
@@ -91,7 +90,7 @@ class ProjectInventory(BaseModel):
     projects: List[Project]
     collaborations: Dict[str, str] = {}
 
-    @root_validator()
+    @root_validator(skip_on_failure=True)
     def _check_collaboration_exists(cls, values: dict) -> dict:  # noqa: N805
         defined_collaborations = set(values["collaborations"])
         project: Project
@@ -104,7 +103,8 @@ class ProjectInventory(BaseModel):
                 collaborations = project.collaboration
             for col in collaborations:
                 if col not in defined_collaborations:
-                    raise ValueError(f"No collaboration defined for {col}")
+                    msg = f"No collaboration defined for {col}"
+                    raise ValueError(msg)
         return values
 
 
@@ -226,7 +226,8 @@ def _format_collaboration(project: Project, inventory: "ProjectInventory") -> st
 def _form_collaboration_link(inventory: ProjectInventory, name: str) -> str:
     collaboration_url = inventory.collaborations.get(name)
     if collaboration_url is None:
-        raise KeyError(f'Collaboration entry "{name}" not found')
+        msg = f'Collaboration entry "{name}" not found'
+        raise KeyError(msg)
     return _form_html_link(name=name, url=collaboration_url)
 
 
@@ -240,8 +241,7 @@ def _enumerate_html_links(list_of_entries: Sequence[str]) -> str:
     if len(list_of_entries) == 1:
         return list_of_entries[0]
     html = "<li>".join(list_of_entries)
-    html = "<li>" + html
-    return html
+    return "<li>" + html
 
 
 def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
@@ -256,10 +256,11 @@ def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
         help="Output path to write the JSON schema to",
     )
     args = parser.parse_args(argv)
-    schema = ProjectInventory.schema_json(indent=2)
-    schema += "\n"
+    schema = ProjectInventory.model_json_schema()
+    json_schema = json.dumps(schema, indent=2, sort_keys=False)
+    json_schema += "\n"
     with open(args.path, "w") as stream:
-        stream.write(schema)
+        stream.write(json_schema)
     return 0
 
 

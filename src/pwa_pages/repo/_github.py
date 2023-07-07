@@ -2,12 +2,14 @@ import os
 import re
 from datetime import datetime
 from functools import lru_cache
-from typing import Dict, Optional
+from typing import TYPE_CHECKING, Dict, Optional
 
 from dateutil.parser import parse as parse_date
 from github import Github
-from github.Commit import Commit
 from github.Repository import Repository as GithubRepository
+
+if TYPE_CHECKING:
+    from github.Commit import Commit
 
 
 @lru_cache()
@@ -15,7 +17,8 @@ def get_github_repo(url: str) -> GithubRepository:
     github = __get_github()
     repo_name = extract_github_repo_name(url)
     if not repo_name:
-        raise ValueError(f"Not a GitHub repo URL: {url}")
+        msg = f"Not a GitHub repo URL: {url}"
+        raise ValueError(msg)
     return github.get_repo(repo_name)
 
 
@@ -34,9 +37,8 @@ def get_first_commit_date(repo: GithubRepository) -> datetime:
     first_commit: Commit = commits[0]
     timestamp = first_commit.last_modified
     if timestamp is None:
-        raise ValueError(
-            f"First commit on of GitHub repo {repo.full_name} has no timestamp"
-        )
+        msg = f"First commit on of GitHub repo {repo.full_name} has no timestamp"
+        raise ValueError(msg)
     return parse_date(timestamp)
 
 
@@ -46,16 +48,18 @@ def get_latest_commit_date(repo: GithubRepository) -> datetime:
     latest_commit = repo.get_commit(default_branch)
     timestamp = latest_commit.last_modified
     if timestamp is None:
-        raise ValueError(
-            f"Last commit on default branch {default_branch} of"
-            f" {repo.url} has no timestamp"
+        msg = (
+            f"Last commit on default branch {default_branch} of {repo.url} has no"
+            " timestamp"
         )
+        raise ValueError(msg)
     return parse_date(timestamp)
 
 
 def get_last_modified(repo: GithubRepository) -> datetime:
     if repo.last_modified is None:
-        raise ValueError(f"GitHub repo {repo.full_name} has no last modified timestamp")
+        msg = f"GitHub repo {repo.full_name} has no last modified timestamp"
+        raise ValueError(msg)
     return parse_date(repo.last_modified)
 
 
