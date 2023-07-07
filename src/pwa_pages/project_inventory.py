@@ -69,8 +69,7 @@ def fix_html_alignment(src: str) -> str:
         src,
     )
     src = src.replace('align="left"', left_align_style)
-    src = src.replace("<th>", f"<th {left_align_style}>")
-    return src
+    return src.replace("<th>", f"<th {left_align_style}>")
 
 
 class SubProject(BaseModel):
@@ -104,7 +103,8 @@ class ProjectInventory(BaseModel):
                 collaborations = project.collaboration
             for col in collaborations:
                 if col not in defined_collaborations:
-                    raise ValueError(f"No collaboration defined for {col}")
+                    msg = f"No collaboration defined for {col}"
+                    raise ValueError(msg)
         return values
 
 
@@ -226,7 +226,8 @@ def _format_collaboration(project: Project, inventory: "ProjectInventory") -> st
 def _form_collaboration_link(inventory: ProjectInventory, name: str) -> str:
     collaboration_url = inventory.collaborations.get(name)
     if collaboration_url is None:
-        raise KeyError(f'Collaboration entry "{name}" not found')
+        msg = f'Collaboration entry "{name}" not found'
+        raise KeyError(msg)
     return _form_html_link(name=name, url=collaboration_url)
 
 
@@ -240,8 +241,7 @@ def _enumerate_html_links(list_of_entries: Sequence[str]) -> str:
     if len(list_of_entries) == 1:
         return list_of_entries[0]
     html = "<li>".join(list_of_entries)
-    html = "<li>" + html
-    return html
+    return "<li>" + html
 
 
 def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:

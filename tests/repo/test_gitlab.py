@@ -1,9 +1,13 @@
 # pylint: disable=redefined-outer-name
 import pytest
 
-from pwa_pages.repo._gitlab import (get_first_commit_date, get_gitlab_repo,
-                                    get_last_modified, get_latest_commit_date,
-                                    split_gitlab_repo_url)
+from pwa_pages.repo._gitlab import (
+    get_first_commit_date,
+    get_gitlab_repo,
+    get_last_modified,
+    get_latest_commit_date,
+    split_gitlab_repo_url,
+)
 
 
 def test_get_gitlab_repo():
