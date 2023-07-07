@@ -257,7 +257,7 @@ def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
     )
     args = parser.parse_args(argv)
     schema = ProjectInventory.model_json_schema()
-    json_schema = json.dumps(schema, indent=2)
+    json_schema = json.dumps(schema, indent=2, sort_keys=False)
     json_schema += "\n"
     with open(args.path, "w") as stream:
         stream.write(json_schema)
