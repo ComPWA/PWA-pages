@@ -32,6 +32,35 @@ target-version = [
     "py39",
 ]
 
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.mypy]
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+exclude = "_build"
+show_error_codes = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+check_untyped_defs = true
+disallow_incomplete_defs = false
+disallow_untyped_defs = false
+module = ["tests.*"]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = ["pybtex.*"]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = ["sphinx.*"]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = ["sphinxcontrib.bibtex.*"]
+
 [tool.nbqa.addopts]
 black = [
     "--line-length=85",
@@ -85,35 +114,6 @@ reportUnusedFunction = true
 reportUnusedImport = true
 reportUnusedVariable = true
 typeCheckingMode = "strict"
-
-[tool.mypy]
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-exclude = "_build"
-show_error_codes = true
-warn_unused_configs = true
-
-[[tool.mypy.overrides]]
-check_untyped_defs = true
-disallow_incomplete_defs = false
-disallow_untyped_defs = false
-module = ["tests.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["pybtex.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinx.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinxcontrib.bibtex.*"]
-
-[tool.coverage.run]
-branch = true
-source = ["src"]
 
 [tool.pytest.ini_options]
 addopts = """
