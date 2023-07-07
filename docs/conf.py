@@ -1,11 +1,10 @@
-# pylint: disable=invalid-name,no-value-for-parameter
-# pyright: reportMissingImports=false
 """Configuration file for the Sphinx documentation builder.
 
 This file only contains a selection of the most common options. For a full list see the
 documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+# pyright: reportMissingImports=false
 
 import dataclasses
 import os
@@ -330,7 +329,6 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 
 def wikilink(pattern: str) -> RoleFunction:
     def role(
-        # pylint: disable=too-many-arguments,unused-argument
         name: str,
         rawtext: str,
         text: str,
@@ -388,7 +386,6 @@ def names(children, context, role, **kwargs):  # type: ignore[no-untyped-def]
     try:
         persons = context["entry"].persons[role]
     except KeyError:
-        # pylint: disable=raise-missing-from
         raise FieldIsMissing(role, context["entry"])
 
     style = context["style"]
@@ -423,7 +420,7 @@ class MyStyle(UnsrtStyle):  # pyright: ignore[reportUntypedBaseClass]
             ]
         ]
 
-    def format_isbn(self, e: Entry) -> Node:  # pylint: disable=unused-argument
+    def format_isbn(self, e: Entry) -> Node:
         return href[
             join[
                 "https://isbnsearch.org/isbn/",
