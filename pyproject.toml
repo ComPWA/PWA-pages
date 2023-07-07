@@ -123,7 +123,9 @@ addopts = """
 --ignore=docs/conf.py"""
 filterwarnings = [
     "error",
+    "ignore:Argument login_or_token is deprecated.*:DeprecationWarning",
     "ignore:Exception ignored in.*:UserWarning",
+    "ignore:Pydantic V1 style `@root_validator` validators are deprecated.*:pydantic.warnings.PydanticDeprecatedSince20",
 ]
 testpaths = [
     "src",
