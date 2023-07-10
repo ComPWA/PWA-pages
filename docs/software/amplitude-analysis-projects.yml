@@ -61,6 +61,7 @@ projects:
 
   - name: Rio++
     url: https://www.dropbox.com/sh/ydpg4xj4n817ppk/AACLohbJW2JDkFwlfiF2MlBva?dl=0
+    since: 2023
     collaboration: LHCb
 
   - name: ROOTPWA
