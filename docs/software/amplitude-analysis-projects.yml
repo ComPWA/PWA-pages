@@ -59,6 +59,13 @@ projects:
     url: https://github.com/JeffersonLab/PyPWA
     collaboration: JLab
 
+  - name: Rio++
+    url: https://www.dropbox.com/sh/ydpg4xj4n817ppk/AACLohbJW2JDkFwlfiF2MlBva?dl=0
+    collaboration: LHCb
+    languages:
+      - C++
+    since: 2016
+
   - name: ROOTPWA
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
     collaboration: COMPASS
