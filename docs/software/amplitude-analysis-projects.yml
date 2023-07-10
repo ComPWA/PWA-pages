@@ -64,7 +64,7 @@ projects:
     collaboration: LHCb
     languages:
       - C++
-    since: 2023
+    since: 2016
 
   - name: ROOTPWA
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
