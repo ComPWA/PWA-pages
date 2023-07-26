@@ -1,12 +1,17 @@
+from __future__ import annotations
+
 import re
-from datetime import datetime
 from functools import lru_cache
-from typing import Optional, Tuple
+from typing import TYPE_CHECKING
 
 from dateutil.parser import parse as parse_date
 from gitlab import Gitlab
-from gitlab.v4.objects import Project as GitlabProject
-from gitlab.v4.objects import ProjectCommitManager
+from gitlab.v4.objects import Project as GitlabProject  # noqa: TCH002
+
+if TYPE_CHECKING:
+    from datetime import datetime
+
+    from gitlab.v4.objects import ProjectCommitManager
 
 
 @lru_cache()
@@ -15,7 +20,7 @@ def get_gitlab_repo(server_url: str, project_path: str) -> GitlabProject:
     return gitlab.projects.get(project_path)
 
 
-def split_gitlab_repo_url(url: str) -> Optional[Tuple[str, str]]:
+def split_gitlab_repo_url(url: str) -> tuple[str, str] | None:
     match = re.match(r"^(https?://)([^/]*gitlab[^/]+)/(.*)$", url)
     if match is None:
         return None

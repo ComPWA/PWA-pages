@@ -1,7 +1,7 @@
 """Get information about a GitHub and GitLab repositories."""
+from __future__ import annotations
 
-from datetime import datetime
-from typing import Dict, List, Optional, Union
+from typing import TYPE_CHECKING
 
 import attr
 
@@ -9,21 +9,24 @@ from . import _github, _gitlab
 from ._github import GithubRepository, extract_github_repo_name, get_github_repo
 from ._gitlab import GitlabProject, get_gitlab_repo, split_gitlab_repo_url
 
+if TYPE_CHECKING:
+    from datetime import datetime
+
 
 @attr.s(frozen=True, auto_attribs=True)
 class Repo:
     name: str
     url: str
     full_name: str
-    _languages: Dict[str, float]
+    _languages: dict[str, float]
     first_commit: datetime
     latest_commit: datetime
 
     @property
-    def languages(self) -> List[str]:
+    def languages(self) -> list[str]:
         return list(self._languages)
 
-    def filter_languages(self, min_percentage: float) -> List[str]:
+    def filter_languages(self, min_percentage: float) -> list[str]:
         return [
             language
             for language, percentage in self._languages.items()
@@ -31,7 +34,7 @@ class Repo:
         ]
 
 
-def get_repo(url: str) -> Optional[Repo]:
+def get_repo(url: str) -> Repo | None:
     repo = _fetch_repository(url)
     if isinstance(repo, GithubRepository):
         return Repo(
@@ -56,7 +59,7 @@ def get_repo(url: str) -> Optional[Repo]:
 
 def _fetch_repository(
     url: str,
-) -> Optional[Union[GitlabProject, GithubRepository]]:
+) -> GitlabProject | GithubRepository | None:
     if extract_github_repo_name(url):
         return get_github_repo(url)
     gitlab_tuple = split_gitlab_repo_url(url)

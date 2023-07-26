@@ -1,14 +1,17 @@
+from __future__ import annotations
+
 import os
 import re
-from datetime import datetime
 from functools import lru_cache
-from typing import TYPE_CHECKING, Dict, Optional
+from typing import TYPE_CHECKING
 
 from dateutil.parser import parse as parse_date
 from github import Github
-from github.Repository import Repository as GithubRepository
+from github.Repository import Repository as GithubRepository  # noqa: TCH002
 
 if TYPE_CHECKING:
+    from datetime import datetime
+
     from github.Commit import Commit
 
 
@@ -64,7 +67,7 @@ def get_last_modified(repo: GithubRepository) -> datetime:
 
 
 @lru_cache()
-def get_languages(repo: GithubRepository) -> Dict[str, float]:
+def get_languages(repo: GithubRepository) -> dict[str, float]:
     languages = repo.get_languages()
     total_lines = sum(languages.values())
     return {
@@ -73,7 +76,7 @@ def get_languages(repo: GithubRepository) -> Dict[str, float]:
 
 
 @lru_cache()
-def __get_github(token: Optional[str] = None) -> Github:
+def __get_github(token: str | None = None) -> Github:
     if token is None:
         token = os.environ.get("GITHUB_TOKEN")
     return Github(login_or_token=token)
