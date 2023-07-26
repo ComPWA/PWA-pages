@@ -29,7 +29,7 @@ def to_html_table(
     min_percentage: float = 2.5,
     hide_columns: Optional[Iterable[str]] = None,
 ) -> str:
-    header_to_formatters: Dict[str, Callable[[Project], str]] = {  # noqa: FA100
+    header_to_formatters: Dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
         "Since": _fetch_first_commit_year if fetch else lambda _: "",

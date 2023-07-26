@@ -5,6 +5,7 @@ documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 # pyright: reportMissingImports=false
+from __future__ import annotations
 
 import dataclasses
 import os
@@ -12,14 +13,10 @@ import re
 import sys
 from datetime import datetime
 from functools import lru_cache
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import TYPE_CHECKING, Any
 
 import sphinxcontrib.bibtex.plugin  # type: ignore[import]
 from docutils import nodes
-from docutils.nodes import Node as docutils_Node
-from docutils.nodes import system_message
-from docutils.parsers.rst.states import Inliner
-from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import BaseText, Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
@@ -34,9 +31,15 @@ from pybtex.style.template import (
     sentence,
     words,
 )
-from sphinx.application import Sphinx
-from sphinx.util.typing import RoleFunction
 from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
+
+if TYPE_CHECKING:
+    from docutils.nodes import Node as docutils_Node
+    from docutils.nodes import system_message
+    from docutils.parsers.rst.states import Inliner
+    from pybtex.database import Entry
+    from sphinx.application import Sphinx
+    from sphinx.util.typing import RoleFunction
 
 if sys.version_info < (3, 8):
     from importlib_metadata import PackageNotFoundError
@@ -316,7 +319,7 @@ thebe_config = {
 
 
 # Add roles to simplify external links
-def setup(app: Sphinx) -> Dict[str, Any]:
+def setup(app: Sphinx) -> dict[str, Any]:
     app.add_role(
         "wiki",
         wikilink("https://en.wikipedia.org/wiki/%s"),
@@ -334,9 +337,9 @@ def wikilink(pattern: str) -> RoleFunction:
         text: str,
         lineno: int,
         inliner: Inliner,
-        options: Optional[Dict] = None,
-        content: Optional[List[str]] = None,
-    ) -> Tuple[List[docutils_Node], List[system_message]]:
+        options: dict | None = None,
+        content: list[str] | None = None,
+    ) -> tuple[list[docutils_Node], list[system_message]]:
         output_text = text
         output_text = output_text.replace("_", " ")
         url = pattern % (text,)
@@ -353,7 +356,7 @@ def wikilink(pattern: str) -> RoleFunction:
 class NoCommaReferenceStyle(
     AuthorYearReferenceStyle  # pyright: ignore[reportUntypedBaseClass]
 ):
-    author_year_sep: Union["BaseText", str] = " "
+    author_year_sep: BaseText | str = " "
 
 
 sphinxcontrib.bibtex.plugin.register_plugin(
