@@ -196,7 +196,10 @@ task-tags = ["cspell"]
     "T201",
 ]
 "setup.py" = ["D100"]
-"src/pwa_pages/project_inventory.py" = ["UP00"]
+"src/pwa_pages/project_inventory.py" = [
+    "FA100",
+    "UP00",
+]
 "tests/*" = [
     "D",
     "INP001",
