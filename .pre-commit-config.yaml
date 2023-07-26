@@ -38,7 +38,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.189
+    rev: 0.0.192
     hooks:
       - id: check-dev-files
         args:
@@ -64,17 +64,17 @@ repos:
           - --fix
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: 1.14.0
+    rev: 1.15.0
     hooks:
       - id: blacken-docs
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.23.2
+    rev: 0.23.3
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
@@ -84,7 +84,7 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.31.0
+    rev: v6.31.1
     hooks:
       - id: cspell
 
@@ -144,26 +144,26 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.316
+    rev: v1.1.318
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.8.0
+    rev: v3.9.0
     hooks:
       - id: pyupgrade
         args:
           - --py37-plus
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.277
+    rev: v0.0.280
     hooks:
       - id: ruff
         args:
           - --fix
 
   - repo: https://github.com/ComPWA/mirrors-taplo
-    rev: v0.8.0
+    rev: v0.8.1
     hooks:
       - id: taplo
 
