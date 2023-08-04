@@ -9,6 +9,13 @@ projects:
 
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
+    collaboration:
+      - BESIII
+      - GlueX
+
+  - name: BruFit
+    url: https://github.com/dglazier/brufit
+    collaboration: CLAS12
 
   - name: ComPWA (C++)
     url: https://github.com/ComPWA/ComPWA
@@ -87,8 +94,10 @@ projects:
 
 collaborations:
   BESIII: http://bes3.ihep.ac.cn
+  CLAS12: https://www.jlab.org/physics/hall-b/clas12
   CLEO: https://www.classe.cornell.edu/Research/CLEO
   COMPASS: https://home.cern/science/experiments/compass
+  GlueX: http://www.gluex.org
   JLab: https://www.jlab.org
   LHCb: https://lhcb.web.cern.ch
   PANDA: https://panda.gsi.de
