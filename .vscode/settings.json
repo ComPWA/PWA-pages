@@ -18,16 +18,18 @@
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
-    }
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "black-formatter.importStrategy": "fromEnvironment",
+  "cSpell.enabled": true,
   "coverage-gutters.coverageFileNames": ["coverage.xml"],
   "coverage-gutters.coverageReportFileName": "**/htmlcov/index.html",
   "coverage-gutters.showGutterCoverage": false,
   "coverage-gutters.showLineCoverage": true,
-  "cSpell.enabled": true,
   "editor.formatOnSave": true,
   "editor.rulers": [88],
   "files.watcherExclude": {
@@ -45,14 +47,6 @@
   "python.analysis.autoImportCompletions": false,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.typeCheckingMode": "strict",
-  "python.formatting.provider": "black",
-  "python.linting.banditEnabled": false,
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": false,
-  "python.linting.mypyEnabled": false,
-  "python.linting.pydocstyleEnabled": false,
-  "python.linting.pylamaEnabled": false,
-  "python.linting.pylintEnabled": false,
   "python.testing.autoTestDiscoverOnSaveEnabled": false,
   "python.testing.pytestArgs": [
     "--color=no",
