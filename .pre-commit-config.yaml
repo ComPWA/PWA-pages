@@ -2,6 +2,7 @@ ci:
   autoupdate_commit_msg: "MAINT: update pip constraints and pre-commit"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
+    - check-jsonschema
     - mypy
     - pyright
     - taplo
@@ -38,7 +39,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.192
+    rev: 0.0.197
     hooks:
       - id: check-dev-files
         args:
@@ -64,17 +65,17 @@ repos:
           - --fix
 
   - repo: https://github.com/psf/black
-    rev: 23.7.0
+    rev: 23.9.0
     hooks:
       - id: black
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: 1.15.0
+    rev: 1.16.0
     hooks:
       - id: blacken-docs
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.23.3
+    rev: 0.26.3
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
@@ -84,7 +85,7 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.31.1
+    rev: v7.3.0
     hooks:
       - id: cspell
 
@@ -100,7 +101,7 @@ repos:
           )$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.35.0
+    rev: v0.36.0
     hooks:
       - id: markdownlint
 
@@ -139,24 +140,24 @@ repos:
             metadata.vscode
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0
+    rev: v3.0.3
     hooks:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.318
+    rev: v1.1.326
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.9.0
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args:
           - --py37-plus
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.280
+    rev: v0.0.287
     hooks:
       - id: ruff
         args:
