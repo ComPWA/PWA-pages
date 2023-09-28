@@ -89,6 +89,7 @@
         "zemach"
     ],
     "ignoreWords": [
+        "Colab",
         "MAINT",
         "arange",
         "attribs",
