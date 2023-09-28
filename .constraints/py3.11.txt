@@ -131,7 +131,7 @@ pure-eval==0.2.2
 pybtex==0.24.0
 pybtex-docutils==1.0.3
 pycparser==2.21
-pydantic==2.4.1
+pydantic==2.4.2
 pydantic-core==2.10.1
 pydata-sphinx-theme==0.14.1
 pygithub==1.59.1
@@ -160,7 +160,7 @@ requests==2.31.0
 requests-toolbelt==1.0.0
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
-rope==1.9.0
+rope==1.10.0
 rpds-py==0.10.3
 ruff==0.0.291
 send2trash==1.8.2
