@@ -50,8 +50,6 @@ repos:
           - --repo-title=PWA Pages
       - id: colab-toc-visible
       - id: fix-nbformat-version
-      - id: format-setup-cfg
-
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.7.0
     hooks:
@@ -164,6 +162,13 @@ repos:
     rev: v0.8.1
     hooks:
       - id: taplo
+
+  - repo: https://github.com/pappasam/toml-sort
+    rev: PLEASE-UPDATE
+    hooks:
+      - id: toml-sort
+        args:
+          - --in-place
 
   - repo: local
     hooks:
