@@ -1,9 +1,144 @@
 [build-system]
+build-backend = "setuptools.build_meta"
 requires = [
     "setuptools>=61.2",
     "setuptools_scm",
 ]
-build-backend = "setuptools.build_meta"
+
+[project]
+authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Typing :: Typed",
+]
+dependencies = [
+    "attrs >=17.3.0", # auto_attribs
+    "pydantic",
+    "PyGithub",
+    "pytablewriter[html]",
+    "python-dateutil",
+    "python-gitlab",
+    "PyYAML",
+]
+description = "A central knowledge-base for Partial Wave Analysis"
+dynamic = ["version"]
+keywords = [
+    "HEP",
+    "PWA",
+    "amplitude analysis",
+    "partial wave analysis",
+    "particle physics",
+    "particles",
+    "physics",
+]
+license = {text = "GPLv3 or later"}
+maintainers = [{email = "compwa-admin@ep1.rub.de"}]
+name = "PWA-pages"
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = [
+    "PWA-pages[doc]",
+    "PWA-pages[jupyter]",
+    "PWA-pages[sty]",
+    "PWA-pages[test]",
+    "sphinx-autobuild",
+    "tox >=1.9", # for skip_install, use_develop
+]
+doc = [
+    "docutils <0.18", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
+    "feynman",
+    'importlib-metadata; python_version <"3.8.0"',
+    "ipywidgets",
+    "jupyter",
+    "matplotlib",
+    "myst-nb >=0.11", # myst_enable_extensions
+    "numpy <1.24", # bug in feynman: https://github.com/ComPWA/PWA-pages/actions/runs/3868808372/jobs/6594501436#step:6:177
+    "Sphinx >=3",
+    "sphinx-book-theme",
+    "sphinx-codeautolink[ipython]",
+    "sphinx-comments",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinx-hep-pdgref",
+    "sphinx-thebe",
+    "sphinx-togglebutton",
+    "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
+    "sympy",
+]
+format = [
+    "black",
+]
+jupyter = [
+    "PWA-pages[doc]",
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "python-lsp-server[rope]",
+    'ypy-websocket <0.8.3; python_version <"3.8.0"',
+]
+lint = [
+    "PWA-pages[mypy]",
+    "ruff",
+]
+mypy = [
+    "mypy >=0.730", # error code support
+    "types-docutils",
+    "types-pkg-resources",
+    "types-python-dateutil",
+    "types-PyYAML",
+    "types-setuptools",
+]
+sty = [
+    "PWA-pages[format]",
+    "PWA-pages[lint]",
+    "PWA-pages[test]", # for pytest type hints
+    "pre-commit >=1.4.0",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
+[project.scripts]
+export-json-schema = "pwa_pages.project_inventory:export_json_schema"
+
+[project.urls]
+Changelog = "https://github.com/ComPWA/PWA-pages/releases"
+Documentation = "https://pwa.rtfd.io"
+Source = "https://github.com/ComPWA/PWA-pages"
+Tracker = "https://github.com/ComPWA/PWA-pages/issues"
+
+[tool.setuptools]
+include-package-data = false
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+pwa_pages = ["py.typed"]
+
+[tool.setuptools.packages.find]
+namespaces = false
+where = ["src"]
 
 [tool.setuptools_scm]
 write_to = "src/pwa_pages/version.py"
@@ -222,139 +357,3 @@ sort_first = [
 sort_table_keys = true
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
-
-[tool.setuptools]
-package-dir = {"" = "src"}
-include-package-data = false
-
-[tool.setuptools.packages.find]
-where = ["src"]
-namespaces = false
-
-[tool.setuptools.package-data]
-pwa_pages = ["py.typed"]
-
-[project]
-name = "PWA-pages"
-authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
-maintainers = [{email = "compwa-admin@ep1.rub.de"}]
-description = "A central knowledge-base for Partial Wave Analysis"
-license = {text = "GPLv3 or later"}
-keywords = [
-    "HEP",
-    "PWA",
-    "amplitude analysis",
-    "partial wave analysis",
-    "particle physics",
-    "particles",
-    "physics",
-]
-classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Education",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering",
-    "Topic :: Scientific/Engineering :: Physics",
-    "Typing :: Typed",
-]
-requires-python = ">=3.7"
-dependencies = [
-    "attrs >=17.3.0", # auto_attribs
-    "pydantic",
-    "PyGithub",
-    "pytablewriter[html]",
-    "python-dateutil",
-    "python-gitlab",
-    "PyYAML",
-]
-dynamic = ["version"]
-
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
-
-[project.urls]
-Tracker = "https://github.com/ComPWA/PWA-pages/issues"
-Changelog = "https://github.com/ComPWA/PWA-pages/releases"
-Documentation = "https://pwa.rtfd.io"
-Source = "https://github.com/ComPWA/PWA-pages"
-
-[project.optional-dependencies]
-doc = [
-    "docutils <0.18", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
-    "feynman",
-    'importlib-metadata; python_version <"3.8.0"',
-    "ipywidgets",
-    "jupyter",
-    "matplotlib",
-    "myst-nb >=0.11", # myst_enable_extensions
-    "numpy <1.24", # bug in feynman: https://github.com/ComPWA/PWA-pages/actions/runs/3868808372/jobs/6594501436#step:6:177
-    "Sphinx >=3",
-    "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]",
-    "sphinx-comments",
-    "sphinx-copybutton",
-    "sphinx-design",
-    "sphinx-hep-pdgref",
-    "sphinx-thebe",
-    "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
-    "sympy",
-]
-test = [
-    "pytest",
-    "pytest-cov",
-    "pytest-xdist",
-]
-format = [
-    "black",
-]
-mypy = [
-    "mypy >=0.730", # error code support
-    "types-docutils",
-    "types-pkg-resources",
-    "types-python-dateutil",
-    "types-PyYAML",
-    "types-setuptools",
-]
-lint = [
-    "PWA-pages[mypy]",
-    "ruff",
-]
-sty = [
-    "PWA-pages[format]",
-    "PWA-pages[lint]",
-    "PWA-pages[test]", # for pytest type hints
-    "pre-commit >=1.4.0",
-]
-jupyter = [
-    "PWA-pages[doc]",
-    "jupyterlab",
-    "jupyterlab-code-formatter",
-    "jupyterlab-lsp",
-    "jupyterlab-myst",
-    "python-lsp-server[rope]",
-    'ypy-websocket <0.8.3; python_version <"3.8.0"',
-]
-dev = [
-    "PWA-pages[doc]",
-    "PWA-pages[jupyter]",
-    "PWA-pages[sty]",
-    "PWA-pages[test]",
-    "sphinx-autobuild",
-    "tox >=1.9", # for skip_install, use_develop
-]
-
-[project.scripts]
-export-json-schema = "pwa_pages.project_inventory:export_json_schema"
-
