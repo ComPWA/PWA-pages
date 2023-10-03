@@ -15,24 +15,24 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python",
     "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering",
     "Typing :: Typed",
 ]
 dependencies = [
+    "PyGithub",
+    "PyYAML",
     "attrs >=17.3.0", # auto_attribs
     "pydantic",
-    "PyGithub",
     "pytablewriter[html]",
     "python-dateutil",
     "python-gitlab",
-    "PyYAML",
 ]
 description = "A central knowledge-base for Partial Wave Analysis"
 dynamic = ["version"]
@@ -60,15 +60,14 @@ dev = [
     "tox >=1.9", # for skip_install, use_develop
 ]
 doc = [
+    "Sphinx >=3",
     "docutils <0.18", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
     "feynman",
-    'importlib-metadata; python_version <"3.8.0"',
     "ipywidgets",
     "jupyter",
     "matplotlib",
     "myst-nb >=0.11", # myst_enable_extensions
     "numpy <1.24", # bug in feynman: https://github.com/ComPWA/PWA-pages/actions/runs/3868808372/jobs/6594501436#step:6:177
-    "Sphinx >=3",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",
@@ -79,6 +78,7 @@ doc = [
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
     "sympy",
+    'importlib-metadata; python_version <"3.8.0"',
 ]
 format = [
     "black",
@@ -98,10 +98,10 @@ lint = [
 ]
 mypy = [
     "mypy >=0.730", # error code support
+    "types-PyYAML",
     "types-docutils",
     "types-pkg-resources",
     "types-python-dateutil",
-    "types-PyYAML",
     "types-setuptools",
 ]
 sty = [
