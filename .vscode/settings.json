@@ -13,8 +13,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrap": "off"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -44,7 +43,12 @@
   "livePreview.defaultPreviewPath": "docs/_build/html",
   "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
   "mypy-type-checker.importStrategy": "fromEnvironment",
-  "myst.preview.extensions": ["amsmath", "colon_fence", "dollarmath", "tasklist"],
+  "myst.preview.extensions": [
+    "amsmath",
+    "colon_fence",
+    "dollarmath",
+    "tasklist"
+  ],
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
   "python.analysis.inlayHints.pytestParameters": true,

@@ -45,6 +45,7 @@ repos:
         args:
           - --ci-skipped-tests=all
           - --no-macos
+          - --no-prettierrc
           - --pin-requirements=bimonthly
           - --repo-name=PWA-pages
           - --repo-title=PWA Pages
