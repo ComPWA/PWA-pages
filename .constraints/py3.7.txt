@@ -138,7 +138,7 @@ pynacl==1.5.0
 pyparsing==3.1.1
 pyproject-api==1.5.3
 pyrsistent==0.19.3
-pytablewriter==1.1.0
+pytablewriter==1.2.0
 pytest==7.4.2
 pytest-cov==4.1.0
 pytest-xdist==3.3.1
