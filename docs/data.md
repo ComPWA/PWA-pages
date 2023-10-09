@@ -29,15 +29,8 @@ These pages are **under development**.
 
 ## Comparison with Measurements
 
-<!-- markdownlint-disable -->
-<!-- prettier-ignore-start -->
 :::{todo}
----
-class: dropdown
----
-<!-- prettier-ignore-end -->
-
-<!-- markdownlint-enable -->
+:class: dropdown
 
 Luminosity $L$
 

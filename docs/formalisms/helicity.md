@@ -81,7 +81,6 @@ an example here. -->
 Recommended literature:
 
 <!-- cspell:ignore aaij Dalitzplot mikhasenko marangotto Threebody -->
-<!-- markdownlint-disable -->
 
 - General introductions to helicity angles: <br>
   {cite}`kutschkeAngularDistributionCookbook1996, richmanExperimenterGuideHelicity1984`
@@ -89,5 +88,3 @@ Recommended literature:
   {cite}`chenCoherentHelicityAmplitude2017, marangottoHelicityAmplitudesGeneric2020, wangNovelMethodTest2020, mikhasenkoDalitzplotDecompositionThreebody2020`
 - LHCb study that led to these solution papers: <br>
   {cite}`aaijObservationResonancesConsistent2015`
-
-<!-- markdownlint-enable -->

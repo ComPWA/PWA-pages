@@ -1,9 +1,144 @@
 [build-system]
+build-backend = "setuptools.build_meta"
 requires = [
-    "setuptools>=36.2.1", # environment markers
+    "setuptools>=61.2",
     "setuptools_scm",
-    "wheel",
 ]
+
+[project]
+authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+    "PyGithub",
+    "PyYAML",
+    "attrs >=17.3.0", # auto_attribs
+    "pydantic",
+    "pytablewriter[html]",
+    "python-dateutil",
+    "python-gitlab",
+]
+description = "A central knowledge-base for Partial Wave Analysis"
+dynamic = ["version"]
+keywords = [
+    "HEP",
+    "PWA",
+    "amplitude analysis",
+    "partial wave analysis",
+    "particle physics",
+    "particles",
+    "physics",
+]
+license = {text = "GPLv3 or later"}
+maintainers = [{email = "compwa-admin@ep1.rub.de"}]
+name = "PWA-pages"
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = [
+    "PWA-pages[doc]",
+    "PWA-pages[jupyter]",
+    "PWA-pages[sty]",
+    "PWA-pages[test]",
+    "sphinx-autobuild",
+    "tox >=1.9", # for skip_install, use_develop
+]
+doc = [
+    "Sphinx >=3",
+    "docutils <0.18", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
+    "feynman",
+    "ipywidgets",
+    "jupyter",
+    "matplotlib",
+    "myst-nb >=0.11", # myst_enable_extensions
+    "numpy <1.24", # bug in feynman: https://github.com/ComPWA/PWA-pages/actions/runs/3868808372/jobs/6594501436#step:6:177
+    "sphinx-book-theme",
+    "sphinx-codeautolink[ipython]",
+    "sphinx-comments",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinx-hep-pdgref",
+    "sphinx-thebe",
+    "sphinx-togglebutton",
+    "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
+    "sympy",
+    'importlib-metadata; python_version <"3.8.0"',
+]
+format = [
+    "black",
+]
+jupyter = [
+    "PWA-pages[doc]",
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "python-lsp-server[rope]",
+    'ypy-websocket <0.8.3; python_version <"3.8.0"',
+]
+lint = [
+    "PWA-pages[mypy]",
+    "ruff",
+]
+mypy = [
+    "mypy >=0.730", # error code support
+    "types-PyYAML",
+    "types-docutils",
+    "types-pkg-resources",
+    "types-python-dateutil",
+    "types-setuptools",
+]
+sty = [
+    "PWA-pages[format]",
+    "PWA-pages[lint]",
+    "PWA-pages[test]", # for pytest type hints
+    "pre-commit >=1.4.0",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
+[project.scripts]
+export-json-schema = "pwa_pages.project_inventory:export_json_schema"
+
+[project.urls]
+Changelog = "https://github.com/ComPWA/PWA-pages/releases"
+Documentation = "https://pwa.rtfd.io"
+Source = "https://github.com/ComPWA/PWA-pages"
+Tracker = "https://github.com/ComPWA/PWA-pages/issues"
+
+[tool.setuptools]
+include-package-data = false
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+pwa_pages = ["py.typed"]
+
+[tool.setuptools.packages.find]
+namespaces = false
+where = ["src"]
 
 [tool.setuptools_scm]
 write_to = "src/pwa_pages/version.py"
@@ -61,9 +196,6 @@ ignore_missing_imports = true
 module = ["sphinxcontrib.bibtex.*"]
 
 [tool.nbqa.addopts]
-black = [
-    "--line-length=85",
-]
 ruff = [
     "--extend-ignore=B018",
     "--extend-ignore=C90",
@@ -211,3 +343,17 @@ task-tags = ["cspell"]
 
 [tool.ruff.pydocstyle]
 convention = "google"
+
+[tool.tomlsort]
+all = false
+ignore_case = true
+in_place = true
+sort_first = [
+    "build-system",
+    "project",
+    "tool.setuptools",
+    "tool.setuptools_scm",
+]
+sort_table_keys = true
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true

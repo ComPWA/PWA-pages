@@ -114,10 +114,10 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinx_hep_pdgref",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
-    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -181,7 +181,8 @@ nitpicky = True  # warn if cross-references are missing
 # Intersphinx settings
 version_remapping = {
     "ipython": {
-        "8.12.2": "8.13.2",
+        "8.12.2": "8.12.1",
+        "8.12.3": "8.12.1",
     },
     "matplotlib": {"3.5.1": "3.5.0"},
 }
