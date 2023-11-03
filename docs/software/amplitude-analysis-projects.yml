@@ -77,6 +77,13 @@ projects:
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
     collaboration: COMPASS
 
+  - name: TARA
+    url: https://doi.org/10.1016/S0010-4655(98)00194-5
+    since: 1999
+    collaboration: Crystal Barrel
+    languages:
+      - C++
+
   - name: TensorFlowAnalysis
     url: https://gitlab.cern.ch/poluekt/TensorFlowAnalysis
     collaboration: LHCb
@@ -97,6 +104,7 @@ collaborations:
   CLAS12: https://www.jlab.org/physics/hall-b/clas12
   CLEO: https://www.classe.cornell.edu/Research/CLEO
   COMPASS: https://home.cern/science/experiments/compass
+  Crystal Barrel: https://www.cb.uni-bonn.de
   GlueX: http://www.gluex.org
   JLab: https://www.jlab.org
   LHCb: https://lhcb.web.cern.ch
