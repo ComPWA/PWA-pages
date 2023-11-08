@@ -136,6 +136,7 @@
     "sdist",
     "seealso",
     "setuptools",
+    "subproject",
     "tensorwaves",
     "toctree",
     "treiman",
