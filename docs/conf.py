@@ -4,6 +4,7 @@ This file only contains a selection of the most common options. For a full list 
 documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+
 # pyright: reportMissingImports=false
 from __future__ import annotations
 
@@ -130,12 +131,10 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
-    "special-members": ", ".join(
-        [
-            "__call__",
-            "__eq__",
-        ]
-    ),
+    "special-members": ", ".join([
+        "__call__",
+        "__eq__",
+    ]),
 }
 codeautolink_concat_default = True
 codeautolink_global_preface = """

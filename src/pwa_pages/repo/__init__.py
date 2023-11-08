@@ -1,4 +1,5 @@
 """Get information about a GitHub and GitLab repositories."""
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING

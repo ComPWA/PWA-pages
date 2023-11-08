@@ -1,5 +1,4 @@
 """Helper tools for writing tables."""
-# cspell:ignore subproject
 
 import argparse
 import json
