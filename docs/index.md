@@ -47,6 +47,7 @@ analysis
 caption: Appendices
 hidden:
 ---
+API <api/pwa_pages>
 glossary
 references
 ```

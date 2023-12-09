@@ -17,7 +17,7 @@
   },
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.rulers": [88]
@@ -31,6 +31,7 @@
   "coverage-gutters.showGutterCoverage": false,
   "coverage-gutters.showLineCoverage": true,
   "cSpell.enabled": true,
+  "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
   "files.watcherExclude": {
     "**/*_cache/**": true,
@@ -41,6 +42,7 @@
   "git.rebaseWhenSync": true,
   "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "livePreview.defaultPreviewPath": "docs/_build/html",
+  "multiDiffEditor.experimental.enabled": true,
   "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
   "mypy-type-checker.importStrategy": "fromEnvironment",
   "myst.preview.extensions": [
