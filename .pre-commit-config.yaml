@@ -28,6 +28,7 @@ repos:
           - --repo-title=PWA Pages
       - id: colab-toc-visible
       - id: fix-nbformat-version
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
