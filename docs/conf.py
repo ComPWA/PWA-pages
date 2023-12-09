@@ -8,7 +8,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 # pyright: reportMissingImports=false
 from __future__ import annotations
 
-import dataclasses
 import os
 import re
 import sys
@@ -16,10 +15,9 @@ from datetime import datetime
 from functools import lru_cache
 from typing import TYPE_CHECKING, Any
 
-import sphinxcontrib.bibtex.plugin  # type: ignore[import]
 from docutils import nodes
 from pybtex.plugin import register_plugin
-from pybtex.richtext import BaseText, Tag, Text
+from pybtex.richtext import Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
 from pybtex.style.template import (
     FieldIsMissing,
@@ -32,7 +30,6 @@ from pybtex.style.template import (
     sentence,
     words,
 )
-from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
 
 if TYPE_CHECKING:
     from docutils.nodes import Node as docutils_Node
@@ -246,7 +243,7 @@ autosectionlabel_prefix_document = True
 bibtex_bibfiles = [
     "bibliography.bib",
 ]
-bibtex_reference_style = "author_year_no_comma"
+bibtex_reference_style = "author_year"
 
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
@@ -349,21 +346,6 @@ def wikilink(pattern: str) -> RoleFunction:
         return [reference_node], []
 
     return role
-
-
-# Specify bibliography style
-@dataclasses.dataclass
-class NoCommaReferenceStyle(
-    AuthorYearReferenceStyle  # pyright: ignore[reportUntypedBaseClass]
-):
-    author_year_sep: BaseText | str = " "
-
-
-sphinxcontrib.bibtex.plugin.register_plugin(
-    "sphinxcontrib.bibtex.style.referencing",
-    "author_year_no_comma",
-    NoCommaReferenceStyle,
-)
 
 
 @node
