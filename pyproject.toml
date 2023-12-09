@@ -61,7 +61,6 @@ dev = [
 ]
 doc = [
     "Sphinx >=3",
-    "docutils <0.18", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
     "feynman",
     "ipywidgets",
     "jupyter",
