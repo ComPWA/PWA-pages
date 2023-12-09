@@ -149,7 +149,7 @@ myst_enable_extensions = [
 myst_substitutions = {
     "branch": BRANCH,
     "build_date": datetime.today().strftime("%d %B %Y"),
-    "repo": REPO_NAME,
+    "repo": f"{ORGANIZATION}/{REPO_NAME}",
 }
 myst_update_mathjax = False
 nb_execution_mode = get_execution_mode()
