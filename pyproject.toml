@@ -68,6 +68,7 @@ doc = [
     "matplotlib",
     "myst-nb >=0.11", # myst_enable_extensions
     "numpy <1.24", # bug in feynman: https://github.com/ComPWA/PWA-pages/actions/runs/3868808372/jobs/6594501436#step:6:177
+    "sphinx-api-relink >=0.0.8",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",

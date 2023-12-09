@@ -13,16 +13,6 @@ import re
 import sys
 from datetime import datetime
 from functools import lru_cache
-from typing import TYPE_CHECKING, Any
-
-from docutils import nodes
-
-if TYPE_CHECKING:
-    from docutils.nodes import Node as docutils_Node
-    from docutils.nodes import system_message
-    from docutils.parsers.rst.states import Inliner
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import RoleFunction
 
 if sys.version_info < (3, 8):
     from importlib_metadata import PackageNotFoundError
@@ -94,6 +84,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx_codeautolink",
+    "sphinx_api_relink",
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
@@ -299,36 +290,3 @@ thebe_config = {
     "repository_url": html_theme_options["repository_url"],
     "repository_branch": html_theme_options["repository_branch"],
 }
-
-
-# Add roles to simplify external links
-def setup(app: Sphinx) -> dict[str, Any]:
-    app.add_role(
-        "wiki",
-        wikilink("https://en.wikipedia.org/wiki/%s"),
-    )
-    return {
-        "parallel_read_safe": True,
-        "parallel_write_safe": True,
-    }
-
-
-def wikilink(pattern: str) -> RoleFunction:
-    def role(  # noqa: PLR0913
-        name: str,
-        rawtext: str,
-        text: str,
-        lineno: int,
-        inliner: Inliner,
-        options: dict | None = None,
-        content: list[str] | None = None,
-    ) -> tuple[list[docutils_Node], list[system_message]]:
-        output_text = text
-        output_text = output_text.replace("_", " ")
-        url = pattern % (text,)
-        if options is None:
-            options = {}
-        reference_node = nodes.reference(rawtext, output_text, refuri=url, **options)
-        return [reference_node], []
-
-    return role
