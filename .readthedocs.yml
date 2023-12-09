@@ -16,4 +16,4 @@ build:
     - graphviz
   jobs:
     post_install:
-      - pip install -e .[doc] -c .constraints/py3.8.txt
+      - pip install -c .constraints/py3.8.txt -e .[doc]

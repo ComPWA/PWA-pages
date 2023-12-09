@@ -4,6 +4,7 @@ ci:
   skip:
     - check-jsonschema
     - mypy
+    - prettier
     - pyright
     - taplo
     - update-json-schema
@@ -14,6 +15,19 @@ repos:
       - id: check-hooks-apply
       - id: check-useless-excludes
 
+  - repo: https://github.com/ComPWA/repo-maintenance
+    rev: 0.1.9
+    hooks:
+      - id: check-dev-files
+        args:
+          - --ci-skipped-tests=all
+          - --no-macos
+          - --no-prettierrc
+          - --pin-requirements=bimonthly
+          - --repo-name=PWA-pages
+          - --repo-title=PWA Pages
+      - id: colab-toc-visible
+      - id: fix-nbformat-version
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
@@ -37,29 +51,6 @@ repos:
         name: Tests should start with test_
         args: ["--django"]
       - id: trailing-whitespace
-
-  - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.1.9
-    hooks:
-      - id: check-dev-files
-        args:
-          - --ci-skipped-tests=all
-          - --no-macos
-          - --no-prettierrc
-          - --pin-requirements=bimonthly
-          - --repo-name=PWA-pages
-          - --repo-title=PWA Pages
-      - id: colab-toc-visible
-      - id: fix-nbformat-version
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.7.1
-    hooks:
-      - id: nbqa-pyupgrade
-        args:
-          - --py37-plus
-      - id: nbqa-ruff
-        args:
-          - --fix
 
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 23.11.0
@@ -145,19 +136,12 @@ repos:
     hooks:
       - id: pyright
 
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
-    hooks:
-      - id: pyupgrade
-        args:
-          - --py37-plus
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.7
     hooks:
       - id: ruff
-        args:
-          - --fix
+        args: [--fix]
+        types_or: [python, pyi, jupyter]
 
   - repo: https://github.com/ComPWA/mirrors-taplo
     rev: v0.8.1
