@@ -114,6 +114,7 @@ sty = [
     "pre-commit >=1.4.0",
 ]
 test = [
+    "nbmake",
     "pytest",
     "pytest-cov",
     "pytest-xdist",
