@@ -81,9 +81,7 @@ doc = [
     "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
     "sympy",
 ]
-format = [
-    "black",
-]
+format = ["black"]
 jupyter = [
     "PWA-pages[doc]",
     "isort",
@@ -102,6 +100,7 @@ lint = [
 ]
 mypy = [
     "mypy >=0.730", # error code support
+    "sphinx-api-relink >=0.0.8",
     "types-PyYAML",
     "types-docutils",
     "types-pkg-resources",
