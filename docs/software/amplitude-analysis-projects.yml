@@ -33,6 +33,13 @@ projects:
   - name: cFit
     url: https://github.com/cfit/cfit
 
+  - name: cFit
+    url: https://www1.ihep.ac.cn/wjx/pwa/index.html
+    since: 2000
+    collaboration: BESIII
+    languages:
+      - C++
+
   - name: GPUPWA
     url: https://sourceforge.net/projects/gpupwa
     since: 2011
