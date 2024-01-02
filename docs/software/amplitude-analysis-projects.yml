@@ -33,7 +33,7 @@ projects:
   - name: cFit
     url: https://github.com/cfit/cfit
 
-  - name: cFit
+  - name: FDC-PWA
     url: https://www1.ihep.ac.cn/wjx/pwa/index.html
     since: 2000
     collaboration: BESIII
