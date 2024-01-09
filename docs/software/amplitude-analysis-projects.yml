@@ -21,7 +21,7 @@ projects:
     url: https://github.com/ComPWA/ComPWA
 
   - name: ComPWA project
-    url: https://compwa-org.readthedocs.io/en/stable/about.html
+    url: https://compwa-org.readthedocs.io/about.html
     sub_projects:
       - name: QRules
         url: https://github.com/ComPWA/qrules
