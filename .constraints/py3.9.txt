@@ -5,7 +5,7 @@
 #    pip-compile --extra=dev --no-annotate --output-file=.constraints/py3.9.txt --strip-extras --unsafe-package=PWA-pages --unsafe-package=pip --unsafe-package=pwa-pages --unsafe-package=setuptools
 #
 accessible-pygments==0.0.4
-alabaster==0.7.15
+alabaster==0.7.16
 annotated-types==0.6.0
 anyio==4.2.0
 argon2-cffi==23.1.0
@@ -50,7 +50,7 @@ filelock==3.13.1
 fonttools==4.47.0
 fqdn==1.5.1
 gitdb==4.0.11
-gitpython==3.1.40
+gitpython==3.1.41
 greenlet==3.0.3
 identify==2.5.33
 idna==3.6
@@ -76,7 +76,7 @@ jupyter-console==6.6.3
 jupyter-core==5.7.1
 jupyter-events==0.9.0
 jupyter-lsp==2.2.1
-jupyter-server==2.12.2
+jupyter-server==2.12.3
 jupyter-server-mathjax==0.2.6
 jupyter-server-terminals==0.5.1
 jupyterlab==4.0.10
@@ -90,7 +90,7 @@ jupyterlab-widgets==3.0.9
 kiwisolver==1.4.5
 latexcodec==2.0.1
 livereload==2.6.3
-lsprotocol==2023.0.0
+lsprotocol==2023.0.1
 markdown-it-py==3.0.0
 markupsafe==2.1.3
 matplotlib==3.8.2
@@ -152,7 +152,7 @@ python-json-logger==2.0.7
 python-lsp-jsonrpc==1.1.2
 python-lsp-ruff==2.0.1
 python-lsp-server==1.9.0
-pytoolconfig==1.2.6
+pytoolconfig==1.3.0
 pytz==2023.3.post1
 pyyaml==6.0.1
 pyzmq==25.1.2
@@ -185,7 +185,7 @@ sphinx-pybtex-etal-style==0.0.2
 sphinx-thebe==0.3.0
 sphinx-togglebutton==0.3.2
 sphinxcontrib-applehelp==1.0.7
-sphinxcontrib-bibtex==2.6.1
+sphinxcontrib-bibtex==2.6.2
 sphinxcontrib-devhelp==1.0.5
 sphinxcontrib-htmlhelp==2.0.4
 sphinxcontrib-jsmath==1.0.1
