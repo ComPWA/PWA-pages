@@ -241,7 +241,8 @@ addopts = """
 --doctest-continue-on-failure
 --doctest-modules
 --durations=3
---ignore=docs/conf.py"""
+--ignore=docs/conf.py
+"""
 filterwarnings = [
     "error",
     "ignore:Argument login_or_token is deprecated.*:DeprecationWarning",
@@ -333,7 +334,10 @@ task-tags = ["cspell"]
     "S113",
     "T201",
 ]
-"docs/conf.py" = ["A001"]
+"docs/conf.py" = [
+    "A001",
+    "D100",
+]
 "setup.py" = ["D100"]
 "src/pwa_pages/project_inventory.py" = [
     "FA100",
