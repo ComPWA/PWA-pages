@@ -69,6 +69,6 @@ hidden:
 ---
 Website <https://compwa-org.readthedocs.io>
 GitHub Repositories <https://github.com/ComPWA>
-Help developing <https://compwa-org.readthedocs.io/en/stable/develop.html>
-About <https://compwa-org.readthedocs.io/en/stable/about.html>
+Help developing <https://compwa-org.readthedocs.io/develop.html>
+About <https://compwa-org.readthedocs.io/about.html>
 ```

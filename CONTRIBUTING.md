@@ -4,4 +4,4 @@
 [![GitPod](https://img.shields.io/badge/gitpod-open-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/PWA-pages)
 
 See instructions at
-[compwa-org.rtfd.io/en/stable/develop.html](https://compwa-org.readthedocs.io/en/stable/develop.html)!
+[compwa-org.rtfd.io/en/stable/develop.html](https://compwa-org.readthedocs.io/develop.html)!
