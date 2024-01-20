@@ -107,10 +107,11 @@ html_theme_options = {
     "path_to_docs": "docs",
     "repository_branch": BRANCH,
     "repository_url": f"https://github.com/{ORGANIZATION}/{REPO_NAME}",
-    "use_download_button": True,
+    "use_download_button": False,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "use_source_button": True,
 }
 html_title = "Partial Wave Analysis"
 intersphinx_mapping = {
