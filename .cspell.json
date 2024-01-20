@@ -75,6 +75,7 @@
   ],
   "ignoreWords": [
     "Colab",
+    "IPython",
     "MAINT",
     "arange",
     "attribs",
