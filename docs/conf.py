@@ -1,9 +1,3 @@
-"""Configuration file for the Sphinx documentation builder.
-
-This file only contains a selection of the most common options. For a full list see the
-documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
-"""
-
 from __future__ import annotations
 
 from datetime import datetime
@@ -103,13 +97,6 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": f"https://github.com/{ORGANIZATION}/{REPO_NAME}",
-    "repository_branch": BRANCH,
-    "path_to_docs": "docs",
-    "use_download_button": True,
-    "use_edit_page_button": True,
-    "use_issues_button": True,
-    "use_repository_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
         "colab_url": "https://colab.research.google.com",
@@ -117,6 +104,14 @@ html_theme_options = {
         "thebe": True,
         "thebelab": True,
     },
+    "path_to_docs": "docs",
+    "repository_branch": BRANCH,
+    "repository_url": f"https://github.com/{ORGANIZATION}/{REPO_NAME}",
+    "use_download_button": False,
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    "use_repository_button": True,
+    "use_source_button": True,
 }
 html_title = "Partial Wave Analysis"
 intersphinx_mapping = {
@@ -137,7 +132,6 @@ linkcheck_ignore = [
     "https://suchung.web.cern.ch",
     "https://www.bookfinder.com",
 ]
-master_doc = "index"
 modindex_common_prefix = [f"{PACKAGE}."]
 myst_enable_extensions = [
     "amsmath",
@@ -167,11 +161,6 @@ primary_domain = "py"
 project = REPO_TITLE
 pygments_style = "sphinx"
 release = get_package_version(PACKAGE)
-source_suffix = {
-    ".ipynb": "myst-nb",
-    ".md": "myst-nb",
-    ".rst": "restructuredtext",
-}
 thebe_config = {
     "repository_url": html_theme_options["repository_url"],
     "repository_branch": html_theme_options["repository_branch"],
