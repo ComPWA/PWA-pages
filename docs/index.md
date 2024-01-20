@@ -67,8 +67,7 @@ TensorWaves <https://tensorwaves.rtfd.io>
 caption: ComPWA Organization
 hidden:
 ---
-Website <https://compwa-org.readthedocs.io>
+Website <https://compwa.github.io>
 GitHub Repositories <https://github.com/ComPWA>
-Help developing <https://compwa-org.readthedocs.io/develop.html>
-About <https://compwa-org.readthedocs.io/about.html>
+Help developing <https://compwa.github.io/develop>
 ```
