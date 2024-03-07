@@ -151,6 +151,7 @@ nb_execution_show_tb = True
 nb_execution_timeout = -1
 nb_output_stderr = "remove"
 nitpick_ignore_regex = [
+    (r"py:(class|obj)", "ComputedFieldInfo"),
     (r"py:(class|obj)", "ConfigDict"),
     (r"py:(class|obj)", "FieldInfo"),
     (r"py:(class|obj)", "Model.__fields__"),
