@@ -25,7 +25,8 @@ __MAX_PROJECTS = 6
 
 class TestProjectInventory:
     def test_collaboration_undefined(self):
-        yaml_content = dedent("""
+        yaml_content = dedent(
+            """
             projects:
               - name: MyProject
                 url: "https://www.w3.org/Provider/Style/dummy.html"
@@ -33,7 +34,8 @@ class TestProjectInventory:
 
             collaborations:
               CERN: "https://home.cern"
-            """)
+            """
+        )
         config = yaml.safe_load(yaml_content)
         with pytest.raises(ValidationError, match=r"No collaboration defined for SSC"):
             ProjectInventory(**config)

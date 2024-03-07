@@ -11,13 +11,15 @@ from sphinx_api_relink.helpers import (
     set_intersphinx_version_remapping,
 )
 
-set_intersphinx_version_remapping({
-    "ipython": {
-        "8.12.2": "8.12.1",
-        "8.12.3": "8.12.1",
-    },
-    "matplotlib": {"3.5.1": "3.5.0"},
-})
+set_intersphinx_version_remapping(
+    {
+        "ipython": {
+            "8.12.2": "8.12.1",
+            "8.12.3": "8.12.1",
+        },
+        "matplotlib": {"3.5.1": "3.5.0"},
+    }
+)
 
 BRANCH = get_branch_name()
 ORGANIZATION = "ComPWA"
@@ -35,10 +37,12 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
-    "special-members": ", ".join([
-        "__call__",
-        "__eq__",
-    ]),
+    "special-members": ", ".join(
+        [
+            "__call__",
+            "__eq__",
+        ]
+    ),
 }
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
