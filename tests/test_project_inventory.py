@@ -25,7 +25,8 @@ __MAX_PROJECTS = 6
 
 class TestProjectInventory:
     def test_collaboration_undefined(self):
-        yaml_content = dedent("""
+        yaml_content = dedent(
+            """
             projects:
               - name: MyProject
                 url: "https://www.w3.org/Provider/Style/dummy.html"
@@ -33,7 +34,8 @@ class TestProjectInventory:
 
             collaborations:
               CERN: "https://home.cern"
-            """)
+            """
+        )
         config = yaml.safe_load(yaml_content)
         with pytest.raises(ValidationError, match=r"No collaboration defined for SSC"):
             ProjectInventory(**config)
@@ -97,7 +99,7 @@ def test_create_project_entry():
 def test_checkmark_language():
     project = Project(name="name", url="url", languages=["C++"])
     assert _checkmark_language(project, "c++", min_percentage=0) == "✓"
-    assert _checkmark_language(project, "Python", min_percentage=0) == ""
+    assert _checkmark_language(project, "Python", min_percentage=0) == ""  # noqa: PLC1901
 
 
 @pytest.mark.parametrize("fetch", [False, True])
