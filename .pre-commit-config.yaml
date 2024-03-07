@@ -41,7 +41,7 @@ repos:
             metadata.vscode
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.2.6
+    rev: 0.3.0
     hooks:
       - id: check-dev-files
         args:
@@ -55,7 +55,7 @@ repos:
       - id: fix-nbformat-version
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.0
+    rev: v0.3.1
     hooks:
       - id: ruff
         args: [--fix]
