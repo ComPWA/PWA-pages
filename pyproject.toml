@@ -105,7 +105,7 @@ test = [
     "pytest-xdist",
 ]
 types = [
-    "pytset",
+    "pytest",
     "sphinx-api-relink >=0.0.8",
     "types-PyYAML",
     "types-docutils",
