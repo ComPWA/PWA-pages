@@ -56,7 +56,7 @@ def test_extract_github_repo_name(repo_name, url):
     ],
 )
 def test_extract_github_repo_name_error(url):
-    assert extract_github_repo_name(url) == ""
+    assert extract_github_repo_name(url) == ""  # noqa: PLC1901
 
 
 def test_get_github_repo():

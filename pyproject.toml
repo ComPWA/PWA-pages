@@ -189,6 +189,7 @@ include = [
     "docs",
     "src",
 ]
+reportCallIssue = false
 reportGeneralTypeIssues = false
 reportIncompatibleMethodOverride = false
 reportMissingParameterType = false

@@ -99,7 +99,7 @@ def test_create_project_entry():
 def test_checkmark_language():
     project = Project(name="name", url="url", languages=["C++"])
     assert _checkmark_language(project, "c++", min_percentage=0) == "✓"
-    assert _checkmark_language(project, "Python", min_percentage=0) == ""
+    assert _checkmark_language(project, "Python", min_percentage=0) == ""  # noqa: PLC1901
 
 
 @pytest.mark.parametrize("fetch", [False, True])
