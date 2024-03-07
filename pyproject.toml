@@ -92,23 +92,9 @@ jupyter = [
     "python-lsp-ruff",
     "python-lsp-server[rope]",
 ]
-lint = [
-    "PWA-pages[mypy]",
-    "ruff",
-]
-mypy = [
-    "mypy >=0.730", # error code support
-    "sphinx-api-relink >=0.0.8",
-    "types-PyYAML",
-    "types-docutils",
-    "types-pkg-resources",
-    "types-python-dateutil",
-    "types-setuptools",
-]
 sty = [
-    "PWA-pages[format]",
-    "PWA-pages[lint]",
-    "PWA-pages[test]",
+    "PWA-pages[types]",
+    "mypy >=0.730", # error code support
     "pre-commit >=1.4.0",
     "ruff",
 ]
@@ -117,6 +103,15 @@ test = [
     "pytest",
     "pytest-cov",
     "pytest-xdist",
+]
+types = [
+    "pytset",
+    "sphinx-api-relink >=0.0.8",
+    "types-PyYAML",
+    "types-docutils",
+    "types-pkg-resources",
+    "types-python-dateutil",
+    "types-setuptools",
 ]
 
 [project.readme]
