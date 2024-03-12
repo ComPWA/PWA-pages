@@ -85,6 +85,6 @@ Recommended literature:
 - General introductions to helicity angles: <br>
   {cite}`kutschkeAngularDistributionCookbook1996, richmanExperimenterGuideHelicity1984`
 - Suggested solutions: <br>
-  {cite}`chenCoherentHelicityAmplitude2017, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm`
+  {cite}`chenCoherentHelicityAmplitude2017, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm, Li:2022qff`
 - LHCb study that led to these solution papers: <br>
   {cite}`aaijObservationResonancesConsistent2015`
