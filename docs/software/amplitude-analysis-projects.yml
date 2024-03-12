@@ -106,6 +106,10 @@ projects:
       - BESIII
       - LHCb
 
+  - name: ThreeBodyDecays.jl
+    url: https://github.com/mmikhasenko/ThreeBodyDecays.jl
+    collaboration: LHCb
+
 collaborations:
   BESIII: http://bes3.ihep.ac.cn
   CLAS12: https://www.jlab.org/physics/hall-b/clas12
