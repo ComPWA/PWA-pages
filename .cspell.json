@@ -67,6 +67,7 @@
     "mypy",
     "numpy",
     "pseudoscalar",
+    "PyPA",
     "PYTHONHASHSEED",
     "qrules",
     "sympy",
