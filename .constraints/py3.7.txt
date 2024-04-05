@@ -46,7 +46,7 @@ filelock==3.12.2
 fonttools==4.38.0
 fqdn==1.5.1
 gitdb==4.0.11
-gitpython==3.1.42
+gitpython==3.1.43
 greenlet==3.0.3
 identify==2.5.24
 idna==3.6
@@ -115,7 +115,7 @@ notebook-shim==0.2.4
 numpy==1.21.6
 packaging==24.0
 pandocfilters==1.5.1
-parso==0.8.3
+parso==0.8.4
 pathspec==0.11.2
 pathvalidate==3.2.0
 pexpect==4.9.0
@@ -132,9 +132,9 @@ ptyprocess==0.7.0
 pybtex==0.24.0
 pybtex-docutils==1.0.3
 pycparser==2.21
-pydantic==1.10.14
+pydantic==1.10.15
 pydata-sphinx-theme==0.13.3
-pygithub==2.2.0
+pygithub==2.3.0
 pygments==2.17.2
 pyjwt==2.8.0
 pynacl==1.5.0
