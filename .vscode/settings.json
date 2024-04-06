@@ -80,7 +80,6 @@
   },
   "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
-    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"],
-    "https://json.schemastore.org/github-workflow.json": "./.github/workflows/requirements.yml"
+    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
   }
 }
