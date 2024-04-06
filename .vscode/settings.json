@@ -7,7 +7,8 @@
     "rewrap.wrappingColumn": 72
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -79,7 +80,6 @@
   },
   "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
-    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"],
-    "https://json.schemastore.org/github-workflow.json": "./.github/workflows/requirements.yml"
+    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
   }
 }
