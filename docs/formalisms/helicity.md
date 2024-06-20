@@ -64,6 +64,8 @@ what part in the equation. So we would refer in the Doxygen docs to
 [IntensityBuilderXML](https://compwa.github.io/ComPWA/classComPWA_1_1Physics_1_1IntensityBuilderXML.html)
 -->
 
+{cite}`Jacob:1959at`
+
 ## Canonical formulation
 
 <!-- The canonical formalism gives access to the orbital angular momentum $L$ and
