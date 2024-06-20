@@ -76,6 +76,7 @@
     "zemach"
   ],
   "ignoreWords": [
+    "Badalian",
     "Colab",
     "IPython",
     "MAINT",

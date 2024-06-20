@@ -18,26 +18,26 @@ K-matrix
 
   A real, symmetric and hermitian operator that is defined from the
   {term}`T-matrix` through $K^{-1} = T^{-1} + iI$. See
-  {cite}`badalyanResonancesCoupledChannels1982,chungPartialWaveAnalysis1995`
+  {cite}`Badalian:1981xj,Chung:1995dx`
   and {pdg-review}`Resonances`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
+  {cite:labelpar}`ParticleDataGroup:2020ssz`.
 
 P-vector
 
-  First described in {cite}`aitchisonMatrixFormalismOverlapping1972`. See also
-  {cite}`chungPartialWaveAnalysis1995` and {pdg-review}`Resonances`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
+  First described in {cite}`Aitchison:1972ay`. See also
+  {cite}`Chung:1995dx` and {pdg-review}`Resonances`
+  {cite:labelpar}`ParticleDataGroup:2020ssz`.
 
 Q-vector
 
-  See {cite}`chungPartialWaveAnalysis1995` and
+  See {cite}`Chung:1995dx` and
   {pdg-review}`Resonances`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
+  {cite:labelpar}`ParticleDataGroup:2020ssz`.
 
 S-matrix
 scattering operator
 
-  See {cite}`martinElementaryParticleTheory1970`, Ch.4.
+  See {cite}`Martin:1970hmp`, Ch.4.
 
 T-matrix
 transition operator
@@ -45,8 +45,8 @@ transition operator
   The {term}`scattering operator` can split into a non-interacting component
   $I$ (identity operator) and a matrix $T$ that describes the actual
   interactions through $S = I + iT$. See
-  {cite}`martinElementaryParticleTheory1970`, Ch.4, and
-  {cite}`chungPartialWaveAnalysis1995`.
+  {cite}`Martin:1970hmp`, Ch.4, and
+  {cite}`Chung:1995dx`.
 
 asymptotic freedom
 
@@ -84,7 +84,7 @@ formation experiment
   {term}`hadron spectroscopy`.
 
   See {pdg-review}`Resonances`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`. Related:
+  {cite:labelpar}`ParticleDataGroup:2020ssz`. Related:
   {term}`production experiment`.
 
 hadron
@@ -127,13 +127,13 @@ spectator particle
   represents a decay process of particle $Z$.
 
   See {pdg-review}`Resonances`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
+  {cite:labelpar}`ParticleDataGroup:2020ssz`.
 
 Quantum Chromodynamics (QCD)
 
   The theory that describes the strong force on the most fundamental level. See
   {pdg-review}`QCD`
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`.
+  {cite:labelpar}`ParticleDataGroup:2020ssz`.
 
 quark
 
@@ -143,12 +143,12 @@ Quark Constituent Model (QCM)
 
   Model with which to describe and categorize matter constituted of quarks
   (i.e. {term}`hadrons <hadron>`). See
-  {cite:labelpar}`particledatagroupReviewParticlePhysics2020`
+  {cite:labelpar}`ParticleDataGroup:2020ssz`
   ({pdg-review}`Quark Model`).
 
 resonance
 
-  See {cite:labelpar}`particledatagroupReviewParticlePhysics2020`
+  See {cite:labelpar}`ParticleDataGroup:2020ssz`
   ({pdg-review}`Resonances`).
 
 Standard Model

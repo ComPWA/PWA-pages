@@ -83,8 +83,8 @@ Recommended literature:
 <!-- cspell:ignore aaij Dalitzplot Marangotto Threebody -->
 
 - General introductions to helicity angles: <br>
-  {cite}`kutschkeAngularDistributionCookbook1996, richmanExperimenterGuideHelicity1984`
+  {cite}`kutschkeAngularDistributionCookbook1996, Richman:1984gh`
 - Suggested solutions: <br>
-  {cite}`chenCoherentHelicityAmplitude2017, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm`
+  {cite}`Chen:2017gtx, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm`
 - LHCb study that led to these solution papers: <br>
-  {cite}`aaijObservationResonancesConsistent2015`
+  {cite}`LHCb:2015yax`
