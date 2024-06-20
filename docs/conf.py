@@ -127,6 +127,7 @@ linkcheck_ignore = [
     "http://cgl.soic.indiana.edu/jpac/References.html",
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.1093/ptep/ptaa104",
+    "https://doi.org/10.1155/2020/6674595",  # 403 hidawi.com
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
     "https://physique.cuso.ch",
     "https://suchung.web.cern.ch",
