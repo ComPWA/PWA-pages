@@ -30,7 +30,7 @@ dependencies = [
     "PyGithub",
     "PyYAML",
     "attrs >=17.3.0", # auto_attribs
-    "pydantic",
+    "pydantic >=2",
     "pytablewriter[html]",
     "python-dateutil",
     "python-gitlab",
@@ -220,7 +220,6 @@ filterwarnings = [
     "error",
     "ignore:Argument login_or_token is deprecated.*:DeprecationWarning",
     "ignore:Exception ignored in.*:UserWarning",
-    "ignore:Pydantic V1 style `@root_validator` validators are deprecated.*:pydantic.warnings.PydanticDeprecatedSince20",
 ]
 testpaths = [
     "src",
