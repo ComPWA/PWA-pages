@@ -6,7 +6,7 @@
 
 ### Covariant Tensor formalisms
 
-<!-- cspell:ignore anisovich Momentoperator Twomeson -->
+<!-- cspell:ignore Anisovich -->
 
 {cite}`Anisovich:2001ra`
 
