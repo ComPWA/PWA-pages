@@ -78,6 +78,8 @@ This expression is simply inserted into equation () and that is it!
 The choice of the formalism depends on the physics process being analyzed. Give
 an example here. -->
 
+{cite}`Li:2022qff`
+
 ## Alignment problem
 
 Recommended literature:
@@ -87,6 +89,6 @@ Recommended literature:
 - General introductions to helicity angles: <br>
   {cite}`kutschkeAngularDistributionCookbook1996, Richman:1984gh`
 - Suggested solutions: <br>
-  {cite}`Chen:2017gtx, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm, Li:2022qff`
+  {cite}`Chen:2017gtx, Marangotto:2019ucc, Wang:2020giv, JPAC:2019ufm`
 - LHCb study that led to these solution papers: <br>
   {cite}`LHCb:2015yax`
