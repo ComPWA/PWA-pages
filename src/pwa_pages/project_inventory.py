@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Callable, Dict, Iterable, List, Optional, Sequence, Union
 
 import yaml
-from pydantic import BaseModel, root_validator
+from pydantic import BaseModel, model_validator
 from pytablewriter import HtmlTableWriter
 
 from .repo import Repo, get_repo
@@ -89,7 +89,7 @@ class ProjectInventory(BaseModel):
     projects: List[Project]
     collaborations: Dict[str, str] = {}
 
-    @root_validator(skip_on_failure=True)
+    @model_validator(mode="before")
     def _check_collaboration_exists(cls, values: dict) -> dict:  # noqa: N805
         defined_collaborations = set(values["collaborations"])
         project: Project
