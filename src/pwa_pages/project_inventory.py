@@ -3,16 +3,22 @@
 import argparse
 import json
 import re
+import sys
 from datetime import datetime
 from functools import partial
 from pathlib import Path
 from typing import Callable, Dict, Iterable, List, Optional, Sequence, Union
 
 import yaml
-from pydantic import BaseModel, root_validator
+from pydantic import BaseModel, model_validator
 from pytablewriter import HtmlTableWriter
 
 from .repo import Repo, get_repo
+
+if sys.version_info < (3, 11):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 
 def load_yaml(path: Union[Path, str]) -> dict:
@@ -89,11 +95,11 @@ class ProjectInventory(BaseModel):
     projects: List[Project]
     collaborations: Dict[str, str] = {}
 
-    @root_validator(skip_on_failure=True)
-    def _check_collaboration_exists(cls, values: dict) -> dict:  # noqa: N805
-        defined_collaborations = set(values["collaborations"])
+    @model_validator(mode="after")
+    def _check_collaboration_exists(self) -> Self:
+        defined_collaborations = set(self.collaborations)
         project: Project
-        for project in values["projects"]:
+        for project in self.projects:
             if project.collaboration is None:
                 continue
             if isinstance(project.collaboration, str):
@@ -104,7 +110,7 @@ class ProjectInventory(BaseModel):
                 if col not in defined_collaborations:
                     msg = f"No collaboration defined for {col}"
                     raise ValueError(msg)
-        return values
+        return self
 
 
 def _create_project_entry(project: Project) -> str:

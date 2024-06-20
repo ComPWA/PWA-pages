@@ -8,10 +8,10 @@
 
 <!-- cspell:ignore anisovich Momentoperator Twomeson -->
 
-{cite}`anisovichMomentoperatorExpansionTwomeson2002`
+{cite}`Anisovich:2001ra`
 
 ## Non-covariant tensor formalisms
 
-{cite}`zemachUseAngularMomentumTensors1965`
+{cite}`Zemach:1965ycj`
 
 ## Spin-projection formalisms
