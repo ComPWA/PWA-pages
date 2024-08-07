@@ -46,6 +46,7 @@ repos:
       - id: check-dev-files
         args:
           - --ci-skipped-tests=all
+          - --dev-python-version=3.12
           - --no-macos
           - --no-prettierrc
           - --pin-requirements=bimonthly
