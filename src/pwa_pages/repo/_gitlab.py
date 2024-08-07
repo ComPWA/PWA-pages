@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from gitlab.v4.objects import ProjectCommitManager
 
 
-@lru_cache()
+@lru_cache
 def get_gitlab_repo(server_url: str, project_path: str) -> GitlabProject:
     gitlab = __get_gitlab(server_url)
     return gitlab.projects.get(project_path)
@@ -29,7 +29,7 @@ def split_gitlab_repo_url(url: str) -> tuple[str, str] | None:
     return server_url, project_path
 
 
-@lru_cache()
+@lru_cache
 def get_first_commit_date(repo: GitlabProject) -> datetime:
     commits: ProjectCommitManager = repo.commits
     all_commits = commits.list(all=True)
@@ -39,7 +39,7 @@ def get_first_commit_date(repo: GitlabProject) -> datetime:
     return parse_date(commit_info["created_at"])
 
 
-@lru_cache()
+@lru_cache
 def get_latest_commit_date(repo: GitlabProject) -> datetime:
     default_branch = repo.attributes["default_branch"]
     commits: ProjectCommitManager = repo.commits
@@ -53,6 +53,6 @@ def get_last_modified(repo: GitlabProject) -> datetime:
     return parse_date(date_str)
 
 
-@lru_cache()
+@lru_cache
 def __get_gitlab(url: str) -> Gitlab:
     return Gitlab(url)

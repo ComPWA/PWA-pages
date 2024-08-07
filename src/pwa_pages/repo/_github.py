@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from github.Commit import Commit
 
 
-@lru_cache()
+@lru_cache
 def get_github_repo(url: str) -> GithubRepository:
     github = __get_github()
     repo_name = extract_github_repo_name(url)
@@ -25,7 +25,7 @@ def get_github_repo(url: str) -> GithubRepository:
     return github.get_repo(repo_name)
 
 
-@lru_cache()
+@lru_cache
 def extract_github_repo_name(url: str) -> str:
     github_url = "https://github.com"
     match = re.match(rf"^{github_url}/([^/]+)/([^/]+).*$", url)
@@ -34,7 +34,7 @@ def extract_github_repo_name(url: str) -> str:
     return f"{match[1]}/{match[2]}"
 
 
-@lru_cache()
+@lru_cache
 def get_first_commit_date(repo: GithubRepository) -> datetime:
     commits = repo.get_commits().reversed
     first_commit: Commit = commits[0]
@@ -45,7 +45,7 @@ def get_first_commit_date(repo: GithubRepository) -> datetime:
     return parse_date(timestamp)
 
 
-@lru_cache()
+@lru_cache
 def get_latest_commit_date(repo: GithubRepository) -> datetime:
     default_branch = repo.default_branch
     latest_commit = repo.get_commit(default_branch)
@@ -66,7 +66,7 @@ def get_last_modified(repo: GithubRepository) -> datetime:
     return parse_date(repo.last_modified)
 
 
-@lru_cache()
+@lru_cache
 def get_languages(repo: GithubRepository) -> dict[str, float]:
     languages = repo.get_languages()
     total_lines = sum(languages.values())
@@ -75,7 +75,7 @@ def get_languages(repo: GithubRepository) -> dict[str, float]:
     }
 
 
-@lru_cache()
+@lru_cache
 def __get_github(token: str | None = None) -> Github:
     if token is None:
         token = os.environ.get("GITHUB_TOKEN")
