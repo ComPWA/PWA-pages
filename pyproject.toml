@@ -280,6 +280,7 @@ split-on-trailing-comma = false
     "B018",
     "C90",
     "D",
+    "E303",
     "E402",
     "E703",
     "N806",

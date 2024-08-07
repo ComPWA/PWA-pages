@@ -24,8 +24,10 @@ repos:
           - |
             cell.attachments
             cell.metadata.code_folding
+            cell.metadata.editable
             cell.metadata.id
             cell.metadata.pycharm
+            cell.metadata.slideshow
             cell.metadata.user_expressions
             metadata.celltoolbar
             metadata.colab.name
@@ -54,6 +56,8 @@ repos:
           - --repo-title=PWA Pages
       - id: colab-toc-visible
       - id: fix-nbformat-version
+
+      - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.5.6

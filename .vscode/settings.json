@@ -3,7 +3,9 @@
     "editor.formatOnSave": false
   },
   "[git-commit]": {
-    "editor.rulers": [72],
+    "editor.rulers": [
+      72
+    ],
     "rewrap.wrappingColumn": 72
   },
   "[json]": {
@@ -21,18 +23,25 @@
       "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.rulers": [88]
+    "editor.rulers": [
+      88
+    ]
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "coverage-gutters.coverageFileNames": ["coverage.xml"],
+  "coverage-gutters.coverageFileNames": [
+    "coverage.xml"
+  ],
   "coverage-gutters.coverageReportFileName": "**/htmlcov/index.html",
   "coverage-gutters.showGutterCoverage": false,
   "coverage-gutters.showLineCoverage": true,
   "cSpell.enabled": true,
   "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
+  "files.associations": {
+    "**/.constraints/py*.txt": "pip-requirements"
+  },
   "files.watcherExclude": {
     "**/*_cache/**": true,
     "**/.eggs/**": true,
@@ -40,11 +49,15 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/ci.yml"
+  ],
   "gitlens.telemetry.enabled": false,
   "livePreview.defaultPreviewPath": "docs/_build/html",
   "multiDiffEditor.experimental.enabled": true,
-  "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
+  "mypy-type-checker.args": [
+    "--config-file=${workspaceFolder}/pyproject.toml"
+  ],
   "mypy-type-checker.importStrategy": "fromEnvironment",
   "myst.preview.extensions": [
     "amsmath",
@@ -81,6 +94,8 @@
   },
   "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
-    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
+    "./docs/software/project-inventory-schema.json": [
+      "docs/software/*.yml"
+    ]
   }
 }
