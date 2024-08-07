@@ -16,7 +16,10 @@ set_intersphinx_version_remapping({
         "8.12.2": "8.12.1",
         "8.12.3": "8.12.1",
     },
-    "matplotlib": {"3.5.1": "3.5.0"},
+    "matplotlib": {
+        "3.5.1": "3.5.0",
+        "3.9.1.post1": "3.9.1",
+    },
 })
 
 BRANCH = get_branch_name()
