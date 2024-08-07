@@ -109,7 +109,6 @@ types = [
     "sphinx-api-relink >=0.0.8",
     "types-PyYAML",
     "types-docutils",
-    "types-pkg-resources",
     "types-python-dateutil",
     "types-setuptools",
 ]
