@@ -81,10 +81,8 @@ doc = [
 ]
 jupyter = [
     "PWA-pages[doc]",
-    "black",
-    "isort",
     "jupyterlab",
-    "jupyterlab-code-formatter",
+    "jupyterlab-code-formatter >=3.0.0",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
@@ -239,39 +237,10 @@ docstring-code-format = true
 line-ending = "lf"
 
 [tool.ruff.lint]
-extend-select = [
-    "A",
-    "B",
-    "BLE",
-    "C4",
-    "C90",
-    "D",
-    "EM",
-    "ERA",
-    "FA",
-    "I",
-    "ICN",
-    "INP",
-    "ISC",
-    "N",
-    "NPY",
-    "PGH",
-    "PIE",
-    "PL",
-    "Q",
-    "RET",
-    "RSE",
-    "RUF",
-    "S",
-    "SIM",
-    "T20",
-    "TCH",
-    "TID",
-    "TRY",
-    "UP",
-    "YTT",
-]
 ignore = [
+    "ANN401",
+    "COM812",
+    "CPY001",
     "D101",
     "D102",
     "D103",
@@ -281,18 +250,33 @@ ignore = [
     "D213",
     "D407",
     "D416",
+    "DOC",
     "E501",
+    "FURB101",
+    "FURB103",
+    "FURB140",
+    "G004",
     "ISC001",
     "PLW1514",
+    "PT001",
+    "PTH",
     "SIM108",
 ]
+select = ["ALL"]
 task-tags = ["cspell"]
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["display"]
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
 "*.ipynb" = [
+    "ANN",
     "B018",
     "C90",
     "D",
@@ -326,7 +310,9 @@ split-on-trailing-comma = false
     "UP00",
 ]
 "tests/*" = [
+    "ANN",
     "D",
+    "FBT001",
     "INP001",
     "PGH001",
     "PLC2701",
@@ -334,6 +320,7 @@ split-on-trailing-comma = false
     "PLR2004",
     "PLR6301",
     "S101",
+    "SLF001",
     "T20",
 ]
 
