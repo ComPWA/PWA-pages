@@ -35,7 +35,7 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
-    "special-members": ", ".join([
+    "special-members": ", ".join([  # noqa: FLY002
         "__call__",
         "__eq__",
     ]),
@@ -143,7 +143,7 @@ myst_enable_extensions = [
 ]
 myst_substitutions = {
     "branch": BRANCH,
-    "build_date": datetime.today().strftime("%d %B %Y"),
+    "build_date": datetime.today().strftime("%d %B %Y"),  # noqa: DTZ002
     "repo": f"{ORGANIZATION}/{REPO_NAME}",
 }
 myst_update_mathjax = False
