@@ -56,7 +56,6 @@ repos:
           - --repo-title=PWA Pages
       - id: colab-toc-visible
       - id: fix-nbformat-version
-
       - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
