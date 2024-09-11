@@ -3,7 +3,6 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
 [![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/PWA-pages)
-[![GitPod](https://img.shields.io/badge/gitpod-open-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/PWA-pages)
 [![CI status](https://github.com/ComPWA/PWA-pages/workflows/CI/badge.svg)](https://github.com/ComPWA/PWA-pages/actions?query=branch%3Amain+workflow%3ACI)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen)](https://github.com/pre-commit/pre-commit)
 [![Test coverage](https://codecov.io/gh/ComPWA/PWA-pages/branch/main/graph/badge.svg)](https://codecov.io/gh/ComPWA/PWA-pages)
