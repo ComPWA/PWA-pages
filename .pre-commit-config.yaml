@@ -4,9 +4,7 @@ ci:
   skip:
     - check-jsonschema
     - mypy
-    - prettier
     - pyright
-    - taplo
     - update-json-schema
 
 repos:
@@ -15,11 +13,28 @@ repos:
       - id: check-hooks-apply
       - id: check-useless-excludes
 
+  - repo: https://github.com/ComPWA/policy
+    rev: 0.4.0
+    hooks:
+      - id: check-dev-files
+        args:
+          - --ci-skipped-tests=all
+          - --dev-python-version=3.12
+          - --no-macos
+          - --no-prettierrc
+          - --pin-requirements=bimonthly
+          - --repo-name=PWA-pages
+          - --repo-title=PWA Pages
+      - id: colab-toc-visible
+      - id: fix-nbformat-version
+      - id: remove-empty-tags
+
   - repo: https://github.com/kynan/nbstripout
     rev: 0.7.1
     hooks:
       - id: nbstripout
         args:
+          - --drop-empty-cells
           - --extra-keys
           - |
             cell.attachments
@@ -41,22 +56,6 @@ repos:
             metadata.toc-showtags
             metadata.varInspector
             metadata.vscode
-
-  - repo: https://github.com/ComPWA/policy
-    rev: 0.4.0
-    hooks:
-      - id: check-dev-files
-        args:
-          - --ci-skipped-tests=all
-          - --dev-python-version=3.12
-          - --no-macos
-          - --no-prettierrc
-          - --pin-requirements=bimonthly
-          - --repo-name=PWA-pages
-          - --repo-title=PWA Pages
-      - id: colab-toc-visible
-      - id: fix-nbformat-version
-      - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.4
