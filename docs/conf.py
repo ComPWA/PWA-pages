@@ -32,6 +32,7 @@ add_module_names = False
 api_github_repo = f"{ORGANIZATION}/{REPO_NAME}"
 api_target_substitutions: dict[str, str | tuple[str, str]] = {
     "datetime": "datetime.datetime",
+    "Path": "pathlib.Path",
 }
 author = "Common Partial Wave Analysis"
 autodoc_default_options = {
