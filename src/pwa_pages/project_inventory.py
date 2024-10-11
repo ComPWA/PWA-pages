@@ -7,7 +7,7 @@ import json
 import re
 import sys
 from functools import partial
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Callable, Optional, Union
 
 import yaml
 from pydantic import BaseModel, model_validator
@@ -90,9 +90,9 @@ class SubProject(BaseModel):
 class Project(BaseModel):
     name: str
     url: str
-    collaboration: list[str] | str | None = None
+    collaboration: Optional[Union[list[str], str]] = None
     languages: list[str] = []
-    sub_projects: list[SubProject] | None = None
+    sub_projects: Optional[list[SubProject]] = None
     since: int = 0
 
 
