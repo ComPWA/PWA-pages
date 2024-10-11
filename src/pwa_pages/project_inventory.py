@@ -1,13 +1,13 @@
 """Helper tools for writing tables."""
 
+from __future__ import annotations
+
 import argparse
 import json
 import re
 import sys
-from datetime import datetime
 from functools import partial
-from pathlib import Path
-from typing import Callable, Dict, Iterable, List, Optional, Sequence, Union
+from typing import TYPE_CHECKING, Callable
 
 import yaml
 from pydantic import BaseModel, model_validator
@@ -15,26 +15,31 @@ from pytablewriter import HtmlTableWriter
 
 from .repo import Repo, get_repo
 
+if TYPE_CHECKING:
+    from collections.abc import Iterable, Sequence
+    from datetime import datetime
+    from pathlib import Path
+
 if sys.version_info < (3, 11):
     from typing_extensions import Self
 else:
     from typing import Self
 
 
-def load_yaml(path: Union[Path, str]) -> dict:
+def load_yaml(path: Path | str) -> dict:
     with open(path) as stream:
         return yaml.load(stream, Loader=yaml.SafeLoader)
 
 
 def to_html_table(
-    inventory: "ProjectInventory",
-    selected_languages: List[str],
+    inventory: ProjectInventory,
+    selected_languages: list[str],
     *,
     fetch: bool = False,
     min_percentage: float = 2.5,
-    hide_columns: Optional[Iterable[str]] = None,
+    hide_columns: Iterable[str] | None = None,
 ) -> str:
-    header_to_formatters: Dict[str, Callable[[Project], str]] = {
+    header_to_formatters: dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
         "Since": _fetch_first_commit_year if fetch else lambda _: "",
@@ -85,15 +90,15 @@ class SubProject(BaseModel):
 class Project(BaseModel):
     name: str
     url: str
-    collaboration: Optional[Union[List[str], str]] = None
-    languages: List[str] = []
-    sub_projects: Optional[List[SubProject]] = None
+    collaboration: list[str] | str | None = None
+    languages: list[str] = []
+    sub_projects: list[SubProject] | None = None
     since: int = 0
 
 
 class ProjectInventory(BaseModel):
-    projects: List[Project]
-    collaborations: Dict[str, str] = {}
+    projects: list[Project]
+    collaborations: dict[str, str] = {}
 
     @model_validator(mode="after")
     def _check_collaboration_exists(self) -> Self:
@@ -154,9 +159,7 @@ def __replace_language(language: str) -> str:
     return language
 
 
-def _fetch_languages(
-    project: Union[Project, SubProject], min_percentage: float
-) -> List[str]:
+def _fetch_languages(project: Project | SubProject, min_percentage: float) -> list[str]:
     repo = get_repo(project.url)
     if repo is None:
         return []
@@ -203,7 +206,7 @@ def _get_date(
 
 def _get_subproject_timestamps(
     project: Project, date_getter: Callable[[Repo], datetime]
-) -> List[datetime]:
+) -> list[datetime]:
     if project.sub_projects is None:
         return []
     timestamps = []
@@ -216,7 +219,7 @@ def _get_subproject_timestamps(
     return timestamps
 
 
-def _format_collaboration(project: Project, inventory: "ProjectInventory") -> str:
+def _format_collaboration(project: Project, inventory: ProjectInventory) -> str:
     collaborations = project.collaboration
     if collaborations is None:
         return ""
@@ -249,7 +252,7 @@ def _enumerate_html_links(list_of_entries: Sequence[str]) -> str:
     return "<li>" + html
 
 
-def export_json_schema(argv: Optional[Sequence[str]] = None) -> int:
+def export_json_schema(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         "Create a JSON validation schema for a software project inventory file\n"
     )
