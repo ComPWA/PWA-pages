@@ -32,6 +32,7 @@ add_module_names = False
 api_github_repo = f"{ORGANIZATION}/{REPO_NAME}"
 api_target_substitutions: dict[str, str | tuple[str, str]] = {
     "datetime": "datetime.datetime",
+    "Path": "pathlib.Path",
 }
 author = "Common Partial Wave Analysis"
 autodoc_default_options = {
@@ -126,10 +127,10 @@ intersphinx_mapping = {
 }
 linkcheck_anchors = False
 linkcheck_ignore = [
-    "http://127.0.0.1:8000",
     "http://cgl.soic.indiana.edu/jpac/References.html",
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.1093/ptep/ptaa104",
+    "https://doi.org/10.1103",
     "https://doi.org/10.1155/2020/6674595",  # 403 hidawi.com
     "https://home.fnal.gov/~kutschke/Angdist/angdist.ps",
     "https://physique.cuso.ch",
