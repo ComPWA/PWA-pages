@@ -317,8 +317,9 @@ trailing_comma_inline_array = true
 legacy_tox_ini = """
 [tox]
 envlist =
-    py,
-    doc,
+    cov,
+    docnb-force,
+    linkcheck,
     sty,
 skip_install = True
 skip_missing_interpreters = True
@@ -348,95 +349,67 @@ allowlist_externals =
     sphinx-build
 commands =
     sphinx-build \
-        --builder dirhtml \
+        --builder=dirhtml \
         --fail-on-warning \
         --keep-going \
         --show-traceback \
         docs/ docs/_build/html
 description = Build documentation and API through Sphinx
 
+[testenv:docnb]
+base = doc
+description = {[testenv:doc]description} with cached notebook execution
+setenv =
+    EXECUTE_NB = yes
+
+[testenv:docnb-force]
+base = doc
+description = {[testenv:doc]description} with notebook execution (no cache)
+setenv =
+    FORCE_EXECUTE_NB = yes
+
 [testenv:doclive]
 allowlist_externals =
     sphinx-autobuild
 commands =
     sphinx-autobuild \
-        --builder dirhtml \
+        --builder=dirhtml \
+        --ignore=docs/api \
         --open-browser \
-        --re-ignore .*/__pycache__/.* \
-        --re-ignore .*/.ipynb_checkpoints/.* \
-        --re-ignore .*\\.gitignore \
-        --re-ignore docs/_build/.* \
-        --re-ignore docs/.*\\.csv \
-        --re-ignore docs/.*\\.gif \
-        --re-ignore docs/.*\\.gv \
-        --re-ignore docs/.*\\.inv \
-        --re-ignore docs/.*\\.json \
-        --re-ignore docs/.*\\.pickle \
-        --re-ignore docs/.*\\.png \
-        --re-ignore docs/.*\\.svg \
-        --re-ignore docs/.*\\.yaml \
-        --re-ignore docs/.*\\.yml \
-        --re-ignore docs/api \
+        --port=0 \
+        --re-ignore='.*/__pycache__/.*' \
+        --re-ignore='.*/.ipynb_checkpoints/.*' \
+        --re-ignore='.*/.virtual_documents/.*' \
+        --re-ignore='.*\\.csv' \
+        --re-ignore='.*\\.gif' \
+        --re-ignore='.*\\.gitignore' \
+        --re-ignore='.*\\.gv' \
+        --re-ignore='.*\\.inv' \
+        --re-ignore='.*\\.json' \
+        --re-ignore='.*\\.pickle' \
+        --re-ignore='.*\\.png' \
+        --re-ignore='.*\\.svg' \
+        --re-ignore='.*\\.ya?ml' \
+        --re-ignore='docs/_build/.*' \
         --watch docs \
+        --watch src \
         docs/ docs/_build/html
 description = Set up a server to directly preview changes to the HTML pages
-
-[testenv:docnb]
-allowlist_externals =
-    sphinx-build
-commands =
-    sphinx-build \
-        --builder dirhtml \
-        --fail-on-warning \
-        --keep-going \
-        --show-traceback \
-        docs/ docs/_build/html
-description = Build documentation through Sphinx WITH output of Jupyter notebooks
-setenv =
-    EXECUTE_NB = yes
 
 [testenv:docnblive]
-allowlist_externals =
-    sphinx-autobuild
-commands =
-    sphinx-autobuild \
-        --builder dirhtml \
-        --open-browser \
-        --re-ignore .*/__pycache__/.* \
-        --re-ignore .*/.ipynb_checkpoints/.* \
-        --re-ignore .*\\.gitignore \
-        --re-ignore docs/_build/.* \
-        --re-ignore docs/.*\\.csv \
-        --re-ignore docs/.*\\.gif \
-        --re-ignore docs/.*\\.gv \
-        --re-ignore docs/.*\\.inv \
-        --re-ignore docs/.*\\.json \
-        --re-ignore docs/.*\\.pickle \
-        --re-ignore docs/.*\\.png \
-        --re-ignore docs/.*\\.svg \
-        --re-ignore docs/.*\\.yaml \
-        --re-ignore docs/.*\\.yml \
-        --re-ignore docs/api \
-        --watch docs \
-        docs/ docs/_build/html
-description = Set up a server to directly preview changes to the HTML pages
+base = doclive
+description = {[testenv:doclive]description} with cached notebook execution
 setenv =
+    {[testenv:doclive]setenv}
     EXECUTE_NB = yes
-
-[testenv:jcache]
-allowlist_externals =
-    jcache
-changedir = docs/_build
-commands =
-    jcache {posargs:notebook list}
-description = Inspect Jupyter cache
 
 [testenv:linkcheck]
 allowlist_externals =
     sphinx-build
+base = doc
 commands =
     sphinx-build \
-        --builder linkcheck \
+        --builder=linkcheck \
         --show-traceback \
         docs/ docs/_build/linkcheck
 description = Check external links in the documentation (requires internet connection)
@@ -454,7 +427,7 @@ setenv =
 allowlist_externals =
     pre-commit
 commands =
-    pre-commit run {posargs} --all-files
+    pre-commit run --all-files {posargs}
 description = Perform all linting, formatting, and spelling checks
 setenv =
     SKIP = pyright
