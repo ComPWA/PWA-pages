@@ -1,9 +1,0 @@
-name: pwa-pages
-channels:
-  - defaults
-dependencies:
-  - python==3.12.*
-  - pip
-  - graphviz # for binder
-  - pip:
-      - -c .constraints/py3.12.txt -e .[dev]
