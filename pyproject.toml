@@ -32,7 +32,6 @@ dev = [
     "PWA-pages[sty]",
     "PWA-pages[test]",
     "sphinx-autobuild",
-    "tox",
 ]
 doc = [
     "feynman",
@@ -67,7 +66,6 @@ jupyter = [
 sty = [
     "PWA-pages[types]",
     "mypy",
-    "pre-commit-uv",
     "ruff",
 ]
 test = [
