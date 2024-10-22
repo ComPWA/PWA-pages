@@ -1764,7 +1764,7 @@ wheels = [
 [[package]]
 name = "pwa-pages"
 version = "0.0.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "attrs" },
     { name = "pydantic" },

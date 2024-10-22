@@ -1,3 +1,7 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
 dependencies = [
