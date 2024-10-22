@@ -193,6 +193,7 @@ filterwarnings = [
     "error",
     "ignore:Argument login_or_token is deprecated.*:DeprecationWarning",
     "ignore:Exception ignored in.*:UserWarning",
+    "ignore:There is no current event loop:DeprecationWarning",
 ]
 testpaths = [
     "src",
