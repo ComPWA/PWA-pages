@@ -21,16 +21,16 @@ keywords = [
 ]
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
-name = "PWA-pages"
+name = "pwa-pages"
 requires-python = ">=3.12"
 version = "0.0.0"
 
 [project.optional-dependencies]
 dev = [
-    "PWA-pages[doc]",
-    "PWA-pages[jupyter]",
-    "PWA-pages[sty]",
-    "PWA-pages[test]",
+    "pwa-pages[doc]",
+    "pwa-pages[jupyter]",
+    "pwa-pages[sty]",
+    "pwa-pages[test]",
     "sphinx-autobuild",
 ]
 doc = [
@@ -54,18 +54,18 @@ doc = [
     "sympy",
 ]
 jupyter = [
-    "PWA-pages[doc]",
     "jupyterlab",
     "jupyterlab-code-formatter >=3.0.0",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
+    "pwa-pages[doc]",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
 ]
 sty = [
-    "PWA-pages[types]",
     "mypy",
+    "pwa-pages[types]",
     "ruff",
 ]
 test = [
