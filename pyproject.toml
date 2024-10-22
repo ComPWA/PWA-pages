@@ -1,40 +1,19 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [
-    "setuptools>=61.2",
-    "setuptools_scm",
-]
+requires = ["setuptools"]
 
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
-classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Education",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python",
-    "Topic :: Scientific/Engineering :: Physics",
-    "Topic :: Scientific/Engineering",
-    "Typing :: Typed",
-]
 dependencies = [
     "PyGithub",
     "PyYAML",
-    "attrs >=17.3.0", # auto_attribs
+    "attrs",
     "pydantic >=2",
     "pytablewriter[html]",
     "python-dateutil",
     "python-gitlab",
 ]
 description = "A central knowledge-base for Partial Wave Analysis"
-dynamic = ["version"]
 keywords = [
     "HEP",
     "PWA",
@@ -46,26 +25,26 @@ keywords = [
 ]
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
-name = "PWA-pages"
-requires-python = ">=3.9"
+name = "pwa-pages"
+requires-python = ">=3.12"
+version = "0.0.0"
 
 [project.optional-dependencies]
 dev = [
-    "PWA-pages[doc]",
-    "PWA-pages[jupyter]",
-    "PWA-pages[sty]",
-    "PWA-pages[test]",
+    "pwa-pages[doc]",
+    "pwa-pages[jupyter]",
+    "pwa-pages[sty]",
+    "pwa-pages[test]",
     "sphinx-autobuild",
-    "tox >=1.9", # for skip_install, use_develop
 ]
 doc = [
-    "Sphinx >=3",
     "feynman",
     "ipywidgets",
     "jupyter",
     "matplotlib",
-    "myst-nb >=0.11", # myst_enable_extensions
-    "sphinx-api-relink >=0.0.8",
+    "myst-nb",
+    "sphinx",
+    "sphinx-api-relink",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",
@@ -79,19 +58,18 @@ doc = [
     "sympy",
 ]
 jupyter = [
-    "PWA-pages[doc]",
     "jupyterlab",
     "jupyterlab-code-formatter >=3.0.0",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
+    "pwa-pages[doc]",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
 ]
 sty = [
-    "PWA-pages[types]",
-    "mypy >=0.730", # error code support
-    "pre-commit >=1.4.0",
+    "mypy",
+    "pwa-pages[types]",
     "ruff",
 ]
 test = [
@@ -102,7 +80,7 @@ test = [
 ]
 types = [
     "pytest",
-    "sphinx-api-relink >=0.0.8",
+    "sphinx-api-relink",
     "types-PyYAML",
     "types-docutils",
     "types-python-dateutil",
@@ -133,11 +111,6 @@ pwa_pages = ["py.typed"]
 namespaces = false
 where = ["src"]
 
-[tool.setuptools_scm]
-local_scheme = "no-local-version"
-version_scheme = "post-release"
-write_to = "src/pwa_pages/version.py"
-
 [tool.coverage.run]
 branch = true
 source = ["src"]
@@ -167,109 +140,6 @@ module = ["sphinx.*"]
 ignore_missing_imports = true
 module = ["sphinxcontrib.bibtex.*"]
 
-[tool.pixi.project]
-channels = ["conda-forge"]
-platforms = ["linux-64"]
-
-[tool.pixi.activation.env]
-PRETTIER_LEGACY_CLI = "1"
-
-[tool.pixi.dependencies]
-graphviz = "*"
-python = "3.12.*"
-
-[tool.pixi.environments]
-default = {features = [
-    "dev",
-    "doc",
-    "jupyter",
-    "sty",
-    "test",
-    "types",
-]}
-
-[tool.pixi.feature.dev.tasks.ci]
-depends_on = ["cov", "docnb", "linkcheck", "sty"]
-
-[tool.pixi.feature.dev.tasks.cov]
-cmd = """
-pytest tests \
-    --cov-fail-under=90 \
-    --cov-report=html \
-    --cov-report=xml \
-    --cov=pwa_pages
-"""
-
-[tool.pixi.feature.dev.tasks.doc]
-cmd = """
-sphinx-build \
-    --builder dirhtml \
-    --fail-on-warning \
-    --keep-going \
-    --show-traceback \
-    docs/ docs/_build/html
-"""
-env = {FORCE_COLOR = "yes"}
-
-[tool.pixi.feature.dev.tasks.doclive]
-cmd = """
-sphinx-autobuild \
-    --builder dirhtml \
-    --open-browser \
-    --re-ignore '.*/__pycache__/.*' \
-    --re-ignore '.*/.ipynb_checkpoints/.*' \
-    --re-ignore '.*\\.gitignore' \
-    --re-ignore 'docs/_build/.*' \
-    --re-ignore 'docs/.*\\.csv' \
-    --re-ignore 'docs/.*\\.gif' \
-    --re-ignore 'docs/.*\\.gv' \
-    --re-ignore 'docs/.*\\.inv' \
-    --re-ignore 'docs/.*\\.json' \
-    --re-ignore 'docs/.*\\.pickle' \
-    --re-ignore 'docs/.*\\.png' \
-    --re-ignore 'docs/.*\\.svg' \
-    --re-ignore 'docs/.*\\.yaml' \
-    --re-ignore 'docs/.*\\.yml' \
-    --re-ignore docs/api \
-    --watch docs \
-    docs/ docs/_build/html
-"""
-env = {FORCE_COLOR = "yes"}
-
-[tool.pixi.feature.dev.tasks.docnb]
-cmd = "pixi run doc"
-env = {EXECUTE_NB = "yes", FORCE_COLOR = "yes"}
-
-[tool.pixi.feature.dev.tasks.docnblive]
-cmd = "pixi run doclive"
-env = {EXECUTE_NB = "yes", FORCE_COLOR = "yes"}
-
-[tool.pixi.feature.dev.tasks.linkcheck]
-cmd = """
-sphinx-build \
-    --builder linkcheck \
-    --show-traceback \
-    docs/ docs/_build/linkcheck
-"""
-env = {FORCE_COLOR = "yes"}
-
-[tool.pixi.feature.dev.tasks.nb]
-cmd = "pytest --nbmake docs"
-env = {PYTHONHASHSEED = "0"}
-
-[tool.pixi.feature.dev.tasks.sty]
-cmd = """
-mypy docs src tests # run separately because of potential caching problems
-pre-commit run  -a
-"""
-env = {SKIP = "mypy, pyright"}
-
-[tool.pixi.feature.dev.tasks.tests]
-cmd = "pytest"
-
-[tool.pixi.pypi-dependencies]
-PWA-pages = {path = ".", editable = true}
-
 [tool.pyright]
 exclude = [
     "**/.git",
@@ -277,6 +147,7 @@ exclude = [
     "**/.mypy_cache",
     "**/.pytest_cache",
     "**/.tox",
+    "**/.venv/",
     "**/__pycache__",
     "**/_build",
 ]
@@ -307,6 +178,8 @@ reportUnusedFunction = true
 reportUnusedImport = true
 reportUnusedVariable = true
 typeCheckingMode = "strict"
+venv = ".venv"
+venvPath = "."
 
 [tool.pytest.ini_options]
 addopts = [
@@ -320,6 +193,7 @@ filterwarnings = [
     "error",
     "ignore:Argument login_or_token is deprecated.*:DeprecationWarning",
     "ignore:Exception ignored in.*:UserWarning",
+    "ignore:There is no current event loop:DeprecationWarning",
 ]
 testpaths = [
     "src",
@@ -443,3 +317,121 @@ sort_first = [
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    cov,
+    docnb-force,
+    linkcheck,
+    sty,
+skip_install = True
+skip_missing_interpreters = True
+skipsdist = True
+
+[testenv]
+allowlist_externals =
+    pytest
+commands =
+    pytest {posargs}
+description = Run all unit tests
+passenv = *
+
+[testenv:cov]
+allowlist_externals =
+    pytest
+commands =
+    pytest {posargs:tests} \
+        --cov-fail-under=90 \
+        --cov-report=html \
+        --cov-report=xml \
+        --cov=pwa_pages
+description = Compute test coverage
+
+[testenv:doc]
+allowlist_externals =
+    sphinx-build
+commands =
+    sphinx-build \
+        --builder=dirhtml \
+        --fail-on-warning \
+        --keep-going \
+        --show-traceback \
+        docs/ docs/_build/html
+description = Build documentation and API through Sphinx
+
+[testenv:docnb]
+base = doc
+description = {[testenv:doc]description} with cached notebook execution
+setenv =
+    EXECUTE_NB = yes
+
+[testenv:docnb-force]
+base = doc
+description = {[testenv:doc]description} with notebook execution (no cache)
+setenv =
+    FORCE_EXECUTE_NB = yes
+
+[testenv:doclive]
+allowlist_externals =
+    sphinx-autobuild
+commands =
+    sphinx-autobuild \
+        --builder=dirhtml \
+        --ignore=docs/api \
+        --open-browser \
+        --port=0 \
+        --re-ignore='.*/__pycache__/.*' \
+        --re-ignore='.*/.ipynb_checkpoints/.*' \
+        --re-ignore='.*/.virtual_documents/.*' \
+        --re-ignore='.*\\.csv' \
+        --re-ignore='.*\\.gif' \
+        --re-ignore='.*\\.gitignore' \
+        --re-ignore='.*\\.gv' \
+        --re-ignore='.*\\.inv' \
+        --re-ignore='.*\\.json' \
+        --re-ignore='.*\\.pickle' \
+        --re-ignore='.*\\.png' \
+        --re-ignore='.*\\.svg' \
+        --re-ignore='.*\\.ya?ml' \
+        --re-ignore='docs/_build/.*' \
+        --watch docs \
+        --watch src \
+        docs/ docs/_build/html
+description = Set up a server to directly preview changes to the HTML pages
+
+[testenv:docnblive]
+base = doclive
+description = {[testenv:doclive]description} with cached notebook execution
+setenv =
+    {[testenv:doclive]setenv}
+    EXECUTE_NB = yes
+
+[testenv:linkcheck]
+allowlist_externals =
+    sphinx-build
+base = doc
+commands =
+    sphinx-build \
+        --builder=linkcheck \
+        --show-traceback \
+        docs/ docs/_build/linkcheck
+description = Check external links in the documentation (requires internet connection)
+
+[testenv:nb]
+allowlist_externals =
+    pytest
+commands =
+    pytest --nbmake {posargs:docs}
+description = Run all notebooks with pytest
+setenv =
+    PYTHONHASHSEED = 0
+
+[testenv:sty]
+allowlist_externals =
+    pre-commit
+commands =
+    pre-commit run --all-files {posargs}
+description = Perform all linting, formatting, and spelling checks
+"""

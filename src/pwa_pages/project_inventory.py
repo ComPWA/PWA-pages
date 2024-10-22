@@ -5,9 +5,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
-import sys
 from functools import partial
-from typing import TYPE_CHECKING, Callable, Optional, Union
+from typing import TYPE_CHECKING, Optional, Self, Union
 
 import yaml
 from pydantic import BaseModel, model_validator
@@ -16,14 +15,9 @@ from pytablewriter import HtmlTableWriter
 from .repo import Repo, get_repo
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable, Sequence
+    from collections.abc import Callable, Iterable, Sequence
     from datetime import datetime
     from pathlib import Path
-
-if sys.version_info < (3, 11):
-    from typing_extensions import Self
-else:
-    from typing import Self
 
 
 def load_yaml(path: Path | str) -> dict:
