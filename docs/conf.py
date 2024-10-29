@@ -119,10 +119,10 @@ html_theme_options = {
 }
 html_title = "Partial Wave Analysis"
 intersphinx_mapping = {
-    "IPython": (f"https://ipython.readthedocs.io/en/{pin("IPython")}", None),
-    "matplotlib": (f"https://matplotlib.org/{pin("matplotlib")}", None),
+    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
+    "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
     "python": ("https://docs.python.org/3", None),
-    "pydantic": (f"https://docs.pydantic.dev/{pin_minor("pydantic")}", None),
+    "pydantic": (f"https://docs.pydantic.dev/{pin_minor('pydantic')}", None),
     "sympy": ("https://docs.sympy.org/latest", None),
 }
 linkcheck_anchors = False
