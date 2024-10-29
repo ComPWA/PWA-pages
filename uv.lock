@@ -1698,7 +1698,7 @@ dependencies = [
     { name = "pyyaml" },
 ]
 
-[package.dependency-groups]
+[package.dev-dependencies]
 dev = [
     { name = "feynman" },
     { name = "jupyterlab" },
@@ -1804,7 +1804,7 @@ requires-dist = [
     { name = "pyyaml" },
 ]
 
-[package.metadata.dependency-groups]
+[package.metadata.requires-dev]
 dev = [
     { name = "feynman" },
     { name = "jupyterlab" },
