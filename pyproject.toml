@@ -29,64 +29,6 @@ name = "pwa-pages"
 requires-python = ">=3.12"
 version = "0.0.0"
 
-[project.optional-dependencies]
-dev = [
-    "pwa-pages[doc]",
-    "pwa-pages[jupyter]",
-    "pwa-pages[sty]",
-    "pwa-pages[test]",
-    "sphinx-autobuild",
-]
-doc = [
-    "feynman",
-    "ipywidgets",
-    "jupyter",
-    "matplotlib",
-    "myst-nb",
-    "sphinx",
-    "sphinx-api-relink",
-    "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]",
-    "sphinx-comments",
-    "sphinx-copybutton",
-    "sphinx-design",
-    "sphinx-hep-pdgref",
-    "sphinx-pybtex-etal-style",
-    "sphinx-thebe",
-    "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
-    "sympy",
-]
-jupyter = [
-    "jupyterlab",
-    "jupyterlab-code-formatter >=3.0.0",
-    "jupyterlab-git",
-    "jupyterlab-lsp",
-    "jupyterlab-myst",
-    "pwa-pages[doc]",
-    "python-lsp-ruff",
-    "python-lsp-server[rope]",
-]
-sty = [
-    "mypy",
-    "pwa-pages[types]",
-    "ruff",
-]
-test = [
-    "nbmake",
-    "pytest",
-    "pytest-cov",
-    "pytest-xdist",
-]
-types = [
-    "pytest",
-    "sphinx-api-relink",
-    "types-PyYAML",
-    "types-docutils",
-    "types-python-dateutil",
-    "types-setuptools",
-]
-
 [project.readme]
 content-type = "text/markdown"
 file = "README.md"
@@ -99,6 +41,65 @@ Changelog = "https://github.com/ComPWA/PWA-pages/releases"
 Documentation = "https://pwa.rtfd.io"
 Source = "https://github.com/ComPWA/PWA-pages"
 Tracker = "https://github.com/ComPWA/PWA-pages/issues"
+
+[dependency-groups]
+dev = [
+    "nbmake",
+    "ruff",
+    "sphinx-autobuild",
+    {include-group = "doc"},
+    {include-group = "jupyter"},
+    {include-group = "style"},
+    {include-group = "test"},
+]
+doc = [
+    "myst-nb",
+    "sphinx",
+    "sphinx-api-relink",
+    "sphinx-book-theme",
+    "sphinx-codeautolink[ipython]",
+    "sphinx-comments",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinx-hep-pdgref",
+    "sphinx-pybtex-etal-style",
+    "sphinx-thebe",
+    "sphinx-togglebutton",
+    "sphinxcontrib-bibtex >=2.2",
+    {include-group = "notebooks"},
+]
+jupyter = [
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-git",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "python-lsp-ruff",
+    "python-lsp-server[rope]",
+    {include-group = "notebooks"},
+]
+notebooks = [
+    "feynman",
+    "matplotlib",
+    "sympy",
+]
+style = [
+    "mypy",
+    {include-group = "types"},
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+types = [
+    "pytest",
+    "sphinx-api-relink",
+    "types-PyYAML",
+    "types-docutils",
+    "types-python-dateutil",
+    "types-setuptools",
+]
 
 [tool.setuptools]
 include-package-data = false
