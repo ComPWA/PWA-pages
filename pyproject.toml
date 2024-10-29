@@ -7,6 +7,7 @@ authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub
 dependencies = [
     "PyGithub",
     "PyYAML",
+    "attrs",
     "pydantic >=2",
     "pytablewriter[html]",
     "python-dateutil",
