@@ -52,10 +52,6 @@ dev = [
     {include-group = "test"},
 ]
 doc = [
-    "feynman",
-    "ipywidgets",
-    "jupyter",
-    "matplotlib",
     "myst-nb",
     "sphinx",
     "sphinx-api-relink",
@@ -69,7 +65,7 @@ doc = [
     "sphinx-thebe",
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2.2",
-    "sympy",
+    {include-group = "notebooks"},
 ]
 jupyter = [
     "jupyterlab",
@@ -79,7 +75,12 @@ jupyter = [
     "jupyterlab-myst",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
-    {include-group = "doc"},
+    {include-group = "notebooks"},
+]
+notebooks = [
+    "feynman",
+    "matplotlib",
+    "sympy",
 ]
 style = [
     "mypy",
