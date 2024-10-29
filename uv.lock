@@ -1779,7 +1779,6 @@ style = [
     { name = "types-setuptools" },
 ]
 test = [
-    { name = "nbmake" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-xdist" },
@@ -1885,7 +1884,6 @@ style = [
     { name = "types-setuptools" },
 ]
 test = [
-    { name = "nbmake" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-xdist" },

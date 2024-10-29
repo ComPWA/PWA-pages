@@ -43,6 +43,7 @@ Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
+    "nbmake",
     "ruff",
     "sphinx-autobuild",
     {include-group = "doc"},
@@ -86,7 +87,6 @@ style = [
     {include-group = "types"},
 ]
 test = [
-    "nbmake",
     "pytest",
     "pytest-cov",
     "pytest-xdist",
