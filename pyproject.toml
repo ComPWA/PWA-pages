@@ -29,13 +29,27 @@ name = "pwa-pages"
 requires-python = ">=3.12"
 version = "0.0.0"
 
-[project.optional-dependencies]
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
+[project.scripts]
+export-json-schema = "pwa_pages.project_inventory:export_json_schema"
+
+[project.urls]
+Changelog = "https://github.com/ComPWA/PWA-pages/releases"
+Documentation = "https://pwa.rtfd.io"
+Source = "https://github.com/ComPWA/PWA-pages"
+Tracker = "https://github.com/ComPWA/PWA-pages/issues"
+
+[dependency-groups]
 dev = [
-    "pwa-pages[doc]",
-    "pwa-pages[jupyter]",
-    "pwa-pages[sty]",
-    "pwa-pages[test]",
+    "ruff",
     "sphinx-autobuild",
+    {include-group = "doc"},
+    {include-group = "jupyter"},
+    {include-group = "style"},
+    {include-group = "test"},
 ]
 doc = [
     "feynman",
@@ -54,23 +68,22 @@ doc = [
     "sphinx-pybtex-etal-style",
     "sphinx-thebe",
     "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2.2", # bibtex_reference_style
+    "sphinxcontrib-bibtex >=2.2",
     "sympy",
 ]
 jupyter = [
     "jupyterlab",
-    "jupyterlab-code-formatter >=3.0.0",
+    "jupyterlab-code-formatter",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
-    "pwa-pages[doc]",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
+    {include-group = "doc"},
 ]
-sty = [
+style = [
     "mypy",
-    "pwa-pages[types]",
-    "ruff",
+    {include-group = "types"},
 ]
 test = [
     "nbmake",
@@ -86,19 +99,6 @@ types = [
     "types-python-dateutil",
     "types-setuptools",
 ]
-
-[project.readme]
-content-type = "text/markdown"
-file = "README.md"
-
-[project.scripts]
-export-json-schema = "pwa_pages.project_inventory:export_json_schema"
-
-[project.urls]
-Changelog = "https://github.com/ComPWA/PWA-pages/releases"
-Documentation = "https://pwa.rtfd.io"
-Source = "https://github.com/ComPWA/PWA-pages"
-Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [tool.setuptools]
 include-package-data = false
