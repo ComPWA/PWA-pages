@@ -1697,7 +1697,7 @@ dependencies = [
     { name = "pyyaml" },
 ]
 
-[package.dependency-groups]
+[package.dev-dependencies]
 dev = [
     { name = "feynman" },
     { name = "jupyterlab" },
@@ -1802,7 +1802,7 @@ requires-dist = [
     { name = "pyyaml" },
 ]
 
-[package.metadata.dependency-groups]
+[package.metadata.requires-dev]
 dev = [
     { name = "feynman" },
     { name = "jupyterlab" },
@@ -2147,15 +2147,15 @@ wheels = [
 
 [[package]]
 name = "python-gitlab"
-version = "4.13.0"
+version = "5.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "requests" },
     { name = "requests-toolbelt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c4/ea/e2cde926d63526935c1df259177371a195089b631d67a577fe5c39fbc7e1/python_gitlab-4.13.0.tar.gz", hash = "sha256:576bfb0901faca0c6b2d1ff2592e02944a6ec3e086c3129fb43c2a0df56a1c67", size = 484996 }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/a6/65b0fd205f68f5e94f742f8481d8443cd2d5f9f6c9fd9e4f6de3058ea40f/python_gitlab-5.0.0.tar.gz", hash = "sha256:d156b9810d2a5c2916226cecf354956286a9e8133ee707d6584e40f126329956", size = 486119 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6b/5e/5fb4dcae9f5af5463c16952823d446ca449cce920efe8669871f600f0ab9/python_gitlab-4.13.0-py3-none-any.whl", hash = "sha256:8299a054fb571da16e1a8c1868fff01f34ac41ea1410c713a4647b3bbb2aa279", size = 145254 },
+    { url = "https://files.pythonhosted.org/packages/6d/5f/03221dec5cf942b3d12e933a1057ef5b25af63fe139e4a1a66855699909a/python_gitlab-5.0.0-py3-none-any.whl", hash = "sha256:2af86a1655385c2afe13e33e79555d5394f8c7912ade04bb6e916e3d21a8716f", size = 145252 },
 ]
 
 [[package]]
