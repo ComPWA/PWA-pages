@@ -1689,7 +1689,6 @@ name = "pwa-pages"
 version = "0.0.0"
 source = { editable = "." }
 dependencies = [
-    { name = "attrs" },
     { name = "pydantic" },
     { name = "pygithub" },
     { name = "pytablewriter", extra = ["html"] },
@@ -1796,7 +1795,6 @@ types = [
 
 [package.metadata]
 requires-dist = [
-    { name = "attrs" },
     { name = "pydantic", specifier = ">=2" },
     { name = "pygithub" },
     { name = "pytablewriter", extras = ["html"] },
