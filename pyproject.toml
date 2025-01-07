@@ -426,8 +426,6 @@ allowlist_externals =
 commands =
     pytest --nbmake {posargs:docs}
 description = Run all notebooks with pytest
-setenv =
-    PYTHONHASHSEED = 0
 
 [testenv:sty]
 allowlist_externals =
