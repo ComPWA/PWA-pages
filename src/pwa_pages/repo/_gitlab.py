@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 from dateutil.parser import parse as parse_date
 from gitlab import Gitlab
-from gitlab.v4.objects import Project as GitlabProject  # noqa: TCH002
+from gitlab.v4.objects import Project as GitlabProject  # noqa: TC002
 
 if TYPE_CHECKING:
     from datetime import datetime

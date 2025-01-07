@@ -155,5 +155,6 @@
     "xlim",
     "ylabel",
     "ylim"
-  ]
+  ],
+  "useGitignore": true
 }
