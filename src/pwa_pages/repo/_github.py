@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 
 from dateutil.parser import parse as parse_date
 from github import Github
-from github.Repository import Repository as GithubRepository  # noqa: TCH002
+from github.Repository import Repository as GithubRepository  # noqa: TC002
 
 if TYPE_CHECKING:
     from datetime import datetime
