@@ -112,6 +112,11 @@ pwa_pages = ["py.typed"]
 namespaces = false
 where = ["src"]
 
+[tool.coverage.report]
+exclude_also = [
+    "if TYPE_CHECKING:",
+]
+
 [tool.coverage.run]
 branch = true
 source = ["src"]
