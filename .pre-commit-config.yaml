@@ -15,14 +15,14 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.5.19
+    rev: 0.6.0
     hooks:
       - id: check-dev-files
         args:
           - --ci-skipped-tests=all
+          - --macos-python-version=disable
           - --no-binder
           - --no-cd
-          - --no-macos
           - --no-pypi
           - --repo-name=PWA-pages
           - --repo-title=PWA Pages
