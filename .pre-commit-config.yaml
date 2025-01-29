@@ -15,20 +15,21 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.5.15
+    rev: 0.6.1
     hooks:
       - id: check-dev-files
         args:
           - --ci-skipped-tests=all
+          - --macos-python-version=disable
           - --no-binder
           - --no-cd
-          - --no-macos
           - --no-pypi
           - --repo-name=PWA-pages
           - --repo-title=PWA Pages
       - id: colab-toc-visible
       - id: fix-nbformat-version
       - id: remove-empty-tags
+      - id: set-nb-display-name
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.8.1
@@ -59,7 +60,7 @@ repos:
             metadata.vscode
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.1
+    rev: v0.9.3
     hooks:
       - id: ruff
         args: [--fix]
@@ -119,12 +120,12 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.17.0
+    rev: v8.17.1
     hooks:
       - id: cspell
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.0.3
+    rev: 3.2.0
     hooks:
       - id: editorconfig-checker
         name: editorconfig
@@ -145,7 +146,7 @@ repos:
           - python
 
   - repo: https://github.com/ComPWA/pyright-pre-commit
-    rev: v1.1.391
+    rev: v1.1.392
     hooks:
       - id: pyright
 
@@ -159,6 +160,6 @@ repos:
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.5.18
+    rev: 0.5.25
     hooks:
       - id: uv-lock

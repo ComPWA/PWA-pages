@@ -33,12 +33,6 @@
   "coverage-gutters.showLineCoverage": true,
   "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
-  "files.watcherExclude": {
-    "**/*_cache/**": true,
-    "**/.eggs/**": true,
-    "**/.git/**": true,
-    "**/.tox/**": true
-  },
   "git.rebaseWhenSync": true,
   "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "gitlens.telemetry.enabled": false,
@@ -59,6 +53,7 @@
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
   "python.analysis.inlayHints.pytestParameters": true,
+  "python.defaultInterpreterPath": ".venv/bin/python",
   "python.terminal.activateEnvironment": false,
   "python.testing.autoTestDiscoverOnSaveEnabled": false,
   "python.testing.pytestArgs": [
