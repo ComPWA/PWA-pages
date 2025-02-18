@@ -1,0 +1,93 @@
+K-matrix: |
+  A real, symmetric and hermitian operator that is defined from the {{< glossary T-matrix >}} through $K^{-1} = T^{-1} + iI$. See [@Badalian:1981xj; @Chung:1995dx] and [Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf) @ParticleDataGroup:2020ssz.
+
+P-vector: |
+  First described in @Aitchison:1972ay. See also @Chung:1995dx and [Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf) @ParticleDataGroup:2020ssz.
+
+Q-vector: |
+  See [@Chung:1995dx] and [Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf) @ParticleDataGroup:2020ssz.
+
+S-matrix: |
+
+scattering operator: |
+  See [@Martin:1970hmp], Ch.4.
+
+T-matrix: |
+
+transition operator: |
+  The {{< glossary scattering operator >}} can split into a non-interacting component $I$ (identity operator) and a matrix $T$ that describes the actual interactions through $S = I + iT$. See [@Martin:1970hmp], Ch.4, and [@Chung:1995dx].
+
+asymptotic freedom: |
+  The fact that the {{< glossary coupling constant >}} of the strong force increases in strength for lower momentum.
+
+baryon: A particle that consists of three quarks.
+
+color confinement: |
+  The fact that quarks only exist in colorless, bound states (quark groups of which the colors add up to 'white'). See also {{< glossary asymptotic freedom >}}.
+
+coupling constant: |
+
+damping factor: |
+
+form factor: |
+  Often defined with the symbol $B_{\alpha_i}$.
+
+formation experiment: |
+  Experiments where particles $A$ and $B$ are collided, resulting in a reaction: |
+
+  $$
+  A + B \to R \to C_1 + \dots + C_n,
+  $$
+
+  Here, $R$ is the resonance in which one is often interested in {{< glossary "hadron spectroscopy" >}}.
+
+  See [Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf) @ParticleDataGroup:2020ssz. Related: {{< glossary production experiment >}}.
+
+hadron: |
+  Particles that consist of two quarks ({{< glossary meson >}}) or three quarks ({{< glossary baryon >}}).
+
+hadron spectroscopy: |
+
+hyperon: |
+  A {{< glossary baryon >}} with at least one strange {{< glossary quark >}}.
+
+lattice QCD: |
+  A numerical tool with which to study particle interactions mediated by the
+  strong force at low momentum transfer
+
+meson: |
+  A particle that consists of two quarks.
+
+production experiment: |
+
+spectator particle: |
+  Experiments of the kind: |
+
+  $$
+  \begin{align}{l}
+  A + B \to R + S \to [C_1 + \dots + C_n] + S \\
+  Z \to R + S \to [C_1 + \dots + C_n] + S
+  \end{align}
+  $$
+
+  Here, $R$ is the resonance in which one is often interested in {{< glossary hadron spectroscopy >}}, while $S$ is a spectator particle. The first case is comparable to a {{< glossary formation experiment >}}, while the second represents a decay process of particle $Z$.
+
+  See [Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf) @ParticleDataGroup:2020ssz.
+
+Quantum Chromodynamics (QCD): |
+  The theory that describes the strong force on the most fundamental level. See [QCD](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-qcd.pdf) @ParticleDataGroup:2020ssz.
+
+quark: |
+  Elementary particle that constitutes hadronic matter.
+
+Quark Constituent Model (QCM): |
+  Model with which to describe and categorize matter constituted of quarks (i.e. {{< glossary "hadron" display="hadrons" >}}). See @ParticleDataGroup:2020ssz ([Quark Model](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-quark-model.pdf)).
+
+resonance: |
+  See @ParticleDataGroup:2020ssz ([Resonances](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-resonances.pdf)).
+
+Standard Model: |
+  Most fundamental description of matter and forces
+
+strong force: |
+  One of the four fundamental forces of the {{< glossary Standard Model >}}

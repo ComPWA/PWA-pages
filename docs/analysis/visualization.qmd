@@ -1,8 +1,10 @@
-# Visualization
+---
+title: Visualization
+---
 
-```{warning}
+:::{.callout-warning}
 These pages are **under development**.
-```
+:::
 
 ## Dalitz plot
 

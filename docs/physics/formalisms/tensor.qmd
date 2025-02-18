@@ -1,4 +1,6 @@
-# Tensor formalisms
+---
+title: Tensor formalisms
+---
 
 ## Rarita-Schwinger
 
@@ -6,12 +8,10 @@
 
 ### Covariant Tensor formalisms
 
-<!-- cspell:ignore Anisovich -->
-
-{cite}`Anisovich:2001ra`
+@Anisovich:2001ra <!-- cspell:ignore Anisovich -->
 
 ## Non-covariant tensor formalisms
 
-{cite}`Zemach:1965ycj`
+@Zemach:1965ycj
 
 ## Spin-projection formalisms

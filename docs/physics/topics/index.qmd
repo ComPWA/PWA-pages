@@ -1,10 +1,14 @@
-# Miscellaneous topics
+---
+title: Miscellaneous topics
+aliases:
+  - topics.html
+---
 
-```{warning}
+:::{.callout-warning}
 These pages are **under development**.
-```
+:::
 
-:::{todo}
+:::{.callout-warning title="To do"}
 
 Other topics (**re-categorize!**)
 
@@ -14,22 +18,11 @@ Other topics (**re-categorize!**)
 - (?) $S$-matrix
 - (?) Spin density
 - Constituent Quark Model
-
   - Asymptotic freedom and color confinement
   - $J^CP(I^G)$
   - Multiplets categorization
   - Importance of experimental data
-
 - Overlapping resonances
 - Coupled channels
 
 :::
-
-```{toctree}
----
-maxdepth: 2
----
-topics/sm
-topics/cqm
-topics/results
-```

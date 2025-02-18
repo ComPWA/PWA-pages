@@ -1,12 +1,14 @@
-# Constituent Quark Model
+---
+title: Constituent Quark Model
+---
 
-```{warning}
+:::{.callout-warning}
 These pages are **under development**.
-```
+:::
 
 ## Asymptotic Freedom
 
-:::{todo}
+:::{.callout-warning title="To do"}
 
 - Confinement property of the strong force
 - Constituent Quark Model: only colorless bound states
@@ -15,7 +17,7 @@ These pages are **under development**.
 
 ## Mesons and Baryons
 
-:::{todo}
+:::{.callout-warning title="To do"}
 
 - Quantum numbers ($J^{CP}(I^G)$)
 

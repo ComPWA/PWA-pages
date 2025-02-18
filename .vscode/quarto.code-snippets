@@ -1,0 +1,20 @@
+{
+  "Quarto Todo item (margin)": {
+    "scope": "quarto",
+    "prefix": "quarto-todo-margin",
+    "body": [
+      "::::{.column-margin}",
+      ":::{.callout-warning title=\"To do\"}",
+      "$0",
+      ":::",
+      "::::"
+    ],
+    "description": "Insert a to-do note in the margin"
+  },
+  "Quarto Todo item": {
+    "scope": "quarto",
+    "prefix": "quarto-todo",
+    "body": [":::{.callout-warning title=\"To do\"}", "$0", ":::"],
+    "description": "Insert a to-do note"
+  }
+}
