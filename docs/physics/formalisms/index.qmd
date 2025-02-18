@@ -1,5 +1,7 @@
 ---
 title: Spin formalisms
+aliases:
+  - formalisms.html
 ---
 
 :::{.callout-warning}

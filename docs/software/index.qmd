@@ -1,5 +1,7 @@
 ---
 title: PWA Frameworks
+aliases:
+  - software.html
 ---
 
 ## Software inventory

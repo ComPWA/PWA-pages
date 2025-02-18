@@ -1,4 +1,8 @@
-# Miscellaneous topics
+---
+title: Miscellaneous topics
+aliases:
+  - topics.html
+---
 
 :::{.callout-warning}
 These pages are **under development**.
