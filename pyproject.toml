@@ -257,22 +257,17 @@ env_list = [
     "doc",
     "sty",
 ]
-no_package = true
+pass_env = ["*"]
 requires = ["tox>=4.21.0"]
-skip_install = true
-skip_missing_interpreters = true
+runner = "uv-venv-lock-runner"
+uv_python_preference = "only-managed"
 
 [tool.tox.env_run_base]
 commands = [["pytest", {replace = "posargs", extend = true}]]
 dependency_groups = ["test"]
 description = "Run test suite on Python {env_name}"
 ignore_base_python_conflict = true
-no_package = false
 pass_env = ["*"]
-runner = "uv-venv-lock-runner"
-skip_install = false
-skip_missing_interpreters = false
-uv_python_preference = "only-managed"
 
 [tool.tox.env.cov]
 commands = [
@@ -292,14 +287,15 @@ base = []
 commands = [["quarto", "render", "docs", "--no-clean"]]
 dependency_groups = ["doc"]
 description = "Build documentation with Quarto (set EXECUTE_NB=TRUE to build software inventory)"
+pass_env = ["*"]
 
 [tool.tox.env.doclive]
 base = ["tool.tox.env.doc"]
 commands = [["quarto", "preview", "docs", "--no-clean"]]
 description = "Set up a server to directly preview changes to the HTML pages"
-pass_env = ["*"]
 
 [tool.tox.env.linkcheck]
+base = []
 commands = [
     [
         "python",
@@ -313,9 +309,11 @@ skip_install = true
 
 [tool.tox.env.sty]
 allowlist_externals = ["pre-commit"]
+base = []
 commands = [["pre-commit", "run", "--all-files", {replace = "posargs", extend = true}]]
 dependency_groups = ["style"]
 description = "Perform all linting, formatting, and spelling checks"
+pass_env = ["*"]
 
 [tool.tox.labels]
 test = [
