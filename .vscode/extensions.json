@@ -5,7 +5,6 @@
     "eamodio.gitlens",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "executablebookproject.myst-highlight",
     "github.vscode-github-actions",
     "github.vscode-pull-request-github",
     "mhutchie.git-graph",
@@ -26,6 +25,7 @@
   "unwantedRecommendations": [
     "bungcip.better-toml",
     "davidanson.vscode-markdownlint",
+    "executablebookproject.myst-highlight",
     "garaioag.garaio-vscode-unwanted-recommendations",
     "ms-python.black-formatter",
     "ms-python.flake8",

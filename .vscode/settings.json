@@ -46,12 +46,6 @@
   "multiDiffEditor.experimental.enabled": true,
   "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
   "mypy-type-checker.importStrategy": "fromEnvironment",
-  "myst.preview.extensions": [
-    "amsmath",
-    "colon_fence",
-    "dollarmath",
-    "tasklist"
-  ],
   "notebook.codeActionsOnSave": {
     "notebook.source.organizeImports": "explicit"
   },
