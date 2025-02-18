@@ -9,6 +9,7 @@ title: PWA Frameworks
 The following frameworks or projects are specifically designed to do amplitude analysis. The table is built from [this YAML file](./software/amplitude-analysis-projects.yml) and can be updated [here](https://github.com/ComPWA/edit/main/docs/software/amplitude-analysis-projects.yml).
 
 ```{python}
+#| warning: false
 import os
 
 if "EXECUTE_NB" in os.environ:
