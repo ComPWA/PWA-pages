@@ -299,6 +299,18 @@ commands = [["quarto", "preview", "docs", "--no-clean"]]
 description = "Set up a server to directly preview changes to the HTML pages"
 pass_env = ["*"]
 
+[tool.tox.env.linkcheck]
+commands = [
+    [
+        "python",
+        "-c",
+        'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
+    ],
+]
+description = "Check external links in the documentation (requires internet connection)"
+no_package = true
+skip_install = true
+
 [tool.tox.env.sty]
 allowlist_externals = ["pre-commit"]
 commands = [["pre-commit", "run", "--all-files", {replace = "posargs", extend = true}]]
