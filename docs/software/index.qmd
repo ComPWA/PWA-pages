@@ -42,7 +42,7 @@ The following packages do not have functionality for amplitude building, but can
 
 ```{python}
 if "EXECUTE_NB" in os.environ:
-    inventory_dict = load_yaml("software/fitter-packages.yml")
+    inventory_dict = load_yaml("fitter-packages.yml")
     html_src = to_html_table(
         inventory=ProjectInventory(**inventory_dict),
         selected_languages=[
