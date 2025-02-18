@@ -1,8 +1,10 @@
-# Fit techniques
+---
+title: Fit techniques
+---
 
-```{warning}
+:::{.callout-warning}
 These pages are **under development**.
-```
+:::
 
 ## Maximum likelihood
 

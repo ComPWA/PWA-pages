@@ -11,8 +11,7 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
-This repository contains the source code for the
-[pwa.rtfd.io](https://pwa.readthedocs.io) pages.
+This repository contains the source code for the [pwa.rtfd.io](https://pwa.readthedocs.io) pages.
 
 ## Contribute
 

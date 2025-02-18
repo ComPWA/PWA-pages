@@ -44,38 +44,14 @@ Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
-    "nbmake",
     "ruff",
-    "sphinx-autobuild",
     {include-group = "doc"},
-    {include-group = "jupyter"},
     {include-group = "style"},
     {include-group = "test"},
 ]
 doc = [
-    "myst-nb",
-    "sphinx",
-    "sphinx-api-relink",
-    "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]",
-    "sphinx-comments",
-    "sphinx-copybutton",
-    "sphinx-design",
-    "sphinx-hep-pdgref",
-    "sphinx-pybtex-etal-style",
-    "sphinx-thebe",
-    "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2.2",
-    {include-group = "notebooks"},
-]
-jupyter = [
-    "jupyterlab",
-    "jupyterlab-code-formatter",
-    "jupyterlab-git",
-    "jupyterlab-lsp",
-    "jupyterlab-myst",
-    "python-lsp-ruff",
-    "python-lsp-server[rope]",
+    "jupyter-cache",
+    "quarto-cli",
     {include-group = "notebooks"},
 ]
 notebooks = [
@@ -94,11 +70,8 @@ test = [
 ]
 types = [
     "pytest",
-    "sphinx-api-relink",
     "types-PyYAML",
-    "types-docutils",
     "types-python-dateutil",
-    "types-setuptools",
 ]
 
 [tool.setuptools]
@@ -133,18 +106,6 @@ check_untyped_defs = true
 disallow_incomplete_defs = false
 disallow_untyped_defs = false
 module = ["tests.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["pybtex.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinx.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinxcontrib.bibtex.*"]
 
 [tool.pyright]
 include = [
@@ -197,7 +158,6 @@ testpaths = [
 ]
 
 [tool.ruff]
-extend-include = ["*.ipynb"]
 preview = true
 show-fixes = true
 src = [
@@ -248,37 +208,11 @@ allow-dict-calls-with-keyword-arguments = true
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
-"*.ipynb" = [
-    "ANN",
-    "B018",
-    "C90",
-    "D",
-    "E303",
-    "E402",
-    "E703",
-    "N806",
-    "N816",
-    "PLR09",
-    "PLR2004",
-    "PLW0602",
-    "PLW0603",
-    "S101",
-    "T20",
-    "TC00",
-]
 "docs/*" = [
-    "E402",
     "INP001",
-    "PLW2901",
     "S101",
     "S113",
-    "T201",
 ]
-"docs/conf.py" = [
-    "A001",
-    "D100",
-]
-"setup.py" = ["D100"]
 "src/pwa_pages/project_inventory.py" = [
     "FA100",
     "UP00",
@@ -315,12 +249,12 @@ spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
 
 [tool.tox]
+basepython = ["3.12"]
 env_list = [
     "3.12",
     "3.13",
     "cov",
-    "docnb-force",
-    "linkcheck",
+    "doc",
     "sty",
 ]
 no_package = true
@@ -332,11 +266,13 @@ skip_missing_interpreters = true
 commands = [["pytest", {replace = "posargs", extend = true}]]
 dependency_groups = ["test"]
 description = "Run test suite on Python {env_name}"
+ignore_base_python_conflict = true
 no_package = false
 pass_env = ["*"]
 runner = "uv-venv-lock-runner"
 skip_install = false
 skip_missing_interpreters = false
+uv_python_preference = "only-managed"
 
 [tool.tox.env.cov]
 commands = [
@@ -352,104 +288,24 @@ commands = [
 description = "Compute test coverage"
 
 [tool.tox.env.doc]
-allowlist_externals = ["sphinx-build"]
 base = []
-commands = [
-    [
-        "sphinx-build",
-        "--builder=dirhtml",
-        "--fail-on-warning",
-        "--keep-going",
-        "--show-traceback",
-        "docs/",
-        "docs/_build/html/",
-    ],
-]
-description = "Build documentation and API through Sphinx"
-pass_env = ["*"]
+commands = [["quarto", "render", "docs", "--no-clean"]]
+dependency_groups = ["doc"]
+description = "Build documentation with Quarto (set EXECUTE_NB=TRUE to build software inventory)"
 
 [tool.tox.env.doclive]
-allowlist_externals = ["sphinx-autobuild"]
-base = []
-commands = [
-    [
-        "sphinx-autobuild",
-        "--port=0",
-        "--re-ignore=/__pycache__(/.*)?$",
-        "--re-ignore=/_build(/.*)?$",
-        "--re-ignore=/\\.cache(/.*)?$",
-        "--re-ignore=/\\.egg-info(/.*)?$",
-        "--re-ignore=/\\.ipynb_checkpoints(/.*)?$",
-        "--re-ignore=/\\.virtual_documents(/.*)?$",
-        "--re-ignore=/api(/.*)?$",
-        "--re-ignore=/docs$",
-        "--re-ignore=/version\\.py$",
-        "--re-ignore=\\.csv$",
-        "--re-ignore=\\.egg-info(/.*)?$",
-        "--re-ignore=\\.gif$",
-        "--re-ignore=\\.gitignore$",
-        "--re-ignore=\\.gv$",
-        "--re-ignore=\\.inv$",
-        "--re-ignore=\\.json$",
-        "--re-ignore=\\.pickle$",
-        "--re-ignore=\\.pkl$",
-        "--re-ignore=\\.png$",
-        "--re-ignore=\\.svg$",
-        "--re-ignore=\\.ya?ml$",
-        "--watch=src",
-        "docs/",
-        "docs/_build/html/",
-    ],
-]
+base = ["tool.tox.env.doc"]
+commands = [["quarto", "preview", "docs", "--no-clean"]]
 description = "Set up a server to directly preview changes to the HTML pages"
 pass_env = ["*"]
 
-[tool.tox.env.docnb]
-base = ["tool.tox.env.doc"]
-description = "{[tool.tox.env.doc]description} with cached notebook execution"
-set_env.EXECUTE_NB = "yes"
-
-[tool.tox.env.docnb-force]
-base = ["tool.tox.env.doc"]
-description = "{[tool.tox.env.doc]description} with notebook execution (no cache)"
-set_env.FORCE_EXECUTE_NB = "yes"
-
-[tool.tox.env.docnblive]
-base = ["tool.tox.env.doclive"]
-description = "{[tool.tox.env.doclive]description} with cached notebook execution"
-set_env.EXECUTE_NB = "yes"
-
-[tool.tox.env.linkcheck]
-allowlist_externals = ["sphinx-build"]
-base = ["tool.tox.env.doc"]
-commands = [
-    [
-        "sphinx-build",
-        "--builder=linkcheck",
-        "--show-traceback",
-        "docs/",
-        "docs/_build/linkcheck/",
-    ],
-]
-description = "Check external links in the documentation (requires internet connection)"
-
-[tool.tox.env.nb]
-commands = [["pytest", "--nbmake", "{posargs:docs}"]]
-description = "Run all notebooks with pytest"
-with_dev = true
-
 [tool.tox.env.sty]
 allowlist_externals = ["pre-commit"]
-base = []
 commands = [["pre-commit", "run", "--all-files", {replace = "posargs", extend = true}]]
+dependency_groups = ["style"]
 description = "Perform all linting, formatting, and spelling checks"
-pass_env = ["*"]
 
 [tool.tox.labels]
-doc = [
-    "docnb-force",
-    "linkcheck",
-]
 test = [
     "3.12",
     "3.13",

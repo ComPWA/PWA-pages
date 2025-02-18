@@ -23,14 +23,20 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.rulers": [88]
   },
+  "[quarto]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.enabled": true,
   "coverage-gutters.coverageFileNames": ["coverage.xml"],
   "coverage-gutters.coverageReportFileName": "**/htmlcov/index.html",
   "coverage-gutters.showGutterCoverage": false,
   "coverage-gutters.showLineCoverage": true,
+  "cSpell.enabled": true,
   "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
   "git.rebaseWhenSync": true,
@@ -51,6 +57,7 @@
   },
   "notebook.formatOnSave.enabled": true,
   "notebook.gotoSymbols.showAllSymbols": true,
+  "prettier.documentSelectors": ["**/*.qmd"],
   "python.analysis.autoImportCompletions": false,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.defaultInterpreterPath": ".venv/bin/python",
@@ -64,6 +71,7 @@
   ],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
+  "quarto.path": ".venv/bin/quarto",
   "redhat.telemetry.enabled": false,
   "rewrap.wrappingColumn": 88,
   "ruff.enable": true,
