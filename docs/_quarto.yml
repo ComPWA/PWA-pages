@@ -6,6 +6,7 @@ draft: true
 execute:
   cache: true
   enabled: true
+  error: true
 format:
   html:
     code-fold: true
