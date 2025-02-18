@@ -1,8 +1,10 @@
 .jupyter_cache/
 *_files/
 *.doctree
+*.epub
 *.html
 *.inv
+*.pdf
 *.quarto_ipynb
 *build/
 /.quarto/

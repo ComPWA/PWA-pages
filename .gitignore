@@ -1,13 +1,3 @@
-# Output files
-*.gv
-*.npy
-*.pdf
-*.pickle
-*.png
-*.svg
-*.v2
-*.xml
-
 # Build files
 *.egg-info/
 *build/
