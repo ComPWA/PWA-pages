@@ -277,30 +277,16 @@ name = "paths"
 positional = true
 
 [tool.poe.tasks.test-all]
-help = "Run all tests on each supported Python version"
-sequence = [
-    {ref = "test-py 3.13"},
-    {ref = "test-py 3.14"},
-]
-
-[tool.poe.tasks.test-py]
 cmd = """
 uv run \
     --group=test \
     --isolated \
     --no-dev \
-    --python=${version} \
     pytest \
         -m 'slow or not slow' \
         --numprocesses=auto
 """
-help = "Run all tests on a specific Python version"
-
-[[tool.poe.tasks.test-py.args]]
-default = "3.13"
-help = "Selected Python version"
-name = "version"
-positional = true
+help = "Run all tests"
 
 [tool.pyright]
 include = [
