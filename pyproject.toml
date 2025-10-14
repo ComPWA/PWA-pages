@@ -4,10 +4,7 @@ requires = ["setuptools"]
 
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
-classifiers = [
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
-]
+classifiers = ["Programming Language :: Python :: 3.13"]
 dependencies = [
     "PyGithub",
     "PyYAML",
@@ -30,7 +27,7 @@ keywords = [
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
 name = "pwa-pages"
-requires-python = ">=3.13"
+requires-python = "~=3.13.0"
 version = "0.0.0"
 
 [project.readme]
