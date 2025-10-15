@@ -4,6 +4,7 @@ requires = ["setuptools"]
 
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
+classifiers = ["Programming Language :: Python :: 3.13"]
 dependencies = [
     "PyGithub",
     "PyYAML",
@@ -26,7 +27,7 @@ keywords = [
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
 name = "pwa-pages"
-requires-python = ">=3.12"
+requires-python = "~=3.13.0"
 version = "0.0.0"
 
 [project.readme]
@@ -75,6 +76,7 @@ jupyter = [
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
+    "jupyterlab-quickopen",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
     {include-group = "notebooks"},
@@ -246,6 +248,11 @@ env = {EXECUTE_NB = "yes"}
 help = "Set up a server to directly preview changes to the HTML pages with cached notebook execution"
 sequence = ["doclive"]
 
+[tool.poe.tasks.lab]
+args = [{name = "paths", default = "", positional = true}]
+cmd = "jupyter lab ${paths}"
+help = "Run Jupyter Lab"
+
 [tool.poe.tasks.linkcheck]
 cmd = """
 sphinx-build \
@@ -276,30 +283,16 @@ name = "paths"
 positional = true
 
 [tool.poe.tasks.test-all]
-help = "Run all tests on each supported Python version"
-sequence = [
-    {ref = "test-py 3.12"},
-    {ref = "test-py 3.13"},
-]
-
-[tool.poe.tasks.test-py]
 cmd = """
 uv run \
     --group=test \
     --isolated \
     --no-dev \
-    --python=${version} \
     pytest \
         -m 'slow or not slow' \
         --numprocesses=auto
 """
-help = "Run all tests on a specific Python version"
-
-[[tool.poe.tasks.test-py.args]]
-default = "3.12"
-help = "Selected Python version"
-name = "version"
-positional = true
+help = "Run all tests"
 
 [tool.pyright]
 include = [
