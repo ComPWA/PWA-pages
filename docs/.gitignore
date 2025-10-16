@@ -11,3 +11,5 @@
 site_libs/
 
 !_static/*
+
+**/*.quarto_ipynb

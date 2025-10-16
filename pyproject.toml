@@ -4,6 +4,7 @@ requires = ["setuptools"]
 
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
+classifiers = ["Programming Language :: Python :: 3.13"]
 dependencies = [
     "PyGithub",
     "PyYAML",
@@ -26,7 +27,7 @@ keywords = [
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
 name = "pwa-pages"
-requires-python = ">=3.12"
+requires-python = "~=3.13.0"
 version = "0.0.0"
 
 [project.readme]
@@ -44,6 +45,7 @@ Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
+    "poethepoet",
     "ruff",
     {include-group = "doc"},
     {include-group = "style"},
@@ -92,6 +94,13 @@ exclude_also = [
 
 [tool.coverage.run]
 branch = true
+omit = [
+    "benchmarks/**/*.py",
+    "docs/**/*.ipynb",
+    "docs/**/*.py",
+    "examples/**/*.py",
+    "tests/**/*.py",
+]
 source = ["src"]
 
 [tool.mypy]
@@ -106,6 +115,78 @@ check_untyped_defs = true
 disallow_incomplete_defs = false
 disallow_untyped_defs = false
 module = ["tests.*"]
+
+[tool.poe]
+executor.type = "uv"
+
+[tool.poe.tasks.all]
+help = "Run all continuous integration (CI) tasks locally"
+ignore_fail = "return_non_zero"
+sequence = [
+    "cov",
+    "doc",
+    "linkcheck",
+    "style",
+    "test-all",
+]
+
+[tool.poe.tasks.cov]
+cmd = """
+pytest \
+    --cov=pwa_pages \
+    --cov-fail-under=90 \
+    --cov-report=html \
+    --cov-report=xml \
+    --numprocesses=auto \
+    ${paths}
+"""
+help = "Compute how much of the source code is covered by tests"
+
+[[tool.poe.tasks.cov.args]]
+default = "src tests"
+multiple = true
+name = "paths"
+positional = true
+
+[tool.poe.tasks.doc]
+cmd = "quarto render docs --no-clean"
+help = "Build documentation and API"
+
+[tool.poe.tasks.doclive]
+cmd = "quarto preview docs --no-clean"
+help = "Set up a server to directly preview changes to the HTML pages"
+
+[tool.poe.tasks.linkcheck]
+cmd = """
+python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
+"""
+help = "Check external links in the documentation (requires internet connection)"
+
+[tool.poe.tasks.style]
+cmd = "pre-commit run --all-files"
+help = "Perform all linting, formatting, and spelling checks"
+
+[tool.poe.tasks.test]
+cmd = "pytest --numprocesses=auto ${paths}"
+help = "Run all unit tests"
+
+[[tool.poe.tasks.test.args]]
+default = "src tests"
+multiple = true
+name = "paths"
+positional = true
+
+[tool.poe.tasks.test-all]
+cmd = """
+uv run \
+    --group=test \
+    --isolated \
+    --no-dev \
+    pytest \
+        -m 'slow or not slow' \
+        --numprocesses=auto
+"""
+help = "Run all tests"
 
 [tool.pyright]
 include = [
@@ -243,80 +324,6 @@ sort_first = [
     "build-system",
     "project",
     "tool.setuptools",
-    "tool.tox.env_run_base",
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
-
-[tool.tox]
-basepython = ["3.12"]
-env_list = [
-    "3.12",
-    "3.13",
-    "cov",
-    "doc",
-    "sty",
-]
-pass_env = ["*"]
-requires = ["tox>=4.21.0"]
-runner = "uv-venv-lock-runner"
-uv_python_preference = "only-managed"
-
-[tool.tox.env_run_base]
-commands = [["pytest", {replace = "posargs", extend = true}]]
-dependency_groups = ["test"]
-description = "Run test suite on Python {env_name}"
-ignore_base_python_conflict = true
-pass_env = ["*"]
-
-[tool.tox.env.cov]
-commands = [
-    [
-        "pytest",
-        "{posargs:tests}",
-        "--cov-fail-under=90",
-        "--cov-report=html",
-        "--cov-report=xml",
-        "--cov=pwa_pages",
-    ],
-]
-description = "Compute test coverage"
-
-[tool.tox.env.doc]
-base = []
-commands = [["quarto", "render", "docs", "--no-clean"]]
-dependency_groups = ["doc"]
-description = "Build documentation with Quarto (set EXECUTE_NB=TRUE to build software inventory)"
-pass_env = ["*"]
-
-[tool.tox.env.doclive]
-base = ["tool.tox.env.doc"]
-commands = [["quarto", "preview", "docs", "--no-clean"]]
-description = "Set up a server to directly preview changes to the HTML pages"
-
-[tool.tox.env.linkcheck]
-base = []
-commands = [
-    [
-        "python",
-        "-c",
-        'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
-    ],
-]
-description = "Check external links in the documentation (requires internet connection)"
-no_package = true
-skip_install = true
-
-[tool.tox.env.sty]
-allowlist_externals = ["pre-commit"]
-base = []
-commands = [["pre-commit", "run", "--all-files", {replace = "posargs", extend = true}]]
-dependency_groups = ["style"]
-description = "Perform all linting, formatting, and spelling checks"
-pass_env = ["*"]
-
-[tool.tox.labels]
-test = [
-    "3.12",
-    "3.13",
-]

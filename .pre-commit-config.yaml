@@ -1,5 +1,6 @@
 ci:
-  autoupdate_commit_msg: "MAINT: update lock files"
+  autofix_commit_msg: "MAINT: implement pre-commit autofixes"
+  autoupdate_commit_msg: "MAINT: upgrade lock files"
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
@@ -15,7 +16,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.6.2
+    rev: 0.7.3
     hooks:
       - id: check-dev-files
         args:
@@ -27,14 +28,14 @@ repos:
           - --repo-title=PWA Pages
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.6
+    rev: v0.14.0
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -68,14 +69,14 @@ repos:
       - id: taplo-format
 
   - repo: https://github.com/pappasam/toml-sort
-    rev: v0.24.2
+    rev: v0.24.3
     hooks:
       - id: toml-sort
         args:
           - --in-place
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.31.1
+    rev: 0.34.1
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
@@ -85,12 +86,12 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.17.2
+    rev: v9.2.0
     hooks:
       - id: cspell
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.2.0
+    rev: 3.4.0
     hooks:
       - id: editorconfig-checker
         name: editorconfig
@@ -111,7 +112,7 @@ repos:
           - python
 
   - repo: https://github.com/ComPWA/pyright-pre-commit
-    rev: v1.1.394
+    rev: v1.1.406
     hooks:
       - id: pyright
 
@@ -125,6 +126,6 @@ repos:
         files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.6.1
+    rev: 0.9.2
     hooks:
       - id: uv-lock
