@@ -12,52 +12,48 @@ The following frameworks or projects are specifically designed to do amplitude a
 
 ```{python}
 #| warning: false
-import os
+from IPython.display import HTML, display
 
-if "EXECUTE_NB" in os.environ:
-    from IPython.display import HTML, display
+from pwa_pages.project_inventory import (
+    ProjectInventory,
+    fix_html_alignment,
+    load_yaml,
+    to_html_table,
+)
 
-    from pwa_pages.project_inventory import (
-        ProjectInventory,
-        fix_html_alignment,
-        load_yaml,
-        to_html_table,
-    )
-
-    inventory_dict = load_yaml("amplitude-analysis-projects.yml")
-    html_src = to_html_table(
-        inventory=ProjectInventory(**inventory_dict),
-        selected_languages=[
-            "C++",
-            "Python",
-            "Julia",
-            "Cuda",
-        ],
-        fetch=True,
-    )
-    html_src = fix_html_alignment(html_src)
-    display(HTML(html_src))
+inventory_dict = load_yaml("amplitude-analysis-projects.yml")
+html_src = to_html_table(
+    inventory=ProjectInventory(**inventory_dict),
+    selected_languages=[
+        "C++",
+        "Python",
+        "Julia",
+        "Cuda",
+    ],
+    fetch=True,
+)
+html_src = fix_html_alignment(html_src)
+display(HTML(html_src))
 ```
 
 ### General fitter packages
 
-The following packages do not have functionality for amplitude building, but can do fits with high performance. The YAML database for this table can be updated [here](https://github.com/ComPWA/edit/main/docs/software/fitter-packages.yml).
+The following packages do not have functionality for amplitude building, but can do fits with high performance. The YAML database for this table can be updated [here](https://github.com/ComPWA/PWA-pages/edit/main/docs/software/fitter-packages.yml).
 
 ```{python}
-if "EXECUTE_NB" in os.environ:
-    inventory_dict = load_yaml("fitter-packages.yml")
-    html_src = to_html_table(
-        inventory=ProjectInventory(**inventory_dict),
-        selected_languages=[
-            "C++",
-            "Python",
-            "Cuda",
-        ],
-        fetch=True,
-        hide_columns=["Collaboration"],
-    )
-    html_src = fix_html_alignment(html_src)
-    display(HTML(html_src))
+inventory_dict = load_yaml("fitter-packages.yml")
+html_src = to_html_table(
+    inventory=ProjectInventory(**inventory_dict),
+    selected_languages=[
+        "C++",
+        "Python",
+        "Cuda",
+    ],
+    fetch=True,
+    hide_columns=["Collaboration"],
+)
+html_src = fix_html_alignment(html_src)
+display(HTML(html_src))
 ```
 
 ## Software development
