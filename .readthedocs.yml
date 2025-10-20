@@ -18,6 +18,3 @@ build:
         poe doc
       mkdir -p $READTHEDOCS_OUTPUT
       mv docs/_build/html $READTHEDOCS_OUTPUT
-
-sphinx:
-  configuration: docs/conf.py
