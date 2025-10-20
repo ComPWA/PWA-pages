@@ -25,7 +25,6 @@
     "*.ico",
     ".editorconfig",
     ".envrc",
-    ".gitattributes",
     ".gitignore",
     ".pre-commit-config.yaml",
     ".prettierignore",
