@@ -10,7 +10,6 @@ dependencies = [
     "PyYAML",
     "attrs",
     "pydantic >=2",
-    "pytablewriter[html]",
     "python-dateutil",
     "python-gitlab",
 ]

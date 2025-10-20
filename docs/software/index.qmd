@@ -12,17 +12,16 @@ The following frameworks or projects are specifically designed to do amplitude a
 
 ```{python}
 #| warning: false
-from IPython.display import HTML, display
+from IPython.display import Markdown, display
 
 from pwa_pages.project_inventory import (
     ProjectInventory,
-    fix_html_alignment,
     load_yaml,
-    to_html_table,
+    to_markdown_table,
 )
 
 inventory_dict = load_yaml("amplitude-analysis-projects.yml")
-html_src = to_html_table(
+src = to_markdown_table(
     inventory=ProjectInventory(**inventory_dict),
     selected_languages=[
         "C++",
@@ -32,8 +31,7 @@ html_src = to_html_table(
     ],
     fetch=True,
 )
-html_src = fix_html_alignment(html_src)
-display(HTML(html_src))
+display(Markdown(src))
 ```
 
 ### General fitter packages
@@ -42,7 +40,7 @@ The following packages do not have functionality for amplitude building, but can
 
 ```{python}
 inventory_dict = load_yaml("fitter-packages.yml")
-html_src = to_html_table(
+src = to_markdown_table(
     inventory=ProjectInventory(**inventory_dict),
     selected_languages=[
         "C++",
@@ -52,8 +50,7 @@ html_src = to_html_table(
     fetch=True,
     hide_columns=["Collaboration"],
 )
-html_src = fix_html_alignment(html_src)
-display(HTML(html_src))
+display(Markdown(src))
 ```
 
 ## Software development
