@@ -10,6 +10,7 @@ execute:
 format:
   html:
     code-fold: true
+    respect-user-color-scheme: true
     theme:
       dark: darkly
       light: flatly
