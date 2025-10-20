@@ -2,6 +2,7 @@ bibliography: bibliography.bib
 comments:
   hypothesis:
     theme: clean
+csl: ieee.csl
 draft: true
 execute:
   cache: true
