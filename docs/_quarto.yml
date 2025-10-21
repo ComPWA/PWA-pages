@@ -1,0 +1,84 @@
+bibliography: bibliography.bib
+comments:
+  hypothesis:
+    theme: clean
+csl: ieee.csl
+draft: true
+execute:
+  cache: true
+  enabled: true
+  error: true
+format:
+  html:
+    code-fold: true
+    respect-user-color-scheme: true
+    theme:
+      dark: darkly
+      light: flatly
+    toc: true
+glossary:
+  path: glossary.yml
+  popup: hover
+  show: true
+link-citations: true
+project:
+  output-dir: _build/html
+  resources:
+    - software/*.yml
+    - software/project-inventory-schema.json
+  type: website
+website:
+  draft-mode: visible
+  favicon: favicon.ico
+  navbar:
+    left:
+      - text: Physics
+        href: physics/index.qmd
+        icon: bi-vector-pen
+      - text: Analysis
+        href: analysis/index.qmd
+        icon: bi bi-bar-chart
+      - text: Software
+        href: software/index.qmd
+        icon: bi-code-square
+    right:
+      - text: Bibliography
+        href: references.qmd
+        icon: book
+    tools:
+      - href: https://github.com/ComPWA/PWA-pages
+        icon: github
+  page-navigation: true
+  repo-actions:
+    - edit
+    - issue
+    - source
+  repo-subdir: docs
+  repo-url: https://github.com/ComPWA/PWA-pages
+  sidebar:
+    - id: physics
+      title: Physics
+      collapse-level: 2
+      contents:
+        - section: Spin formalisms
+          file: physics/formalisms/index.qmd
+          contents:
+            - physics/formalisms/helicity.qmd
+            - physics/formalisms/tensor.qmd
+        - physics/dynamics.qmd
+        - physics/data.qmd
+        - section: Miscellaneous topics
+          file: physics/topics/index.qmd
+          contents:
+            - physics/topics/sm.qmd
+            - physics/topics/cqm.qmd
+            - physics/topics/results.qmd
+    - id: analysis
+      title: Analysis techniques
+      collapse-level: 2
+      contents:
+        - analysis/statistics.qmd
+        - analysis/fit.qmd
+        - analysis/visualization.qmd
+  site-url: https://pwa.readthedocs.io
+  title: PWA Pages

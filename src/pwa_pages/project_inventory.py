@@ -4,13 +4,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 from functools import partial
 from typing import TYPE_CHECKING, Self, Union
 
 import yaml
 from pydantic import BaseModel, model_validator
-from pytablewriter import HtmlTableWriter
 
 from .repo import Repo, get_repo
 
@@ -25,7 +23,7 @@ def load_yaml(path: Path | str) -> dict:
         return yaml.load(stream, Loader=yaml.SafeLoader)
 
 
-def to_html_table(
+def to_markdown_table(
     inventory: ProjectInventory,
     selected_languages: list[str],
     *,
@@ -39,6 +37,12 @@ def to_html_table(
         "Since": _fetch_first_commit_year if fetch else lambda _: "",
         "Latest commit": _fetch_latest_commit_date if fetch else lambda _: "",
     }
+    column_configs = {
+        "Project": ":------------",
+        "Collaboration": ":----------:",
+        "Since": ":----:",
+        "Latest commit": ":-------:",
+    }
     for language in selected_languages:
         header_to_formatters[language] = partial(
             _checkmark_language,
@@ -49,31 +53,16 @@ def to_html_table(
     if hide_columns is not None:
         for hide in hide_columns:
             del header_to_formatters[hide]
-
-    writer = HtmlTableWriter(
-        headers=list(header_to_formatters),
-        value_matrix=[
-            tuple(formatter(project) for formatter in header_to_formatters.values())
-            for project in inventory.projects
-        ],
-    )
-    return writer.dumps()
-
-
-def fix_html_alignment(src: str) -> str:
-    left_align_style = 'style="text-align:left; vertical-align:top"'
-    center_align_style = 'style="text-align:center; vertical-align:top"'
-    src = src.replace(
-        '<td align="left">✓</td>',
-        f"<td {center_align_style}>✓</td>",
-    )
-    src = re.sub(
-        r'<td align="right">([0-9]{4})</td>',
-        rf"<td {center_align_style}>\1</td>",
-        src,
-    )
-    src = src.replace('align="left"', left_align_style)
-    return src.replace("<th>", f"<th {left_align_style}>")
+    src = "| " + " | ".join(header_to_formatters) + " |\n"
+    for header in header_to_formatters:
+        src += f"|{column_configs.get(header, ':---:')}"
+    src += " |\n"
+    for project in inventory.projects:
+        row_entries = [
+            formatter(project) for formatter in header_to_formatters.values()
+        ]
+        src += "| " + " | ".join(row_entries) + " |\n"
+    return src
 
 
 class SubProject(BaseModel):

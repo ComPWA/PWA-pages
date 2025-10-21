@@ -1,16 +1,3 @@
-# Output files
-*.gv
-*.json
-*.npy
-*.pdf
-*.pickle
-*.png
-*.svg
-*.v2
-*.xml
-*.yaml
-*.yml
-
 # Build files
 *.egg-info/
 *build/
@@ -40,11 +27,8 @@ pyvenv*/
 **.code-workspace
 
 # Exceptions
-!.cspell.json
 !.github/*.yml
 !.github/*/*.yml
 !.pre-commit-config.yaml
 !.readthedocs.yml
-!.vscode/*.json
 !codecov.yml
-!pyrightconfig.json

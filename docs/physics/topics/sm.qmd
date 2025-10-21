@@ -1,8 +1,10 @@
-# The Standard Model
+---
+title: The Standard Model
+---
 
-```{warning}
+:::{.callout-warning}
 These pages are **under development**.
-```
+:::
 
 ## Leptons
 

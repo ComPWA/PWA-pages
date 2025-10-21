@@ -1,6 +1,15 @@
+.jupyter_cache/
+*_files/
 *.doctree
+*.epub
+*.html
 *.inv
+*.pdf
+*.quarto_ipynb
 *build/
-api/
+/.quarto/
+site_libs/
 
 !_static/*
+
+**/*.quarto_ipynb

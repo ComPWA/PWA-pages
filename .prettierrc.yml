@@ -1,0 +1,7 @@
+overrides:
+  - files: "**.code-snippets"
+    options:
+      parser: json
+  - files: "**.qmd"
+    options:
+      parser: markdown

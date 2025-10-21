@@ -1,0 +1,43 @@
+---
+title: Helicity formalism
+---
+
+:::{.callout-warning}
+These pages are **under development**.
+:::
+
+:::{.callout-warning title="To do"}
+
+- Lorentz-invariance of helicity operator
+- Types
+  - Two-body decay amplitude
+  - Sequential two-body decay amplitude
+- Definition of angles
+  - Production angle
+  - Helicity angle
+  - Treiman-Yang angle
+  - Overview of kinematic variables
+- Dynamics:
+  - Wigner-D functions
+  - Clebsch-Gordan coefficients
+- Kinematic variables
+- An example
+
+:::
+
+@Jacob:1959at
+
+## Canonical formulation
+
+@Li:2022qff
+
+## Alignment problem
+
+Recommended literature:
+
+- General introductions to helicity angles: <br>
+  [@kutschkeAngularDistributionCookbook1996; @Richman:1984gh]
+- Suggested solutions: <br>
+  [@Chen:2017gtx; @Marangotto:2019ucc; @Wang:2020giv; @JPAC:2019ufm] <!-- cspell:ignore Marangotto -->
+- LHCb study that led to these solution papers: <br>
+  [@LHCb:2015yax]

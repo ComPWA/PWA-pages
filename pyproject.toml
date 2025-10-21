@@ -10,7 +10,6 @@ dependencies = [
     "PyYAML",
     "attrs",
     "pydantic >=2",
-    "pytablewriter[html]",
     "python-dateutil",
     "python-gitlab",
 ]
@@ -45,40 +44,15 @@ Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
-    "nbmake",
     "poethepoet",
     "ruff",
-    "sphinx-autobuild",
     {include-group = "doc"},
-    {include-group = "jupyter"},
     {include-group = "style"},
     {include-group = "test"},
 ]
 doc = [
-    "myst-nb",
-    "sphinx",
-    "sphinx-api-relink",
-    "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]",
-    "sphinx-comments",
-    "sphinx-copybutton",
-    "sphinx-design",
-    "sphinx-hep-pdgref",
-    "sphinx-pybtex-etal-style",
-    "sphinx-thebe",
-    "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2.2",
-    {include-group = "notebooks"},
-]
-jupyter = [
-    "jupyterlab",
-    "jupyterlab-code-formatter",
-    "jupyterlab-git",
-    "jupyterlab-lsp",
-    "jupyterlab-myst",
-    "jupyterlab-quickopen",
-    "python-lsp-ruff",
-    "python-lsp-server[rope]",
+    "jupyter-cache",
+    "quarto-cli",
     {include-group = "notebooks"},
 ]
 notebooks = [
@@ -97,11 +71,8 @@ test = [
 ]
 types = [
     "pytest",
-    "sphinx-api-relink",
     "types-PyYAML",
-    "types-docutils",
     "types-python-dateutil",
-    "types-setuptools",
 ]
 
 [tool.setuptools]
@@ -144,18 +115,6 @@ disallow_incomplete_defs = false
 disallow_untyped_defs = false
 module = ["tests.*"]
 
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["pybtex.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinx.*"]
-
-[[tool.mypy.overrides]]
-ignore_missing_imports = true
-module = ["sphinxcontrib.bibtex.*"]
-
 [tool.poe]
 executor.type = "uv"
 
@@ -164,7 +123,7 @@ help = "Run all continuous integration (CI) tasks locally"
 ignore_fail = "return_non_zero"
 sequence = [
     "cov",
-    "docnb-force",
+    "doc",
     "linkcheck",
     "style",
     "test-all",
@@ -189,84 +148,18 @@ name = "paths"
 positional = true
 
 [tool.poe.tasks.doc]
-cmd = """
-sphinx-build \
-    --builder=html \
-    --fail-on-warning \
-    --keep-going \
-    --show-traceback \
-    docs/ \
-    docs/_build/html/
-"""
-env = {PYTHONWARNINGS = ""}
+cmd = "quarto render docs --no-clean"
 help = "Build documentation and API"
 
 [tool.poe.tasks.doclive]
-cmd = """
-sphinx-autobuild \
-    --builder=html \
-    --port=0 \
-    --re-ignore=/__pycache__(/.*)?$ \
-    --re-ignore=/_build(/.*)?$ \
-    --re-ignore=/\\.cache(/.*)?$ \
-    --re-ignore=/\\.egg-info(/.*)?$ \
-    --re-ignore=/\\.ipynb_checkpoints(/.*)?$ \
-    --re-ignore=/\\.virtual_documents(/.*)?$ \
-    --re-ignore=/api(/.*)?$ \
-    --re-ignore=/docs$ \
-    --re-ignore=/version\\.py$ \
-    --re-ignore=\\.csv$ \
-    --re-ignore=\\.egg-info(/.*)?$ \
-    --re-ignore=\\.gif$ \
-    --re-ignore=\\.gitignore$ \
-    --re-ignore=\\.gv$ \
-    --re-ignore=\\.inv$ \
-    --re-ignore=\\.json$ \
-    --re-ignore=\\.pickle$ \
-    --re-ignore=\\.pkl$ \
-    --re-ignore=\\.png$ \
-    --re-ignore=\\.svg$ \
-    --re-ignore=\\.ya?ml$ \
-    --watch=src \
-    docs/ \
-    docs/_build/html/
-"""
+cmd = "quarto preview docs --no-clean"
 help = "Set up a server to directly preview changes to the HTML pages"
-
-[tool.poe.tasks.docnb]
-env = {EXECUTE_NB = "yes"}
-help = "Build documentation and API with cached notebook execution"
-sequence = ["doc"]
-
-[tool.poe.tasks.docnb-force]
-env = {FORCE_EXECUTE_NB = "yes"}
-help = "Build documentation and API with notebook execution (no cache)"
-sequence = ["doc"]
-
-[tool.poe.tasks.docnblive]
-env = {EXECUTE_NB = "yes"}
-help = "Set up a server to directly preview changes to the HTML pages with cached notebook execution"
-sequence = ["doclive"]
-
-[tool.poe.tasks.lab]
-args = [{name = "paths", default = "", positional = true}]
-cmd = "jupyter lab ${paths}"
-help = "Run Jupyter Lab"
 
 [tool.poe.tasks.linkcheck]
 cmd = """
-sphinx-build \
-    --builder=linkcheck \
-    --show-traceback \
-    docs/ \
-    docs/_build/linkcheck/
+python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
 """
-env = {PYTHONWARNINGS = ""}
 help = "Check external links in the documentation (requires internet connection)"
-
-[tool.poe.tasks.nb]
-cmd = "pytest --nbmake --nbmake-timeout=0 docs"
-help = "Run all notebooks"
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
@@ -345,7 +238,6 @@ testpaths = [
 ]
 
 [tool.ruff]
-extend-include = ["*.ipynb"]
 preview = true
 show-fixes = true
 src = [
@@ -396,37 +288,11 @@ allow-dict-calls-with-keyword-arguments = true
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
-"*.ipynb" = [
-    "ANN",
-    "B018",
-    "C90",
-    "D",
-    "E303",
-    "E402",
-    "E703",
-    "N806",
-    "N816",
-    "PLR09",
-    "PLR2004",
-    "PLW0602",
-    "PLW0603",
-    "S101",
-    "T20",
-    "TC00",
-]
 "docs/*" = [
-    "E402",
     "INP001",
-    "PLW2901",
     "S101",
     "S113",
-    "T201",
 ]
-"docs/conf.py" = [
-    "A001",
-    "D100",
-]
-"setup.py" = ["D100"]
 "src/pwa_pages/project_inventory.py" = [
     "FA100",
     "UP00",

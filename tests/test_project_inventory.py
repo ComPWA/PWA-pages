@@ -15,9 +15,8 @@ from pwa_pages.project_inventory import (
     _fetch_languages,
     _get_subproject_timestamps,
     export_json_schema,
-    fix_html_alignment,
     load_yaml,
-    to_html_table,
+    to_markdown_table,
 )
 
 __MAX_PROJECTS = 6
@@ -103,33 +102,27 @@ def test_checkmark_language():
 
 
 @pytest.mark.parametrize("fetch", [False, True])
-@pytest.mark.parametrize("fix_alignment", [False, True])
-def test_to_html_table(project_inventory, fetch, fix_alignment):
-    src = to_html_table(
+def test_to_markdown_table(project_inventory: ProjectInventory, fetch: bool):
+    src = to_markdown_table(
         project_inventory,
         selected_languages=["C++", "Python"],
         fetch=fetch,
     )
-    if fix_alignment:
-        src = fix_html_alignment(src)
-        if fetch:
-            assert '<td style="text-align:center; vertical-align:top">2020</td>' in src
-    elif fetch:
-        assert '<td align="right">2020</td>' in src
+    if fetch:
+        assert "| 2020 |" in src
     # cspell: ignore thead
-    assert src.startswith("<table>")
-    assert src.count("<thead>") == 1
-    assert src.count("<tr>") == __MAX_PROJECTS + 1
+    assert src.startswith("| Project | Collaboration | Since | Latest commit |")
+    assert src.count(" |\n") == __MAX_PROJECTS + 2
 
 
-def test_to_html_table_hide_columns(fitter_packages):
-    src = to_html_table(
+def test_to_markdown_table_hide_columns(fitter_packages):
+    src = to_markdown_table(
         fitter_packages,
         selected_languages=["C++", "Python"],
         fetch=False,
         hide_columns=["Collaboration"],
     )
-    assert src.startswith("<table>")
+    assert src.startswith("| Project | Since | Latest commit | C++ | Python |")
     assert "Collaboration" not in src
 
 

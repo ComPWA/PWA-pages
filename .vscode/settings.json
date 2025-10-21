@@ -23,6 +23,12 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.rulers": [88]
   },
+  "[quarto]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -35,17 +41,12 @@
   "livePreview.defaultPreviewPath": "docs/_build/html",
   "multiDiffEditor.experimental.enabled": true,
   "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
-  "myst.preview.extensions": [
-    "amsmath",
-    "colon_fence",
-    "dollarmath",
-    "tasklist"
-  ],
   "notebook.codeActionsOnSave": {
     "notebook.source.organizeImports": "explicit"
   },
   "notebook.formatOnSave.enabled": true,
   "notebook.gotoSymbols.showAllSymbols": true,
+  "prettier.documentSelectors": ["**/*.qmd"],
   "python.analysis.autoImportCompletions": false,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.defaultInterpreterPath": ".venv/bin/python",
@@ -54,6 +55,7 @@
   "python.testing.pytestArgs": ["--numprocesses=auto"],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
+  "quarto.path": ".venv/bin/quarto",
   "redhat.telemetry.enabled": false,
   "rewrap.wrappingColumn": 88,
   "ruff.enable": true,

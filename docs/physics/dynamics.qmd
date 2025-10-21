@@ -1,0 +1,111 @@
+---
+title: Dynamics
+---
+
+:::{.callout-warning title="To do"}
+These pages are **under development**.
+:::
+
+## K-matrix
+
+Since {{< glossary "scattering operator" >}} ($S$&nbsp;matrix) formulates the transition amplitude from initial state $\left|i\right>$ to final state $\left|f\right>$ through $\left<i\right|S\left|f\right>$, it is a **unitary** operator---probability is conserved, meaning $SS^* = I$. Now, [having defined the transition operator](./index.qmd#transition-amplitude) through $S = I + iT$, we can introduce another operator: $K^{-1} = T^{-1} + iI$ [@Chung:1995dx].
+
+:::{.callout-warning title="To do"}
+Explain why this new matrix interesting.
+:::
+
+:::{.callout-warning title="To do"}
+Definition in terms of $T$-matrix.
+:::
+
+## Special cases of the K-matrix
+
+### Breit–Wigner
+
+:::{.callout-warning title="To do"}
+Derive from $K$-matrix instead/as well.
+:::
+
+A quantum mechanical state at rest with energy $E_0$ can be described in terms of the wave function:
+
+$$
+\psi(t) = \psi_0 e^{-iE_0t}
+$$
+
+Now, if we assume that the state has a decay width of $\Gamma$, the probability density $\psi^*\psi$ of this state can be described as:
+
+$$
+\psi^*\psi = \psi_0^*\psi_0 e^{-\Gamma t}.
+$$
+
+The wave function itself then becomes:
+
+$$
+\psi(t) = \psi_0 e^{-iE_0t} e^{-\frac{\Gamma}{2} t} = \psi_0 e^{-i \left(E_0-\tfrac{i}{2}\Gamma\right) t}.
+$$
+
+A particle with a finite decay width can therefore be described as a particle with **complex energy**:
+
+$$
+E' = E_0 - \frac{i}{2}\Gamma
+$$
+
+Now, as an experimental physicist, one is interested in predicting the probability of observing the particle at energy $E$ (we want to describe the observed invariant mass distributions). This can be achieved by applying a [Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform), so that $\psi$ is described in terms of energy $E$ (or frequency $\omega$) instead of time $t$:
+
+$$
+\psi(E)
+\propto \psi_0 \int_0^\infty e^{i\left(E-E_0+\tfrac{i}{2}\Gamma\right)t}\,\mathrm{d}t
+\propto \frac{1}{\left(E-E_0\right) - \tfrac{i}{2}\Gamma}
+$$
+
+The probability to observe the particle at energy $E$ is therefore:
+
+$$
+\psi^*(E)\psi(E) \propto
+\frac{\frac{\Gamma^2}{4}}{\left(E-E_0\right)^2 + \frac{\Gamma^2}{4}}
+$$
+
+:::{.callout-warning title="To do"}
+Describe relation between $\psi(E)$ and transition amplitude $M$.
+:::
+
+From this, one can see that the transition amplitude $M$ is described by:
+
+$$
+M(E) \propto
+\frac{\frac{\Gamma}{2}}{\left(E-E_0\right) - i\frac{\Gamma}{2}}
+$$
+
+because $|\psi|^2\propto|M|$. This is called **non-relativistic Breit–Wigner parametrization**.
+
+:::{.callout-warning title="To do"}
+Describe how the **relativistic Breit–Wigner formula**:
+
+$$
+M(E) \propto \frac{m_0\Gamma}{m_0^2 - m_{ab}^2 - im_0\Gamma}
+$$
+
+is derived and why this is important in case of $\Gamma \gg m_0$.
+:::
+
+```{python}
+from sympy import symbols
+from sympy.plotting import plot
+
+x, Gamma, E0 = symbols(R"x \Gamma E_0")
+gamma2_4 = Gamma**2 / 4
+breit_wigner = gamma2_4 / ((x - E0) ** 2 + gamma2_4)
+
+plot(
+    breit_wigner.subs({R"\Gamma": 0.25, "E_0": 0.75}),
+    xlim=(0, 1.5),
+    title="Non-relativistic Breit–Wigner",
+    xlabel="$E$ (A.U.)",
+);
+```
+
+## Flatté
+
+## The importance of Unitarity
+
+## Difference between resonances and bound states?
