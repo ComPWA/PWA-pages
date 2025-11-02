@@ -60,6 +60,14 @@ projects:
     languages:
       - C++
 
+  - name: laddu
+    url: https://github.com/denehoffman/laddu
+    since: 2024
+    collaboration: GlueX
+    languages:
+      - Rust
+      - Python
+
   - name: Mint2
     url: https://github.com/jdalseno/Mint2
 
