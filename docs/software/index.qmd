@@ -27,6 +27,7 @@ src = to_markdown_table(
         "C++",
         "Python",
         "Julia",
+        "Rust",
         "Cuda",
     ],
     fetch=True,
