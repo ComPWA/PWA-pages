@@ -1,12 +1,9 @@
 ci:
   autofix_commit_msg: "MAINT: implement pre-commit autofixes"
   autoupdate_commit_msg: "MAINT: upgrade lock files"
-  autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
-    - mypy
-    - pyright
-    - update-json-schema
+    - ty
     - uv-lock
 
 repos:
@@ -16,7 +13,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.7.5
+    rev: 0.8.2rc12
     hooks:
       - id: check-dev-files
         args:
@@ -26,9 +23,10 @@ repos:
           - --no-pypi
           - --repo-name=PWA-pages
           - --repo-title=PWA Pages
+          - --type-checker=ty
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
+    rev: v0.14.14
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -59,7 +57,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/ComPWA/prettier-pre-commit
-    rev: v3.4.2
+    rev: v3.8.1
     hooks:
       - id: prettier
 
@@ -76,7 +74,7 @@ repos:
           - --in-place
 
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.36.0
+    rev: 0.36.1
     hooks:
       - id: check-jsonschema
         name: Check project inventory YAML files
@@ -86,7 +84,7 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v9.4.0
+    rev: v9.6.0
     hooks:
       - id: cspell
 
@@ -103,29 +101,16 @@ repos:
 
   - repo: local
     hooks:
-      - id: mypy
-        name: mypy
-        entry: mypy
-        language: system
-        require_serial: true
-        types:
-          - python
-
-  - repo: https://github.com/ComPWA/pyright-pre-commit
-    rev: v1.1.407
-    hooks:
-      - id: pyright
-
-  - repo: local
-    hooks:
-      - id: update-json-schema
-        name: Update JSON schemas for project inventories
-        entry: export-json-schema
-        language: system
+      - id: ty
+        name: ty
+        entry: ty check
+        args: [--no-progress, --output-format=concise]
         pass_filenames: false
-        files: (docs/software/.*\.json|src/pwa_pages/project_inventory.py)
+        require_serial: true
+        language: system
+        types_or: [python, pyi, jupyter]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.21
+    rev: 0.9.28
     hooks:
       - id: uv-lock

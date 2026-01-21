@@ -42,19 +42,19 @@ def get_repo(url: str) -> Repo | None:
             url=url,
             name=repo.name,
             full_name=repo.full_name,
-            languages=_github.get_languages(repo),
+            languages=_github.get_languages(repo),  # ty:ignore[unknown-argument]
             first_commit=_github.get_first_commit_date(repo),
             latest_commit=_github.get_latest_commit_date(repo),
-        )
+        )  # ty:ignore[missing-argument]
     if isinstance(repo, GitlabProject):
         return Repo(
             url=url,
             name=repo.attributes["name"],
             full_name=repo.attributes["path_with_namespace"],
-            languages=repo.languages(),
+            languages=repo.languages(),  # ty:ignore[unknown-argument]
             first_commit=_gitlab.get_first_commit_date(repo),
             latest_commit=_gitlab.get_latest_commit_date(repo),
-        )
+        )  # ty:ignore[missing-argument]
     return None
 
 
