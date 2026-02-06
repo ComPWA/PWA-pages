@@ -293,3 +293,6 @@ trailing_comma_inline_array = true
 division-by-zero = "warn"
 possibly-missing-import = "warn"
 possibly-unresolved-reference = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
