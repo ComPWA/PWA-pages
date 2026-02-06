@@ -39,8 +39,8 @@ export-json-schema = "pwa_pages.project_inventory:export_json_schema"
 [project.urls]
 Changelog = "https://github.com/ComPWA/PWA-pages/releases"
 Documentation = "https://pwa.rtfd.io"
+Issues = "https://github.com/ComPWA/PWA-pages/issues"
 Source = "https://github.com/ComPWA/PWA-pages"
-Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
