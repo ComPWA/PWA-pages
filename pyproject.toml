@@ -39,12 +39,11 @@ export-json-schema = "pwa_pages.project_inventory:export_json_schema"
 [project.urls]
 Changelog = "https://github.com/ComPWA/PWA-pages/releases"
 Documentation = "https://pwa.rtfd.io"
+Issues = "https://github.com/ComPWA/PWA-pages/issues"
 Source = "https://github.com/ComPWA/PWA-pages"
-Tracker = "https://github.com/ComPWA/PWA-pages/issues"
 
 [dependency-groups]
 dev = [
-    "poethepoet",
     "ruff",
     {include-group = "doc"},
     {include-group = "style"},
@@ -61,7 +60,7 @@ notebooks = [
     "sympy",
 ]
 style = [
-    "mypy",
+    "ty",
     {include-group = "types"},
 ]
 test = [
@@ -102,21 +101,10 @@ omit = [
 ]
 source = ["src"]
 
-[tool.mypy]
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-exclude = "_build"
-show_error_codes = true
-warn_unused_configs = true
-
-[[tool.mypy.overrides]]
-check_untyped_defs = true
-disallow_incomplete_defs = false
-disallow_untyped_defs = false
-module = ["tests.*"]
-
-[tool.poe]
-executor.type = "uv"
+[tool.poe.executor]
+isolated = true
+no-group = "dev"
+type = "uv"
 
 [tool.poe.tasks.all]
 help = "Run all continuous integration (CI) tasks locally"
@@ -139,6 +127,7 @@ pytest \
     --numprocesses=auto \
     ${paths}
 """
+executor = {group = "test"}
 help = "Compute how much of the source code is covered by tests"
 
 [[tool.poe.tasks.cov.args]]
@@ -149,24 +138,29 @@ positional = true
 
 [tool.poe.tasks.doc]
 cmd = "quarto render docs --no-clean"
+executor = {group = "doc"}
 help = "Build documentation and API"
 
 [tool.poe.tasks.doclive]
 cmd = "quarto preview docs --no-clean"
+executor = {group = "doc"}
 help = "Set up a server to directly preview changes to the HTML pages"
 
 [tool.poe.tasks.linkcheck]
 cmd = """
 python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
 """
+executor = {group = "style"}
 help = "Check external links in the documentation (requires internet connection)"
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
+executor = {group = "style"}
 help = "Perform all linting, formatting, and spelling checks"
 
 [tool.poe.tasks.test]
 cmd = "pytest --numprocesses=auto ${paths}"
+executor = {group = "test"}
 help = "Run all unit tests"
 
 [[tool.poe.tasks.test.args]]
@@ -177,54 +171,21 @@ positional = true
 
 [tool.poe.tasks.test-all]
 cmd = """
-uv run \
-    --group=test \
-    --isolated \
-    --no-dev \
-    pytest \
-        -m 'slow or not slow' \
-        --numprocesses=auto
+pytest \
+    -m 'slow or not slow' \
+    --numprocesses=auto
 """
+executor = {group = "test"}
 help = "Run all tests"
 
-[tool.pyright]
-include = [
-    "docs",
-    "src",
-]
-reportCallIssue = false
-reportGeneralTypeIssues = false
-reportIncompatibleMethodOverride = false
-reportMissingParameterType = false
-reportMissingTypeArgument = false
-reportMissingTypeStubs = false
-reportOverlappingOverload = false
-reportPrivateImportUsage = false
-reportPrivateUsage = false
-reportUnboundVariable = false
-reportUnknownArgumentType = false
-reportUnknownMemberType = false
-reportUnknownParameterType = false
-reportUnknownVariableType = false
-reportUnnecessaryComparison = false
-reportUnnecessaryContains = false
-reportUnnecessaryIsInstance = false
-reportUntypedFunctionDecorator = false
-reportUnusedClass = true
-reportUnusedFunction = true
-reportUnusedImport = true
-reportUnusedVariable = true
-typeCheckingMode = "strict"
-venv = ".venv"
-venvPath = "."
-
-[tool.pytest.ini_options]
+[tool.pytest]
 addopts = [
     "--color=yes",
     "--doctest-continue-on-failure",
     "--doctest-modules",
     "--durations=3",
     "--ignore=docs/conf.py",
+    "--import-mode=importlib",
 ]
 filterwarnings = [
     "error",
@@ -232,6 +193,7 @@ filterwarnings = [
     "ignore:Exception ignored in.*:UserWarning",
     "ignore:There is no current event loop:DeprecationWarning",
 ]
+minversion = "9.0"
 testpaths = [
     "src",
     "tests",
@@ -273,6 +235,7 @@ ignore = [
     "PLW1514",
     "PT001",
     "PTH",
+    "RUF067",
     "SIM108",
 ]
 select = ["ALL"]
@@ -302,7 +265,6 @@ split-on-trailing-comma = false
     "D",
     "FBT001",
     "INP001",
-    "PGH001",
     "PLC2701",
     "PLR0913",
     "PLR2004",
@@ -326,3 +288,11 @@ sort_first = [
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
+
+[tool.ty.rules]
+division-by-zero = "warn"
+possibly-missing-import = "warn"
+possibly-unresolved-reference = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
