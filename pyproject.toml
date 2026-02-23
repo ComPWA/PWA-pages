@@ -269,6 +269,7 @@ split-on-trailing-comma = false
     "PLR0913",
     "PLR2004",
     "PLR6301",
+    "RUF069",
     "S101",
     "SLF001",
     "T20",
