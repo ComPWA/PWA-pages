@@ -1,6 +1,7 @@
 ci:
   autofix_commit_msg: "MAINT: implement pre-commit autofixes"
   autoupdate_commit_msg: "MAINT: upgrade lock files"
+  autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
     - ty
@@ -13,7 +14,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.8.3
+    rev: 0.8.7
     hooks:
       - id: check-dev-files
         args:
@@ -26,7 +27,7 @@ repos:
           - --type-checker=ty
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.1
+    rev: v0.15.2
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -84,7 +85,7 @@ repos:
         args: ["--schemafile", "./docs/software/project-inventory-schema.json"]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v9.6.0
+    rev: v9.7.0
     hooks:
       - id: cspell
 
@@ -105,12 +106,11 @@ repos:
         name: ty
         entry: ty check
         args: [--no-progress, --output-format=concise]
-        pass_filenames: false
         require_serial: true
         language: system
         types_or: [python, pyi, jupyter]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.10.3
+    rev: 0.10.5
     hooks:
       - id: uv-lock
