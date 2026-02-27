@@ -1,0 +1,21 @@
+---
+title: Notes
+format:
+  html: default
+format-links: false
+listing:
+  categories: true
+  contents:
+    - "*.qmd"
+    - "!index.qmd"
+  date-format: iso
+  feed: true
+  id: note-listing
+  sort: date desc
+  type: table
+---
+
+This page is a collection of short notes with tips, reflections, and observations on PWA theory and software. Its purpose is to provide a flexible space for sharing insights and practical knowledge without the overhead of fitting each piece into the formal structure of the main documentation.
+
+::: {#note-listing}
+:::

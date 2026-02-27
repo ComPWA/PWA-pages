@@ -41,6 +41,9 @@ website:
       - text: Software
         href: software/index.qmd
         icon: bi-code-square
+      - text: Notes
+        href: note/index.qmd
+        icon: bi-journal-text
     right:
       - text: Bibliography
         href: references.qmd
