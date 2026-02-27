@@ -1,0 +1,7 @@
+---
+title: Example note
+date: 2026-02-27
+author: John Smith
+categories:
+  - Software
+---
