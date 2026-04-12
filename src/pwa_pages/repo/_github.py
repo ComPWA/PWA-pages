@@ -69,6 +69,7 @@ def get_last_modified(repo: GithubRepository) -> datetime:
 @lru_cache
 def get_languages(repo: GithubRepository) -> dict[str, float]:
     languages = repo.get_languages()
+    languages.pop("url", None)
     total_lines = sum(languages.values())
     return {
         language: 100 * lines / total_lines for language, lines in languages.items()

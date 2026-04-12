@@ -61,7 +61,7 @@ def test_extract_github_repo_name_error(url):
 
 def test_get_github_repo():
     repo = get_github_repo("https://github.com/ComPWA/ComPWA")
-    languages = list(repo.get_languages())
+    languages = [x for x in repo.get_languages() if x != "url"]
     assert languages[0] == "C++"
 
 
