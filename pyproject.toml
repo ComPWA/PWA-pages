@@ -9,7 +9,7 @@ dependencies = [
     "PyGithub",
     "PyYAML",
     "attrs",
-    "pydantic >=2",
+    "pydantic>=2.13.4",
     "python-dateutil",
     "python-gitlab",
 ]
