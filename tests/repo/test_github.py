@@ -70,7 +70,7 @@ def test_get_github_repo():
     [
         ("ComPWA/ComPWA", "C++"),
         ("ComPWA/PWA-pages", "Python"),
-        ("GooFit/GooFit", "Cuda"),
+        ("GooFit/GooFit", "C++"),
     ],
 )
 def test_get_languages(repo_name: str, first_language: str):
