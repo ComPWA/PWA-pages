@@ -19,7 +19,7 @@ repos:
       - id: check-dev-files
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.20
+    rev: v0.15.21
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -94,7 +94,7 @@ repos:
           )$
 
   - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.57
+    rev: v0.0.59
     hooks:
       - id: ty
         args: [--no-default-groups, --group=types]
