@@ -1,19 +1,12 @@
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools"]
-
 [project]
-authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
-classifiers = ["Programming Language :: Python :: 3.13"]
-dependencies = [
-    "PyGithub",
-    "PyYAML",
-    "attrs",
-    "pydantic >=2",
-    "python-dateutil",
-    "python-gitlab",
-]
+name = "pwa-pages"
+version = "0.0.0"
 description = "A central knowledge-base for Partial Wave Analysis"
+requires-python = "~=3.13.0"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de" }]
+maintainers = [{ email = "compwa-admin@ep1.rub.de" }]
 keywords = [
     "HEP",
     "PWA",
@@ -23,18 +16,19 @@ keywords = [
     "particles",
     "physics",
 ]
-license = {file = "LICENSE"}
-maintainers = [{email = "compwa-admin@ep1.rub.de"}]
-name = "pwa-pages"
-requires-python = "~=3.13.0"
-version = "0.0.0"
+classifiers = ["Programming Language :: Python :: 3.13"]
+dependencies = [
+    "PyGithub",
+    "PyYAML",
+    "attrs",
+    "pydantic>=2.13.4",
+    "python-dateutil",
+    "python-gitlab",
+]
 
 [project.readme]
-content-type = "text/markdown"
 file = "README.md"
-
-[project.scripts]
-export-json-schema = "pwa_pages.project_inventory:export_json_schema"
+content-type = "text/markdown"
 
 [project.urls]
 Changelog = "https://github.com/ComPWA/PWA-pages/releases"
@@ -42,17 +36,20 @@ Documentation = "https://pwa.rtfd.io"
 Issues = "https://github.com/ComPWA/PWA-pages/issues"
 Source = "https://github.com/ComPWA/PWA-pages"
 
+[project.scripts]
+export-json-schema = "pwa_pages.project_inventory:export_json_schema"
+
 [dependency-groups]
 dev = [
     "ruff",
-    {include-group = "doc"},
-    {include-group = "style"},
-    {include-group = "test"},
+    { include-group = "doc" },
+    { include-group = "style" },
+    { include-group = "test" },
 ]
 doc = [
     "jupyter-cache",
     "quarto-cli",
-    {include-group = "notebooks"},
+    { include-group = "notebooks" },
 ]
 notebooks = [
     "feynman",
@@ -61,12 +58,11 @@ notebooks = [
 ]
 style = [
     "ty",
-    {include-group = "types"},
+    { include-group = "types" },
 ]
 test = [
     "pytest",
     "pytest-cov",
-    "pytest-xdist",
 ]
 types = [
     "pytest",
@@ -74,21 +70,26 @@ types = [
     "types-python-dateutil",
 ]
 
-[tool.setuptools]
-include-package-data = false
-package-dir = {"" = "src"}
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
-[tool.setuptools.package-data]
-pwa_pages = ["py.typed"]
+[tool.compwa.policy]
+pytest-single-threaded = true
+repo-name = "PWA-pages"
+repo-title = "PWA Pages"
 
-[tool.setuptools.packages.find]
-namespaces = false
-where = ["src"]
+[tool.compwa.policy.github]
+ci-skipped-tests = "all"
+macos-python-version = "disable"
+no-cd = true
+no-pypi = true
+
+[tool.compwa.policy.python]
+type-checker = ["ty"]
 
 [tool.coverage.report]
-exclude_also = [
-    "if TYPE_CHECKING:",
-]
+exclude_also = ["if TYPE_CHECKING:"]
 
 [tool.coverage.run]
 branch = true
@@ -106,77 +107,91 @@ isolated = true
 no-group = "dev"
 type = "uv"
 
-[tool.poe.tasks.all]
-help = "Run all continuous integration (CI) tasks locally"
-ignore_fail = "return_non_zero"
-sequence = [
-    "cov",
-    "doc",
-    "linkcheck",
-    "style",
-    "test-all",
-]
+[tool.poe.groups.doc]
+heading = "Documentation"
 
-[tool.poe.tasks.cov]
+[tool.poe.groups.doc.tasks.doc]
+cmd = "quarto render docs --no-clean"
+executor = { group = "doc" }
+help = "Build documentation and API"
+
+[tool.poe.groups.doc.tasks.doclive]
+cmd = "quarto preview docs --no-clean"
+executor = { group = "doc" }
+help = "Set up a server to directly preview changes to the HTML pages"
+
+[tool.poe.groups.doc.tasks.linkcheck]
+cmd = """
+python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
+"""
+executor = { group = "style" }
+help = "Check external links in the documentation (requires internet connection)"
+
+[tool.poe.groups.test]
+heading = "Testing"
+
+[tool.poe.groups.test.tasks.cov]
 cmd = """
 pytest \
     --cov=pwa_pages \
     --cov-fail-under=90 \
     --cov-report=html \
     --cov-report=xml \
-    --numprocesses=auto \
     ${paths}
 """
-executor = {group = "test"}
+executor = { group = "test" }
 help = "Compute how much of the source code is covered by tests"
 
-[[tool.poe.tasks.cov.args]]
+[[tool.poe.groups.test.tasks.cov.args]]
 default = "src tests"
 multiple = true
 name = "paths"
 positional = true
 
-[tool.poe.tasks.doc]
-cmd = "quarto render docs --no-clean"
-executor = {group = "doc"}
-help = "Build documentation and API"
+[tool.poe.groups.test.tasks.test]
+cmd = "pytest ${paths}"
+executor = { group = "test" }
+help = "Run all unit tests"
 
-[tool.poe.tasks.doclive]
-cmd = "quarto preview docs --no-clean"
-executor = {group = "doc"}
-help = "Set up a server to directly preview changes to the HTML pages"
+[[tool.poe.groups.test.tasks.test.args]]
+default = "src tests"
+multiple = true
+name = "paths"
+positional = true
 
-[tool.poe.tasks.linkcheck]
-cmd = """
-python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
-"""
-executor = {group = "style"}
-help = "Check external links in the documentation (requires internet connection)"
+[tool.poe.groups.test.tasks.test-all]
+cmd = "pytest -m 'slow or not slow'"
+executor = { group = "test" }
+help = "Run all tests"
+
+[tool.poe.tasks.all]
+help = "Run all continuous integration (CI) tasks locally"
+ignore_fail = "return_non_zero"
+sequence = [
+    "style",
+    "linkcheck",
+    "doc",
+    "cov",
+    "test-all",
+]
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
-executor = {group = "style"}
+executor = { group = "style" }
 help = "Perform all linting, formatting, and spelling checks"
 
-[tool.poe.tasks.test]
-cmd = "pytest --numprocesses=auto ${paths}"
-executor = {group = "test"}
-help = "Run all unit tests"
+[tool.poe.tasks.upgrade]
+executor = { type = "simple" }
+help = "Upgrade lock files"
+parallel = ["_upgrade-precommit", "_upgrade-uv"]
 
-[[tool.poe.tasks.test.args]]
-default = "src tests"
-multiple = true
-name = "paths"
-positional = true
+[tool.poe.tasks._upgrade-precommit]
+cmd = "pre-commit autoupdate -j8"
+executor = { type = "simple" }
 
-[tool.poe.tasks.test-all]
-cmd = """
-pytest \
-    -m 'slow or not slow' \
-    --numprocesses=auto
-"""
-executor = {group = "test"}
-help = "Run all tests"
+[tool.poe.tasks._upgrade-uv]
+cmd = "uv lock --upgrade"
+executor = { type = "simple" }
 
 [tool.pytest]
 addopts = [
@@ -194,18 +209,12 @@ filterwarnings = [
     "ignore:There is no current event loop:DeprecationWarning",
 ]
 minversion = "9.0"
-testpaths = [
-    "src",
-    "tests",
-]
+testpaths = ["src", "tests"]
 
 [tool.ruff]
 preview = true
 show-fixes = true
-src = [
-    "src",
-    "tests",
-]
+src = ["src", "tests"]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -242,7 +251,7 @@ select = ["ALL"]
 task-tags = ["cspell"]
 
 [tool.ruff.lint.flake8-builtins]
-builtins-ignorelist = ["display"]
+ignorelist = ["display"]
 
 [tool.ruff.lint.flake8-comprehensions]
 allow-dict-calls-with-keyword-arguments = true
@@ -278,17 +287,31 @@ split-on-trailing-comma = false
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.tomlsort]
-all = false
-ignore_case = true
-in_place = true
-sort_first = [
-    "build-system",
-    "project",
-    "tool.setuptools",
-]
-spaces_indent_inline_array = 4
-trailing_comma_inline_array = true
+[tool.setuptools]
+include-package-data = false
+package-dir = { "" = "src" }
+
+[tool.setuptools.package-data]
+pwa_pages = ["py.typed"]
+
+[tool.setuptools.packages.find]
+namespaces = false
+where = ["src"]
+
+[tool.tombi.files]
+exclude = ["**/uv.lock"]
+
+[tool.tombi.format.rules]
+indent-width = 4
+line-width = 88
+
+[tool.tombi.lint.rules]
+key-empty = "off"
+
+[[tool.tombi.schemas]]
+root = "tool.compwa.policy"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.0/compwa-policy.schema.json"
+include = ["pyproject.toml"]
 
 [tool.ty.rules]
 division-by-zero = "warn"
