@@ -89,9 +89,7 @@ no-pypi = true
 type-checker = ["ty"]
 
 [tool.coverage.report]
-exclude_also = [
-    "if TYPE_CHECKING:",
-]
+exclude_also = ["if TYPE_CHECKING:"]
 
 [tool.coverage.run]
 branch = true
@@ -267,8 +265,15 @@ allow-dict-calls-with-keyword-arguments = true
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
-"docs/*" = ["INP001", "S101", "S113"]
-"src/pwa_pages/project_inventory.py" = ["FA100", "UP00"]
+"docs/*" = [
+    "INP001",
+    "S101",
+    "S113",
+]
+"src/pwa_pages/project_inventory.py" = [
+    "FA100",
+    "UP00",
+]
 "tests/*" = [
     "ANN",
     "D",
@@ -310,7 +315,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/b1a4216872b0e6539e0b70a051a6d3aaed874356/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.0/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [tool.ty.rules]

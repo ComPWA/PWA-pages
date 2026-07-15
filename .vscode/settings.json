@@ -29,6 +29,9 @@
   "[snippets]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[toml]": {
+    "editor.defaultFormatter": "tombi-toml.tombi"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
