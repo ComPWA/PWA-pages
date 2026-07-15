@@ -8,6 +8,8 @@
 *.quarto_ipynb
 *build/
 /.quarto/
+index-listing.json
+index.feed-full-staged
 site_libs/
 
 !_static/*

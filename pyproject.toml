@@ -63,7 +63,6 @@ style = [
 test = [
     "pytest",
     "pytest-cov",
-    "pytest-xdist",
 ]
 types = [
     "pytest",
@@ -76,6 +75,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.compwa.policy]
+pytest-single-threaded = true
 repo-name = "PWA-pages"
 repo-title = "PWA Pages"
 
@@ -137,7 +137,6 @@ pytest \
     --cov-fail-under=90 \
     --cov-report=html \
     --cov-report=xml \
-    --numprocesses=auto \
     ${paths}
 """
 executor = { group = "test" }
@@ -150,7 +149,7 @@ name = "paths"
 positional = true
 
 [tool.poe.groups.test.tasks.test]
-cmd = "pytest --numprocesses=auto ${paths}"
+cmd = "pytest ${paths}"
 executor = { group = "test" }
 help = "Run all unit tests"
 
@@ -161,11 +160,7 @@ name = "paths"
 positional = true
 
 [tool.poe.groups.test.tasks.test-all]
-cmd = """
-pytest \
-    -m 'slow or not slow' \
-    --numprocesses=auto
-"""
+cmd = "pytest -m 'slow or not slow'"
 executor = { group = "test" }
 help = "Run all tests"
 
