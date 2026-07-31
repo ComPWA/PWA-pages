@@ -77,7 +77,6 @@ repos:
     rev: v10.0.1
     hooks:
       - id: cspell
-        language_version: 25.9.0
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 3.6.1

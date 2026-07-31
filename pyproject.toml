@@ -222,30 +222,30 @@ line-ending = "lf"
 
 [tool.ruff.lint]
 ignore = [
-    "ANN401",
-    "COM812",
-    "CPY001",
-    "D101",
-    "D102",
-    "D103",
-    "D105",
-    "D107",
-    "D203",
-    "D213",
-    "D407",
-    "D416",
     "DOC",
-    "E501",
-    "FURB101",
-    "FURB103",
-    "FURB140",
-    "G004",
-    "ISC001",
-    "PLW1514",
-    "PT001",
     "PTH",
-    "RUF067",
-    "SIM108",
+    "any-type",
+    "if-else-block-instead-of-if-exp",
+    "incorrect-blank-line-before-class",
+    "line-too-long",
+    "logging-f-string",
+    "missing-copyright-notice",
+    "missing-dashed-underline-after-section",
+    "missing-section-name-colon",
+    "missing-trailing-comma",
+    "multi-line-summary-second-line",
+    "non-empty-init-module",
+    "pytest-fixture-incorrect-parentheses-style",
+    "read-whole-file",
+    "reimplemented-starmap",
+    "single-line-implicit-string-concatenation",
+    "undocumented-magic-method",
+    "undocumented-public-class",
+    "undocumented-public-function",
+    "undocumented-public-init",
+    "undocumented-public-method",
+    "unspecified-encoding",
+    "write-whole-file",
 ]
 select = ["ALL"]
 task-tags = ["cspell"]
@@ -261,27 +261,27 @@ split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
 "docs/*" = [
-    "INP001",
-    "S101",
-    "S113",
+    "assert",
+    "implicit-namespace-package",
+    "request-without-timeout",
 ]
 "src/pwa_pages/project_inventory.py" = [
-    "FA100",
+    "future-rewritable-type-annotation",
     "UP00",
 ]
 "tests/*" = [
     "ANN",
     "D",
-    "FBT001",
-    "INP001",
-    "PLC2701",
-    "PLR0913",
-    "PLR2004",
-    "PLR6301",
-    "RUF069",
-    "S101",
-    "SLF001",
     "T20",
+    "assert",
+    "boolean-type-hint-positional-argument",
+    "float-equality-comparison",
+    "implicit-namespace-package",
+    "import-private-name",
+    "magic-value-comparison",
+    "no-self-use",
+    "private-member-access",
+    "too-many-arguments",
 ]
 
 [tool.ruff.lint.pydocstyle]
@@ -310,7 +310,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.0/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.3/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [tool.ty.rules]
