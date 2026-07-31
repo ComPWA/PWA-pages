@@ -5,17 +5,20 @@ from __future__ import annotations
 import argparse
 import json
 from functools import partial
-from typing import TYPE_CHECKING, Self, Union
+from typing import TYPE_CHECKING, Literal, Self, Union
 
 import yaml
 from pydantic import BaseModel, model_validator
 
-from .repo import Repo, get_repo
+from .repo import Repo, get_repo, is_repo_url
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Sequence
     from datetime import datetime
     from pathlib import Path
+
+
+TableMode = Literal["static", "fetch", "live"]
 
 
 def load_yaml(path: Path | str) -> dict:
@@ -27,15 +30,29 @@ def to_markdown_table(
     inventory: ProjectInventory,
     selected_languages: list[str],
     *,
-    fetch: bool = False,
+    mode: TableMode = "static",
     min_percentage: float = 2.5,
     hide_columns: Iterable[str] | None = None,
 ) -> str:
+    """Render a project inventory as a Markdown table.
+
+    The `mode` determines where the volatile columns (latest commit and languages) come
+    from:
+
+    - `"static"`: render only the information in the inventory file itself.
+    - `"fetch"`: fetch them from the GitHub and GitLab APIs while rendering.
+    - `"live"`: leave placeholders that are filled in by
+      :file:`docs/software/live-inventory.js` when the page is loaded.
+    """
+    fetch = mode == "fetch"
+    live = mode == "live"
     header_to_formatters: dict[str, Callable[[Project], str]] = {
         "Project": _create_project_entry,
         "Collaboration": partial(_format_collaboration, inventory=inventory),
-        "Since": _fetch_first_commit_year if fetch else lambda _: "",
-        "Latest commit": _fetch_latest_commit_date if fetch else lambda _: "",
+        "Since": _fetch_first_commit_year if fetch else _format_since,
+        "Latest commit": (
+            _fetch_latest_commit_date if fetch else partial(_latest_commit, live=live)
+        ),
     }
     column_configs = {
         "Project": ":------------",
@@ -48,6 +65,7 @@ def to_markdown_table(
             _checkmark_language,
             language=language,
             fetch=fetch,
+            live=live,
             min_percentage=min_percentage,
         )
     if hide_columns is not None:
@@ -117,6 +135,7 @@ def _checkmark_language(
     language: str,
     *,
     fetch: bool = False,
+    live: bool = False,
     min_percentage: float,
 ) -> str:
     languages = project.languages
@@ -126,10 +145,66 @@ def _checkmark_language(
             for sub_project in project.sub_projects:
                 sub_languages = _fetch_languages(sub_project, min_percentage)
                 languages.extend(sub_languages)
+    if live and not project.languages:
+        # Languages defined in the inventory file take precedence, just as they do when
+        # fetching at build time, so only undefined languages become placeholders.
+        return _wrap_live_placeholder(
+            project,
+            fallback="",
+            field="language",
+            attributes={
+                "data-language": language,
+                "data-min-percentage": str(min_percentage),
+            },
+        )
     normalized_languages = (__replace_language(s).lower() for s in languages)
     if language.lower() in normalized_languages:
         return "✓"
     return ""
+
+
+def _format_since(project: Project) -> str:
+    if project.since == 0:
+        return ""
+    return str(project.since)
+
+
+def _latest_commit(project: Project, *, live: bool = False) -> str:
+    if live:
+        return _wrap_live_placeholder(project, fallback="", field="latest-commit")
+    return ""
+
+
+def _wrap_live_placeholder(
+    project: Project,
+    fallback: str,
+    field: str,
+    attributes: dict[str, str] | None = None,
+) -> str:
+    """Wrap a cell value so that :file:`live-inventory.js` can update it.
+
+    Projects that are not hosted on GitHub or GitLab have no live data and are rendered
+    as-is, so that the value from the inventory file remains visible.
+    """
+    repo_urls = get_repo_urls(project)
+    if not repo_urls:
+        return fallback
+    html_attributes = {
+        "class": "live-value",
+        "data-field": field,
+        "data-repos": " ".join(repo_urls),
+        **(attributes or {}),
+    }
+    rendered = " ".join(f'{key}="{value}"' for key, value in html_attributes.items())
+    return f"<span {rendered}>{fallback}</span>"
+
+
+def get_repo_urls(project: Project) -> list[str]:
+    """Get the URLs of a project and its sub-projects that are Git repositories."""
+    urls = [project.url]
+    if project.sub_projects is not None:
+        urls.extend(sub_project.url for sub_project in project.sub_projects)
+    return [url for url in urls if is_repo_url(url)]
 
 
 def __replace_language(language: str) -> str:

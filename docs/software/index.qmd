@@ -30,7 +30,7 @@ src = to_markdown_table(
         "Rust",
         "Cuda",
     ],
-    fetch=True,
+    mode="live",
 )
 display(Markdown(src))
 ```
@@ -48,10 +48,15 @@ src = to_markdown_table(
         "Python",
         "Cuda",
     ],
-    fetch=True,
+    mode="live",
     hide_columns=["Collaboration"],
 )
 display(Markdown(src))
+```
+
+```{=html}
+<p><small class="text-muted inventory-timestamp"></small></p>
+<script src="live-inventory.js"></script>
 ```
 
 ## Software development

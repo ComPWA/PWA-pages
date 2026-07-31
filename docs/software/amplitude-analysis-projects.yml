@@ -3,25 +3,30 @@
 projects:
   - name: AmpGen
     url: https://github.com/GooFit/AmpGen
+    since: 2018
     collaboration:
       - CLEO
       - LHCb
 
   - name: AmpTools
     url: https://github.com/mashephe/AmpTools
+    since: 2011
     collaboration:
       - BESIII
       - GlueX
 
   - name: BruFit
     url: https://github.com/dglazier/brufit
+    since: 2020
     collaboration: CLAS12
 
   - name: ComPWA (C++)
     url: https://github.com/ComPWA/ComPWA
+    since: 2012
 
   - name: ComPWA project
     url: https://compwa.github.io
+    since: 2020
     sub_projects:
       - name: QRules
         url: https://github.com/ComPWA/qrules
@@ -32,6 +37,7 @@ projects:
 
   - name: cFit
     url: https://github.com/cfit/cfit
+    since: 2012
 
   - name: FDC-PWA
     url: https://www1.ihep.ac.cn/wjx/pwa/index.html
@@ -49,9 +55,11 @@ projects:
 
   - name: HAMMER
     url: https://gitlab.com/mpapucci/Hammer
+    since: 2016
 
   - name: Ipanema
     url: https://gitlab.cern.ch/bsm-fleet/Ipanema
+    since: 2017
 
   - name: Laura++
     url: https://doi.org/10.1016/j.cpc.2018.04.017
@@ -70,15 +78,18 @@ projects:
 
   - name: Mint2
     url: https://github.com/jdalseno/Mint2
+    since: 2016
 
   - name: Pawian
     url: https://gitlab.ep1.rub.de/pwa/Pawian
+    since: 2010
     collaboration:
       - BESIII
       - PANDA
 
   - name: PyPWA
     url: https://github.com/JeffersonLab/PyPWA
+    since: 2014
     collaboration: JLab
 
   - name: Rio++
@@ -90,6 +101,7 @@ projects:
 
   - name: ROOTPWA
     url: https://github.com/ROOTPWA-Maintainers/ROOTPWA
+    since: 2009
     collaboration: COMPASS
 
   - name: TARA
@@ -101,6 +113,7 @@ projects:
 
   - name: TensorFlowAnalysis
     url: https://gitlab.cern.ch/poluekt/TensorFlowAnalysis
+    since: 2016
     collaboration: LHCb
     sub_projects:
       - name: AmpliTF
@@ -110,12 +123,14 @@ projects:
 
   - name: TF-PWA
     url: https://github.com/jiangyi15/tf-pwa
+    since: 2019
     collaboration:
       - BESIII
       - LHCb
 
   - name: ThreeBodyDecays.jl
     url: https://github.com/mmikhasenko/ThreeBodyDecays.jl
+    since: 2019
     collaboration: LHCb
 
 collaborations:

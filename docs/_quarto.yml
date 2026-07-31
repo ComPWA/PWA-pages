@@ -24,7 +24,9 @@ link-citations: true
 project:
   output-dir: _build/html
   resources:
+    - software/*.js
     - software/*.yml
+    - software/inventory.json
     - software/project-inventory-schema.json
   type: website
 website:

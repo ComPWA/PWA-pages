@@ -15,6 +15,7 @@ from pwa_pages.project_inventory import (
     _fetch_languages,
     _get_subproject_timestamps,
     export_json_schema,
+    get_repo_urls,
     load_yaml,
     to_markdown_table,
 )
@@ -106,20 +107,98 @@ def test_to_markdown_table(project_inventory: ProjectInventory, fetch: bool):
     src = to_markdown_table(
         project_inventory,
         selected_languages=["C++", "Python"],
-        fetch=fetch,
+        mode="fetch" if fetch else "static",
     )
-    if fetch:
-        assert "| 2020 |" in src
+    assert "| 2020 |" in src  # first commit year, frozen in the inventory file
     # cspell: ignore thead
     assert src.startswith("| Project | Collaboration | Since | Latest commit |")
     assert src.count(" |\n") == __MAX_PROJECTS + 2
+
+
+def test_to_markdown_table_live(project_inventory: ProjectInventory):
+    src = to_markdown_table(
+        project_inventory,
+        selected_languages=["C++", "Python"],
+        mode="live",
+    )
+    assert src.count(" |\n") == __MAX_PROJECTS + 2
+    assert (
+        '<span class="live-value" data-field="latest-commit"'
+        ' data-repos="https://github.com/GooFit/AmpGen"></span>' in src
+    )
+    assert (
+        '<span class="live-value" data-field="language"'
+        ' data-repos="https://github.com/GooFit/AmpGen" data-language="C++"'
+        ' data-min-percentage="2.5"></span>' in src
+    )
+
+
+def test_to_markdown_table_live_sub_projects(project_inventory: ProjectInventory):
+    """Sub-project repositories are aggregated into a single placeholder."""
+    src = to_markdown_table(project_inventory, selected_languages=[], mode="live")
+    assert (
+        'data-repos="https://github.com/ComPWA/qrules'
+        " https://github.com/ComPWA/ampform"
+        ' https://github.com/ComPWA/tensorwaves"' in src
+    )
+
+
+def test_to_markdown_table_live_keeps_static_values():
+    """Values from the inventory file are not overwritten by placeholders."""
+    inventory = ProjectInventory(
+        projects=[
+            Project(
+                name="FDC-PWA",
+                url="https://www1.ihep.ac.cn/wjx/pwa/index.html",
+                since=2000,
+                languages=["C++"],
+            )
+        ]
+    )
+    src = to_markdown_table(
+        inventory, selected_languages=["C++", "Python"], mode="live"
+    )
+    assert "live-value" not in src
+    assert src.endswith("| 2000 |  | ✓ |  |\n")
+
+
+def test_to_markdown_table_live_declared_languages():
+    """A declared language takes precedence, but the commit date is still live."""
+    inventory = ProjectInventory(
+        projects=[
+            Project(
+                name="laddu",
+                url="https://github.com/denehoffman/laddu",
+                since=2024,
+                languages=["Rust"],
+            )
+        ]
+    )
+    src = to_markdown_table(inventory, selected_languages=["Rust"], mode="live")
+    assert src.count('data-field="language"') == 0
+    assert src.count('data-field="latest-commit"') == 1
+    assert src.endswith("✓ |\n")
+
+
+def test_get_repo_urls():
+    project = Project(
+        name="ComPWA project",
+        url="https://compwa.github.io",
+        sub_projects=[
+            SubProject(name="QRules", url="https://github.com/ComPWA/qrules"),
+            SubProject(name="Pawian", url="https://gitlab.ep1.rub.de/pwa/Pawian"),
+        ],
+    )
+    assert get_repo_urls(project) == [
+        "https://github.com/ComPWA/qrules",
+        "https://gitlab.ep1.rub.de/pwa/Pawian",
+    ]
 
 
 def test_to_markdown_table_hide_columns(fitter_packages):
     src = to_markdown_table(
         fitter_packages,
         selected_languages=["C++", "Python"],
-        fetch=False,
         hide_columns=["Collaboration"],
     )
     assert src.startswith("| Project | Since | Latest commit | C++ | Python |")

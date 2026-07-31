@@ -37,6 +37,7 @@ Issues = "https://github.com/ComPWA/PWA-pages/issues"
 Source = "https://github.com/ComPWA/PWA-pages"
 
 [project.scripts]
+export-inventory-data = "pwa_pages.inventory_data:export_inventory_data"
 export-json-schema = "pwa_pages.project_inventory:export_json_schema"
 
 [dependency-groups]

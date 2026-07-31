@@ -1,0 +1,46 @@
+name: Inventory
+
+env:
+  COMMIT_TITLE: "DX: update software inventory data"
+  FORCE_COLOR: yes
+
+on:
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    name: Fetch repository data
+    if: github.repository == 'ComPWA/PWA-pages'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.PAT || github.token }}
+      - uses: astral-sh/setup-uv@v7
+      - name: Fetch latest commit dates and languages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          uv run export-inventory-data
+          docs/software/amplitude-analysis-projects.yml
+          docs/software/fitter-packages.yml
+          --output docs/software/inventory.json
+      - name: Show changes
+        run: |
+          git config --global color.ui always
+          git diff --color --unified=0
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub"
+          git config --global user.email "noreply@github.com"
+          if [[ $(git status -s) ]]; then
+            git add docs/software/inventory.json
+            git commit -m "${COMMIT_TITLE}"
+            git config pull.rebase true
+            git pull origin main
+            git push origin HEAD:main
+          else
+            echo "::notice::Inventory data is already up to date."
+          fi

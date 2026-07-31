@@ -3,9 +3,11 @@
 projects:
   - name: GooFit
     url: https://github.com/GooFit/GooFit
+    since: 2013
 
   - name: Hydra
     url: https://github.com/MultithreadCorner/Hydra
+    since: 2016
 
   - name: RooFit
     url: https://root.cern/manual/roofit
@@ -15,3 +17,4 @@ projects:
 
   - name: zfit
     url: https://github.com/zfit/zfit
+    since: 2018

@@ -1,0 +1,202 @@
+{
+  "generated": "2026-07-31T13:00:48Z",
+  "repositories": {
+    "https://github.com/ComPWA/ComPWA": {
+      "latest_commit": "2024-01-20",
+      "languages": {
+        "C++": 82.24,
+        "CMake": 17.69,
+        "Dockerfile": 0.07
+      }
+    },
+    "https://github.com/ComPWA/ampform": {
+      "latest_commit": "2026-07-15",
+      "languages": {
+        "Python": 99.91,
+        "Shell": 0.09
+      }
+    },
+    "https://github.com/ComPWA/qrules": {
+      "latest_commit": "2026-07-30",
+      "languages": {
+        "Python": 99.92,
+        "Shell": 0.08
+      }
+    },
+    "https://github.com/ComPWA/tensorwaves": {
+      "latest_commit": "2026-07-15",
+      "languages": {
+        "Python": 99.81,
+        "Shell": 0.19
+      }
+    },
+    "https://github.com/GooFit/AmpGen": {
+      "latest_commit": "2025-02-11",
+      "languages": {
+        "C++": 97.58,
+        "CMake": 1.78,
+        "Python": 0.53,
+        "Shell": 0.11
+      }
+    },
+    "https://github.com/GooFit/GooFit": {
+      "latest_commit": "2026-07-29",
+      "languages": {
+        "C++": 35.36,
+        "Cuda": 35.25,
+        "Jupyter Notebook": 20.21,
+        "Python": 5.56,
+        "CMake": 2.75,
+        "Shell": 0.35,
+        "C": 0.34,
+        "Makefile": 0.19
+      }
+    },
+    "https://github.com/JeffersonLab/PyPWA": {
+      "latest_commit": "2023-05-07",
+      "languages": {
+        "Python": 100.0
+      }
+    },
+    "https://github.com/MultithreadCorner/Hydra": {
+      "latest_commit": "2026-07-10",
+      "languages": {
+        "C++": 96.94,
+        "CMake": 2.32,
+        "C": 0.61,
+        "NASL": 0.08,
+        "Cuda": 0.05
+      }
+    },
+    "https://github.com/ROOTPWA-Maintainers/ROOTPWA": {
+      "latest_commit": "2020-06-02",
+      "languages": {
+        "C++": 74.15,
+        "Python": 8.87,
+        "C": 6.56,
+        "CMake": 4.85,
+        "Cuda": 4.23,
+        "Shell": 1.12,
+        "Fortran": 0.22
+      }
+    },
+    "https://github.com/apoluekt/AmpliTF": {
+      "latest_commit": "2025-12-12",
+      "languages": {
+        "Python": 100.0
+      }
+    },
+    "https://github.com/apoluekt/TFA2": {
+      "latest_commit": "2025-12-12",
+      "languages": {
+        "Python": 100.0
+      }
+    },
+    "https://github.com/cfit/cfit": {
+      "latest_commit": "2018-05-28",
+      "languages": {
+        "C++": 99.51,
+        "Makefile": 0.49
+      }
+    },
+    "https://github.com/denehoffman/laddu": {
+      "latest_commit": "2026-07-29",
+      "languages": {
+        "Rust": 96.46,
+        "Python": 2.29,
+        "HTML": 0.76,
+        "Just": 0.35,
+        "Nix": 0.1,
+        "Dockerfile": 0.03
+      }
+    },
+    "https://github.com/dglazier/brufit": {
+      "latest_commit": "2026-06-23",
+      "languages": {
+        "HTML": 66.19,
+        "C++": 26.83,
+        "C": 4.07,
+        "Jupyter Notebook": 2.68,
+        "CMake": 0.13,
+        "Python": 0.11
+      }
+    },
+    "https://github.com/jdalseno/Mint2": {
+      "latest_commit": "2020-01-25",
+      "languages": {
+        "C++": 99.75,
+        "Python": 0.21,
+        "C": 0.04
+      }
+    },
+    "https://github.com/jiangyi15/tf-pwa": {
+      "latest_commit": "2026-07-17",
+      "languages": {
+        "Python": 99.49,
+        "C": 0.25,
+        "Jupyter Notebook": 0.14,
+        "Shell": 0.12
+      }
+    },
+    "https://github.com/mashephe/AmpTools": {
+      "latest_commit": "2026-07-14",
+      "languages": {
+        "C++": 91.92,
+        "Cuda": 3.28,
+        "C": 1.81,
+        "TeX": 1.35,
+        "Makefile": 1.34,
+        "Python": 0.31
+      }
+    },
+    "https://github.com/mmikhasenko/ThreeBodyDecays.jl": {
+      "latest_commit": "2026-07-07",
+      "languages": {
+        "Julia": 100.0
+      }
+    },
+    "https://github.com/zfit/zfit": {
+      "latest_commit": "2026-07-06",
+      "languages": {
+        "Python": 99.89,
+        "Shell": 0.11
+      }
+    },
+    "https://gitlab.cern.ch/bsm-fleet/Ipanema": {
+      "latest_commit": "2019-03-29",
+      "languages": {
+        "C": 54.97,
+        "Python": 44.71,
+        "Cuda": 0.3,
+        "Shell": 0.02
+      }
+    },
+    "https://gitlab.cern.ch/poluekt/TensorFlowAnalysis": {
+      "latest_commit": "2021-11-18",
+      "languages": {
+        "Python": 99.52,
+        "Shell": 0.48
+      }
+    },
+    "https://gitlab.com/mpapucci/Hammer": {
+      "latest_commit": "2026-06-16",
+      "languages": {
+        "C++": 92.58,
+        "Python": 3.57,
+        "CMake": 2.15,
+        "Cython": 0.93,
+        "Shell": 0.34
+      }
+    },
+    "https://gitlab.ep1.rub.de/pwa/Pawian": {
+      "latest_commit": "2026-06-10",
+      "languages": {
+        "C++": 70.74,
+        "Jupyter Notebook": 22.46,
+        "Mathematica": 3.2,
+        "C": 1.5,
+        "Python": 0.6
+      }
+    }
+  }
+}
