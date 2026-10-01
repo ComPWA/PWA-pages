@@ -48,9 +48,9 @@ dev = [
 ]
 doc = [
     "jupyter-cache",
+    "lychee-bin",
     "quarto-cli",
     { include-group = "notebooks" },
-    "lychee-bin",
 ]
 notebooks = [
     "feynman",
