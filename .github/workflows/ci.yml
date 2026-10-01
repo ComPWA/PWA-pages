@@ -20,16 +20,16 @@ on:
 
 jobs:
   doc:
-    uses: ComPWA/actions/.github/workflows/ci-docs.yml@v4.0
+    uses: ComPWA/actions/.github/workflows/ci-docs.yml@v4.1
     permissions:
       pages: write
       id-token: write
   style:
     secrets:
       token: ${{ secrets.PAT }}
-    uses: ComPWA/actions/.github/workflows/style.yml@v4.0
+    uses: ComPWA/actions/.github/workflows/style.yml@v4.1
   test:
-    uses: ComPWA/actions/.github/workflows/test.yml@v4.0
+    uses: ComPWA/actions/.github/workflows/test.yml@v4.1
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     with:
