@@ -6,9 +6,7 @@ from typing import TYPE_CHECKING
 
 from dateutil.parser import parse as parse_date
 from gitlab import Gitlab
-from gitlab.v4.objects import (
-    Project as GitlabProject,  # ruff: ignore[typing-only-third-party-import]
-)
+from gitlab.v4.objects import Project as GitlabProject  # ruff: ignore[typing-only-third-party-import]
 
 if TYPE_CHECKING:
     from datetime import datetime

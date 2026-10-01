@@ -50,6 +50,7 @@ doc = [
     "jupyter-cache",
     "quarto-cli",
     { include-group = "notebooks" },
+    "lychee-bin",
 ]
 notebooks = [
     "feynman",
@@ -121,11 +122,9 @@ executor = { group = "doc" }
 help = "Set up a server to directly preview changes to the HTML pages"
 
 [tool.poe.groups.doc.tasks.linkcheck]
-cmd = """
-python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
-"""
-executor = { group = "style" }
+executor = { group = "doc" }
 help = "Check external links in the documentation (requires internet connection)"
+shell = "lychee --root-dir . . && lychee --root-dir . --extensions qmd ."
 
 [tool.poe.groups.test]
 heading = "Testing"
@@ -183,10 +182,13 @@ help = "Perform all linting, formatting, and spelling checks"
 [tool.poe.tasks.upgrade]
 executor = { type = "simple" }
 help = "Upgrade lock files"
-parallel = ["_upgrade-precommit", "_upgrade-uv"]
+parallel = [
+    "_upgrade-precommit",
+    "_upgrade-uv",
+]
 
 [tool.poe.tasks._upgrade-precommit]
-cmd = "pre-commit autoupdate -j8"
+cmd = "prek autoupdate"
 executor = { type = "simple" }
 
 [tool.poe.tasks._upgrade-uv]
@@ -310,7 +312,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.3/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.8/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [tool.ty.rules]
