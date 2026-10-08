@@ -104,22 +104,7 @@ omit = [
 source = ["src"]
 
 [tool.lychee]
-extensions = [
-    "css",
-    "htm",
-    "html",
-    "markdown",
-    "md",
-    "mdown",
-    "mdwn",
-    "mdx",
-    "mkd",
-    "mkdn",
-    "mkdown",
-    "qmd",
-    "txt",
-    "xml",
-]
+extensions = ["css", "md", "qmd"]
 
 [tool.poe.executor]
 isolated = true
