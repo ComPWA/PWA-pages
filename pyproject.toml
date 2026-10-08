@@ -120,7 +120,6 @@ extensions = [
     "txt",
     "xml",
 ]
-root_dir = "."
 
 [tool.poe.executor]
 isolated = true
