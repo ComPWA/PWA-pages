@@ -48,7 +48,7 @@ dev = [
 ]
 doc = [
     "jupyter-cache",
-    "lychee-bin",
+    "lychee-bin>=0.24.0",
     "quarto-cli",
     { include-group = "notebooks" },
 ]
@@ -103,6 +103,25 @@ omit = [
 ]
 source = ["src"]
 
+[tool.lychee]
+extensions = [
+    "css",
+    "htm",
+    "html",
+    "markdown",
+    "md",
+    "mdown",
+    "mdwn",
+    "mdx",
+    "mkd",
+    "mkdn",
+    "mkdown",
+    "qmd",
+    "txt",
+    "xml",
+]
+root_dir = "."
+
 [tool.poe.executor]
 isolated = true
 no-group = "dev"
@@ -124,7 +143,7 @@ help = "Set up a server to directly preview changes to the HTML pages"
 [tool.poe.groups.doc.tasks.linkcheck]
 executor = { group = "doc" }
 help = "Check external links in the documentation (requires internet connection)"
-shell = "lychee --root-dir . . && lychee --root-dir . --extensions qmd ."
+cmd = "lychee ."
 
 [tool.poe.groups.test]
 heading = "Testing"

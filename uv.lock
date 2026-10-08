@@ -1361,7 +1361,7 @@ requires-dist = [
 dev = [
     { name = "feynman" },
     { name = "jupyter-cache" },
-    { name = "lychee-bin" },
+    { name = "lychee-bin", specifier = ">=0.24.0" },
     { name = "matplotlib" },
     { name = "pytest" },
     { name = "pytest-cov" },
@@ -1375,7 +1375,7 @@ dev = [
 doc = [
     { name = "feynman" },
     { name = "jupyter-cache" },
-    { name = "lychee-bin" },
+    { name = "lychee-bin", specifier = ">=0.24.0" },
     { name = "matplotlib" },
     { name = "quarto-cli" },
     { name = "sympy" },
