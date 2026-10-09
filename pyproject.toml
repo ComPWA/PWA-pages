@@ -2,7 +2,7 @@
 name = "pwa-pages"
 version = "0.0.0"
 description = "A central knowledge-base for Partial Wave Analysis"
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de" }]
@@ -16,7 +16,7 @@ keywords = [
     "particles",
     "physics",
 ]
-classifiers = ["Programming Language :: Python :: 3.13"]
+classifiers = ["Programming Language :: Python :: 3.14"]
 dependencies = [
     "PyGithub",
     "PyYAML",
