@@ -2,7 +2,7 @@
 name = "pwa-pages"
 version = "0.0.0"
 description = "A central knowledge-base for Partial Wave Analysis"
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de" }]
@@ -16,7 +16,7 @@ keywords = [
     "particles",
     "physics",
 ]
-classifiers = ["Programming Language :: Python :: 3.13"]
+classifiers = ["Programming Language :: Python :: 3.14"]
 dependencies = [
     "PyGithub",
     "PyYAML",
@@ -48,6 +48,7 @@ dev = [
 ]
 doc = [
     "jupyter-cache",
+    "lychee-bin>=0.24.0",
     "quarto-cli",
     { include-group = "notebooks" },
 ]
@@ -102,6 +103,9 @@ omit = [
 ]
 source = ["src"]
 
+[tool.lychee]
+extensions = ["css", "md", "qmd"]
+
 [tool.poe.executor]
 isolated = true
 no-group = "dev"
@@ -121,11 +125,9 @@ executor = { group = "doc" }
 help = "Set up a server to directly preview changes to the HTML pages"
 
 [tool.poe.groups.doc.tasks.linkcheck]
-cmd = """
-python -c 'print("Not yet implemented, see https://github.com/quarto-dev/quarto-cli/issues/1319")',
-"""
-executor = { group = "style" }
+executor = { group = "doc" }
 help = "Check external links in the documentation (requires internet connection)"
+cmd = "lychee ."
 
 [tool.poe.groups.test]
 heading = "Testing"
@@ -176,17 +178,20 @@ sequence = [
 ]
 
 [tool.poe.tasks.style]
-cmd = "pre-commit run --all-files"
+cmd = "prek run --all-files"
 executor = { group = "style" }
 help = "Perform all linting, formatting, and spelling checks"
 
 [tool.poe.tasks.upgrade]
 executor = { type = "simple" }
 help = "Upgrade lock files"
-parallel = ["_upgrade-precommit", "_upgrade-uv"]
+parallel = [
+    "_upgrade-precommit",
+    "_upgrade-uv",
+]
 
 [tool.poe.tasks._upgrade-precommit]
-cmd = "pre-commit autoupdate -j8"
+cmd = "prek autoupdate"
 executor = { type = "simple" }
 
 [tool.poe.tasks._upgrade-uv]
@@ -310,7 +315,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.3/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.0/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [tool.ty.rules]
