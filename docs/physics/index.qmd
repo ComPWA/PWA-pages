@@ -27,10 +27,6 @@ Partial Wave Analysis is a collection of techniques that allows us to perform th
 
 ## Scattering theory
 
-:::{.callout-tip}
-An extensive, chronological lists of publications on scattering theory can be found [here](http://cgl.soic.indiana.edu/jpac/References.html).
-:::
-
 ### Transition amplitude
 
 :::{.callout-warning title="To do"}
