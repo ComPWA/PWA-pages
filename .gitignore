@@ -26,8 +26,3 @@ pyvenv*/
 **.code-workspace
 
 # Exceptions
-!.github/*.yml
-!.github/*/*.yml
-!.pre-commit-config.yaml
-!.readthedocs.yml
-!codecov.yml
