@@ -42,7 +42,6 @@
   "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "gitlens.telemetry.enabled": false,
   "livePreview.defaultPreviewPath": "docs/_build/html",
-  "multiDiffEditor.experimental.enabled": true,
   "notebook.codeActionsOnSave": {
     "notebook.source.organizeImports": "explicit"
   },
