@@ -104,7 +104,18 @@ omit = [
 source = ["src"]
 
 [tool.lychee]
+cache = true
+cache_exclude_status = "400.."
+# [:] keeps Lychee from extracting regex patterns as URLs.
+exclude = [
+    '^https[:]//github\.com/ComPWA/PWA-pages/edit/main/docs/software/amplitude-analysis-projects\.yml$',  # Requires authentication
+    '^https[:]//github\.com/ComPWA/PWA-pages/edit/main/docs/software/fitter-packages\.yml$',  # Requires authentication
+]
 extensions = ["css", "md", "qmd"]
+hidden = true
+include_fragments = "anchor-only"
+include_verbatim = true
+max_cache_age = "7d"
 
 [tool.poe.executor]
 isolated = true

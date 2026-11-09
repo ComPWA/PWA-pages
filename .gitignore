@@ -11,6 +11,7 @@ version.py
 .coverage
 .coverage.*
 .ipynb_checkpoints/
+.lycheecache
 .pytest_cache/
 .virtual_documents/
 __pycache__/
