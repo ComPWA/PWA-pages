@@ -1478,7 +1478,6 @@ notebooks = [
 ]
 style = [
     { name = "pytest" },
-    { name = "ty" },
     { name = "types-python-dateutil" },
     { name = "types-pyyaml" },
 ]
@@ -1532,7 +1531,6 @@ notebooks = [
 ]
 style = [
     { name = "pytest" },
-    { name = "ty" },
     { name = "types-python-dateutil" },
     { name = "types-pyyaml" },
 ]
