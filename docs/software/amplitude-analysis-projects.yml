@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=project-inventory-schema.json
 # cspell:ignore Ampli GPUPWA Ipanema ROOTPWA
 
 projects:

@@ -64,8 +64,5 @@
   "testing.showCoverageInExplorer": true,
   "ty.completions.autoImport": false,
   "ty.diagnosticMode": "workspace",
-  "ty.importStrategy": "fromEnvironment",
-  "yaml.schemas": {
-    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
-  }
+  "ty.importStrategy": "fromEnvironment"
 }
