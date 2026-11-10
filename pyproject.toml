@@ -82,6 +82,7 @@ repo-title = "PWA Pages"
 
 [tool.compwa.policy.github]
 ci-skipped-tests = "all"
+dependabot-assignees = ["redeboer"]
 macos-python-version = "disable"
 no-cd = true
 no-pypi = true
