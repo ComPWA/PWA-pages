@@ -1,6 +1,4 @@
 # yaml-language-server: $schema=project-inventory-schema.json
-# cspell:ignore Ampli GPUPWA ROOTPWA
-
 projects:
   - name: GooFit
     url: https://github.com/GooFit/GooFit
