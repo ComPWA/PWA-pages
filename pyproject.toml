@@ -112,8 +112,8 @@ format-python-code-blocks = false
 [tool.lychee]
 cache = true
 cache_exclude_status = "400.."
-# [:] keeps Lychee from extracting regex patterns as URLs.
 exclude = [
+    # [:] keeps Lychee from extracting regex patterns as URLs.
     '^https[:]//github\.com/ComPWA/PWA-pages/edit/main/docs/software/amplitude-analysis-projects\.yml$',  # Requires authentication
     '^https[:]//github\.com/ComPWA/PWA-pages/edit/main/docs/software/fitter-packages\.yml$',  # Requires authentication
 ]
