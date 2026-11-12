@@ -11,6 +11,7 @@ version.py
 .coverage
 .coverage.*
 .ipynb_checkpoints/
+.lycheecache
 .pytest_cache/
 .virtual_documents/
 __pycache__/
@@ -25,9 +26,13 @@ pyvenv*/
 .idea/
 **.code-workspace
 
+# Agent tooling
+.agents/
+.claude/
+.codex/
+.gemini/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
 # Exceptions
-!.github/*.yml
-!.github/*/*.yml
-!.pre-commit-config.yaml
-!.readthedocs.yml
-!codecov.yml

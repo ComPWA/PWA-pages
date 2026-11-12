@@ -7,13 +7,9 @@
     "rewrap.wrappingColumn": 72
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordWrap": "on"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
+  "[json][jsonc][markdown][snippets][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
@@ -26,14 +22,8 @@
   "[quarto]": {
     "editor.defaultFormatter": "quarto.quarto"
   },
-  "[snippets]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[toml]": {
     "editor.defaultFormatter": "tombi-toml.tombi"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.enabled": true,
   "diffEditor.experimental.showMoves": true,
@@ -42,7 +32,6 @@
   "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "gitlens.telemetry.enabled": false,
   "livePreview.defaultPreviewPath": "docs/_build/html",
-  "multiDiffEditor.experimental.enabled": true,
   "notebook.codeActionsOnSave": {
     "notebook.source.organizeImports": "explicit"
   },
@@ -65,8 +54,5 @@
   "testing.showCoverageInExplorer": true,
   "ty.completions.autoImport": false,
   "ty.diagnosticMode": "workspace",
-  "ty.importStrategy": "fromEnvironment",
-  "yaml.schemas": {
-    "./docs/software/project-inventory-schema.json": ["docs/software/*.yml"]
-  }
+  "ty.importStrategy": "fromEnvironment"
 }

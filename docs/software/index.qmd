@@ -12,6 +12,8 @@ The following frameworks or projects are specifically designed to do amplitude a
 
 ```{python}
 #| warning: false
+from os import environ
+
 from IPython.display import Markdown, display
 
 from pwa_pages.project_inventory import (
@@ -19,6 +21,9 @@ from pwa_pages.project_inventory import (
     load_yaml,
     to_markdown_table,
 )
+
+fetch = environ.get("READTHEDOCS_VERSION_TYPE") != "external"
+hide_metadata = [] if fetch else ["Since", "Latest commit"]
 
 inventory_dict = load_yaml("amplitude-analysis-projects.yml")
 src = to_markdown_table(
@@ -30,7 +35,8 @@ src = to_markdown_table(
         "Rust",
         "Cuda",
     ],
-    fetch=True,
+    fetch=fetch,
+    hide_columns=hide_metadata,
 )
 display(Markdown(src))
 ```
@@ -48,8 +54,8 @@ src = to_markdown_table(
         "Python",
         "Cuda",
     ],
-    fetch=True,
-    hide_columns=["Collaboration"],
+    fetch=fetch,
+    hide_columns=["Collaboration", *hide_metadata],
 )
 display(Markdown(src))
 ```
