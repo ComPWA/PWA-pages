@@ -1,7 +1,7 @@
 # Welcome to the Partial Wave Analysis pages!
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Documentation build status](https://app.readthedocs.org/projects/pwa/badge)](https://pwa.readthedocs.io)
+[![Documentation build status](https://img.shields.io/readthedocs/pwa)](https://pwa.readthedocs.io)
 [![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://github.dev/ComPWA/PWA-pages)
 [![CI](https://github.com/ComPWA/PWA-pages/actions/workflows/ci.yml/badge.svg)](https://github.com/ComPWA/PWA-pages/actions/workflows/ci.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen)](https://github.com/pre-commit/pre-commit)
