@@ -1,5 +1,4 @@
-# cspell:ignore Ampli GPUPWA Ipanema ROOTPWA
-
+# yaml-language-server: $schema=project-inventory-schema.json
 projects:
   - name: AmpGen
     url: https://github.com/GooFit/AmpGen

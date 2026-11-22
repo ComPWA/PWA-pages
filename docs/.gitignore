@@ -12,6 +12,5 @@ index-listing.json
 index.feed-full-staged
 site_libs/
 
-!_static/*
 
 **/*.quarto_ipynb
