@@ -4,11 +4,15 @@ from __future__ import annotations
 
 import argparse
 import json
-from functools import partial
+import logging
+from functools import cache, partial
 from typing import TYPE_CHECKING, Self, Union
 
 import yaml
+from github import GithubException
+from gitlab.exceptions import GitlabError
 from pydantic import BaseModel, model_validator
+from requests.exceptions import RequestException
 
 from .repo import Repo, get_repo
 
@@ -142,8 +146,18 @@ def __replace_language(language: str) -> str:
     return language
 
 
+@cache
+def _get_inventory_repo(url: str) -> Repo | None:
+    """Fetch optional metadata once per repository during rendering."""
+    try:
+        return get_repo(url)
+    except (GithubException, GitlabError, RequestException) as exc:
+        logging.getLogger(__name__).warning("Skipping metadata for %s: %s", url, exc)
+        return None
+
+
 def _fetch_languages(project: Project | SubProject, min_percentage: float) -> list[str]:
-    repo = get_repo(project.url)
+    repo = _get_inventory_repo(project.url)
     if repo is None:
         return []
     return repo.filter_languages(min_percentage)
@@ -175,7 +189,7 @@ def _get_date(
     date_format: str,
     min_or_max: Callable[[Iterable[datetime]], datetime],
 ) -> str:
-    repo = get_repo(project.url)
+    repo = _get_inventory_repo(project.url)
     time_stamps = []
     if repo is not None:
         main_timestamp = date_getter(repo)
@@ -194,7 +208,7 @@ def _get_subproject_timestamps(
         return []
     timestamps = []
     for sub_project in project.sub_projects:
-        repo = get_repo(sub_project.url)
+        repo = _get_inventory_repo(sub_project.url)
         if repo is None:
             continue
         date = date_getter(repo)

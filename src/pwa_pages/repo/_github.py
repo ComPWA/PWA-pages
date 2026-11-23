@@ -80,4 +80,4 @@ def get_languages(repo: GithubRepository) -> dict[str, float]:
 def __get_github(token: str | None = None) -> Github:
     if token is None:
         token = os.environ.get("GITHUB_TOKEN")
-    return Github(login_or_token=token)
+    return Github(login_or_token=token, retry=0, timeout=10)

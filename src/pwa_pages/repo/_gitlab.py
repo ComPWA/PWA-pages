@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 @lru_cache
 def get_gitlab_repo(server_url: str, project_path: str) -> GitlabProject:
     gitlab = __get_gitlab(server_url)
-    return gitlab.projects.get(project_path)
+    return gitlab.projects.get(project_path, obey_rate_limit=False)
 
 
 def split_gitlab_repo_url(url: str) -> tuple[str, str] | None:
@@ -32,7 +32,7 @@ def split_gitlab_repo_url(url: str) -> tuple[str, str] | None:
 @lru_cache
 def get_first_commit_date(repo: GitlabProject) -> datetime:
     commits: ProjectCommitManager = repo.commits
-    all_commits = commits.list(all=True)
+    all_commits = commits.list(all=True, obey_rate_limit=False)
     assert isinstance(all_commits, list)  # ruff: ignore[assert]
     first_commit = all_commits[-1]
     commit_info = first_commit._attrs  # ruff: ignore[private-member-access]
@@ -43,7 +43,7 @@ def get_first_commit_date(repo: GitlabProject) -> datetime:
 def get_latest_commit_date(repo: GitlabProject) -> datetime:
     default_branch = repo.attributes["default_branch"]
     commits: ProjectCommitManager = repo.commits
-    latest_commit = commits.get(default_branch)
+    latest_commit = commits.get(default_branch, obey_rate_limit=False)
     commit_info = latest_commit._attrs  # ruff: ignore[private-member-access]
     return parse_date(commit_info["created_at"])
 
@@ -55,4 +55,4 @@ def get_last_modified(repo: GitlabProject) -> datetime:
 
 @lru_cache
 def __get_gitlab(url: str) -> Gitlab:
-    return Gitlab(url)
+    return Gitlab(url, timeout=10)
