@@ -4,6 +4,7 @@ from textwrap import dedent
 
 import pytest
 import yaml
+from github import RateLimitExceededException
 from pydantic import ValidationError
 
 from pwa_pages.project_inventory import (
@@ -245,3 +246,21 @@ def test_get_subproject_timestamps(project_inventory: ProjectInventory):
             return
     msg = f"Project {project_name} not found"
     raise ValueError(msg)
+
+
+def test_unavailable_inventory_metadata(monkeypatch):
+    requests = []
+
+    def rate_limited(url):
+        requests.append(url)
+        raise RateLimitExceededException(403, "API rate limit exceeded", {})
+
+    monkeypatch.setattr("pwa_pages.project_inventory.get_repo", rate_limited)
+    project = Project(name="Example", url="https://github.com/example/unavailable")
+    table = to_markdown_table(
+        ProjectInventory(projects=[project]),
+        selected_languages=["Python"],
+        mode="fetch",
+    )
+    assert project.url in table
+    assert requests == [project.url]

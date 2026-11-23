@@ -66,7 +66,7 @@ def get_repo(url: str) -> Repo | None:
             url=url,
             name=repo.attributes["name"],
             full_name=repo.attributes["path_with_namespace"],
-            languages=repo.languages(),  # ty:ignore[unknown-argument]
+            languages=repo.languages(obey_rate_limit=False),  # ty:ignore[unknown-argument]
             first_commit=_gitlab.get_first_commit_date(repo),
             latest_commit=_gitlab.get_latest_commit_date(repo),
         )  # ty:ignore[missing-argument]
