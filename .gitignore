@@ -15,6 +15,7 @@ version.py
 .pytest_cache/
 .virtual_documents/
 __pycache__/
+/coverage.xml
 htmlcov/
 prof/
 
